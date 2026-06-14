@@ -20,12 +20,14 @@
 - [x] 첫 자동 배포 확인 → https://gameworld7.yangsungbin77.workers.dev (정상)
 - [x] git push → 자동 재배포 파이프라인 작동 확인
 
-## 3단계. 도메인 연결
+## 3단계. 도메인 연결 (완료)
 
-- [ ] 도메인 등록업체 확인 (가비아/후이즈/GoDaddy 등)
-- [ ] `gameworld7.com` 을 Cloudflare Pages에 연결 (DNS 또는 네임서버 변경)
-- [ ] HTTPS 인증서 자동 발급 확인
-- [ ] 실제 도메인으로 사이트 접속 확인
+- [x] 도메인 등록업체 확인 → **Namecheap**
+- [x] Namecheap 네임서버를 Cloudflare(`molly`/`sid`.ns.cloudflare.com)로 변경 → Active
+- [x] 죽은 옛 서버 A 레코드(139.180.136.41) 삭제, 이메일 MX·TXT는 유지
+- [x] `gameworld7.com` 을 gameworld7 Worker에 Custom Domain으로 연결
+- [x] HTTPS 인증서 자동 발급 확인 (SSL 정상)
+- [x] 실제 도메인 접속 확인 → https://gameworld7.com 200 OK (Cloudflare 측 작동, 전 세계 전파는 시차 있음)
 
 ## 4단계. 자동 포스팅 워크플로
 

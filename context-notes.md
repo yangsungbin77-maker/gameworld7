@@ -46,6 +46,15 @@
 - Cloudflare ↔ GitHub 연결됨 → `main`에 push하면 자동 재빌드·재배포. "글 쓰면 자동 게시" 파이프라인 작동.
 - workers.dev 빌드 Node는 20.x. 빌드/배포 정상.
 
+### 도메인 연결 완료 (2026-06-14)
+- Namecheap 네임서버를 Cloudflare(molly/sid.ns.cloudflare.com)로 변경 → Cloudflare에서 Active.
+- DNS에서 죽은 A 레코드(gameworld7.com→139.180.136.41) 삭제. 이메일 MX(eforward1~5.registrar-servers.com) 5개와 SPF TXT는 유지(이 도메인은 Namecheap 이메일 포워딩 사용 중).
+- gameworld7 Worker에 Custom Domain `gameworld7.com` 연결. (apex에 기존 A 레코드가 있으면 Worker 커스텀 도메인 추가가 막히므로 먼저 삭제해야 함 — 실제로 막혀서 삭제 후 성공.)
+- 검증: Cloudflare NS(molly) 질의 시 gameworld7.com→172.64.32.205, HTTPS 200 OK, 게임월드7 페이지 정상 서빙. 공용 DNS 전파만 시차.
+- www.gameworld7.com은 apex로 향하는 proxied CNAME이 남아있음 → apex가 Worker로 가므로 www도 따라감(필요시 별도 커스텀 도메인으로 추가 가능).
+- Cloudflare 계정 ID: 7db4450a5ec6b8ebdcb7815f4dd5ef34.
+
 ### 다음 세션이 알아야 할 것
-- 다음 할 일: gameworld7.com(Namecheap)을 Cloudflare로 네임서버 이전 → Worker에 Custom Domain 연결. checklist.md 3단계.
-- 두 번째 사이트 `sportskingdom24.com`은 이 사이트 완성 후 동일 틀 복제.
+- 핵심 과제(게임월드7 구축+배포+도메인) 완료. 글은 `src/content/blog/`에 .md 추가 후 push하면 자동 게시.
+- Higgsfield MCP는 claude.ai 커넥터로 연결됨(이미지 생성). 코딩 세션에서 쓰려면 앱 재시작 후 반영.
+- 두 번째 사이트 `sportskingdom24.com`은 이 사이트 동일 틀로 복제 예정(Namecheap일 가능성 높음).
