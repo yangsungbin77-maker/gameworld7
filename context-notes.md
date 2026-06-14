@@ -31,7 +31,14 @@
 - 헤더/푸터에서 Astro 기본 소셜 링크 제거, 메뉴 한글화(홈/전체 글/소개).
 - 샘플 글 5개 삭제, 첫 글 `welcome.md` 작성.
 
+### 배포 진행 (이어서)
+- GitHub 저장소 `yangsungbin77-maker/gameworld7`(공개, main) 생성·push 완료.
+- 다음은 Cloudflare Pages에서 이 저장소 연결 → 자동 배포(`*.pages.dev`).
+
+### 도메인
+- **등록업체: Namecheap** (gameworld7.com). sportskingdom24.com도 같은 곳일 가능성 높음(미확인).
+- 연결 방식: apex 도메인(`gameworld7.com`)을 Pages에 붙이려면 Namecheap의 네임서버를 **Cloudflare 네임서버로 변경**하는 방식이 가장 깔끔(CNAME flattening으로 apex+www 모두 처리). Namecheap은 apex에 CNAME/ALIAS를 안 줘서 네임서버 이전이 사실상 정석.
+- **주의:** 네임서버를 Cloudflare로 옮기면 그 도메인의 모든 DNS가 Cloudflare로 넘어감. 만약 이 도메인으로 받는 이메일(MX 레코드)이 있다면 Cloudflare에 다시 추가해야 함. 블로그 도메인이라 이메일은 없을 가능성 높음 — 연결 전 확인 필요.
+
 ### 다음 세션이 알아야 할 것
-- 다음 할 일은 GitHub 저장소 생성 → push → Cloudflare Pages 연결. checklist.md 2단계 참고.
-- 도메인 등록업체(가비아/후이즈 등)는 아직 미확인. 도메인 연결 단계에서 필요.
 - 두 번째 사이트 `sportskingdom24.com`은 이 사이트 완성 후 동일 틀 복제.
