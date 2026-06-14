@@ -36,6 +36,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 						<span class="hud-value" id="best">0</span>
 					</div>
 					<button class="btn" id="restart" type="button">다시 시작</button>
+					<button class="icon-btn" id="mute" type="button" aria-label="소리 켜기/끄기" title="소리 켜기/끄기">🔊</button>
 				</div>
 
 				<div class="time-track"><div class="time-fill" id="timeFill"></div></div>
@@ -81,6 +82,71 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				let running = false;
 				let best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0;
 				bestEl.textContent = best;
+
+				// ── 사운드 (Web Audio API로 음원 파일 없이 효과음 생성) ──
+				const MUTE_KEY = 'gw7_numberten_muted';
+				const muteBtn = document.getElementById('mute');
+				let muted = localStorage.getItem(MUTE_KEY) === '1';
+				let audioCtx = null;
+
+				function ensureAudio() {
+					if (muted) return null;
+					if (!audioCtx) {
+						const AC = window.AudioContext || window.webkitAudioContext;
+						if (!AC) return null;
+						audioCtx = new AC();
+					}
+					if (audioCtx.state === 'suspended') audioCtx.resume();
+					return audioCtx;
+				}
+
+				function tone(freq, startAt, dur, type, peak) {
+					const ctx = audioCtx;
+					if (!ctx) return;
+					const t0 = ctx.currentTime + startAt;
+					const osc = ctx.createOscillator();
+					const gain = ctx.createGain();
+					osc.type = type || 'sine';
+					osc.frequency.value = freq;
+					gain.gain.setValueAtTime(0.0001, t0);
+					gain.gain.exponentialRampToValueAtTime(peak || 0.18, t0 + 0.012);
+					gain.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+					osc.connect(gain).connect(ctx.destination);
+					osc.start(t0);
+					osc.stop(t0 + dur + 0.02);
+				}
+
+				function sndClear(count) {
+					if (!ensureAudio()) return;
+					// 지운 개수가 많을수록 음을 더 길게 쌓아 상승 아르페지오 연주
+					const scale = [523.25, 659.25, 783.99, 1046.5, 1318.5]; // C E G C E
+					const n = Math.min(count, scale.length);
+					for (let i = 0; i < n; i++) tone(scale[i], i * 0.05, 0.18, 'triangle', 0.16);
+				}
+
+				function sndTick() {
+					if (!ensureAudio()) return;
+					tone(880, 0, 0.08, 'square', 0.08);
+				}
+
+				function sndOver() {
+					if (!ensureAudio()) return;
+					tone(440, 0, 0.18, 'sine', 0.16);
+					tone(330, 0.16, 0.22, 'sine', 0.16);
+					tone(220, 0.34, 0.34, 'sine', 0.16);
+				}
+
+				function updateMuteBtn() {
+					muteBtn.textContent = muted ? '🔇' : '🔊';
+					muteBtn.classList.toggle('off', muted);
+				}
+				muteBtn.addEventListener('click', () => {
+					muted = !muted;
+					localStorage.setItem(MUTE_KEY, muted ? '1' : '0');
+					if (!muted) ensureAudio();
+					updateMuteBtn();
+				});
+				updateMuteBtn();
 
 				// 드래그 상태
 				let dragging = false;
@@ -176,6 +242,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 						scoreEl.classList.remove('pop');
 						void scoreEl.offsetWidth;
 						scoreEl.classList.add('pop');
+						sndClear(gained);
 					}
 				}
 
@@ -187,6 +254,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				function onDown(e) {
 					if (!running) return;
 					dragging = true;
+					ensureAudio();
 					const p = pointerPos(e);
 					startX = p.x;
 					startY = p.y;
@@ -225,7 +293,10 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 					timeLeft--;
 					timeEl.textContent = fmtTime(timeLeft);
 					fillEl.style.width = (timeLeft / GAME_TIME * 100) + '%';
-					if (timeLeft <= 10) fillEl.classList.add('low');
+					if (timeLeft <= 10) {
+						fillEl.classList.add('low');
+						if (timeLeft > 0) sndTick();
+					}
 					if (timeLeft <= 0) endGame();
 				}
 
@@ -260,6 +331,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 					}
 					ovScore.textContent = score;
 					overlay.hidden = false;
+					sndOver();
 				}
 
 				// 이벤트 바인딩
@@ -337,6 +409,28 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				0% { transform: scale(1); }
 				50% { transform: scale(1.35); }
 				100% { transform: scale(1); }
+			}
+
+			#tengame .icon-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 44px;
+				height: 44px;
+				font-size: 1.2rem;
+				line-height: 1;
+				background: var(--bg-elev);
+				border: 1px solid var(--border-strong);
+				border-radius: 999px;
+				cursor: pointer;
+				transition: border-color 0.15s ease, transform 0.1s ease;
+			}
+			#tengame .icon-btn:hover {
+				border-color: var(--accent);
+				transform: translateY(-1px);
+			}
+			#tengame .icon-btn.off {
+				opacity: 0.6;
 			}
 
 			#tengame .time-track {
