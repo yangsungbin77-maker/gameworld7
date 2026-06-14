@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
@@ -34,6 +35,11 @@ const rest = posts.slice(1, 7);
 			{
 				featured && (
 					<a href={`/blog/${featured.id}/`} class="featured">
+						{featured.data.heroImage && (
+							<div class="featured-image">
+								<Image src={featured.data.heroImage} width={1200} height={600} alt="" />
+							</div>
+						)}
 						<div class="featured-body">
 							<span class="tag">최신 글</span>
 							<h2>{featured.data.title}</h2>
@@ -57,11 +63,18 @@ const rest = posts.slice(1, 7);
 							{rest.map((post) => (
 								<li>
 									<a href={`/blog/${post.id}/`} class="card">
-										<h3>{post.data.title}</h3>
-										<p>{post.data.description}</p>
-										<span class="meta">
-											<FormattedDate date={post.data.pubDate} />
-										</span>
+										{post.data.heroImage && (
+											<div class="card-image">
+												<Image src={post.data.heroImage} width={600} height={300} alt="" />
+											</div>
+										)}
+										<div class="card-body">
+											<h3>{post.data.title}</h3>
+											<p>{post.data.description}</p>
+											<span class="meta">
+												<FormattedDate date={post.data.pubDate} />
+											</span>
+										</div>
 									</a>
 								</li>
 							))}
@@ -107,7 +120,7 @@ const rest = posts.slice(1, 7);
 			var(--bg-elev);
 		border: 1px solid var(--border);
 		border-radius: var(--radius);
-		padding: 2rem;
+		overflow: hidden;
 		margin-bottom: 3rem;
 		transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 	}
@@ -116,6 +129,14 @@ const rest = posts.slice(1, 7);
 		transform: translateY(-2px);
 		box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
 	}
+	.featured-image img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 2 / 1;
+		object-fit: cover;
+		border-bottom: 1px solid var(--border);
+	}
+	.featured-body { padding: 2rem; }
 	.featured h2 {
 		margin: 0.8rem 0 0.5rem;
 		font-size: clamp(1.6rem, 3.5vw, 2.3rem);
@@ -149,13 +170,26 @@ const rest = posts.slice(1, 7);
 		background: var(--bg-elev);
 		border: 1px solid var(--border);
 		border-radius: var(--radius);
-		padding: 1.5rem;
+		overflow: hidden;
 		transition: border-color 0.2s ease, transform 0.15s ease, background 0.2s ease;
 	}
 	.card:hover {
 		border-color: var(--accent);
 		transform: translateY(-2px);
 		background: var(--bg-elev-2);
+	}
+	.card-image img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 2 / 1;
+		object-fit: cover;
+		border-bottom: 1px solid var(--border);
+	}
+	.card-body {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding: 1.5rem;
 	}
 	.card h3 {
 		margin: 0 0 0.5rem;
