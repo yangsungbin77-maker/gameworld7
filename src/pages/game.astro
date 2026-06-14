@@ -19,8 +19,15 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				<section class="game-hero">
 					<span class="tag">PLAY · 미니게임</span>
 					<h1>🔟 <span class="neon">넘버 텐</span></h1>
-					<p class="lead">드래그로 묶은 블록들의 <strong>숫자 합이 정확히 10</strong>이 되면 사라집니다. 2분 동안 최대한 많이 지워보세요!</p>
+					<p class="lead">드래그로 묶은 블록들의 <strong>숫자 합이 정확히 10</strong>이 되면 사라집니다. 시간 안에 최대한 많이 지워보세요!</p>
 				</section>
+
+				<div class="diff" id="diff" role="group" aria-label="난이도 선택">
+					<span class="diff-label">난이도</span>
+					<button class="diff-btn" type="button" data-diff="kids">🧒 어린이</button>
+					<button class="diff-btn" type="button" data-diff="normal">보통</button>
+					<button class="diff-btn" type="button" data-diff="hard">🔥 어려움</button>
+				</div>
 
 				<div class="hud">
 					<div class="hud-item">
@@ -60,10 +67,22 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 
 		<script is:inline>
 			(() => {
-				const COLS = 17;
-				const ROWS = 10;
-				const GAME_TIME = 120; // 초
-				const BEST_KEY = 'gw7_numberten_best';
+				// 난이도 설정: 칸 수가 적을수록 타일이 커지고, maxVal이 작을수록 합 10 만들기가 쉬움
+				const DIFFS = {
+					kids:   { label: '어린이', cols: 8,  rows: 5,  maxVal: 5, time: 180, width: 620 },
+					normal: { label: '보통',   cols: 13, rows: 8,  maxVal: 9, time: 150, width: 720 },
+					hard:   { label: '어려움', cols: 17, rows: 10, maxVal: 9, time: 120, width: 760 },
+				};
+				const DIFF_KEY = 'gw7_numberten_diff';
+				let diffKey = localStorage.getItem(DIFF_KEY);
+				if (!DIFFS[diffKey]) diffKey = 'normal';
+				let cfg = DIFFS[diffKey];
+
+				let COLS = cfg.cols;
+				let ROWS = cfg.rows;
+				let GAME_TIME = cfg.time; // 초
+				// 최고 점수는 난이도별로 따로 기록
+				const bestKeyFor = (k) => 'gw7_numberten_best_' + k;
 
 				const boardEl = document.getElementById('board');
 				const scoreEl = document.getElementById('score');
@@ -80,7 +99,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				let timeLeft = GAME_TIME;
 				let timerId = null;
 				let running = false;
-				let best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0;
+				let best = parseInt(localStorage.getItem(bestKeyFor(diffKey)) || '0', 10) || 0;
 				bestEl.textContent = best;
 
 				// ── 사운드 (Web Audio API로 음원 파일 없이 효과음 생성) ──
@@ -154,18 +173,19 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				let selBox = null;
 				let rects = []; // 각 블록의 보드 기준 위치 캐시
 
-				function rand1to9() {
-					return 1 + Math.floor(Math.random() * 9);
+				function randVal() {
+					return 1 + Math.floor(Math.random() * cfg.maxVal);
 				}
 
 				function buildBoard() {
 					boardEl.innerHTML = '';
 					cells = [];
+					boardEl.style.gridTemplateColumns = 'repeat(' + COLS + ', 1fr)';
 					selBox = document.createElement('div');
 					selBox.className = 'sel-box';
 					selBox.hidden = true;
 					for (let i = 0; i < COLS * ROWS; i++) {
-						const v = rand1to9();
+						const v = randVal();
 						const el = document.createElement('div');
 						el.className = 'tok';
 						el.textContent = v;
@@ -187,6 +207,11 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 							bottom: r.bottom - b.top,
 						};
 					});
+					// 타일 크기에 맞춰 숫자 폰트를 키운다(어린이 모드일수록 글씨가 커짐)
+					if (rects.length) {
+						const tileW = rects[0].right - rects[0].left;
+						boardEl.style.setProperty('--tile-font', Math.max(11, Math.round(tileW * 0.46)) + 'px');
+					}
 				}
 
 				function pointerPos(e) {
@@ -300,8 +325,11 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 					if (timeLeft <= 0) endGame();
 				}
 
+				const boardWrap = document.querySelector('#tengame .board-wrap');
+
 				function startGame() {
 					clearInterval(timerId);
+					boardWrap.style.maxWidth = cfg.width + 'px';
 					score = 0;
 					timeLeft = GAME_TIME;
 					running = true;
@@ -321,7 +349,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 					selBox.hidden = true;
 					if (score > best) {
 						best = score;
-						localStorage.setItem(BEST_KEY, String(best));
+						localStorage.setItem(bestKeyFor(diffKey), String(best));
 						bestEl.textContent = best;
 						ovTitle.textContent = '🎉 신기록!';
 						ovBest.textContent = '새로운 최고 점수를 달성했어요!';
@@ -345,6 +373,30 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 
 				document.getElementById('restart').addEventListener('click', startGame);
 				document.getElementById('ovRestart').addEventListener('click', startGame);
+
+				// ── 난이도 선택 ──
+				const diffBtns = [...document.querySelectorAll('.diff-btn')];
+				function updateDiffBtns() {
+					diffBtns.forEach((b) => b.classList.toggle('active', b.dataset.diff === diffKey));
+				}
+				function applyDifficulty(key) {
+					if (!DIFFS[key] || key === diffKey) {
+						if (key === diffKey) startGame();
+						return;
+					}
+					diffKey = key;
+					cfg = DIFFS[key];
+					COLS = cfg.cols;
+					ROWS = cfg.rows;
+					GAME_TIME = cfg.time;
+					best = parseInt(localStorage.getItem(bestKeyFor(diffKey)) || '0', 10) || 0;
+					bestEl.textContent = best;
+					localStorage.setItem(DIFF_KEY, diffKey);
+					updateDiffBtns();
+					startGame();
+				}
+				diffBtns.forEach((b) => b.addEventListener('click', () => applyDifficulty(b.dataset.diff)));
+				updateDiffBtns();
 
 				startGame();
 			})();
@@ -409,6 +461,43 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				0% { transform: scale(1); }
 				50% { transform: scale(1.35); }
 				100% { transform: scale(1); }
+			}
+
+			#tengame .diff {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5rem;
+				flex-wrap: wrap;
+				margin-bottom: 1rem;
+			}
+			#tengame .diff-label {
+				font-size: 0.78rem;
+				font-weight: 700;
+				letter-spacing: 0.04em;
+				color: var(--text-dim);
+				margin-right: 0.2rem;
+			}
+			#tengame .diff-btn {
+				padding: 0.45em 1em;
+				font-family: var(--font-heading);
+				font-weight: 700;
+				font-size: 0.95rem;
+				color: var(--text-muted);
+				background: var(--bg-elev);
+				border: 1px solid var(--border-strong);
+				border-radius: 999px;
+				cursor: pointer;
+				transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+			}
+			#tengame .diff-btn:hover {
+				color: var(--text);
+				border-color: var(--accent);
+			}
+			#tengame .diff-btn.active {
+				color: var(--accent-ink);
+				background: var(--accent);
+				border-color: var(--accent);
 			}
 
 			#tengame .icon-btn {
@@ -478,7 +567,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				justify-content: center;
 				font-family: var(--font-heading);
 				font-weight: 800;
-				font-size: clamp(0.6rem, 2.1vw, 1.1rem);
+				font-size: var(--tile-font, clamp(0.6rem, 2.1vw, 1.1rem));
 				color: #eaf6ff;
 				background:
 					radial-gradient(circle at 35% 28%, rgba(255,255,255,0.35), transparent 45%),
@@ -550,7 +639,6 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 			@media (max-width: 520px) {
 				#tengame .hud-item { min-width: 72px; padding: 0.4rem 0.6rem; }
 				#tengame .hud-value { font-size: 1.15rem; }
-				#tengame .tok { font-size: clamp(0.5rem, 2.4vw, 0.9rem); }
 			}
 		</style>
 	</body>
