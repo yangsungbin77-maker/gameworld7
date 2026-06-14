@@ -1,0 +1,65 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const latest = posts.slice(0, 5);
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>🎮 {SITE_TITLE}</h1>
+			<p>{SITE_DESCRIPTION}</p>
+			<p>
+				최신 게임 소식, 공략, 리뷰를 매일 업데이트합니다. 아래는 최근에 올라온 글이에요.
+			</p>
+
+			<h2>최근 글</h2>
+			<ul class="recent">
+				{
+					latest.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+							<span class="date">
+								<FormattedDate date={post.data.pubDate} />
+							</span>
+						</li>
+					))
+				}
+			</ul>
+			<p><a href="/blog">전체 글 보기 →</a></p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.recent {
+		list-style: none;
+		padding: 0;
+	}
+	.recent li {
+		display: flex;
+		justify-content: space-between;
+		gap: 1em;
+		padding: 0.5em 0;
+		border-bottom: 1px solid rgba(var(--gray), 0.2);
+	}
+	.recent .date {
+		color: rgb(var(--gray));
+		white-space: nowrap;
+		font-size: 0.9em;
+	}
+</style>
