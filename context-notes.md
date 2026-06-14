@@ -66,6 +66,20 @@
 - 방법: Higgsfield Generate Image로 다크+네온 그린 톤의 게임 장르 콜라주/추상 이미지 생성 → 파일을 `src/assets/`에 저장 → frontmatter에 `heroImage: '../../assets/파일명.jpg'` 추가 → build → push. (heroImage는 astro:assets image()라 로컬 src/assets 경로 필요. 본문 레이아웃/카드가 자동으로 표시함.)
 - Higgsfield는 claude.ai 커넥터로 연결됨. 코딩 세션에 도구가 안 보이면 `mcp list`로 확인하고, 그래도 없으면 사용자에게 앱 재시작 안내.
 
+### 자동 발행 인프라 (2026-06-14)
+- **목표:** 이틀에 1회, 외부링크1·내부링크1·이미지1을 갖춘 글을 자동 발행.
+- **구성:** `automation/` 폴더.
+  - `topics.md` — 주제 큐(`- [ ]` 위에서부터 소비, 발행 시 `- [x]`). **떨어지면 사람이 채운다.**
+  - `sources.json` — 외부링크 큐레이션 목록(LLM 링크 환각 방지용 신뢰 URL).
+  - `prepare.mjs` — 1단계. 주제·이미지·내부/외부링크·날짜를 골라 `assignment.json`(gitignore됨) 출력.
+  - `finalize.mjs <slug>` — 3단계. 링크·이미지 포함 검증 → `npm run build` → 주제 체크/상태 갱신 → commit & push.
+  - `state.json` — 사용한 이미지·마지막 slug 기록.
+  - `PUBLISH.md` — 루틴이 매번 따르는 작업 지시서(톤·형식·절차).
+- **이미지:** 매번 생성하지 않고 `src/assets/pool/`의 미리 만든 배너에서 순환 사용(Higgsfield Recraft 4.1 2k로 6장 시드). 풀이 떨어지면 재사용되므로 주기적으로 top-up 권장. 새 배너는 [[gameworld-hero-images]] 방식으로 생성해 pool에 넣으면 됨.
+- **스케줄러:** Claude 로컬 예약 작업 `gameworld7-auto-publish`(cron `0 9 */2 * *`, 한국시간 오전 9시 이틀 간격). 저장소 루트의 PC 자격증명·node·git을 그대로 사용. **앱이 열려 있어야 실행됨**(닫혀 있으면 다음 실행 시 보충). 작업 파일: `C:\Users\use\.claude\scheduled-tasks\gameworld7-auto-publish\SKILL.md`.
+- **첫 발행(수동 검증):** `co-op-games-for-beginners.md` 정상 발행됨(파이프라인 end-to-end 확인 완료).
+- **주의:** `prepare.mjs`의 slug는 사람/에이전트가 영문으로 짓는다(한글 주제 → 영문 kebab). finalize는 외부·내부링크·이미지가 본문에 실제로 있는지 검사 후에만 발행.
+
 ### 다음 세션이 알아야 할 것
 - 핵심 과제(게임월드7 구축+배포+도메인+디자인) 완료. 글은 `src/content/blog/`에 .md 추가 후 push하면 자동 게시.
 - Higgsfield MCP는 claude.ai 커넥터로 연결됨(이미지 생성). 코딩 세션에서 쓰려면 앱 재시작 후 반영.
