@@ -42,9 +42,11 @@ run('npm run build');
 
 // 2) 주제 큐에서 방금 쓴 주제를 발행 완료로 표시.
 const topicsPath = join(__dirname, 'topics.md');
-let topics = readFileSync(topicsPath, 'utf8');
-topics = topics.replace(`- [ ] ${assignment.topic}`, `- [x] ${assignment.topic}`);
-writeFileSync(topicsPath, topics);
+const topicLines = readFileSync(topicsPath, 'utf8').split(/\r?\n/);
+// 키워드 substring 충돌을 피하려고 줄 전체가 정확히 일치하는 첫 항목만 체크 처리.
+const idx = topicLines.findIndex((l) => l === `- [ ] ${assignment.topic}`);
+if (idx !== -1) topicLines[idx] = `- [x] ${assignment.topic}`;
+writeFileSync(topicsPath, topicLines.join('\n'));
 
 // 3) 사용한 이미지 기록.
 const statePath = join(__dirname, 'state.json');
