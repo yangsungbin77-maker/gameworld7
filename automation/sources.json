@@ -1,0 +1,12 @@
+[
+  { "label": "스팀 공식 스토어", "url": "https://store.steampowered.com/", "tags": ["스팀", "세일", "구매", "pc", "할인", "게임"] },
+  { "label": "스팀 환불 정책 안내", "url": "https://store.steampowered.com/steam_refunds/", "tags": ["스팀", "환불", "구매", "정책"] },
+  { "label": "스팀 덱 공식 페이지", "url": "https://store.steampowered.com/steamdeck/", "tags": ["스팀덱", "휴대용", "핸드헬드", "pc"] },
+  { "label": "에픽게임즈 스토어", "url": "https://store.epicgames.com/", "tags": ["에픽", "무료게임", "구매", "pc", "할인"] },
+  { "label": "PlayStation 공식", "url": "https://www.playstation.com/", "tags": ["플레이스테이션", "콘솔", "ps5"] },
+  { "label": "Xbox 공식", "url": "https://www.xbox.com/", "tags": ["엑스박스", "콘솔", "게임패스"] },
+  { "label": "Nintendo 공식", "url": "https://www.nintendo.com/", "tags": ["닌텐도", "스위치", "콘솔", "휴대용"] },
+  { "label": "HowLongToBeat (플레이타임 정보)", "url": "https://howlongtobeat.com/", "tags": ["플레이타임", "공략", "분량", "구매"] },
+  { "label": "ProtonDB (리눅스·스팀덱 호환성)", "url": "https://www.protondb.com/", "tags": ["스팀덱", "호환성", "리눅스", "pc"] },
+  { "label": "Can You RUN It (사양 점검)", "url": "https://www.systemrequirementslab.com/cyri", "tags": ["사양", "그래픽카드", "최적화", "pc"] }
+]
