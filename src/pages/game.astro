@@ -1,0 +1,463 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = '넘버 텐 (Number Ten) — 게임월드7';
+const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이 되도록 만드는 두뇌 퍼즐 게임. 2분 안에 최대한 많이 지워 최고 점수에 도전하세요!';
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div id="tengame">
+				<section class="game-hero">
+					<span class="tag">PLAY · 미니게임</span>
+					<h1>🔟 <span class="neon">넘버 텐</span></h1>
+					<p class="lead">드래그로 묶은 블록들의 <strong>숫자 합이 정확히 10</strong>이 되면 사라집니다. 2분 동안 최대한 많이 지워보세요!</p>
+				</section>
+
+				<div class="hud">
+					<div class="hud-item">
+						<span class="hud-label">점수</span>
+						<span class="hud-value" id="score">0</span>
+					</div>
+					<div class="hud-item">
+						<span class="hud-label">남은 시간</span>
+						<span class="hud-value" id="time">2:00</span>
+					</div>
+					<div class="hud-item">
+						<span class="hud-label">최고 점수</span>
+						<span class="hud-value" id="best">0</span>
+					</div>
+					<button class="btn" id="restart" type="button">다시 시작</button>
+				</div>
+
+				<div class="time-track"><div class="time-fill" id="timeFill"></div></div>
+
+				<div class="board-wrap">
+					<div class="board" id="board"></div>
+					<div class="overlay" id="overlay" hidden>
+						<div class="overlay-card">
+							<h2 id="ovTitle">게임 종료</h2>
+							<p class="ov-score">획득 점수 <strong id="ovScore">0</strong>개</p>
+							<p class="ov-best" id="ovBest"></p>
+							<button class="btn" id="ovRestart" type="button">한 번 더!</button>
+						</div>
+					</div>
+				</div>
+
+				<p class="hint">💡 마우스(또는 터치)로 사각형을 그려 블록을 묶으세요. 합이 10이면 점수를 얻습니다.</p>
+			</div>
+		</main>
+		<Footer />
+
+		<script is:inline>
+			(() => {
+				const COLS = 17;
+				const ROWS = 10;
+				const GAME_TIME = 120; // 초
+				const BEST_KEY = 'gw7_numberten_best';
+
+				const boardEl = document.getElementById('board');
+				const scoreEl = document.getElementById('score');
+				const timeEl = document.getElementById('time');
+				const bestEl = document.getElementById('best');
+				const fillEl = document.getElementById('timeFill');
+				const overlay = document.getElementById('overlay');
+				const ovScore = document.getElementById('ovScore');
+				const ovBest = document.getElementById('ovBest');
+				const ovTitle = document.getElementById('ovTitle');
+
+				let cells = []; // { value, cleared, el }
+				let score = 0;
+				let timeLeft = GAME_TIME;
+				let timerId = null;
+				let running = false;
+				let best = parseInt(localStorage.getItem(BEST_KEY) || '0', 10) || 0;
+				bestEl.textContent = best;
+
+				// 드래그 상태
+				let dragging = false;
+				let startX = 0, startY = 0;
+				let selBox = null;
+				let rects = []; // 각 블록의 보드 기준 위치 캐시
+
+				function rand1to9() {
+					return 1 + Math.floor(Math.random() * 9);
+				}
+
+				function buildBoard() {
+					boardEl.innerHTML = '';
+					cells = [];
+					selBox = document.createElement('div');
+					selBox.className = 'sel-box';
+					selBox.hidden = true;
+					for (let i = 0; i < COLS * ROWS; i++) {
+						const v = rand1to9();
+						const el = document.createElement('div');
+						el.className = 'tok';
+						el.textContent = v;
+						boardEl.appendChild(el);
+						cells.push({ value: v, cleared: false, el });
+					}
+					boardEl.appendChild(selBox);
+					cacheRects();
+				}
+
+				function cacheRects() {
+					const b = boardEl.getBoundingClientRect();
+					rects = cells.map((c) => {
+						const r = c.el.getBoundingClientRect();
+						return {
+							left: r.left - b.left,
+							top: r.top - b.top,
+							right: r.right - b.left,
+							bottom: r.bottom - b.top,
+						};
+					});
+				}
+
+				function pointerPos(e) {
+					const b = boardEl.getBoundingClientRect();
+					const p = e.touches ? e.touches[0] : e;
+					return { x: p.clientX - b.left, y: p.clientY - b.top };
+				}
+
+				function intersects(a, x1, y1, x2, y2) {
+					return a.left < x2 && a.right > x1 && a.top < y2 && a.bottom > y1;
+				}
+
+				function updateSelection(curX, curY) {
+					const x1 = Math.min(startX, curX);
+					const y1 = Math.min(startY, curY);
+					const x2 = Math.max(startX, curX);
+					const y2 = Math.max(startY, curY);
+
+					selBox.style.left = x1 + 'px';
+					selBox.style.top = y1 + 'px';
+					selBox.style.width = (x2 - x1) + 'px';
+					selBox.style.height = (y2 - y1) + 'px';
+
+					let sum = 0;
+					for (let i = 0; i < cells.length; i++) {
+						const c = cells[i];
+						if (c.cleared) continue;
+						const hit = intersects(rects[i], x1, y1, x2, y2);
+						if (hit) {
+							c.el.classList.add('sel');
+							sum += c.value;
+						} else {
+							c.el.classList.remove('sel');
+						}
+					}
+					selBox.classList.toggle('valid', sum === 10);
+					return sum;
+				}
+
+				function clearSelected() {
+					let gained = 0;
+					for (const c of cells) {
+						if (!c.cleared && c.el.classList.contains('sel')) {
+							c.cleared = true;
+							c.el.classList.remove('sel');
+							c.el.classList.add('cleared');
+							gained++;
+						}
+					}
+					if (gained > 0) {
+						score += gained;
+						scoreEl.textContent = score;
+						scoreEl.classList.remove('pop');
+						void scoreEl.offsetWidth;
+						scoreEl.classList.add('pop');
+					}
+				}
+
+				function clearSelStyles() {
+					for (const c of cells) c.el.classList.remove('sel');
+					selBox.classList.remove('valid');
+				}
+
+				function onDown(e) {
+					if (!running) return;
+					dragging = true;
+					const p = pointerPos(e);
+					startX = p.x;
+					startY = p.y;
+					selBox.hidden = false;
+					selBox.style.width = '0px';
+					selBox.style.height = '0px';
+					selBox.style.left = startX + 'px';
+					selBox.style.top = startY + 'px';
+					if (e.cancelable) e.preventDefault();
+				}
+
+				function onMove(e) {
+					if (!dragging) return;
+					const p = pointerPos(e);
+					updateSelection(p.x, p.y);
+					if (e.cancelable) e.preventDefault();
+				}
+
+				function onUp(e) {
+					if (!dragging) return;
+					dragging = false;
+					const p = pointerPos(e);
+					const sum = updateSelection(p.x, p.y);
+					if (sum === 10) clearSelected();
+					clearSelStyles();
+					selBox.hidden = true;
+				}
+
+				function fmtTime(s) {
+					const m = Math.floor(s / 60);
+					const sec = s % 60;
+					return m + ':' + String(sec).padStart(2, '0');
+				}
+
+				function tick() {
+					timeLeft--;
+					timeEl.textContent = fmtTime(timeLeft);
+					fillEl.style.width = (timeLeft / GAME_TIME * 100) + '%';
+					if (timeLeft <= 10) fillEl.classList.add('low');
+					if (timeLeft <= 0) endGame();
+				}
+
+				function startGame() {
+					clearInterval(timerId);
+					score = 0;
+					timeLeft = GAME_TIME;
+					running = true;
+					scoreEl.textContent = '0';
+					timeEl.textContent = fmtTime(timeLeft);
+					fillEl.style.width = '100%';
+					fillEl.classList.remove('low');
+					overlay.hidden = true;
+					buildBoard();
+					timerId = setInterval(tick, 1000);
+				}
+
+				function endGame() {
+					clearInterval(timerId);
+					running = false;
+					dragging = false;
+					selBox.hidden = true;
+					if (score > best) {
+						best = score;
+						localStorage.setItem(BEST_KEY, String(best));
+						bestEl.textContent = best;
+						ovTitle.textContent = '🎉 신기록!';
+						ovBest.textContent = '새로운 최고 점수를 달성했어요!';
+					} else {
+						ovTitle.textContent = '게임 종료';
+						ovBest.textContent = '최고 점수: ' + best + '개';
+					}
+					ovScore.textContent = score;
+					overlay.hidden = false;
+				}
+
+				// 이벤트 바인딩
+				boardEl.addEventListener('mousedown', onDown);
+				window.addEventListener('mousemove', onMove);
+				window.addEventListener('mouseup', onUp);
+				boardEl.addEventListener('touchstart', onDown, { passive: false });
+				boardEl.addEventListener('touchmove', onMove, { passive: false });
+				window.addEventListener('touchend', onUp);
+				window.addEventListener('resize', () => { if (cells.length) cacheRects(); });
+
+				document.getElementById('restart').addEventListener('click', startGame);
+				document.getElementById('ovRestart').addEventListener('click', startGame);
+
+				startGame();
+			})();
+		</script>
+
+		<!-- 동적 생성 요소(블록 등)에도 스타일이 먹도록 #tengame 범위의 전역 스타일을 쓴다 -->
+		<style is:global>
+			#tengame .game-hero {
+				padding: 1.5rem 0 1.2rem;
+				text-align: center;
+			}
+			#tengame .game-hero h1 {
+				font-size: clamp(2rem, 5vw, 3rem);
+				margin: 0.5rem 0 0.6rem;
+			}
+			#tengame .neon {
+				color: var(--accent);
+				text-shadow: 0 0 24px var(--accent-glow);
+			}
+			#tengame .game-hero .lead {
+				color: var(--text-muted);
+				max-width: 46ch;
+				margin: 0 auto;
+			}
+
+			#tengame .hud {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.8rem;
+				flex-wrap: wrap;
+				margin-bottom: 0.9rem;
+			}
+			#tengame .hud-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				min-width: 92px;
+				padding: 0.5rem 0.9rem;
+				background: var(--bg-elev);
+				border: 1px solid var(--border);
+				border-radius: var(--radius-sm);
+			}
+			#tengame .hud-label {
+				font-size: 0.72rem;
+				font-weight: 700;
+				letter-spacing: 0.04em;
+				color: var(--text-dim);
+			}
+			#tengame .hud-value {
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: 1.4rem;
+				color: #fff;
+				transition: transform 0.1s ease;
+			}
+			#tengame .hud-value.pop {
+				animation: tg-pop 0.25s ease;
+				color: var(--accent);
+			}
+			@keyframes tg-pop {
+				0% { transform: scale(1); }
+				50% { transform: scale(1.35); }
+				100% { transform: scale(1); }
+			}
+
+			#tengame .time-track {
+				width: 100%;
+				max-width: 720px;
+				margin: 0 auto 1.2rem;
+				height: 8px;
+				background: var(--bg-elev-2);
+				border-radius: 999px;
+				overflow: hidden;
+			}
+			#tengame .time-fill {
+				height: 100%;
+				width: 100%;
+				background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+				transition: width 0.9s linear;
+			}
+			#tengame .time-fill.low {
+				background: linear-gradient(90deg, #ff7a4d, #ff4d4d);
+			}
+
+			#tengame .board-wrap {
+				position: relative;
+				width: 100%;
+				max-width: 760px;
+				margin: 0 auto;
+			}
+			#tengame .board {
+				position: relative;
+				display: grid;
+				grid-template-columns: repeat(17, 1fr);
+				gap: clamp(2px, 0.5vw, 5px);
+				padding: clamp(6px, 1.2vw, 14px);
+				background: var(--bg-elev);
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
+				touch-action: none;
+				user-select: none;
+				-webkit-user-select: none;
+			}
+			#tengame .tok {
+				aspect-ratio: 1 / 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: clamp(0.6rem, 2.1vw, 1.1rem);
+				color: #eaf6ff;
+				background:
+					radial-gradient(circle at 35% 28%, rgba(255,255,255,0.35), transparent 45%),
+					linear-gradient(160deg, #3a4a72, #1d2540);
+				border: 1px solid rgba(120, 150, 220, 0.35);
+				border-radius: 28%;
+				box-shadow: inset 0 -2px 5px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.3);
+				transition: transform 0.08s ease, opacity 0.15s ease, background 0.1s ease, box-shadow 0.1s ease;
+			}
+			#tengame .tok.sel {
+				transform: scale(1.06);
+				color: var(--accent-ink);
+				background:
+					radial-gradient(circle at 35% 28%, rgba(255,255,255,0.5), transparent 50%),
+					linear-gradient(160deg, #6dffae, var(--accent-dim));
+				border-color: var(--accent);
+				box-shadow: 0 0 0 2px var(--accent), 0 0 14px var(--accent-glow);
+			}
+			#tengame .tok.cleared {
+				visibility: hidden;
+				transform: scale(0);
+			}
+			#tengame .sel-box {
+				position: absolute;
+				border: 2px solid var(--text-muted);
+				background: rgba(154, 166, 189, 0.12);
+				border-radius: 6px;
+				pointer-events: none;
+				z-index: 5;
+			}
+			#tengame .sel-box.valid {
+				border-color: var(--accent);
+				background: rgba(62, 245, 139, 0.18);
+				box-shadow: 0 0 18px var(--accent-glow);
+			}
+
+			#tengame .overlay {
+				position: absolute;
+				inset: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(11, 14, 20, 0.78);
+				backdrop-filter: blur(4px);
+				border-radius: var(--radius);
+				z-index: 10;
+			}
+			#tengame .overlay[hidden] { display: none; }
+			#tengame .overlay-card {
+				text-align: center;
+				padding: 2rem 2.4rem;
+				background: var(--bg-elev);
+				border: 1px solid var(--border-strong);
+				border-radius: var(--radius);
+				box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+			}
+			#tengame .overlay-card h2 { margin-bottom: 0.6rem; }
+			#tengame .ov-score { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+			#tengame .ov-score strong { color: var(--accent); font-size: 1.5rem; }
+			#tengame .ov-best { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem; }
+
+			#tengame .hint {
+				text-align: center;
+				color: var(--text-dim);
+				font-size: 0.9rem;
+				margin-top: 1.2rem;
+			}
+
+			@media (max-width: 520px) {
+				#tengame .hud-item { min-width: 72px; padding: 0.4rem 0.6rem; }
+				#tengame .hud-value { font-size: 1.15rem; }
+				#tengame .tok { font-size: clamp(0.5rem, 2.4vw, 0.9rem); }
+			}
+		</style>
+	</body>
+</html>
