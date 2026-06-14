@@ -60,6 +60,12 @@
 - 홈은 히어로+피처드+카드 그리드, 글 목록도 카드 그리드, 본문은 760px 다크 가독성 레이아웃. 헤더는 sticky+blur.
 - 자매 사이트(sportskingdom24)도 이 테마를 재사용하되 포인트 컬러만 바꾸면 됨.
 
+### ⏳ 다음 세션 TODO (이미지)
+- 새 글 `src/content/blog/game-genre-guide.md`(게임 장르 가이드)를 이미지 없이 먼저 발행함.
+- **할 일: Higgsfield MCP로 이 글 대표 이미지 생성 → 글에 추가.** 사용자가 "장르 가이드 글에 이미지 넣어줘" 라고 하면 진행.
+- 방법: Higgsfield Generate Image로 다크+네온 그린 톤의 게임 장르 콜라주/추상 이미지 생성 → 파일을 `src/assets/`에 저장 → frontmatter에 `heroImage: '../../assets/파일명.jpg'` 추가 → build → push. (heroImage는 astro:assets image()라 로컬 src/assets 경로 필요. 본문 레이아웃/카드가 자동으로 표시함.)
+- Higgsfield는 claude.ai 커넥터로 연결됨. 코딩 세션에 도구가 안 보이면 `mcp list`로 확인하고, 그래도 없으면 사용자에게 앱 재시작 안내.
+
 ### 다음 세션이 알아야 할 것
 - 핵심 과제(게임월드7 구축+배포+도메인+디자인) 완료. 글은 `src/content/blog/`에 .md 추가 후 push하면 자동 게시.
 - Higgsfield MCP는 claude.ai 커넥터로 연결됨(이미지 생성). 코딩 세션에서 쓰려면 앱 재시작 후 반영.
