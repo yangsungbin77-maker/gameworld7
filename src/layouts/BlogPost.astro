@@ -15,68 +15,79 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
-			main {
-				width: calc(100% - 2em);
+			.article {
+				width: 760px;
 				max-width: 100%;
-				margin: 0;
+				margin: 0 auto;
 			}
-			.hero-image {
-				width: 100%;
+			.back {
+				display: inline-block;
+				margin-bottom: 1.5rem;
+				color: var(--text-muted);
+				font-weight: 600;
+				font-size: 0.9rem;
 			}
+			.back:hover { color: var(--accent); }
 			.hero-image img {
 				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+				width: 100%;
+				margin: 0 0 2rem;
+				border-radius: var(--radius);
+				border: 1px solid var(--border);
 			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+			.post-title {
+				margin-bottom: 2rem;
+				padding-bottom: 1.5rem;
+				border-bottom: 1px solid var(--border);
 			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
+			.post-title h1 {
+				font-size: clamp(2rem, 5vw, 3rem);
+				margin: 0.6rem 0;
 			}
 			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+				color: var(--text-dim);
+				font-size: 0.9rem;
+				font-weight: 600;
 			}
-			.last-updated-on {
-				font-style: italic;
+			.last-updated-on { font-style: italic; }
+			.prose {
+				color: var(--text);
+				font-size: 1.05rem;
 			}
+			.prose :global(h2) { margin-top: 2.2rem; }
+			.prose :global(h3) { margin-top: 1.8rem; }
+			.prose :global(a) { text-decoration: underline; text-underline-offset: 3px; }
+			.prose :global(ul),
+			.prose :global(ol) { padding-left: 1.3em; }
+			.prose :global(li) { margin-bottom: 0.4em; }
 		</style>
 	</head>
 
 	<body>
 		<Header />
 		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+			<article class="article">
+				<a href="/blog" class="back">← 전체 글로</a>
+				{heroImage && (
+					<div class="hero-image">
+						<Image width={1020} height={510} src={heroImage} alt="" />
+					</div>
+				)}
+				<div class="post-title">
+					<span class="tag">GAMEWORLD7</span>
+					<h1>{title}</h1>
+					<div class="date">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<span class="last-updated-on">
+									 · 마지막 수정 <FormattedDate date={updatedDate} />
+								</span>
+							)
+						}
+					</div>
 				</div>
 				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										마지막 수정: <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
 					<slot />
 				</div>
 			</article>
