@@ -59,7 +59,7 @@ const assignment = {
   pubDate,
   heroImage: `../../assets/pool/${image}`,
   imageFile: image,
-  internalLink: { url: `/blog/${internal.slug}/`, title: internal.title },
+  internalLink: { url: `/${internal.slug}/`, title: internal.title },
   externalLink: { url: external.url, label: external.label },
 };
 

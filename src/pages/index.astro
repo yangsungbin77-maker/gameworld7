@@ -34,7 +34,7 @@ const rest = posts.slice(1, 7);
 
 			{
 				featured && (
-					<a href={`/blog/${featured.id}/`} class="featured">
+					<a href={`/${featured.id}/`} class="featured">
 						{featured.data.heroImage && (
 							<div class="featured-image">
 								<Image src={featured.data.heroImage} width={1200} height={600} alt={featured.data.title} />
@@ -62,7 +62,7 @@ const rest = posts.slice(1, 7);
 						<ul class="grid">
 							{rest.map((post) => (
 								<li>
-									<a href={`/blog/${post.id}/`} class="card">
+									<a href={`/${post.id}/`} class="card">
 										{post.data.heroImage && (
 											<div class="card-image">
 												<Image src={post.data.heroImage} width={600} height={300} alt={post.data.title} />

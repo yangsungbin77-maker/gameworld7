@@ -70,4 +70,4 @@ run('git add -A');
 run(`git commit -m "자동 발행: ${assignment.topic}"`);
 run('git push');
 
-console.log(`\n✅ 발행 완료: /blog/${slug}/`);
+console.log(`\n✅ 발행 완료: /${slug}/`);
