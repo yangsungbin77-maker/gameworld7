@@ -15,9 +15,10 @@
 
 - [x] GitHub 빈 저장소 생성 (`yangsungbin77-maker/gameworld7`)
 - [x] 원격 연결 + push (`git push -u origin main`)
-- [ ] Cloudflare Pages 프로젝트 생성, GitHub 저장소 연결
-- [ ] 빌드 설정 (build command: `npm run build`, output: `dist`)
-- [ ] 첫 자동 배포 확인 (`*.pages.dev` 임시 주소로 화면 확인)
+- [x] Cloudflare 프로젝트 생성, GitHub 저장소 연결 (Pages가 아닌 **Workers + 정적 에셋** 방식으로 진행, `wrangler.jsonc` 추가)
+- [x] 빌드 설정 (build: `npm run build`, deploy: `npx wrangler deploy`)
+- [x] 첫 자동 배포 확인 → https://gameworld7.yangsungbin77.workers.dev (정상)
+- [x] git push → 자동 재배포 파이프라인 작동 확인
 
 ## 3단계. 도메인 연결
 
