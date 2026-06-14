@@ -40,5 +40,12 @@
 - 연결 방식: apex 도메인(`gameworld7.com`)을 Pages에 붙이려면 Namecheap의 네임서버를 **Cloudflare 네임서버로 변경**하는 방식이 가장 깔끔(CNAME flattening으로 apex+www 모두 처리). Namecheap은 apex에 CNAME/ALIAS를 안 줘서 네임서버 이전이 사실상 정석.
 - **주의:** 네임서버를 Cloudflare로 옮기면 그 도메인의 모든 DNS가 Cloudflare로 넘어감. 만약 이 도메인으로 받는 이메일(MX 레코드)이 있다면 Cloudflare에 다시 추가해야 함. 블로그 도메인이라 이메일은 없을 가능성 높음 — 연결 전 확인 필요.
 
+### 배포 완료 (2026-06-14)
+- Cloudflare가 Git 저장소를 Pages가 아닌 **Worker(정적 에셋)** 흐름으로 가져옴. deploy command `npx wrangler deploy`라서 저장소에 `wrangler.jsonc`(name=gameworld7, assets.directory=./dist) 추가하여 해결.
+- 라이브 주소: **https://gameworld7.yangsungbin77.workers.dev** (정상 확인).
+- Cloudflare ↔ GitHub 연결됨 → `main`에 push하면 자동 재빌드·재배포. "글 쓰면 자동 게시" 파이프라인 작동.
+- workers.dev 빌드 Node는 20.x. 빌드/배포 정상.
+
 ### 다음 세션이 알아야 할 것
+- 다음 할 일: gameworld7.com(Namecheap)을 Cloudflare로 네임서버 이전 → Worker에 Custom Domain 연결. checklist.md 3단계.
 - 두 번째 사이트 `sportskingdom24.com`은 이 사이트 완성 후 동일 틀 복제.
