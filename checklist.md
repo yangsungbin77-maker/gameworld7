@@ -13,8 +13,8 @@
 
 ## 2단계. 배포 (진행 중)
 
-- [ ] GitHub 빈 저장소 생성 (`gameworld7`) — 사용자가 브라우저에서
-- [ ] 원격 연결 + push (`git push -u origin main`)
+- [x] GitHub 빈 저장소 생성 (`yangsungbin77-maker/gameworld7`)
+- [x] 원격 연결 + push (`git push -u origin main`)
 - [ ] Cloudflare Pages 프로젝트 생성, GitHub 저장소 연결
 - [ ] 빌드 설정 (build command: `npm run build`, output: `dist`)
 - [ ] 첫 자동 배포 확인 (`*.pages.dev` 임시 주소로 화면 확인)
