@@ -54,7 +54,13 @@
 - www.gameworld7.com은 apex로 향하는 proxied CNAME이 남아있음 → apex가 Worker로 가므로 www도 따라감(필요시 별도 커스텀 도메인으로 추가 가능).
 - Cloudflare 계정 ID: 7db4450a5ec6b8ebdcb7815f4dd5ef34.
 
+### 디자인 (2026-06-14 재디자인)
+- 기본 Astro 블로그 템플릿 → **다크 게이밍 테마 + 네온 그린**으로 전면 교체.
+- 디자인 토큰은 `src/styles/global.css` `:root`에 정의(--bg #0b0e14, --accent #3ef58b 등). `.btn`/`.btn-ghost`/`.tag` 유틸 클래스 제공.
+- 홈은 히어로+피처드+카드 그리드, 글 목록도 카드 그리드, 본문은 760px 다크 가독성 레이아웃. 헤더는 sticky+blur.
+- 자매 사이트(sportskingdom24)도 이 테마를 재사용하되 포인트 컬러만 바꾸면 됨.
+
 ### 다음 세션이 알아야 할 것
-- 핵심 과제(게임월드7 구축+배포+도메인) 완료. 글은 `src/content/blog/`에 .md 추가 후 push하면 자동 게시.
+- 핵심 과제(게임월드7 구축+배포+도메인+디자인) 완료. 글은 `src/content/blog/`에 .md 추가 후 push하면 자동 게시.
 - Higgsfield MCP는 claude.ai 커넥터로 연결됨(이미지 생성). 코딩 세션에서 쓰려면 앱 재시작 후 반영.
 - 두 번째 사이트 `sportskingdom24.com`은 이 사이트 동일 틀로 복제 예정(Namecheap일 가능성 높음).
