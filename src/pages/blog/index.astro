@@ -32,7 +32,7 @@ const posts = (await getCollection('blog')).sort(
 							<a href={`/blog/${post.id}/`} class="card">
 								{post.data.heroImage && (
 									<div class="card-image">
-										<Image src={post.data.heroImage} width={600} height={300} alt="" />
+										<Image src={post.data.heroImage} width={600} height={300} alt={post.data.title} />
 									</div>
 								)}
 								<div class="card-body">
