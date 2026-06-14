@@ -22,11 +22,20 @@ if (!existsSync(postPath)) {
 const assignment = JSON.parse(readFileSync(join(__dirname, 'assignment.json'), 'utf8'));
 const post = readFileSync(postPath, 'utf8');
 
-// 발행 조건 검증: 외부링크 1·내부링크 1·이미지(heroImage) 1이 실제로 들어갔는지 확인.
+// 본문(frontmatter 제외) 분량·소제목 수 측정.
+const body = post.replace(/^---[\s\S]*?\n---\s*/, '').trim();
+const bodyLen = body.replace(/\s/g, '').length; // 공백 제외 글자 수
+const h2Count = (body.match(/^##\s/gm) || []).length;
+const MIN_BODY = 1200; // 공백 제외 최소 글자 수(전문가 분량 강제)
+const MIN_H2 = 4;
+
+// 발행 조건 검증: 외부링크 1·내부링크 1·이미지 1 + 최소 분량·소제목 수.
 const checks = [
   [post.includes(assignment.externalLink.url), `외부링크(${assignment.externalLink.url})가 본문에 없습니다.`],
   [post.includes(assignment.internalLink.url), `내부링크(${assignment.internalLink.url})가 본문에 없습니다.`],
   [post.includes(assignment.imageFile), `대표 이미지(${assignment.imageFile})가 heroImage로 지정되지 않았습니다.`],
+  [bodyLen >= MIN_BODY, `본문이 너무 짧습니다(공백 제외 ${bodyLen}자). 최소 ${MIN_BODY}자 이상으로 충실하게 쓰세요.`],
+  [h2Count >= MIN_H2, `소제목(##)이 ${h2Count}개뿐입니다. 5~7개로 구성하세요.`],
 ];
 const failed = checks.filter(([ok]) => !ok).map(([, msg]) => msg);
 if (failed.length) {
