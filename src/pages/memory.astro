@@ -1,0 +1,574 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = '카드 짝 맞추기 (메모리 게임) — 게임월드7';
+const description = '같은 그림 카드 두 장을 찾는 메모리 게임. 카드를 뒤집어 짝을 맞추고, 더 적은 시도와 더 빠른 시간으로 최고 기록에 도전하세요!';
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div id="memgame">
+				<section class="game-hero">
+					<span class="tag">PLAY · 미니게임</span>
+					<h1>🃏 <span class="neon">카드 짝 맞추기</span></h1>
+					<p class="lead">카드를 뒤집어 <strong>같은 그림 두 장</strong>을 찾으세요. 더 적은 시도와 더 빠른 시간이 고득점입니다!</p>
+				</section>
+
+				<div class="diff" id="diff" role="group" aria-label="난이도 선택">
+					<span class="diff-label">난이도</span>
+					<button class="diff-btn" type="button" data-diff="kids">🧒 어린이</button>
+					<button class="diff-btn" type="button" data-diff="normal">보통</button>
+					<button class="diff-btn" type="button" data-diff="hard">🔥 어려움</button>
+				</div>
+
+				<div class="hud">
+					<div class="hud-item">
+						<span class="hud-label">시도</span>
+						<span class="hud-value" id="moves">0</span>
+					</div>
+					<div class="hud-item">
+						<span class="hud-label">시간</span>
+						<span class="hud-value" id="time">0:00</span>
+					</div>
+					<div class="hud-item">
+						<span class="hud-label">최고 기록</span>
+						<span class="hud-value" id="best">--</span>
+					</div>
+					<button class="btn" id="restart" type="button">다시 시작</button>
+					<button class="icon-btn" id="mute" type="button" aria-label="소리 켜기/끄기" title="소리 켜기/끄기">🔊</button>
+				</div>
+
+				<div class="board-wrap">
+					<div class="board" id="board"></div>
+					<div class="overlay" id="overlay" hidden>
+						<div class="overlay-card">
+							<h2 id="ovTitle">🎉 클리어!</h2>
+							<p class="ov-score">시도 <strong id="ovMoves">0</strong>번 · 시간 <strong id="ovTime">0:00</strong></p>
+							<p class="ov-best" id="ovBest"></p>
+							<button class="btn" id="ovRestart" type="button">한 번 더!</button>
+						</div>
+					</div>
+					<div class="overlay start-overlay" id="startOverlay">
+						<div class="overlay-card">
+							<h2>🃏 카드 짝 맞추기</h2>
+							<p class="ov-score">같은 그림 두 장을 찾으세요</p>
+							<button class="btn btn-start" id="startBtn" type="button">▶ 게임 시작</button>
+						</div>
+					</div>
+				</div>
+
+				<p class="hint">💡 카드를 눌러 뒤집고, 같은 그림 두 장을 찾으면 사라집니다. 모두 맞추면 클리어!</p>
+			</div>
+		</main>
+		<Footer />
+
+		<script is:inline>
+			(() => {
+				// 난이도: 짝(pairs) 수와 열(cols) 수. 카드 총수 = pairs * 2
+				const DIFFS = {
+					kids:   { label: '어린이', pairs: 6,  cols: 4, width: 420 },
+					normal: { label: '보통',   pairs: 8,  cols: 4, width: 480 },
+					hard:   { label: '어려움', pairs: 12, cols: 6, width: 640 },
+				};
+				const EMOJIS = ['🐶','🐱','🦊','🐰','🐼','🐨','🦁','🐸','🐵','🐷','🐯','🐔'];
+
+				const DIFF_KEY = 'gw7_memory_diff';
+				let diffKey = localStorage.getItem(DIFF_KEY);
+				if (!DIFFS[diffKey]) diffKey = 'normal';
+				let cfg = DIFFS[diffKey];
+
+				const bestKeyFor = (k) => 'gw7_memory_best_' + k; // 초 단위, 작을수록 좋음
+
+				const boardEl = document.getElementById('board');
+				const movesEl = document.getElementById('moves');
+				const timeEl = document.getElementById('time');
+				const bestEl = document.getElementById('best');
+				const overlay = document.getElementById('overlay');
+				const ovMoves = document.getElementById('ovMoves');
+				const ovTime = document.getElementById('ovTime');
+				const ovBest = document.getElementById('ovBest');
+				const ovTitle = document.getElementById('ovTitle');
+				const startOverlay = document.getElementById('startOverlay');
+				const startBtn = document.getElementById('startBtn');
+				const boardWrap = document.querySelector('#memgame .board-wrap');
+
+				let moves = 0;
+				let matched = 0;
+				let totalCards = 0;
+				let elapsed = 0;
+				let timerId = null;
+				let running = false;
+				let lock = false;
+				let first = null; // 첫 번째로 뒤집은 카드 엘리먼트
+
+				function loadBest() {
+					const raw = localStorage.getItem(bestKeyFor(diffKey));
+					return raw ? parseInt(raw, 10) : null;
+				}
+				function renderBest() {
+					const b = loadBest();
+					bestEl.textContent = b == null ? '--' : fmtTime(b);
+				}
+
+				// ── 사운드 (Web Audio로 효과음 생성, 음원 파일 없음) ──
+				const MUTE_KEY = 'gw7_memory_muted';
+				const muteBtn = document.getElementById('mute');
+				let muted = localStorage.getItem(MUTE_KEY) === '1';
+				let audioCtx = null;
+				function ensureAudio() {
+					if (muted) return null;
+					if (!audioCtx) {
+						const AC = window.AudioContext || window.webkitAudioContext;
+						if (!AC) return null;
+						audioCtx = new AC();
+					}
+					if (audioCtx.state === 'suspended') audioCtx.resume();
+					return audioCtx;
+				}
+				function tone(freq, startAt, dur, type, peak) {
+					const ctx = audioCtx;
+					if (!ctx) return;
+					const t0 = ctx.currentTime + startAt;
+					const osc = ctx.createOscillator();
+					const gain = ctx.createGain();
+					osc.type = type || 'sine';
+					osc.frequency.value = freq;
+					gain.gain.setValueAtTime(0.0001, t0);
+					gain.gain.exponentialRampToValueAtTime(peak || 0.18, t0 + 0.012);
+					gain.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+					osc.connect(gain).connect(ctx.destination);
+					osc.start(t0);
+					osc.stop(t0 + dur + 0.02);
+				}
+				function sndFlip() { if (ensureAudio()) tone(660, 0, 0.07, 'square', 0.07); }
+				function sndMatch() {
+					if (!ensureAudio()) return;
+					tone(659.25, 0, 0.14, 'triangle', 0.15);
+					tone(987.77, 0.08, 0.16, 'triangle', 0.14);
+				}
+				function sndNo() { if (ensureAudio()) tone(180, 0, 0.16, 'sawtooth', 0.08); }
+				function sndWin() {
+					if (!ensureAudio()) return;
+					const scale = [523.25, 659.25, 783.99, 1046.5];
+					scale.forEach((f, i) => tone(f, i * 0.12, 0.26, 'triangle', 0.16));
+				}
+				function updateMuteBtn() {
+					muteBtn.textContent = muted ? '🔇' : '🔊';
+					muteBtn.classList.toggle('off', muted);
+				}
+				muteBtn.addEventListener('click', () => {
+					muted = !muted;
+					localStorage.setItem(MUTE_KEY, muted ? '1' : '0');
+					if (!muted) ensureAudio();
+					updateMuteBtn();
+				});
+				updateMuteBtn();
+
+				function shuffle(arr) {
+					for (let i = arr.length - 1; i > 0; i--) {
+						const j = Math.floor(Math.random() * (i + 1));
+						[arr[i], arr[j]] = [arr[j], arr[i]];
+					}
+					return arr;
+				}
+
+				function buildBoard() {
+					boardEl.innerHTML = '';
+					boardEl.style.gridTemplateColumns = 'repeat(' + cfg.cols + ', 1fr)';
+					const faces = shuffle(EMOJIS.slice(0, cfg.pairs).flatMap((e) => [e, e]));
+					totalCards = faces.length;
+					for (const face of faces) {
+						const card = document.createElement('button');
+						card.type = 'button';
+						card.className = 'card';
+						card.setAttribute('aria-label', '카드');
+						card.innerHTML =
+							'<span class="inner">' +
+							'<span class="face back">?</span>' +
+							'<span class="face front">' + face + '</span>' +
+							'</span>';
+						card.dataset.face = face;
+						card.addEventListener('click', () => onFlip(card));
+						boardEl.appendChild(card);
+					}
+				}
+
+				function onFlip(card) {
+					if (!running || lock) return;
+					if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
+
+					card.classList.add('flipped');
+					sndFlip();
+
+					if (!first) {
+						first = card;
+						return;
+					}
+
+					// 두 번째 카드 → 시도 1회
+					moves++;
+					movesEl.textContent = moves;
+
+					if (first.dataset.face === card.dataset.face) {
+						first.classList.add('matched');
+						card.classList.add('matched');
+						first = null;
+						matched += 2;
+						sndMatch();
+						if (matched === totalCards) win();
+					} else {
+						lock = true;
+						const a = first, b = card;
+						first = null;
+						sndNo();
+						setTimeout(() => {
+							a.classList.remove('flipped');
+							b.classList.remove('flipped');
+							lock = false;
+						}, 800);
+					}
+				}
+
+				function fmtTime(s) {
+					const m = Math.floor(s / 60);
+					const sec = s % 60;
+					return m + ':' + String(sec).padStart(2, '0');
+				}
+
+				function tick() {
+					elapsed++;
+					timeEl.textContent = fmtTime(elapsed);
+				}
+
+				// 곧바로 시작하지 않고, 카드를 미리 깔아둔 '준비' 상태로 둔다.
+				function readyGame() {
+					clearInterval(timerId);
+					running = false;
+					lock = false;
+					first = null;
+					moves = 0;
+					matched = 0;
+					elapsed = 0;
+					movesEl.textContent = '0';
+					timeEl.textContent = '0:00';
+					boardWrap.style.maxWidth = cfg.width + 'px';
+					overlay.hidden = true;
+					renderBest();
+					buildBoard();
+					startOverlay.hidden = false;
+				}
+
+				function startGame() {
+					clearInterval(timerId);
+					startOverlay.hidden = true;
+					overlay.hidden = true;
+					boardWrap.style.maxWidth = cfg.width + 'px';
+					moves = 0;
+					matched = 0;
+					elapsed = 0;
+					first = null;
+					lock = false;
+					running = true;
+					movesEl.textContent = '0';
+					timeEl.textContent = '0:00';
+					renderBest();
+					buildBoard();
+					timerId = setInterval(tick, 1000);
+				}
+
+				function win() {
+					clearInterval(timerId);
+					running = false;
+					const prev = loadBest();
+					const isRecord = prev == null || elapsed < prev;
+					if (isRecord) {
+						localStorage.setItem(bestKeyFor(diffKey), String(elapsed));
+						ovTitle.textContent = '🏆 신기록!';
+						ovBest.textContent = '최고 기록을 경신했어요!';
+					} else {
+						ovTitle.textContent = '🎉 클리어!';
+						ovBest.textContent = '최고 기록: ' + fmtTime(prev);
+					}
+					ovMoves.textContent = moves;
+					ovTime.textContent = fmtTime(elapsed);
+					renderBest();
+					overlay.hidden = false;
+					sndWin();
+				}
+
+				document.getElementById('restart').addEventListener('click', startGame);
+				document.getElementById('ovRestart').addEventListener('click', startGame);
+				startBtn.addEventListener('click', startGame);
+
+				// ── 난이도 선택 ──
+				const diffBtns = [...document.querySelectorAll('.diff-btn')];
+				function updateDiffBtns() {
+					diffBtns.forEach((b) => b.classList.toggle('active', b.dataset.diff === diffKey));
+				}
+				function applyDifficulty(key) {
+					if (!DIFFS[key]) return;
+					if (key !== diffKey) {
+						diffKey = key;
+						cfg = DIFFS[key];
+						localStorage.setItem(DIFF_KEY, diffKey);
+						updateDiffBtns();
+					}
+					readyGame();
+				}
+				diffBtns.forEach((b) => b.addEventListener('click', () => applyDifficulty(b.dataset.diff)));
+				updateDiffBtns();
+
+				readyGame();
+			})();
+		</script>
+
+		<!-- 동적 생성 카드에도 스타일이 먹도록 #memgame 범위의 전역 스타일을 쓴다 -->
+		<style is:global>
+			#memgame .game-hero {
+				padding: 1.5rem 0 1.2rem;
+				text-align: center;
+			}
+			#memgame .game-hero h1 {
+				font-size: clamp(2rem, 5vw, 3rem);
+				margin: 0.5rem 0 0.6rem;
+			}
+			#memgame .neon {
+				color: var(--accent);
+				text-shadow: 0 0 24px var(--accent-glow);
+			}
+			#memgame .game-hero .lead {
+				color: var(--text-muted);
+				max-width: 46ch;
+				margin: 0 auto;
+			}
+
+			#memgame .hud {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.8rem;
+				flex-wrap: wrap;
+				margin-bottom: 0.9rem;
+			}
+			#memgame .hud-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				min-width: 92px;
+				padding: 0.5rem 0.9rem;
+				background: var(--bg-elev);
+				border: 1px solid var(--border);
+				border-radius: var(--radius-sm);
+			}
+			#memgame .hud-label {
+				font-size: 0.72rem;
+				font-weight: 700;
+				letter-spacing: 0.04em;
+				color: var(--text-dim);
+			}
+			#memgame .hud-value {
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: 1.4rem;
+				color: #fff;
+				transition: transform 0.1s ease;
+			}
+
+			#memgame .diff {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5rem;
+				flex-wrap: wrap;
+				margin-bottom: 1rem;
+			}
+			#memgame .diff-label {
+				font-size: 0.78rem;
+				font-weight: 700;
+				letter-spacing: 0.04em;
+				color: var(--text-dim);
+				margin-right: 0.2rem;
+			}
+			#memgame .diff-btn {
+				padding: 0.45em 1em;
+				font-family: var(--font-heading);
+				font-weight: 700;
+				font-size: 0.95rem;
+				color: var(--text-muted);
+				background: var(--bg-elev);
+				border: 1px solid var(--border-strong);
+				border-radius: 999px;
+				cursor: pointer;
+				transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+			}
+			#memgame .diff-btn:hover {
+				color: var(--text);
+				border-color: var(--accent);
+			}
+			#memgame .diff-btn.active {
+				color: var(--accent-ink);
+				background: var(--accent);
+				border-color: var(--accent);
+			}
+
+			#memgame .icon-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 44px;
+				height: 44px;
+				font-size: 1.2rem;
+				line-height: 1;
+				background: var(--bg-elev);
+				border: 1px solid var(--border-strong);
+				border-radius: 999px;
+				cursor: pointer;
+				transition: border-color 0.15s ease, transform 0.1s ease;
+			}
+			#memgame .icon-btn:hover {
+				border-color: var(--accent);
+				transform: translateY(-1px);
+			}
+			#memgame .icon-btn.off { opacity: 0.6; }
+
+			#memgame .board-wrap {
+				position: relative;
+				width: 100%;
+				max-width: 480px;
+				margin: 0 auto;
+			}
+			#memgame .board {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: clamp(6px, 1.4vw, 12px);
+				padding: clamp(8px, 1.4vw, 14px);
+				background: var(--bg-elev);
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
+			}
+			#memgame .card {
+				aspect-ratio: 1 / 1;
+				padding: 0;
+				border: none;
+				background: transparent;
+				cursor: pointer;
+				perspective: 700px;
+			}
+			#memgame .card .inner {
+				position: relative;
+				display: block;
+				width: 100%;
+				height: 100%;
+				transform-style: preserve-3d;
+				transition: transform 0.35s ease;
+			}
+			#memgame .card.flipped .inner,
+			#memgame .card.matched .inner {
+				transform: rotateY(180deg);
+			}
+			#memgame .card .face {
+				position: absolute;
+				inset: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 16%;
+				backface-visibility: hidden;
+				-webkit-backface-visibility: hidden;
+			}
+			#memgame .card .back {
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: clamp(1.1rem, 3.5vw, 1.8rem);
+				color: rgba(120, 150, 220, 0.7);
+				background:
+					radial-gradient(circle at 35% 28%, rgba(255,255,255,0.18), transparent 45%),
+					linear-gradient(160deg, #3a4a72, #1d2540);
+				border: 1px solid rgba(120, 150, 220, 0.35);
+				box-shadow: inset 0 -2px 5px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.3);
+			}
+			#memgame .card .front {
+				font-size: clamp(1.5rem, 5vw, 2.4rem);
+				background:
+					radial-gradient(circle at 35% 28%, rgba(255,255,255,0.18), transparent 50%),
+					linear-gradient(160deg, #243056, #161d33);
+				border: 1px solid rgba(120, 150, 220, 0.45);
+				transform: rotateY(180deg);
+			}
+			#memgame .card.matched .front {
+				background:
+					radial-gradient(circle at 35% 28%, rgba(255,255,255,0.4), transparent 50%),
+					linear-gradient(160deg, #6dffae, var(--accent-dim));
+				border-color: var(--accent);
+				box-shadow: 0 0 0 2px var(--accent), 0 0 16px var(--accent-glow);
+			}
+			#memgame .card:not(.flipped):not(.matched):hover .inner {
+				transform: translateY(-2px);
+			}
+
+			#memgame .overlay {
+				position: absolute;
+				inset: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(11, 14, 20, 0.78);
+				backdrop-filter: blur(4px);
+				border-radius: var(--radius);
+				z-index: 10;
+			}
+			#memgame .overlay[hidden] { display: none; }
+			#memgame .overlay-card {
+				text-align: center;
+				padding: 2rem 2.4rem;
+				background: var(--bg-elev);
+				border: 1px solid var(--border-strong);
+				border-radius: var(--radius);
+				box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+			}
+			#memgame .overlay-card h2 { margin-bottom: 0.6rem; }
+			#memgame .ov-score { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+			#memgame .ov-score strong { color: var(--accent); font-size: 1.3rem; }
+			#memgame .ov-best { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem; }
+
+			#memgame .start-overlay .overlay-card h2 {
+				font-size: clamp(1.6rem, 4vw, 2.2rem);
+				margin-bottom: 0.5rem;
+			}
+			#memgame .start-overlay .ov-score { margin-bottom: 1.3rem; }
+			#memgame .btn-start {
+				font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+				font-weight: 800;
+				padding: 0.9em 2.6em;
+				border-radius: 999px;
+				box-shadow: 0 0 0 3px var(--accent-glow), 0 10px 30px rgba(0,0,0,0.4);
+				animation: mem-start-pulse 1.8s ease-in-out infinite;
+			}
+			#memgame .btn-start:hover { transform: translateY(-2px); }
+			@keyframes mem-start-pulse {
+				0%, 100% { box-shadow: 0 0 0 3px var(--accent-glow), 0 10px 30px rgba(0,0,0,0.4); }
+				50% { box-shadow: 0 0 0 7px var(--accent-glow), 0 10px 34px rgba(0,0,0,0.45); }
+			}
+
+			#memgame .hint {
+				text-align: center;
+				color: var(--text-dim);
+				font-size: 0.9rem;
+				margin-top: 1.2rem;
+			}
+
+			@media (max-width: 520px) {
+				#memgame .hud-item { min-width: 72px; padding: 0.4rem 0.6rem; }
+				#memgame .hud-value { font-size: 1.15rem; }
+			}
+		</style>
+	</body>
+</html>
