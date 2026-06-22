@@ -58,6 +58,13 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 							<button class="btn" id="ovRestart" type="button">한 번 더!</button>
 						</div>
 					</div>
+					<div class="overlay start-overlay" id="startOverlay">
+						<div class="overlay-card">
+							<h2>🔟 넘버 텐</h2>
+							<p class="ov-score">합이 <strong>10</strong>이 되도록 블록을 묶으세요</p>
+							<button class="btn btn-start" id="startBtn" type="button">▶ 게임 시작</button>
+						</div>
+					</div>
 				</div>
 
 				<p class="hint">💡 마우스(또는 터치)로 사각형을 그려 블록을 묶으세요. 합이 10이면 점수를 얻습니다.</p>
@@ -93,6 +100,8 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				const ovScore = document.getElementById('ovScore');
 				const ovBest = document.getElementById('ovBest');
 				const ovTitle = document.getElementById('ovTitle');
+				const startOverlay = document.getElementById('startOverlay');
+				const startBtn = document.getElementById('startBtn');
 
 				let cells = []; // { value, cleared, el }
 				let score = 0;
@@ -327,8 +336,27 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 
 				const boardWrap = document.querySelector('#tengame .board-wrap');
 
+				// 게임을 곧바로 시작하지 않고, 보드를 미리 깔아둔 '준비' 상태로 둔다.
+				// 큰 시작 버튼을 눌러야 타이머가 돌아간다.
+				function readyGame() {
+					clearInterval(timerId);
+					running = false;
+					dragging = false;
+					boardWrap.style.maxWidth = cfg.width + 'px';
+					score = 0;
+					timeLeft = GAME_TIME;
+					scoreEl.textContent = '0';
+					timeEl.textContent = fmtTime(timeLeft);
+					fillEl.style.width = '100%';
+					fillEl.classList.remove('low');
+					overlay.hidden = true;
+					buildBoard();
+					startOverlay.hidden = false;
+				}
+
 				function startGame() {
 					clearInterval(timerId);
+					startOverlay.hidden = true;
 					boardWrap.style.maxWidth = cfg.width + 'px';
 					score = 0;
 					timeLeft = GAME_TIME;
@@ -373,6 +401,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 
 				document.getElementById('restart').addEventListener('click', startGame);
 				document.getElementById('ovRestart').addEventListener('click', startGame);
+				startBtn.addEventListener('click', startGame);
 
 				// ── 난이도 선택 ──
 				const diffBtns = [...document.querySelectorAll('.diff-btn')];
@@ -380,25 +409,25 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 					diffBtns.forEach((b) => b.classList.toggle('active', b.dataset.diff === diffKey));
 				}
 				function applyDifficulty(key) {
-					if (!DIFFS[key] || key === diffKey) {
-						if (key === diffKey) startGame();
-						return;
+					if (!DIFFS[key]) return;
+					if (key !== diffKey) {
+						diffKey = key;
+						cfg = DIFFS[key];
+						COLS = cfg.cols;
+						ROWS = cfg.rows;
+						GAME_TIME = cfg.time;
+						best = parseInt(localStorage.getItem(bestKeyFor(diffKey)) || '0', 10) || 0;
+						bestEl.textContent = best;
+						localStorage.setItem(DIFF_KEY, diffKey);
+						updateDiffBtns();
 					}
-					diffKey = key;
-					cfg = DIFFS[key];
-					COLS = cfg.cols;
-					ROWS = cfg.rows;
-					GAME_TIME = cfg.time;
-					best = parseInt(localStorage.getItem(bestKeyFor(diffKey)) || '0', 10) || 0;
-					bestEl.textContent = best;
-					localStorage.setItem(DIFF_KEY, diffKey);
-					updateDiffBtns();
-					startGame();
+					// 난이도를 고르면 곧장 시작하지 않고 준비 상태로 둔다(원할 때 시작 버튼으로 시작).
+					readyGame();
 				}
 				diffBtns.forEach((b) => b.addEventListener('click', () => applyDifficulty(b.dataset.diff)));
 				updateDiffBtns();
 
-				startGame();
+				readyGame();
 			})();
 		</script>
 
@@ -628,6 +657,25 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 			#tengame .ov-score { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 0.2rem; }
 			#tengame .ov-score strong { color: var(--accent); font-size: 1.5rem; }
 			#tengame .ov-best { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem; }
+
+			#tengame .start-overlay .overlay-card h2 {
+				font-size: clamp(1.6rem, 4vw, 2.2rem);
+				margin-bottom: 0.5rem;
+			}
+			#tengame .start-overlay .ov-score { margin-bottom: 1.3rem; }
+			#tengame .btn-start {
+				font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+				font-weight: 800;
+				padding: 0.9em 2.6em;
+				border-radius: 999px;
+				box-shadow: 0 0 0 3px var(--accent-glow), 0 10px 30px rgba(0,0,0,0.4);
+				animation: tg-start-pulse 1.8s ease-in-out infinite;
+			}
+			#tengame .btn-start:hover { transform: translateY(-2px); }
+			@keyframes tg-start-pulse {
+				0%, 100% { box-shadow: 0 0 0 3px var(--accent-glow), 0 10px 30px rgba(0,0,0,0.4); }
+				50% { box-shadow: 0 0 0 7px var(--accent-glow), 0 10px 34px rgba(0,0,0,0.45); }
+			}
 
 			#tengame .hint {
 				text-align: center;
