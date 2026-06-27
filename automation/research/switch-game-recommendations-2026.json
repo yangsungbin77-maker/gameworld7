@@ -1,0 +1,66 @@
+{
+  "type": "info",
+  "keyword_root": "스위치 게임 추천 2026",
+  "keyword_cluster": [
+    "닌텐도 스위치 게임 추천", "스위치 2 게임 추천", "스위치 명작", "스위치 RPG 추천",
+    "스위치 파티 게임", "스위치 협동 게임", "포켓몬 추천", "스위치 입문 게임",
+    "스위치 하위호환", "스위치 vs 스위치2", "마리오 카트 월드", "스위치 신작 2026"
+  ],
+  "serp": [
+    { "url": "https://filmora.wondershare.kr/game-information/nintendo-switch-game-recommendation.html", "opened": true, "note": "스위치 게임 Top10 2026(젤다·마리오·드퀘XIS·동물의숲·파엠 등). 명작 풀리스트. 단순 나열형 → 우리는 상황별+스위치2 시대로 차별화" },
+    { "url": "https://www.nintendo.com/kr/games/switch2/lineup", "opened": true, "note": "닌텐도 공식 스위치2 라인업(220개). 드퀘몬4·제노블레이드3 SW2에디션 등 신작 일정. 1차 출처" },
+    { "url": "https://www.nintendo.com/kr/hardware/switch2/compatibility/index.html", "opened": true, "note": "공식 호환성 정책. 모션IR 카메라/링피트/라보/조이콘충전 등 제약. 하위호환 단서 근거" },
+    { "url": "https://on.com2us.com/content/switch2-graphic-fps-upgrade/", "opened": true, "note": "하위호환 성능개선 사례(마리오오디세이 4K/60fps, 스칼렛바이올렛 프레임·시야 개선). 단 게임마다 다름" },
+    { "url": "https://bravonglife.com/entry/닌텐도-스위치-RPG-BEST10", "opened": true, "note": "스위치 RPG BEST10(젤다 97점·페르소나5R·드퀘XIS·파엠·제노블레이드). 메타크리틱 점수 근거" },
+    { "url": "https://pricetoday.info/스위치-포켓몬-시리즈-추천/", "opened": true, "note": "포켓몬 입문 추천(소드·아르세우스·스칼렛바이올렛). 가격 5~6만원대. 입문 섹션 근거" },
+    { "url": "https://www.ilovepc.co.kr/news/articleView.html?idxno=54728", "opened": true, "note": "스위치2 라인업/하위호환 비판적 평가(일부 게임만 패치, 라인업 부족). 보수적 표현 근거" },
+    { "url": "https://news.nate.com/view/20250120n31379", "opened": true, "note": "스위치2 하위호환 공식 발표(카트리지·다운로드 호환). 단 완벽보장 아님 단서" },
+    { "url": "https://games.gg/news/best-nintendo-switch-2-games-to-play-in-2026/", "opened": false, "note": "HTTP 403 차단 — 직접 열람 실패" },
+    { "url": "https://namu.wiki/w/Nintendo Switch 2/게임 목록", "opened": false, "note": "차단 — 직접 열람 실패" }
+  ],
+  "factcheck": [
+    {
+      "claim": "닌텐도 스위치 2는 2025년 출시됐고 2026년 현재 기존 스위치 게임을 하위호환으로 구동한다(일부 특수 주변기기 게임 제외)",
+      "sources": [
+        "https://www.nintendo.com/kr/hardware/switch2/compatibility/index.html",
+        "https://news.nate.com/view/20250120n31379"
+      ]
+    },
+    {
+      "claim": "젤다의 전설 브레스 오브 더 와일드는 메타크리틱 97점의 오픈월드 명작으로 스위치 대표작이다",
+      "sources": [
+        "https://bravonglife.com/entry/닌텐도-스위치-RPG-BEST10",
+        "https://filmora.wondershare.kr/game-information/nintendo-switch-game-recommendation.html"
+      ]
+    },
+    {
+      "claim": "일부 기존 스위치 게임은 스위치2에서 해상도·프레임 개선 효과를 받지만 모든 게임이 패치되는 것은 아니다(타이틀별로 다름)",
+      "sources": [
+        "https://on.com2us.com/content/switch2-graphic-fps-upgrade/",
+        "https://www.ilovepc.co.kr/news/articleView.html?idxno=54728"
+      ]
+    },
+    {
+      "claim": "포켓몬 입문작으로 스칼렛·바이올렛, 레전드 아르세우스가 자주 추천되며 정가는 대략 5~6만원대다(세일 시 더 저렴)",
+      "sources": [
+        "https://pricetoday.info/스위치-포켓몬-시리즈-추천/",
+        "https://filmora.wondershare.kr/game-information/nintendo-switch-game-recommendation.html"
+      ]
+    },
+    {
+      "claim": "마리오 카트 월드는 스위치2의 대표 런칭 신작으로 꼽히며, 동키콩 바난자·포켓몬 레전드 Z-A 등이 기대작으로 거론된다",
+      "sources": [
+        "https://www.nintendo.com/kr/games/switch2/lineup",
+        "https://www.ilovepc.co.kr/news/articleView.html?idxno=54728"
+      ]
+    }
+  ],
+  "variables": {
+    "keyword": "스위치 게임 추천 2026",
+    "headline_finding": "경쟁글은 단순 Top10 나열 — 우리는 '스위치2 출시 후 시점'을 반영해 하위호환+상황별 추천+기기 선택 가이드로 차별화",
+    "unique_angle": "기기에 얽매이지 말고 플레이 목적(입문/RPG/파티)부터 정하게 하고, 기존 명작이 스위치2에서 더 좋아지는 점과 스위치 vs 스위치2 구매가이드를 결합",
+    "competitor_gap": "2026 시점에 Switch와 Switch 2를 하위호환으로 통합해 의사결정까지 닫아주는 글이 드뭄",
+    "internal_links": ["/switch-2player-games/", "/switch-co-op-games/", "/rpg-game-recommendations/"]
+  },
+  "hermes_score": 91
+}

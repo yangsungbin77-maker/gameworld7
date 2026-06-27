@@ -2,7 +2,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, basename } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -117,5 +117,21 @@ console.log('▶ 커밋·푸시...');
 run('git add -A');
 run(`git commit -m "자동 발행: ${assignment.topic}"`);
 run('git push');
+
+// 5) 대시보드(블로그자동발행-full)의 발행 큐 자동 동기화. 실패해도 발행엔 영향 없음.
+try {
+  const dashDir = process.env.BLOG_DASHBOARD_DIR
+    || 'C:\\Users\\use\\클로드 코드\\블로그자동발행-full';
+  const syncScript = join(dashDir, 'sync_done.py');
+  if (existsSync(syncScript)) {
+    console.log('▶ 대시보드 발행 큐 동기화...');
+    const site = basename(root);
+    const kwArg = process.env.QUEUE_KW ? ` --kw "${process.env.QUEUE_KW}"` : '';
+    execSync(`py "${syncScript}" --site "${site}" --title "${assignment.topic}"${kwArg}`,
+      { stdio: 'inherit' });
+  }
+} catch (e) {
+  console.warn('⚠️ 대시보드 큐 동기화 실패(발행은 정상 완료됨):', e.message);
+}
 
 console.log(`\n✅ 발행 완료: /${slug}/`);
