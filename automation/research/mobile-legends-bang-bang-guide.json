@@ -1,0 +1,34 @@
+{
+  "type": "info",
+  "keyword": "모바일 레전드 뱅뱅",
+  "note": "GSC 검증 키워드(옛 워드프레스 8.9위·노출3,209·93클릭, gameworld7 단일 최대 페이지). 서버삭제로 죽은 글을 새 Astro에 재생성. 옛 URL /초보자를-위한-모바일-레전드-뱅뱅-게임-플레이-가이/ → /mobile-legends-bang-bang-guide/ 301 갱신.",
+  "serp": [
+    { "url": "https://gameworld7.com/초보자를-위한-모바일-레전드-뱅뱅-게임-플레이-가이드", "opened": false, "note": "자사 옛 글(403). 직접 경쟁 대상이라 차별화 필요" },
+    { "url": "https://namu.wiki/w/모바일 레전드: Bang Bang", "opened": false, "note": "샌드박스 DNS 차단. 백과사전형 권위출처지만 초보친화 아님" },
+    { "url": "https://www.oneesports.gg/mobile-legends/mobile-legends-beginners-guide/", "opened": true, "note": "영어 대표 초보가이드. 6역할·전투주문·맵·포지셔닝. 17분으로 길어 진입장벽" },
+    { "url": "https://vortexgaming.io/games/517087", "opened": true, "note": "2025.7 티어표. 5역할×라인 매핑 명확. 메타·빌드 설명 부족" },
+    { "url": "https://boosteria.org/blog/mobile-legends-hero-roles-positioning-guide", "opened": true, "note": "역할군+포지셔닝 심화(21소제목). 시각자료 부재" },
+    { "url": "https://lootbar.com/blog/all-roles-guide-mobile-legends-bang-bang.html", "opened": true, "note": "6역할 정의·강약점 표. 132 heroes/6 classes 명시" },
+    { "url": "https://carry1st.com/blog/tips-for-beginners-mobile-legends", "opened": true, "note": "다운로드~계정~기본 13단계 ~1200단어. 심화전술 부재" },
+    { "url": "https://apps.apple.com/kr/app/id1160056295", "opened": true, "note": "한국 앱스토어 공식. MOONTON, 5v5·3라인·4정글, 한국어 지원 확인" },
+    { "url": "https://www.bluestacks.com/ko/apps/strategy/mobile-legends-bang-bang-on-pc.html", "opened": true, "note": "PC 에뮬 플레이. 5v5. PC로 하기 키워드 커버" },
+    { "url": "https://en.wikipedia.org/wiki/Mobile_Legends:_Bang_Bang", "opened": true, "note": "영문 위키 1차출처. 출시·6역할·맵·영웅수·M시리즈" }
+  ],
+  "factcheck": [
+    { "claim": "개발사 Moonton(문톤), 2016년 출시, 5v5 모바일 MOBA", "sources": ["https://en.wikipedia.org/wiki/Mobile_Legends:_Bang_Bang", "https://apps.apple.com/kr/app/id1160056295"] },
+    { "claim": "맵=3라인(EXP/미드/골드)+정글, 한 팀 5명, 목표=적 베이스 파괴", "sources": ["https://en.wikipedia.org/wiki/Mobile_Legends:_Bang_Bang", "https://www.oneesports.gg/mobile-legends/mobile-legends-beginners-guide/"] },
+    { "claim": "역할군 6종: 탱커/파이터/어쌔신/마크스맨/메이지/서포터", "sources": ["https://en.wikipedia.org/wiki/Mobile_Legends:_Bang_Bang", "https://lootbar.com/blog/all-roles-guide-mobile-legends-bang-bang.html"] },
+    { "claim": "영웅 수 120종 이상으로 계속 증가(위키 133·lootbar 132)", "sources": ["https://en.wikipedia.org/wiki/Mobile_Legends:_Bang_Bang", "https://lootbar.com/blog/all-roles-guide-mobile-legends-bang-bang.html"] },
+    { "claim": "오브젝트 터틀(초중반)·로드(후반), 한국 앱스토어·구글플레이 한국어 지원", "sources": ["https://www.oneesports.gg/mobile-legends/mobile-legends-beginners-guide/", "https://apps.apple.com/kr/app/id1160056295"] }
+  ],
+  "variables": {
+    "keyword": "모바일 레전드 뱅뱅",
+    "headline_finding": "핵심은 '5명이 3라인+정글 나눠 적 본진 부수기' — 큰 그림 하나면 입문 끝",
+    "differentiation": "한국어 원페이지 입문(개요+맵/오브젝트+6역할표+추천영웅+한국에서 하는법 앱·PC)으로 영어가이드·티어표 공백 공략",
+    "beginner_actionables": "클래식 먼저·추천빌드 따라가기·미니맵 주시·쉬운영웅 1~2개·라인/오브젝트 챙기기 5계명",
+    "persona_voice": "픽셀 1인칭(킬만 노리다 오브젝트 챙기니 승률↑) — 안 해본 클리어 날조 없이 게임 일반통념으로 안전"
+  },
+  "hermes_score": 93,
+  "hermes_history": [89, 93],
+  "hermes_note": "독립 심판봇 1차 89(미검증 '2016년11월 한국서비스' 3중 단정)→날짜 제거+영웅수/시간 보정→2차 93 통과"
+}
