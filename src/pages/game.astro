@@ -225,7 +225,8 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 
 				function pointerPos(e) {
 					const b = boardEl.getBoundingClientRect();
-					const p = e.touches ? e.touches[0] : e;
+					// touchend에선 touches가 비어 있으므로 changedTouches까지 순서대로 확인해야 한다
+					const p = (e.touches && e.touches[0]) || (e.changedTouches && e.changedTouches[0]) || e;
 					return { x: p.clientX - b.left, y: p.clientY - b.top };
 				}
 
@@ -397,6 +398,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				boardEl.addEventListener('touchstart', onDown, { passive: false });
 				boardEl.addEventListener('touchmove', onMove, { passive: false });
 				window.addEventListener('touchend', onUp);
+				window.addEventListener('touchcancel', onUp);
 				window.addEventListener('resize', () => { if (cells.length) cacheRects(); });
 
 				document.getElementById('restart').addEventListener('click', startGame);
@@ -588,6 +590,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 				touch-action: none;
 				user-select: none;
 				-webkit-user-select: none;
+				-webkit-touch-callout: none;
 			}
 			#tengame .tok {
 				aspect-ratio: 1 / 1;

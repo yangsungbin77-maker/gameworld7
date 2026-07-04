@@ -257,7 +257,8 @@ const description =
 	}
 	.hud-item strong { color: var(--accent); margin-left: 0.35em; }
 
-	.stage { position: relative; }
+	/* 폰·패드·PC 자동맞춤: 화면 높이를 넘지 않게 정사각 보드를 축소 */
+	.stage { position: relative; width: min(100%, 62vh); margin-inline: auto; }
 	#board {
 		display: block; width: 100%; height: auto; touch-action: none;
 		background: #0b0e14; border: 1px solid var(--border); border-radius: var(--radius);
