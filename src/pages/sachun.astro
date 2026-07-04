@@ -1,0 +1,489 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = '네온 사천성 — 무료 짝맞추기 퍼즐 | 게임월드7';
+const description =
+	'같은 그림 두 개를 두 번 이하로 꺾이는 선으로 이어 지우는 클래식 사천성 퍼즐. 힌트·섞기 지원, 5분 안에 보드를 비워보세요! 무료 · 설치 없음.';
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div id="ssgame">
+				<section class="game-hero">
+					<span class="tag">PLAY · 미니게임</span>
+					<h1>🀄 <span class="neon">네온 사천성</span></h1>
+					<p class="lead">같은 그림 두 개를 <strong>두 번 이하로 꺾이는 길</strong>로 이으면 사라집니다. 5분 안에 다 지워보세요!</p>
+				</section>
+
+				<div class="hud">
+					<div class="hud-item">점수 <strong id="score">0</strong></div>
+					<div class="hud-item">최고 <strong id="best">0</strong></div>
+					<div class="hud-item">남은 짝 <strong id="pairs">30</strong></div>
+					<div class="hud-item">시간 <strong id="time">5:00</strong></div>
+					<button class="hud-item tool-btn" id="hintBtn" type="button">💡 힌트</button>
+					<button class="hud-item tool-btn" id="shuffleBtn" type="button">🔀 섞기</button>
+					<button class="hud-item tool-btn" id="soundBtn" type="button" aria-label="효과음 켜기/끄기">🔊</button>
+				</div>
+				<div class="timebar"><div class="timebar-fill" id="timebar"></div></div>
+
+				<div class="stage">
+					<canvas id="board" width="576" height="384" aria-label="네온 사천성 보드"></canvas>
+					<div class="overlay" id="overlay">
+						<h2 id="ov-title">네온 사천성</h2>
+						<p id="ov-sub">같은 그림을 두 번 탭! 길이 이어지면 사라져요</p>
+						<button class="btn" id="startBtn" type="button">게임 시작</button>
+						<button class="btn-ghost btn" id="shareBtn" type="button" hidden>점수 공유</button>
+					</div>
+				</div>
+
+				<section class="howto">
+					<h2>규칙</h2>
+					<ul>
+						<li>같은 그림 타일 두 개를 차례로 탭(클릭)하면, 두 타일을 잇는 길을 찾습니다.</li>
+						<li>길은 <strong>빈 칸으로만</strong> 지나갈 수 있고, <strong>최대 2번</strong>까지만 꺾일 수 있습니다. 보드 바깥 테두리로 돌아가는 것도 됩니다.</li>
+						<li>짝 하나를 지우면 10점. 시간이 남은 채로 다 지우면 남은 시간만큼 보너스 점수!</li>
+						<li>지울 수 있는 짝이 없으면 자동으로 섞입니다. 💡 힌트는 지울 수 있는 짝을 잠깐 보여줍니다.</li>
+					</ul>
+					<h2>공략 팁</h2>
+					<ul>
+						<li><strong>가장자리와 모서리부터</strong> 지우세요. 바깥 길이 뚫려 있어 잇기 쉽습니다.</li>
+						<li>보드 안쪽 깊숙한 짝은 주변이 비워진 뒤에 노리는 게 안전합니다.</li>
+						<li>힌트를 아끼지 마세요. 시간이 점수보다 귀합니다.</li>
+					</ul>
+				</section>
+			</div>
+		</main>
+		<Footer />
+
+		<script is:inline>
+			(() => {
+				const canvas = document.getElementById('board');
+				const ctx = canvas.getContext('2d');
+				const COLS = 10, ROWS = 6, CELL = 48; // 실제 타일 영역. 테두리 1칸은 길 전용 여백
+				const GC = COLS + 2, GR = ROWS + 2;   // 길찾기용 그리드(테두리 포함)
+				const scoreEl = document.getElementById('score');
+				const bestEl = document.getElementById('best');
+				const pairsEl = document.getElementById('pairs');
+				const timeEl = document.getElementById('time');
+				const timebar = document.getElementById('timebar');
+				const overlay = document.getElementById('overlay');
+				const ovTitle = document.getElementById('ov-title');
+				const ovSub = document.getElementById('ov-sub');
+				const startBtn = document.getElementById('startBtn');
+				const shareBtn = document.getElementById('shareBtn');
+				const hintBtn = document.getElementById('hintBtn');
+				const shuffleBtn = document.getElementById('shuffleBtn');
+				const BEST_KEY = 'gw7_sachun_best';
+				const GAME_SEC = 300;
+				const SYMBOLS = ['🍎','🍌','🍇','🍉','🍓','🥝','🍑','🐶','🐱','🐰','🦊','🐼','🐸','⭐','🔔'];
+
+				// --- sound ---
+				const soundBtn = document.getElementById('soundBtn');
+				const SOUND_KEY = 'gw7_sachun_sound';
+				let soundOn = localStorage.getItem(SOUND_KEY) !== '0';
+				let audioCtx = null;
+				const updateSoundBtn = () => { soundBtn.textContent = soundOn ? '🔊' : '🔇'; };
+				updateSoundBtn();
+				soundBtn.addEventListener('click', () => {
+					soundOn = !soundOn;
+					localStorage.setItem(SOUND_KEY, soundOn ? '1' : '0');
+					updateSoundBtn();
+					if (soundOn) tone(520, 0.08, 'sine', 0.15);
+				});
+				function ac() {
+					if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					if (audioCtx.state === 'suspended') audioCtx.resume();
+					return audioCtx;
+				}
+				function tone(freq, dur, type, vol, when, slide) {
+					if (!soundOn) return;
+					try {
+						const a = ac();
+						const t0 = a.currentTime + (when || 0);
+						const o = a.createOscillator();
+						const g = a.createGain();
+						o.type = type || 'sine';
+						o.frequency.setValueAtTime(freq, t0);
+						if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(40, freq + slide), t0 + dur);
+						g.gain.setValueAtTime(vol || 0.15, t0);
+						g.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
+						o.connect(g).connect(a.destination);
+						o.start(t0);
+						o.stop(t0 + dur + 0.02);
+					} catch {}
+				}
+				const sndSelect = () => tone(500, 0.05, 'sine', 0.09, 0, 100);
+				const sndMatch = () => { tone(660, 0.1, 'triangle', 0.18, 0, 200); tone(990, 0.09, 'sine', 0.1, 0.03, 150); };
+				const sndInvalid = () => tone(160, 0.1, 'square', 0.06, 0, -50);
+				const sndShuffle = () => [0, 0.05, 0.1].forEach((d) => tone(300 + Math.random() * 200, 0.06, 'sine', 0.07, d, 80));
+				const sndWin = () => [523, 659, 784, 1047, 1319].forEach((f, i) => tone(f, 0.22, 'triangle', 0.16, i * 0.12, 40));
+				const sndOver = () => { tone(440, 0.18, 'sawtooth', 0.12, 0, -160); tone(330, 0.24, 'sawtooth', 0.1, 0.15, -120); };
+
+				// --- state ---
+				// G[r][c] = 심볼 인덱스 | null (빈 칸). r:0..GR-1, c:0..GC-1. 테두리 링은 항상 null.
+				let G, score, pairsLeft, timeLeft, timerId, raf, running = false;
+				let selected = null, pathFx = null, fading = [], hintPair = null, hintT0 = 0, toast = null;
+				let best = Number(localStorage.getItem(BEST_KEY) || 0);
+				bestEl.textContent = best;
+
+				const fmt = (s) => Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+
+				function buildBoard() {
+					const total = COLS * ROWS; // 60 = 15심볼 × 4장
+					const bag = [];
+					for (let i = 0; i < total / 4; i++) bag.push(i, i, i, i);
+					for (let i = bag.length - 1; i > 0; i--) {
+						const j = Math.floor(Math.random() * (i + 1));
+						[bag[i], bag[j]] = [bag[j], bag[i]];
+					}
+					G = Array.from({length: GR}, () => Array(GC).fill(null));
+					let k = 0;
+					for (let r = 1; r <= ROWS; r++)
+						for (let c = 1; c <= COLS; c++) G[r][c] = bag[k++];
+					if (!findPair()) shuffleBoard(false);
+				}
+
+				// 두 타일을 최대 2번 꺾어 이을 수 있으면 경로(셀 목록)를, 아니면 null 반환
+				function canConnect(a, b) {
+					const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+					const bestT = Array.from({length: GR}, () => Array.from({length: GC}, () => [3, 3, 3, 3]));
+					const q = [];
+					for (let d = 0; d < 4; d++) q.push({r: a.r, c: a.c, d, t: 0, path: [[a.r, a.c]]});
+					while (q.length) {
+						const s = q.shift();
+						const nr = s.r + dirs[s.d][0], nc = s.c + dirs[s.d][1];
+						if (nr < 0 || nc < 0 || nr >= GR || nc >= GC) continue;
+						if (nr === b.r && nc === b.c) return [...s.path, [nr, nc]];
+						if (G[nr][nc] !== null) continue;
+						for (let nd = 0; nd < 4; nd++) {
+							const nt = s.t + (nd === s.d ? 0 : 1);
+							if (nt > 2 || bestT[nr][nc][nd] <= nt) continue;
+							bestT[nr][nc][nd] = nt;
+							q.push({r: nr, c: nc, d: nd, t: nt, path: [...s.path, [nr, nc]]});
+						}
+					}
+					return null;
+				}
+
+				function findPair() {
+					const bySym = {};
+					for (let r = 1; r <= ROWS; r++)
+						for (let c = 1; c <= COLS; c++) {
+							const v = G[r][c];
+							if (v === null) continue;
+							(bySym[v] = bySym[v] || []).push({r, c});
+						}
+					for (const list of Object.values(bySym))
+						for (let i = 0; i < list.length; i++)
+							for (let j = i + 1; j < list.length; j++)
+								if (canConnect(list[i], list[j])) return [list[i], list[j]];
+					return null;
+				}
+
+				function shuffleBoard(playSound) {
+					const cells = [], vals = [];
+					for (let r = 1; r <= ROWS; r++)
+						for (let c = 1; c <= COLS; c++)
+							if (G[r][c] !== null) { cells.push([r, c]); vals.push(G[r][c]); }
+					let guard = 0;
+					do {
+						for (let i = vals.length - 1; i > 0; i--) {
+							const j = Math.floor(Math.random() * (i + 1));
+							[vals[i], vals[j]] = [vals[j], vals[i]];
+						}
+						cells.forEach(([r, c], i) => { G[r][c] = vals[i]; });
+					} while (!findPair() && ++guard < 60);
+					if (playSound !== false) sndShuffle();
+					selected = null;
+				}
+
+				function startGame() {
+					buildBoard();
+					score = 0;
+					pairsLeft = (COLS * ROWS) / 2;
+					timeLeft = GAME_SEC;
+					selected = null; pathFx = null; fading = []; hintPair = null; toast = null;
+					scoreEl.textContent = '0';
+					pairsEl.textContent = pairsLeft;
+					timeEl.textContent = fmt(timeLeft);
+					timebar.style.width = '100%';
+					overlay.classList.add('hidden');
+					running = true;
+					clearInterval(timerId);
+					timerId = setInterval(() => {
+						timeLeft--;
+						timeEl.textContent = fmt(Math.max(0, timeLeft));
+						timebar.style.width = (Math.max(0, timeLeft) / GAME_SEC) * 100 + '%';
+						if (timeLeft <= 0) endGame(false);
+					}, 1000);
+					cancelAnimationFrame(raf);
+					raf = requestAnimationFrame(loop);
+				}
+
+				function endGame(win) {
+					clearInterval(timerId);
+					running = false;
+					if (win) {
+						score += timeLeft; // 남은 시간 보너스
+						scoreEl.textContent = score;
+						sndWin();
+					} else sndOver();
+					if (score > best) {
+						best = score;
+						localStorage.setItem(BEST_KEY, best);
+						bestEl.textContent = best;
+					}
+					ovTitle.textContent = win ? '🎉 올 클리어!' : '타임 업!';
+					ovSub.textContent = win
+						? `점수 ${score} (시간 보너스 +${timeLeft}) · 최고 ${best}`
+						: `점수 ${score} · 남은 짝 ${pairsLeft} · 최고 ${best}`;
+					startBtn.textContent = '다시 하기';
+					shareBtn.hidden = false;
+					setTimeout(() => overlay.classList.remove('hidden'), win ? 900 : 400);
+				}
+
+				function tapTile(r, c) {
+					if (!running) return;
+					const v = G[r][c];
+					if (v === null) { selected = null; return; }
+					if (!selected) { selected = {r, c}; sndSelect(); return; }
+					if (selected.r === r && selected.c === c) { selected = null; return; }
+					if (G[selected.r][selected.c] !== v) { selected = {r, c}; sndSelect(); return; }
+					const path = canConnect(selected, {r, c});
+					if (!path) { sndInvalid(); selected = {r, c}; return; }
+					// 매치!
+					fading.push({r: selected.r, c: selected.c, v, t0: performance.now()});
+					fading.push({r, c, v, t0: performance.now()});
+					G[selected.r][selected.c] = null;
+					G[r][c] = null;
+					selected = null;
+					hintPair = null;
+					pathFx = {path, t0: performance.now()};
+					score += 10;
+					pairsLeft--;
+					scoreEl.textContent = score;
+					pairsEl.textContent = pairsLeft;
+					sndMatch();
+					if (pairsLeft === 0) return endGame(true);
+					if (!findPair()) {
+						shuffleBoard();
+						toast = {text: '지울 짝이 없어 섞었어요!', t0: performance.now()};
+					}
+				}
+
+				hintBtn.addEventListener('click', () => {
+					if (!running) return;
+					const p = findPair();
+					if (p) { hintPair = p; hintT0 = performance.now(); sndSelect(); }
+				});
+				shuffleBtn.addEventListener('click', () => {
+					if (!running) return;
+					shuffleBoard();
+					toast = {text: '섞었어요!', t0: performance.now()};
+				});
+
+				// --- rendering ---
+				const cx = (c) => (c + 0.5) * CELL;
+				const cy = (r) => (r + 0.5) * CELL;
+
+				function drawTile(r, c, v, scale, glow, dim) {
+					const x = c * CELL, y = r * CELL, pad = 3;
+					ctx.save();
+					ctx.translate(cx(c), cy(r));
+					ctx.scale(scale, scale);
+					ctx.translate(-cx(c), -cy(r));
+					ctx.fillStyle = dim ? '#151a26' : '#1d2540';
+					ctx.strokeStyle = glow ? '#3ef58b' : 'rgba(120,150,220,0.35)';
+					ctx.lineWidth = glow ? 2.5 : 1;
+					if (glow) { ctx.shadowColor = '#3ef58b'; ctx.shadowBlur = 14; }
+					ctx.beginPath();
+					ctx.roundRect(x + pad, y + pad, CELL - pad * 2, CELL - pad * 2, 8);
+					ctx.fill();
+					ctx.stroke();
+					ctx.shadowBlur = 0;
+					ctx.font = `${CELL * 0.55}px serif`;
+					ctx.textAlign = 'center';
+					ctx.textBaseline = 'middle';
+					ctx.fillText(SYMBOLS[v], cx(c), cy(r) + CELL * 0.03);
+					ctx.restore();
+				}
+
+				function loop(t) {
+					ctx.fillStyle = '#0b0e14';
+					ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+					// tiles
+					for (let r = 1; r <= ROWS; r++)
+						for (let c = 1; c <= COLS; c++) {
+							const v = G[r][c];
+							if (v === null) continue;
+							const isSel = selected && selected.r === r && selected.c === c;
+							const isHint = hintPair && t - hintT0 < 2000 &&
+								hintPair.some((p) => p.r === r && p.c === c);
+							const pulse = isSel ? 1 + 0.04 * Math.sin(t / 120) : 1;
+							drawTile(r, c, v, pulse, isSel || isHint, false);
+						}
+
+					// 사라지는 타일
+					for (let i = fading.length - 1; i >= 0; i--) {
+						const f = fading[i];
+						const k = (t - f.t0) / 220;
+						if (k >= 1) { fading.splice(i, 1); continue; }
+						ctx.save();
+						ctx.globalAlpha = 1 - k;
+						drawTile(f.r, f.c, f.v, 1 + k * 0.35, true, false);
+						ctx.restore();
+					}
+
+					// 연결 경로 라인
+					if (pathFx) {
+						const k = (t - pathFx.t0) / 300;
+						if (k >= 1) pathFx = null;
+						else {
+							ctx.save();
+							ctx.globalAlpha = 1 - k;
+							ctx.strokeStyle = '#3ef58b';
+							ctx.shadowColor = '#3ef58b';
+							ctx.shadowBlur = 12;
+							ctx.lineWidth = 4;
+							ctx.lineCap = 'round';
+							ctx.lineJoin = 'round';
+							ctx.beginPath();
+							pathFx.path.forEach(([r, c], i) => {
+								if (i === 0) ctx.moveTo(cx(c), cy(r));
+								else ctx.lineTo(cx(c), cy(r));
+							});
+							ctx.stroke();
+							ctx.restore();
+						}
+					}
+
+					// 토스트
+					if (toast) {
+						const k = (t - toast.t0) / 1400;
+						if (k >= 1) toast = null;
+						else {
+							ctx.save();
+							ctx.globalAlpha = 1 - k;
+							ctx.fillStyle = '#ffd166';
+							ctx.shadowColor = '#ffd166';
+							ctx.shadowBlur = 12;
+							ctx.font = '800 22px system-ui, sans-serif';
+							ctx.textAlign = 'center';
+							ctx.fillText(toast.text, canvas.width / 2, canvas.height / 2);
+							ctx.restore();
+						}
+					}
+
+					if (running || fading.length || pathFx) raf = requestAnimationFrame(loop);
+				}
+
+				// --- input ---
+				canvas.addEventListener('pointerdown', (e) => {
+					if (!running) return;
+					e.preventDefault();
+					const rect = canvas.getBoundingClientRect();
+					const x = ((e.clientX - rect.left) / rect.width) * canvas.width;
+					const y = ((e.clientY - rect.top) / rect.height) * canvas.height;
+					const c = Math.floor(x / CELL), r = Math.floor(y / CELL);
+					if (r >= 1 && r <= ROWS && c >= 1 && c <= COLS) tapTile(r, c);
+				});
+
+				startBtn.addEventListener('click', startGame);
+				shareBtn.addEventListener('click', async () => {
+					const text = `네온 사천성 ${score}점! 나를 이겨봐 👉 ${location.href}`;
+					try {
+						await navigator.clipboard.writeText(text);
+						shareBtn.textContent = '복사 완료!';
+					} catch {
+						shareBtn.textContent = text;
+					}
+					setTimeout(() => (shareBtn.textContent = '점수 공유'), 1600);
+				});
+
+				// 시작 전 미리보기 보드
+				buildBoard();
+				(function preview() {
+					ctx.fillStyle = '#0b0e14';
+					ctx.fillRect(0, 0, canvas.width, canvas.height);
+					for (let r = 1; r <= ROWS; r++)
+						for (let c = 1; c <= COLS; c++)
+							if (G[r][c] !== null) drawTile(r, c, G[r][c], 1, false, false);
+				})();
+
+				// test hook
+				window.__ss = {
+					grid: () => G.map((row) => row.slice()),
+					pairsLeft: () => pairsLeft,
+					score: () => score,
+					running: () => running,
+					findPair,
+					tap: (r, c) => tapTile(r, c),
+				};
+			})();
+		</script>
+	</body>
+</html>
+
+<style>
+	/* touch-action: manipulation = 더블탭 확대 차단 */
+	#ssgame { max-width: 640px; margin: 0 auto; touch-action: manipulation; }
+	.game-hero { padding: 2rem 0 1.4rem; text-align: center; }
+	.game-hero h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); margin: 0.5rem 0; }
+	.neon { color: var(--accent); text-shadow: 0 0 24px var(--accent-glow); }
+	.lead { color: var(--text-muted); }
+
+	.hud { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.55rem; margin-bottom: 0.6rem; }
+	.hud-item {
+		background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px;
+		padding: 0.4em 1em; color: var(--text-muted); font-size: 0.9rem; font-weight: 600;
+	}
+	.hud-item strong { color: var(--accent); margin-left: 0.3em; }
+	.tool-btn {
+		cursor: pointer; line-height: 1.4;
+		touch-action: manipulation; user-select: none; -webkit-user-select: none;
+		transition: border-color 0.15s ease;
+	}
+	.tool-btn:hover { border-color: var(--accent); }
+
+	.timebar {
+		height: 6px; border-radius: 999px; overflow: hidden;
+		background: var(--bg-elev); border: 1px solid var(--border);
+		margin-bottom: 0.9rem;
+	}
+	.timebar-fill {
+		height: 100%; width: 100%;
+		background: linear-gradient(90deg, var(--accent), #00e5ff);
+		box-shadow: 0 0 12px var(--accent-glow);
+		transition: width 0.9s linear;
+	}
+
+	.stage { position: relative; }
+	#board {
+		display: block; width: 100%; height: auto; touch-action: none;
+		background: #0b0e14; border: 1px solid var(--border); border-radius: var(--radius);
+		box-shadow: 0 0 40px rgba(62, 245, 139, 0.06);
+	}
+	.overlay {
+		position: absolute; inset: 0; display: flex; flex-direction: column;
+		align-items: center; justify-content: center; gap: 0.7rem;
+		background: rgba(11, 14, 20, 0.82); backdrop-filter: blur(4px);
+		border-radius: var(--radius); text-align: center; padding: 1rem;
+	}
+	.overlay.hidden { display: none; }
+	.overlay h2 { margin: 0; font-size: 1.7rem; }
+	.overlay p { margin: 0; color: var(--text-muted); }
+
+	.howto { margin: 2.2rem 0 3rem; }
+	.howto h2 { font-size: 1.25rem; margin: 1.4rem 0 0.6rem; }
+	.howto ul { color: var(--text-muted); padding-left: 1.2em; }
+	.howto li { margin-bottom: 0.35em; }
+</style>

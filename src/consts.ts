@@ -21,6 +21,14 @@ export const GAMES = [
 		cover: '/images/games/neon-pang.jpg',
 	},
 	{
+		href: '/sachun',
+		title: '네온 사천성',
+		emoji: '🀄',
+		genre: '짝맞추기 퍼즐',
+		desc: '같은 그림 둘을 두 번 이하 꺾이는 길로 잇는 클래식 사천성. 힌트·섞기 지원.',
+		cover: '/images/games/neon-sachun.jpg',
+	},
+	{
 		href: '/maze',
 		title: '야옹이 미로 찾기',
 		emoji: '😺',
