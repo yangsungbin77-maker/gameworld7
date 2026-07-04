@@ -325,14 +325,19 @@ const description =
 						}
 					}
 
-					// 아이템
+					// 아이템 (근처에 가면 자석처럼 끌려옴)
 					for (let i = items.length - 1; i >= 0; i--) {
 						const it = items[i];
 						it.y += it.vy * (dt / 16);
 						it.ph += dt / 250;
 						if (it.y > H + 20) { items.splice(i, 1); continue; }
+						const mx = ship.x - it.x, my = ship.y - it.y;
+						if (mx * mx + my * my < 95 * 95) {
+							it.x += mx * 0.07 * (dt / 16);
+							it.y += my * 0.07 * (dt / 16);
+						}
 						const dx = it.x - ship.x, dy = it.y - ship.y;
-						if (dx * dx + dy * dy < 26 * 26) {
+						if (dx * dx + dy * dy < 30 * 30) {
 							applyItem(it.type);
 							burst(it.x, it.y, '#ffd166', 10);
 							items.splice(i, 1);
@@ -397,6 +402,16 @@ const description =
 						ctx.moveTo(0, e.r); ctx.lineTo(e.r, -e.r * 0.7); ctx.lineTo(-e.r, -e.r * 0.7);
 					}
 					ctx.closePath(); ctx.fill();
+					// 콕핏·코어(기계 느낌)
+					ctx.shadowBlur = 4;
+					ctx.fillStyle = 'rgba(11,14,20,0.75)';
+					ctx.beginPath();
+					ctx.arc(0, e.kind === 'drone' ? -e.r * 0.15 : 0, e.r * 0.42, 0, Math.PI * 2);
+					ctx.fill();
+					ctx.fillStyle = 'rgba(255,255,255,0.9)';
+					ctx.beginPath();
+					ctx.arc(0, e.kind === 'drone' ? -e.r * 0.15 : 0, e.r * 0.16 + 1, 0, Math.PI * 2);
+					ctx.fill();
 					// HP 링(탱크)
 					if (e.kind === 'tank') {
 						ctx.strokeStyle = '#fff';
@@ -409,7 +424,7 @@ const description =
 					ctx.restore();
 				}
 
-				const ITEM_STYLE = {P: {c: '#3ef58b', label: 'P'}, R: {c: '#00e5ff', label: 'R'}, L: {c: '#ff2fb3', label: '♥'}};
+				const ITEM_STYLE = {P: {c: '#3ef58b', icon: '🔫'}, R: {c: '#00e5ff', icon: '⚡'}, L: {c: '#ff2fb3', icon: '💖'}};
 
 				function draw(t) {
 					ctx.fillStyle = '#0b0e14';
@@ -423,35 +438,73 @@ const description =
 					ctx.fillStyle = 'rgba(255,255,255,0.5)';
 					stars.forEach((s) => { ctx.globalAlpha = 0.2 + s.s * 0.3; ctx.fillRect(s.x, s.y, s.r, s.r + s.s); });
 					ctx.globalAlpha = 1;
-					// 총알
-					ctx.save();
-					ctx.fillStyle = '#b9ffd6';
-					ctx.shadowColor = '#3ef58b';
-					ctx.shadowBlur = 8;
-					bullets.forEach((b) => { ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.fill(); });
-					ctx.fillStyle = '#ffb3d9';
-					ctx.shadowColor = '#ff2fb3';
-					ebullets.forEach((b) => { ctx.beginPath(); ctx.arc(b.x, b.y, 4, 0, Math.PI * 2); ctx.fill(); });
-					ctx.restore();
+					// 내 총알: 위로 뻗는 초록 레이저 볼트(빛나는 머리 + 꼬리)
+					bullets.forEach((b) => {
+						ctx.save();
+						ctx.translate(b.x, b.y);
+						ctx.rotate(Math.atan2(b.vy, b.vx) + Math.PI / 2);
+						const g = ctx.createLinearGradient(0, -10, 0, 12);
+						g.addColorStop(0, '#ffffff');
+						g.addColorStop(0.35, '#8dffc0');
+						g.addColorStop(1, 'rgba(62,245,139,0)');
+						ctx.fillStyle = g;
+						ctx.shadowColor = '#3ef58b';
+						ctx.shadowBlur = 10;
+						ctx.beginPath();
+						ctx.roundRect(-2.2, -10, 4.4, 22, 2.2);
+						ctx.fill();
+						ctx.restore();
+					});
+					// 적탄: 빨간 불덩이 + 꼬리(위험 신호)
+					ebullets.forEach((b) => {
+						ctx.save();
+						ctx.fillStyle = 'rgba(255,85,51,0.3)';
+						ctx.beginPath();
+						ctx.arc(b.x - b.vx * 2.4, b.y - b.vy * 2.4, 6, 0, Math.PI * 2);
+						ctx.fill();
+						ctx.fillStyle = '#ff5533';
+						ctx.shadowColor = '#ff5533';
+						ctx.shadowBlur = 14;
+						ctx.beginPath();
+						ctx.arc(b.x, b.y, 4.6, 0, Math.PI * 2);
+						ctx.fill();
+						ctx.shadowBlur = 0;
+						ctx.fillStyle = '#ffe3d6';
+						ctx.beginPath();
+						ctx.arc(b.x, b.y, 2, 0, Math.PI * 2);
+						ctx.fill();
+						ctx.restore();
+					});
 					enemies.forEach(drawEnemy);
-					// 아이템
+					// 아이템: 보급상자(이모지 + 펄스 링 = "먹는 것" 신호)
 					items.forEach((it) => {
 						const st = ITEM_STYLE[it.type];
-						const bob = Math.sin(it.ph) * 2;
+						const bob = Math.sin(it.ph) * 3;
+						const pulse = 1 + 0.14 * Math.sin(it.ph * 2.2);
 						ctx.save();
 						ctx.translate(it.x, it.y + bob);
-						ctx.fillStyle = 'rgba(11,14,20,0.85)';
+						// 바깥 펄스 링
 						ctx.strokeStyle = st.c;
 						ctx.shadowColor = st.c;
-						ctx.shadowBlur = 14;
+						ctx.shadowBlur = 16;
+						ctx.globalAlpha = 0.55;
 						ctx.lineWidth = 2;
-						ctx.beginPath(); ctx.arc(0, 0, 12, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+						ctx.beginPath();
+						ctx.arc(0, 0, 20 * pulse, 0, Math.PI * 2);
+						ctx.stroke();
+						ctx.globalAlpha = 1;
+						// 상자 본체
+						ctx.fillStyle = 'rgba(11,14,20,0.92)';
+						ctx.lineWidth = 2.4;
+						ctx.beginPath();
+						ctx.roundRect(-14, -14, 28, 28, 9);
+						ctx.fill();
+						ctx.stroke();
 						ctx.shadowBlur = 0;
-						ctx.fillStyle = st.c;
-						ctx.font = '800 13px system-ui, sans-serif';
+						ctx.font = '16px serif';
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
-						ctx.fillText(st.label, 0, 0.5);
+						ctx.fillText(st.icon, 0, 1);
 						ctx.restore();
 					});
 					// 파티클
@@ -465,6 +518,24 @@ const description =
 						ctx.restore();
 					});
 					drawShip(t);
+					// 시작 5초 안내 배너
+					if (running && elapsed < 5000) {
+						const a = elapsed < 4000 ? 1 : 1 - (elapsed - 4000) / 1000;
+						ctx.save();
+						ctx.globalAlpha = a * 0.95;
+						ctx.fillStyle = 'rgba(11,14,20,0.75)';
+						ctx.beginPath();
+						ctx.roundRect(W / 2 - 165, 84, 330, 62, 12);
+						ctx.fill();
+						ctx.textAlign = 'center';
+						ctx.fillStyle = '#ffd166';
+						ctx.font = '800 16px system-ui, sans-serif';
+						ctx.fillText('상자에 담긴 🔫 ⚡ 💖 = 먹는 아이템!', W / 2, 108);
+						ctx.fillStyle = '#ff5533';
+						ctx.font = '700 14px system-ui, sans-serif';
+						ctx.fillText('빨간 불덩이는 적탄, 피하세요!', W / 2, 132);
+						ctx.restore();
+					}
 					ctx.restore();
 				}
 
