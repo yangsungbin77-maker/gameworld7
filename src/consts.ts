@@ -29,6 +29,14 @@ export const GAMES = [
 		cover: '/images/games/neon-sachun.jpg',
 	},
 	{
+		href: '/shanghai',
+		title: '네온 상하이',
+		emoji: '🏯',
+		genre: '입체 퍼즐 · 하드',
+		desc: '3층으로 쌓인 92블록 입체 사천성. 위가 덮이거나 양옆이 막히면 못 뺀다.',
+		cover: '/images/games/neon-shanghai.jpg',
+	},
+	{
 		href: '/maze',
 		title: '야옹이 미로 찾기',
 		emoji: '😺',

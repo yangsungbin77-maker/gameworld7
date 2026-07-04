@@ -1,0 +1,491 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = '네온 상하이 — 입체 사천성 (어려움) | 게임월드7';
+const description =
+	'블록이 3층으로 쌓인 입체 사천성(상하이) 퍼즐. 위가 덮였거나 양옆이 막힌 타일은 못 빼는 정통 규칙, 92타일 하드 모드. 무료 · 설치 없음.';
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div id="shgame">
+				<section class="game-hero">
+					<span class="tag">PLAY · 미니게임 · 하드</span>
+					<h1>🏯 <span class="neon">네온 상하이</span></h1>
+					<p class="lead"><strong>3층으로 쌓인</strong> 블록 산에서 같은 그림 두 개를 빼내세요. 위가 덮였거나 <strong>양옆이 다 막힌 블록은 못 뺍니다!</strong></p>
+				</section>
+
+				<div class="hud">
+					<div class="hud-item">점수 <strong id="score">0</strong></div>
+					<div class="hud-item">최고 <strong id="best">0</strong></div>
+					<div class="hud-item">남은 짝 <strong id="pairs">46</strong></div>
+					<div class="hud-item">시간 <strong id="time">8:00</strong></div>
+					<button class="hud-item tool-btn" id="hintBtn" type="button">💡 힌트</button>
+					<button class="hud-item tool-btn" id="shuffleBtn" type="button">🔀 섞기</button>
+					<button class="hud-item tool-btn" id="soundBtn" type="button" aria-label="효과음 켜기/끄기">🔊</button>
+				</div>
+				<div class="timebar"><div class="timebar-fill" id="timebar"></div></div>
+
+				<div class="stage">
+					<canvas id="board" width="580" height="380" aria-label="네온 상하이 보드"></canvas>
+					<div class="overlay" id="overlay">
+						<h2 id="ov-title">네온 상하이</h2>
+						<p id="ov-sub">꺼낼 수 있는 블록만 밝게 빛나요</p>
+						<button class="btn" id="startBtn" type="button">게임 시작</button>
+						<button class="btn-ghost btn" id="shareBtn" type="button" hidden>점수 공유</button>
+					</div>
+				</div>
+
+				<section class="howto">
+					<h2>규칙</h2>
+					<ul>
+						<li>블록이 <strong>3층 피라미드</strong>로 쌓여 있습니다. 같은 그림 두 개를 차례로 탭하면 사라집니다.</li>
+						<li>뺄 수 있는 블록 조건: <strong>바로 위에 블록이 없고</strong>, 같은 층에서 <strong>왼쪽이나 오른쪽 중 한쪽이 비어</strong> 있어야 합니다.</li>
+						<li>막힌 블록은 어둡게 표시됩니다. 위층을 걷어내면 아래층이 열립니다.</li>
+						<li>짝 하나 10점, 8분 안에 92개를 다 빼면 남은 시간만큼 보너스. 뺄 짝이 없으면 자동으로 섞입니다.</li>
+					</ul>
+					<h2>공략 팁</h2>
+					<ul>
+						<li><strong>맨 윗층과 긴 줄의 양끝부터</strong> 정리하세요. 아래가 빨리 열립니다.</li>
+						<li>같은 그림이 <strong>겹쳐 쌓여</strong> 있으면(위·아래) 위 것부터 빼야 아래 것을 쓸 수 있습니다.</li>
+						<li>보이는 짝을 무조건 빼지 말고, 어느 쪽 블록을 빼야 새 블록이 열리는지 한 수 앞을 보세요.</li>
+					</ul>
+				</section>
+			</div>
+		</main>
+		<Footer />
+
+		<script is:inline>
+			(() => {
+				const canvas = document.getElementById('board');
+				const ctx = canvas.getContext('2d');
+				const CELL = 50, LIFT = 8, MX = 40, MY = 46; // 층당 위로 들어올리는 픽셀
+				const ROWS = 6, COLS = 10;
+				// 3층 피라미드: 층별 타일 범위(총 60+24+8 = 92타일 = 23심볼×4)
+				const LAYOUT = [
+					{r0: 0, r1: 5, c0: 0, c1: 9},
+					{r0: 1, r1: 4, c0: 2, c1: 7},
+					{r0: 2, r1: 3, c0: 3, c1: 6},
+				];
+				const SYMBOLS = ['🍎','🍌','🍇','🍉','🍓','🥝','🍑','🍒','🍍','🥕','🐶','🐱','🐰','🦊','🐼','🐸','🐵','🐷','⭐','🌙','🔔','❤️','🍀'];
+				const scoreEl = document.getElementById('score');
+				const bestEl = document.getElementById('best');
+				const pairsEl = document.getElementById('pairs');
+				const timeEl = document.getElementById('time');
+				const timebar = document.getElementById('timebar');
+				const overlay = document.getElementById('overlay');
+				const ovTitle = document.getElementById('ov-title');
+				const ovSub = document.getElementById('ov-sub');
+				const startBtn = document.getElementById('startBtn');
+				const shareBtn = document.getElementById('shareBtn');
+				const hintBtn = document.getElementById('hintBtn');
+				const shuffleBtn = document.getElementById('shuffleBtn');
+				const BEST_KEY = 'gw7_shanghai_best';
+				const GAME_SEC = 480;
+
+				// --- sound ---
+				const soundBtn = document.getElementById('soundBtn');
+				const SOUND_KEY = 'gw7_shanghai_sound';
+				let soundOn = localStorage.getItem(SOUND_KEY) !== '0';
+				let audioCtx = null;
+				const updateSoundBtn = () => { soundBtn.textContent = soundOn ? '🔊' : '🔇'; };
+				updateSoundBtn();
+				soundBtn.addEventListener('click', () => {
+					soundOn = !soundOn;
+					localStorage.setItem(SOUND_KEY, soundOn ? '1' : '0');
+					updateSoundBtn();
+					if (soundOn) tone(520, 0.08, 'sine', 0.15);
+				});
+				function ac() {
+					if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					if (audioCtx.state === 'suspended') audioCtx.resume();
+					return audioCtx;
+				}
+				function tone(freq, dur, type, vol, when, slide) {
+					if (!soundOn) return;
+					try {
+						const a = ac();
+						const t0 = a.currentTime + (when || 0);
+						const o = a.createOscillator();
+						const g = a.createGain();
+						o.type = type || 'sine';
+						o.frequency.setValueAtTime(freq, t0);
+						if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(40, freq + slide), t0 + dur);
+						g.gain.setValueAtTime(vol || 0.15, t0);
+						g.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
+						o.connect(g).connect(a.destination);
+						o.start(t0);
+						o.stop(t0 + dur + 0.02);
+					} catch {}
+				}
+				const sndSelect = () => tone(500, 0.05, 'sine', 0.09, 0, 100);
+				const sndMatch = () => { tone(660, 0.1, 'triangle', 0.18, 0, 200); tone(990, 0.09, 'sine', 0.1, 0.03, 150); };
+				const sndInvalid = () => tone(160, 0.1, 'square', 0.06, 0, -50);
+				const sndLocked = () => tone(120, 0.09, 'square', 0.05, 0, -20);
+				const sndShuffle = () => [0, 0.05, 0.1].forEach((d) => tone(300 + Math.random() * 200, 0.06, 'sine', 0.07, d, 80));
+				const sndWin = () => [523, 659, 784, 1047, 1319].forEach((f, i) => tone(f, 0.22, 'triangle', 0.16, i * 0.12, 40));
+				const sndOver = () => { tone(440, 0.18, 'sawtooth', 0.12, 0, -160); tone(330, 0.24, 'sawtooth', 0.1, 0.15, -120); };
+
+				// --- state ---
+				// L[l][r][c] = 심볼 인덱스 | null
+				let L, score, pairsLeft, timeLeft, timerId, raf, running = false;
+				let selected = null, fading = [], hintPair = null, hintT0 = 0, toast = null;
+				let best = Number(localStorage.getItem(BEST_KEY) || 0);
+				bestEl.textContent = best;
+				const fmt = (s) => Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+
+				const inLayout = (l, r, c) => {
+					const b = LAYOUT[l];
+					return !!b && r >= b.r0 && r <= b.r1 && c >= b.c0 && c <= b.c1;
+				};
+				const at = (l, r, c) => (inLayout(l, r, c) ? L[l][r][c] : null);
+
+				function isFree(l, r, c) {
+					if (at(l, r, c) === null) return false;
+					if (at(l + 1, r, c) !== null) return false; // 위가 덮임
+					const left = at(l, r, c - 1), right = at(l, r, c + 1);
+					return left === null || right === null; // 한쪽 옆이 열려 있어야 함
+				}
+
+				function totalTiles() {
+					return LAYOUT.reduce((s, b) => s + (b.r1 - b.r0 + 1) * (b.c1 - b.c0 + 1), 0);
+				}
+
+				function buildBoard() {
+					const total = totalTiles(); // 92
+					const bag = [];
+					for (let i = 0; i < total / 4; i++) bag.push(i, i, i, i);
+					for (let i = bag.length - 1; i > 0; i--) {
+						const j = Math.floor(Math.random() * (i + 1));
+						[bag[i], bag[j]] = [bag[j], bag[i]];
+					}
+					L = LAYOUT.map(() => Array.from({length: ROWS}, () => Array(COLS).fill(null)));
+					let k = 0;
+					LAYOUT.forEach((b, l) => {
+						for (let r = b.r0; r <= b.r1; r++)
+							for (let c = b.c0; c <= b.c1; c++) L[l][r][c] = bag[k++];
+					});
+					if (!findFreePair()) shuffleBoard(false);
+				}
+
+				function freeTiles() {
+					const out = [];
+					LAYOUT.forEach((b, l) => {
+						for (let r = b.r0; r <= b.r1; r++)
+							for (let c = b.c0; c <= b.c1; c++)
+								if (isFree(l, r, c)) out.push({l, r, c, v: L[l][r][c]});
+					});
+					return out;
+				}
+
+				function findFreePair() {
+					const bySym = {};
+					for (const t of freeTiles()) (bySym[t.v] = bySym[t.v] || []).push(t);
+					for (const list of Object.values(bySym))
+						if (list.length >= 2) return [list[0], list[1]];
+					return null;
+				}
+
+				function shuffleBoard(playSound) {
+					const pos = [], vals = [];
+					LAYOUT.forEach((b, l) => {
+						for (let r = b.r0; r <= b.r1; r++)
+							for (let c = b.c0; c <= b.c1; c++)
+								if (L[l][r][c] !== null) { pos.push([l, r, c]); vals.push(L[l][r][c]); }
+					});
+					let guard = 0;
+					do {
+						for (let i = vals.length - 1; i > 0; i--) {
+							const j = Math.floor(Math.random() * (i + 1));
+							[vals[i], vals[j]] = [vals[j], vals[i]];
+						}
+						pos.forEach(([l, r, c], i) => { L[l][r][c] = vals[i]; });
+					} while (!findFreePair() && ++guard < 80);
+					if (playSound !== false) sndShuffle();
+					selected = null;
+				}
+
+				function startGame() {
+					buildBoard();
+					score = 0;
+					pairsLeft = totalTiles() / 2;
+					timeLeft = GAME_SEC;
+					selected = null; fading = []; hintPair = null; toast = null;
+					scoreEl.textContent = '0';
+					pairsEl.textContent = pairsLeft;
+					timeEl.textContent = fmt(timeLeft);
+					timebar.style.width = '100%';
+					overlay.classList.add('hidden');
+					running = true;
+					clearInterval(timerId);
+					timerId = setInterval(() => {
+						timeLeft--;
+						timeEl.textContent = fmt(Math.max(0, timeLeft));
+						timebar.style.width = (Math.max(0, timeLeft) / GAME_SEC) * 100 + '%';
+						if (timeLeft <= 0) endGame(false);
+					}, 1000);
+					cancelAnimationFrame(raf);
+					raf = requestAnimationFrame(loop);
+				}
+
+				function endGame(win) {
+					clearInterval(timerId);
+					running = false;
+					if (win) {
+						score += timeLeft;
+						scoreEl.textContent = score;
+						sndWin();
+					} else sndOver();
+					if (score > best) {
+						best = score;
+						localStorage.setItem(BEST_KEY, best);
+						bestEl.textContent = best;
+					}
+					ovTitle.textContent = win ? '🎉 올 클리어!' : '타임 업!';
+					ovSub.textContent = win
+						? `점수 ${score} (시간 보너스 +${timeLeft}) · 최고 ${best}`
+						: `점수 ${score} · 남은 짝 ${pairsLeft} · 최고 ${best}`;
+					startBtn.textContent = '다시 하기';
+					shareBtn.hidden = false;
+					setTimeout(() => overlay.classList.remove('hidden'), win ? 900 : 400);
+				}
+
+				function tapTile(l, r, c) {
+					if (!running) return;
+					const v = at(l, r, c);
+					if (v === null) { selected = null; return; }
+					if (!isFree(l, r, c)) { sndLocked(); return; }
+					if (selected && selected.l === l && selected.r === r && selected.c === c) { selected = null; return; }
+					if (!selected) { selected = {l, r, c}; sndSelect(); return; }
+					if (at(selected.l, selected.r, selected.c) !== v) { sndInvalid(); selected = {l, r, c}; return; }
+					// 매치!
+					fading.push({l: selected.l, r: selected.r, c: selected.c, v, t0: performance.now()});
+					fading.push({l, r, c, v, t0: performance.now()});
+					L[selected.l][selected.r][selected.c] = null;
+					L[l][r][c] = null;
+					selected = null;
+					hintPair = null;
+					score += 10;
+					pairsLeft--;
+					scoreEl.textContent = score;
+					pairsEl.textContent = pairsLeft;
+					sndMatch();
+					if (pairsLeft === 0) return endGame(true);
+					if (!findFreePair()) {
+						shuffleBoard();
+						toast = {text: '뺄 짝이 없어 섞었어요!', t0: performance.now()};
+					}
+				}
+
+				hintBtn.addEventListener('click', () => {
+					if (!running) return;
+					const p = findFreePair();
+					if (p) { hintPair = p; hintT0 = performance.now(); sndSelect(); }
+				});
+				shuffleBtn.addEventListener('click', () => {
+					if (!running) return;
+					shuffleBoard();
+					toast = {text: '섞었어요!', t0: performance.now()};
+				});
+
+				// --- rendering ---
+				const tx = (l, c) => MX + c * CELL - l * LIFT;
+				const ty = (l, r) => MY + r * CELL - l * LIFT;
+
+				function drawTile(l, r, c, v, opts) {
+					const {scale = 1, glow = false, dim = false, alpha = 1} = opts || {};
+					const x = tx(l, c), y = ty(l, r);
+					const cxp = x + CELL / 2, cyp = y + CELL / 2;
+					ctx.save();
+					ctx.globalAlpha = alpha;
+					ctx.translate(cxp, cyp);
+					ctx.scale(scale, scale);
+					ctx.translate(-cxp, -cyp);
+					const pad = 2;
+					// 두께(입체감): 오른쪽·아래 어두운 면
+					ctx.fillStyle = '#0a0d15';
+					ctx.beginPath();
+					ctx.roundRect(x + pad + 4, y + pad + 4, CELL - pad * 2, CELL - pad * 2, 9);
+					ctx.fill();
+					// 윗면
+					const topBright = 0.16 + l * 0.1; // 위층일수록 밝게
+					ctx.fillStyle = dim ? '#141926' : `rgba(58, 74, 114, ${0.75 + l * 0.12})`;
+					ctx.strokeStyle = glow ? '#3ef58b' : (dim ? 'rgba(90,110,160,0.2)' : 'rgba(140,170,235,' + (0.3 + topBright) + ')');
+					ctx.lineWidth = glow ? 2.5 : 1;
+					if (glow) { ctx.shadowColor = '#3ef58b'; ctx.shadowBlur = 14; }
+					ctx.beginPath();
+					ctx.roundRect(x + pad, y + pad, CELL - pad * 2, CELL - pad * 2, 9);
+					ctx.fill();
+					ctx.stroke();
+					ctx.shadowBlur = 0;
+					ctx.globalAlpha = alpha * (dim ? 0.42 : 1);
+					ctx.font = `${CELL * 0.52}px serif`;
+					ctx.textAlign = 'center';
+					ctx.textBaseline = 'middle';
+					ctx.fillText(SYMBOLS[v], cxp, cyp + CELL * 0.02);
+					ctx.restore();
+				}
+
+				function loop(t) {
+					ctx.fillStyle = '#0b0e14';
+					ctx.fillRect(0, 0, canvas.width, canvas.height);
+					// 층 순서대로(아래→위) 그려서 겹침 표현
+					LAYOUT.forEach((b, l) => {
+						for (let r = b.r0; r <= b.r1; r++)
+							for (let c = b.c0; c <= b.c1; c++) {
+								const v = L[l][r][c];
+								if (v === null) continue;
+								const free = isFree(l, r, c);
+								const isSel = selected && selected.l === l && selected.r === r && selected.c === c;
+								const isHint = hintPair && t - hintT0 < 2000 &&
+									hintPair.some((p) => p.l === l && p.r === r && p.c === c);
+								const pulse = isSel ? 1 + 0.04 * Math.sin(t / 120) : 1;
+								drawTile(l, r, c, v, {scale: pulse, glow: isSel || isHint, dim: !free});
+							}
+					});
+					// 사라지는 타일
+					for (let i = fading.length - 1; i >= 0; i--) {
+						const f = fading[i];
+						const k = (t - f.t0) / 220;
+						if (k >= 1) { fading.splice(i, 1); continue; }
+						drawTile(f.l, f.r, f.c, f.v, {scale: 1 + k * 0.35, glow: true, alpha: 1 - k});
+					}
+					// 토스트
+					if (toast) {
+						const k = (t - toast.t0) / 1400;
+						if (k >= 1) toast = null;
+						else {
+							ctx.save();
+							ctx.globalAlpha = 1 - k;
+							ctx.fillStyle = '#ffd166';
+							ctx.shadowColor = '#ffd166';
+							ctx.shadowBlur = 12;
+							ctx.font = '800 22px system-ui, sans-serif';
+							ctx.textAlign = 'center';
+							ctx.fillText(toast.text, canvas.width / 2, canvas.height / 2);
+							ctx.restore();
+						}
+					}
+					if (running || fading.length) raf = requestAnimationFrame(loop);
+				}
+
+				// --- input: 위층부터 히트 테스트 ---
+				canvas.addEventListener('pointerdown', (e) => {
+					if (!running) return;
+					e.preventDefault();
+					const rect = canvas.getBoundingClientRect();
+					const x = ((e.clientX - rect.left) / rect.width) * canvas.width;
+					const y = ((e.clientY - rect.top) / rect.height) * canvas.height;
+					for (let l = LAYOUT.length - 1; l >= 0; l--) {
+						const b = LAYOUT[l];
+						const c = Math.floor((x - MX + l * LIFT) / CELL);
+						const r = Math.floor((y - MY + l * LIFT) / CELL);
+						if (r >= b.r0 && r <= b.r1 && c >= b.c0 && c <= b.c1 && L[l][r][c] !== null) {
+							tapTile(l, r, c);
+							return;
+						}
+					}
+				});
+
+				startBtn.addEventListener('click', startGame);
+				shareBtn.addEventListener('click', async () => {
+					const text = `네온 상하이(입체 사천성) ${score}점! 나를 이겨봐 👉 ${location.href}`;
+					try {
+						await navigator.clipboard.writeText(text);
+						shareBtn.textContent = '복사 완료!';
+					} catch {
+						shareBtn.textContent = text;
+					}
+					setTimeout(() => (shareBtn.textContent = '점수 공유'), 1600);
+				});
+
+				// 시작 전 미리보기
+				buildBoard();
+				(function preview() {
+					ctx.fillStyle = '#0b0e14';
+					ctx.fillRect(0, 0, canvas.width, canvas.height);
+					LAYOUT.forEach((b, l) => {
+						for (let r = b.r0; r <= b.r1; r++)
+							for (let c = b.c0; c <= b.c1; c++)
+								if (L[l][r][c] !== null) drawTile(l, r, c, L[l][r][c], {dim: !isFree(l, r, c)});
+					});
+				})();
+
+				// test hook
+				window.__sh = {
+					pairsLeft: () => pairsLeft,
+					score: () => score,
+					running: () => running,
+					findFreePair,
+					freeTiles,
+					tap: (l, r, c) => tapTile(l, r, c),
+					at: (l, r, c) => at(l, r, c),
+					isFree,
+				};
+			})();
+		</script>
+	</body>
+</html>
+
+<style>
+	/* touch-action: manipulation = 더블탭 확대 차단 */
+	#shgame { max-width: 660px; margin: 0 auto; touch-action: manipulation; }
+	.game-hero { padding: 2rem 0 1.4rem; text-align: center; }
+	.game-hero h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); margin: 0.5rem 0; }
+	.neon { color: var(--accent); text-shadow: 0 0 24px var(--accent-glow); }
+	.lead { color: var(--text-muted); }
+
+	.hud { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.55rem; margin-bottom: 0.6rem; }
+	.hud-item {
+		background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px;
+		padding: 0.4em 1em; color: var(--text-muted); font-size: 0.9rem; font-weight: 600;
+	}
+	.hud-item strong { color: var(--accent); margin-left: 0.3em; }
+	.tool-btn {
+		cursor: pointer; line-height: 1.4;
+		touch-action: manipulation; user-select: none; -webkit-user-select: none;
+		transition: border-color 0.15s ease;
+	}
+	.tool-btn:hover { border-color: var(--accent); }
+
+	.timebar {
+		height: 6px; border-radius: 999px; overflow: hidden;
+		background: var(--bg-elev); border: 1px solid var(--border);
+		margin-bottom: 0.9rem;
+	}
+	.timebar-fill {
+		height: 100%; width: 100%;
+		background: linear-gradient(90deg, var(--accent), #00e5ff);
+		box-shadow: 0 0 12px var(--accent-glow);
+		transition: width 0.9s linear;
+	}
+
+	.stage { position: relative; }
+	#board {
+		display: block; width: 100%; height: auto; touch-action: none;
+		background: #0b0e14; border: 1px solid var(--border); border-radius: var(--radius);
+		box-shadow: 0 0 40px rgba(62, 245, 139, 0.06);
+	}
+	.overlay {
+		position: absolute; inset: 0; display: flex; flex-direction: column;
+		align-items: center; justify-content: center; gap: 0.7rem;
+		background: rgba(11, 14, 20, 0.82); backdrop-filter: blur(4px);
+		border-radius: var(--radius); text-align: center; padding: 1rem;
+	}
+	.overlay.hidden { display: none; }
+	.overlay h2 { margin: 0; font-size: 1.7rem; }
+	.overlay p { margin: 0; color: var(--text-muted); }
+
+	.howto { margin: 2.2rem 0 3rem; }
+	.howto h2 { font-size: 1.25rem; margin: 1.4rem 0 0.6rem; }
+	.howto ul { color: var(--text-muted); padding-left: 1.2em; }
+	.howto li { margin-bottom: 0.35em; }
+</style>
