@@ -13,6 +13,14 @@ export const NAVER_VERIFICATION = '38ab2f323b2b7acf211e5afa0a16ebf533a1f7e3';
 // 사이트 내장 미니게임 목록. 홈 그리드와 /games 허브가 함께 사용한다.
 export const GAMES = [
 	{
+		href: '/pang',
+		title: '네온 팡',
+		emoji: '💎',
+		genre: '매치3 퍼즐',
+		desc: '같은 보석 3개를 맞춰 터뜨리는 60초 타임어택. 연쇄 콤보가 점수를 불린다.',
+		cover: '/images/games/neon-pang.jpg',
+	},
+	{
 		href: '/snake',
 		title: '네온 스네이크',
 		emoji: '🐍',
