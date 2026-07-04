@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { GAMES as games, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
@@ -12,25 +12,6 @@ const posts = (await getCollection('blog')).sort(
 );
 const featured = posts[0];
 const rest = posts.slice(1, 7);
-
-const games = [
-	{
-		href: '/game',
-		title: '넘버 텐',
-		emoji: '🔟',
-		genre: '두뇌 퍼즐',
-		desc: '드래그로 묶은 숫자 합이 10이면 사라진다. 2분 안에 최고 점수에 도전.',
-		cover: '/images/games/number-ten.jpg',
-	},
-	{
-		href: '/memory',
-		title: '카드 짝 맞추기',
-		emoji: '🃏',
-		genre: '기억력',
-		desc: '같은 그림 카드 두 장을 찾아 뒤집기. 더 적은 시도, 더 빠른 기록.',
-		cover: '/images/games/memory-match.jpg',
-	},
-];
 ---
 
 <!doctype html>
@@ -54,7 +35,7 @@ const games = [
 			<section class="games" id="games">
 				<div class="section-head">
 					<h2>🎮 지금 바로 플레이</h2>
-					<span class="games-note">무료 · 설치 없음 · 브라우저에서 바로</span>
+					<a href="/games" class="more">전체 게임 →</a>
 				</div>
 				<ul class="game-grid">
 					{games.map((g) => (

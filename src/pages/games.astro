@@ -1,0 +1,169 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { GAMES } from '../consts';
+
+const title = '무료 웹게임 — 게임월드7';
+const description =
+	'설치 없이 브라우저에서 바로 즐기는 무료 웹게임 모음. 네온 스네이크·벽돌깨기·숫자 퍼즐·카드 짝 맞추기까지, PC와 모바일 모두 지원합니다.';
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="games-hero">
+				<span class="tag">PLAY · 무료 웹게임</span>
+				<h1>🎮 <span class="neon">게임월드7 아케이드</span></h1>
+				<p class="lead">
+					설치도, 로그인도 필요 없습니다. PC·모바일 브라우저에서 바로 플레이하고 최고 기록에 도전하세요.
+				</p>
+			</section>
+
+			<ul class="game-grid">
+				{GAMES.map((g) => (
+					<li>
+						<a href={g.href} class="game-card">
+							<div class="game-cover">
+								<img src={g.cover} alt={`${g.title} 게임 커버`} loading="lazy" width="640" height="360" />
+								<span class="game-title-overlay">{g.emoji} {g.title}</span>
+							</div>
+							<div class="game-card-foot">
+								<div class="game-info">
+									<span class="game-genre">{g.genre}</span>
+									<p>{g.desc}</p>
+								</div>
+								<span class="play-btn">Play</span>
+							</div>
+						</a>
+					</li>
+				))}
+			</ul>
+
+			<section class="games-about">
+				<h2>이 게임들은 어떻게 만들었나</h2>
+				<p>
+					게임월드7의 미니게임은 모두 HTML5 캔버스로 만든 브라우저 게임입니다. 별도 프로그램 설치나 회원가입 없이
+					즉시 실행되고, 점수는 브라우저에만 저장됩니다. 새 게임은 계속 추가될 예정이니 즐겨찾기 해두세요.
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.games-hero {
+		padding: 2.5rem 0 2rem;
+		text-align: center;
+	}
+	.games-hero h1 {
+		font-size: clamp(2rem, 5.5vw, 3rem);
+		margin: 0.5rem 0;
+	}
+	.neon {
+		color: var(--accent);
+		text-shadow: 0 0 24px var(--accent-glow);
+	}
+	.lead {
+		color: var(--text-muted);
+		max-width: 46ch;
+		margin: 0 auto 0.5rem;
+	}
+
+	.game-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 3rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 1.2rem;
+	}
+	.game-card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		background: var(--bg-elev);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		overflow: hidden;
+		text-decoration: none;
+		transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+	}
+	.game-card:hover {
+		border-color: var(--accent);
+		transform: translateY(-3px);
+		box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 24px var(--accent-glow);
+	}
+	.game-cover {
+		position: relative;
+	}
+	.game-cover img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-bottom: 1px solid var(--border);
+	}
+	.game-title-overlay {
+		position: absolute;
+		left: 0.9rem;
+		bottom: 0.7rem;
+		font-family: var(--font-heading);
+		font-weight: 800;
+		font-size: 1.35rem;
+		color: #fff;
+		text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 20px var(--accent-glow);
+	}
+	.game-card-foot {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1rem 1.2rem;
+	}
+	.game-info p {
+		margin: 0.3rem 0 0;
+		color: var(--text-muted);
+		font-size: 0.9rem;
+	}
+	.game-genre {
+		display: inline-block;
+		padding: 0.15em 0.7em;
+		border-radius: 999px;
+		background: rgba(62, 245, 139, 0.12);
+		color: var(--accent);
+		font-size: 0.78rem;
+		font-weight: 700;
+	}
+	.play-btn {
+		flex-shrink: 0;
+		padding: 0.5em 1.4em;
+		border-radius: 999px;
+		background: var(--accent);
+		color: #0b0e14;
+		font-weight: 800;
+		font-size: 0.95rem;
+		transition: filter 0.15s ease, transform 0.15s ease;
+	}
+	.game-card:hover .play-btn {
+		filter: brightness(1.15);
+		transform: scale(1.05);
+	}
+
+	.games-about {
+		margin-bottom: 3rem;
+	}
+	.games-about h2 {
+		font-size: 1.3rem;
+	}
+	.games-about p {
+		color: var(--text-muted);
+		max-width: 70ch;
+	}
+</style>

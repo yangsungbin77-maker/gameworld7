@@ -9,3 +9,39 @@ export const GSC_VERIFICATION = '1I9RLg6bwsE0GgOuulefYoYIOUPmDYV4V18ekR4iwuE';
 
 // 네이버 서치어드바이저 'HTML 태그' 인증의 content 값만 넣는다. 비워두면 메타태그가 출력되지 않는다.
 export const NAVER_VERIFICATION = '38ab2f323b2b7acf211e5afa0a16ebf533a1f7e3';
+
+// 사이트 내장 미니게임 목록. 홈 그리드와 /games 허브가 함께 사용한다.
+export const GAMES = [
+	{
+		href: '/snake',
+		title: '네온 스네이크',
+		emoji: '🐍',
+		genre: '아케이드',
+		desc: '오브를 먹을수록 길어지고 빨라진다. 벽과 몸통을 피해 최고 기록에 도전.',
+		cover: '/images/games/neon-snake.jpg',
+	},
+	{
+		href: '/breakout',
+		title: '네온 벽돌깨기',
+		emoji: '🧱',
+		genre: '아케이드',
+		desc: '패들로 공을 튕겨 네온 벽돌을 전부 부수기. 스테이지마다 더 빨라진다.',
+		cover: '/images/games/neon-breakout.jpg',
+	},
+	{
+		href: '/game',
+		title: '넘버 텐',
+		emoji: '🔟',
+		genre: '두뇌 퍼즐',
+		desc: '드래그로 묶은 숫자 합이 10이면 사라진다. 2분 안에 최고 점수에 도전.',
+		cover: '/images/games/number-ten.jpg',
+	},
+	{
+		href: '/memory',
+		title: '카드 짝 맞추기',
+		emoji: '🃏',
+		genre: '기억력',
+		desc: '같은 그림 카드 두 장을 찾아 뒤집기. 더 적은 시도, 더 빠른 기록.',
+		cover: '/images/games/memory-match.jpg',
+	},
+];
