@@ -217,7 +217,8 @@ const description =
 				});
 
 				document.querySelectorAll('.dpad [data-dir]').forEach((b) =>
-					b.addEventListener('click', () => setDir(b.dataset.dir)),
+					// click 대신 pointerdown: 연타가 더블탭 확대로 오인되지 않고 반응도 즉각적
+					b.addEventListener('pointerdown', (e) => { e.preventDefault(); setDir(b.dataset.dir); }),
 				);
 
 				let touchStart = null;
@@ -242,7 +243,8 @@ const description =
 </html>
 
 <style>
-	#snakegame { max-width: 560px; margin: 0 auto; }
+	/* touch-action: manipulation = 더블탭 확대 차단(연타해도 화면이 커지지 않음) */
+	#snakegame { max-width: 560px; margin: 0 auto; touch-action: manipulation; }
 	.game-hero { padding: 2rem 0 1.4rem; text-align: center; }
 	.game-hero h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); margin: 0.5rem 0; }
 	.neon { color: var(--accent); text-shadow: 0 0 24px var(--accent-glow); }
@@ -279,6 +281,10 @@ const description =
 		width: 56px; height: 48px; margin: 3px; border-radius: 12px;
 		background: var(--bg-elev); border: 1px solid var(--border); color: var(--accent);
 		font-size: 1.1rem; cursor: pointer;
+		touch-action: manipulation;
+		user-select: none;
+		-webkit-user-select: none;
+		-webkit-touch-callout: none;
 	}
 	.dpad button:active { background: rgba(62, 245, 139, 0.15); }
 	.dpad-mid { display: flex; justify-content: center; }
