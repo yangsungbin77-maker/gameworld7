@@ -12,6 +12,25 @@ const posts = (await getCollection('blog')).sort(
 );
 const featured = posts[0];
 const rest = posts.slice(1, 7);
+
+const games = [
+	{
+		href: '/game',
+		title: '넘버 텐',
+		emoji: '🔟',
+		genre: '두뇌 퍼즐',
+		desc: '드래그로 묶은 숫자 합이 10이면 사라진다. 2분 안에 최고 점수에 도전.',
+		cover: '/images/games/number-ten.jpg',
+	},
+	{
+		href: '/memory',
+		title: '카드 짝 맞추기',
+		emoji: '🃏',
+		genre: '기억력',
+		desc: '같은 그림 카드 두 장을 찾아 뒤집기. 더 적은 시도, 더 빠른 기록.',
+		cover: '/images/games/memory-match.jpg',
+	},
+];
 ---
 
 <!doctype html>
@@ -30,6 +49,32 @@ const rest = posts.slice(1, 7);
 					<a href="/blog" class="btn">최신 글 보기</a>
 					<a href="/about" class="btn-ghost btn">소개</a>
 				</div>
+			</section>
+
+			<section class="games" id="games">
+				<div class="section-head">
+					<h2>🎮 지금 바로 플레이</h2>
+					<span class="games-note">무료 · 설치 없음 · 브라우저에서 바로</span>
+				</div>
+				<ul class="game-grid">
+					{games.map((g) => (
+						<li>
+							<a href={g.href} class="game-card">
+								<div class="game-cover">
+									<img src={g.cover} alt={`${g.title} 게임 커버`} loading="lazy" width="640" height="360" />
+									<span class="game-title-overlay">{g.emoji} {g.title}</span>
+								</div>
+								<div class="game-card-foot">
+									<div class="game-info">
+										<span class="game-genre">{g.genre}</span>
+										<p>{g.desc}</p>
+									</div>
+									<span class="play-btn">Play</span>
+								</div>
+							</a>
+						</li>
+					))}
+				</ul>
 			</section>
 
 			{
@@ -111,6 +156,94 @@ const rest = posts.slice(1, 7);
 		display: flex;
 		gap: 0.8rem;
 		flex-wrap: wrap;
+	}
+
+	.games {
+		margin-bottom: 3rem;
+	}
+	.games-note {
+		color: var(--text-dim);
+		font-size: 0.88rem;
+		font-weight: 600;
+	}
+	.game-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 1.2rem;
+	}
+	.game-card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		background: var(--bg-elev);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		overflow: hidden;
+		text-decoration: none;
+		transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+	}
+	.game-card:hover {
+		border-color: var(--accent);
+		transform: translateY(-3px);
+		box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 24px var(--accent-glow);
+	}
+	.game-cover {
+		position: relative;
+	}
+	.game-cover img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-bottom: 1px solid var(--border);
+	}
+	.game-title-overlay {
+		position: absolute;
+		left: 0.9rem;
+		bottom: 0.7rem;
+		font-family: var(--font-heading);
+		font-weight: 800;
+		font-size: 1.35rem;
+		color: #fff;
+		text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 20px var(--accent-glow);
+	}
+	.game-card-foot {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1rem 1.2rem;
+	}
+	.game-info p {
+		margin: 0.3rem 0 0;
+		color: var(--text-muted);
+		font-size: 0.9rem;
+	}
+	.game-genre {
+		display: inline-block;
+		padding: 0.15em 0.7em;
+		border-radius: 999px;
+		background: rgba(62, 245, 139, 0.12);
+		color: var(--accent);
+		font-size: 0.78rem;
+		font-weight: 700;
+	}
+	.play-btn {
+		flex-shrink: 0;
+		padding: 0.5em 1.4em;
+		border-radius: 999px;
+		background: var(--accent);
+		color: #0b0e14;
+		font-weight: 800;
+		font-size: 0.95rem;
+		transition: filter 0.15s ease, transform 0.15s ease;
+	}
+	.game-card:hover .play-btn {
+		filter: brightness(1.15);
+		transform: scale(1.05);
 	}
 
 	.featured {
