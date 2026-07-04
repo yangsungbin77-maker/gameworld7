@@ -27,6 +27,7 @@ const description =
 					<div class="hud-item">점수 <strong id="score">0</strong></div>
 					<div class="hud-item">최고 기록 <strong id="best">0</strong></div>
 					<div class="hud-item">남은 시간 <strong id="time">60</strong></div>
+					<button class="hud-item sound-btn" id="soundBtn" type="button" aria-label="효과음 켜기/끄기">🔊</button>
 				</div>
 				<div class="timebar"><div class="timebar-fill" id="timebar"></div></div>
 
@@ -47,6 +48,7 @@ const description =
 						<li>가로·세로로 같은 보석이 3개 이상 이어지면 터집니다. 자리를 바꿔도 터지지 않는 이동은 원위치됩니다.</li>
 						<li>터진 자리로 위 보석이 떨어지며 <strong>연쇄가 나면 콤보 배수</strong>가 붙습니다(2연쇄 ×2, 3연쇄 ×3…).</li>
 						<li>움직일 수 있는 곳이 없으면 보드가 자동으로 섞입니다.</li>
+						<li>상단 🔊 버튼으로 효과음을 켜고 끌 수 있습니다.</li>
 					</ul>
 					<h2>고득점 팁</h2>
 					<ul>
@@ -97,6 +99,66 @@ const description =
 
 				best = Number(localStorage.getItem(BEST_KEY) || 0);
 				bestEl.textContent = best;
+
+				// --- sound (Web Audio 합성, 외부 파일 없음) ---
+				const soundBtn = document.getElementById('soundBtn');
+				const SOUND_KEY = 'gw7_pang_sound';
+				let soundOn = localStorage.getItem(SOUND_KEY) !== '0';
+				let audioCtx = null;
+				const updateSoundBtn = () => { soundBtn.textContent = soundOn ? '🔊' : '🔇'; };
+				updateSoundBtn();
+				soundBtn.addEventListener('click', () => {
+					soundOn = !soundOn;
+					localStorage.setItem(SOUND_KEY, soundOn ? '1' : '0');
+					updateSoundBtn();
+					if (soundOn) tone(520, 0.08, 'sine', 0.15, 0, 160);
+				});
+				function ac() {
+					if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					if (audioCtx.state === 'suspended') audioCtx.resume();
+					return audioCtx;
+				}
+				function tone(freq, dur, type, vol, when, slide) {
+					if (!soundOn) return;
+					try {
+						const a = ac();
+						const t0 = a.currentTime + (when || 0);
+						const o = a.createOscillator();
+						const g = a.createGain();
+						o.type = type || 'sine';
+						o.frequency.setValueAtTime(freq, t0);
+						if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(40, freq + slide), t0 + dur);
+						g.gain.setValueAtTime(vol || 0.2, t0);
+						g.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
+						o.connect(g).connect(a.destination);
+						o.start(t0);
+						o.stop(t0 + dur + 0.02);
+					} catch {}
+				}
+				const sndSwap = () => tone(320, 0.08, 'sine', 0.1, 0, 240);
+				const sndInvalid = () => tone(150, 0.12, 'square', 0.07, 0, -60);
+				const sndPop = (cb, count) => {
+					const base = 440 + Math.min(6, cb) * 70;
+					tone(base, 0.12, 'triangle', 0.2, 0, 220);
+					tone(base * 1.5, 0.1, 'sine', 0.11, 0.02, 180);
+					if (count >= 4) tone(base * 2, 0.14, 'sine', 0.1, 0.05, 120);
+				};
+				const sndCombo = (cb) => [0, 0.07, 0.14].forEach((d, i) => tone(520 + cb * 60 + i * 130, 0.09, 'triangle', 0.15, d, 60));
+				const sndTimeUp = () => { tone(440, 0.18, 'sawtooth', 0.13, 0, -180); tone(330, 0.25, 'sawtooth', 0.1, 0.15, -140); };
+
+				// --- impact FX ---
+				let particles = [];
+				let rings = [];
+				let shakeAmp = 0;
+				function burst(x, y, color, power) {
+					const n = 10 + Math.min(14, power * 2);
+					for (let i = 0; i < n; i++) {
+						const a = Math.random() * Math.PI * 2;
+						const sp = (1.5 + Math.random() * 3.5) * (1 + power * 0.12);
+						particles.push({x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 1.4, life: 1, color, r: 2 + Math.random() * 3});
+					}
+					rings.push({x, y, r: CELL * 0.2, color, life: 1});
+				}
 
 				const inBounds = (r, c) => r >= 0 && c >= 0 && r < N && c < N;
 				const randType = () => Math.floor(Math.random() * GEMS.length);
@@ -185,6 +247,9 @@ const description =
 					timeEl.textContent = GAME_SEC;
 					timebar.style.width = '100%';
 					selected = null;
+					particles = [];
+					rings = [];
+					shakeAmp = 0;
 					state = 'idle';
 					overlay.classList.add('hidden');
 					clearInterval(timerId);
@@ -201,6 +266,7 @@ const description =
 				function endGame() {
 					clearInterval(timerId);
 					state = 'off';
+					sndTimeUp();
 					if (score > best) {
 						best = score;
 						localStorage.setItem(BEST_KEY, best);
@@ -218,6 +284,7 @@ const description =
 					if (Math.abs(a.r - b.r) + Math.abs(a.c - b.c) !== 1) return;
 					selected = null;
 					state = 'swap';
+					sndSwap();
 					swapAnim = {a, b, t0: performance.now(), dur: 120, revert: false};
 				}
 
@@ -232,6 +299,7 @@ const description =
 							startClear(matches);
 							return;
 						}
+						sndInvalid();
 						swapAnim = {a, b, t0: performance.now(), dur: 120, revert: true};
 					} else {
 						swapAnim = null;
@@ -248,9 +316,16 @@ const description =
 					score += gained;
 					scoreEl.textContent = score;
 					if (combo >= 2) comboFlash = {text: `콤보 ×${combo}!`, t0: performance.now()};
+					sndPop(combo, clearing.length);
+					if (combo >= 2) sndCombo(combo);
+					shakeAmp = Math.min(11, 2 + clearing.length * 0.6 + combo * 1.6);
 					clearing.forEach((idx) => {
-						const g = grid[Math.floor(idx / N)][idx % N];
-						if (g) g.clearing = true;
+						const r = Math.floor(idx / N), c = idx % N;
+						const g = grid[r][c];
+						if (g) {
+							g.clearing = true;
+							burst((c + 0.5) * CELL, (r + 0.5) * CELL + g.py, GEMS[g.t].color, clearing.length + combo);
+						}
 					});
 				}
 
@@ -333,6 +408,11 @@ const description =
 					// draw
 					ctx.fillStyle = '#0b0e14';
 					ctx.fillRect(0, 0, canvas.width, canvas.height);
+					ctx.save();
+					if (shakeAmp > 0.3) {
+						ctx.translate((Math.random() * 2 - 1) * shakeAmp, (Math.random() * 2 - 1) * shakeAmp);
+						shakeAmp *= Math.pow(0.88, dt / 16);
+					} else shakeAmp = 0;
 					ctx.strokeStyle = 'rgba(62,245,139,0.05)';
 					for (let i = 1; i < N; i++) {
 						ctx.beginPath(); ctx.moveTo(i * CELL, 0); ctx.lineTo(i * CELL, canvas.height); ctx.stroke();
@@ -364,6 +444,41 @@ const description =
 							if (scale > 0) drawGem(x, y, g.t, scale, sel);
 						}
 
+					// rings + particles (터지는 임팩트)
+					for (let i = rings.length - 1; i >= 0; i--) {
+						const rg = rings[i];
+						rg.r += dt * 0.32;
+						rg.life -= dt / 320;
+						if (rg.life <= 0) { rings.splice(i, 1); continue; }
+						ctx.save();
+						ctx.globalAlpha = rg.life * 0.8;
+						ctx.strokeStyle = rg.color;
+						ctx.shadowColor = rg.color;
+						ctx.shadowBlur = 14;
+						ctx.lineWidth = 2.5;
+						ctx.beginPath();
+						ctx.arc(rg.x, rg.y, rg.r, 0, Math.PI * 2);
+						ctx.stroke();
+						ctx.restore();
+					}
+					for (let i = particles.length - 1; i >= 0; i--) {
+						const p = particles[i];
+						p.x += p.vx * (dt / 16);
+						p.y += p.vy * (dt / 16);
+						p.vy += 0.09 * (dt / 16);
+						p.life -= dt / 650;
+						if (p.life <= 0) { particles.splice(i, 1); continue; }
+						ctx.save();
+						ctx.globalAlpha = Math.max(0, p.life);
+						ctx.fillStyle = p.color;
+						ctx.shadowColor = p.color;
+						ctx.shadowBlur = 10;
+						ctx.beginPath();
+						ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI * 2);
+						ctx.fill();
+						ctx.restore();
+					}
+
 					if (comboFlash) {
 						const k = (t - comboFlash.t0) / 900;
 						if (k >= 1) comboFlash = null;
@@ -378,6 +493,8 @@ const description =
 							ctx.restore();
 						}
 					}
+
+					ctx.restore();
 
 					if (state !== 'off') raf = requestAnimationFrame(loop);
 				}
@@ -462,6 +579,13 @@ const description =
 		padding: 0.4em 1.1em; color: var(--text-muted); font-size: 0.92rem; font-weight: 600;
 	}
 	.hud-item strong { color: var(--accent); margin-left: 0.35em; }
+	.sound-btn {
+		cursor: pointer;
+		font-size: 1rem;
+		line-height: 1;
+		transition: border-color 0.15s ease;
+	}
+	.sound-btn:hover { border-color: var(--accent); }
 
 	.timebar {
 		height: 6px; border-radius: 999px; overflow: hidden;
