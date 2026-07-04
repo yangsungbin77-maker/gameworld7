@@ -21,6 +21,14 @@ export const GAMES = [
 		cover: '/images/games/neon-pang.jpg',
 	},
 	{
+		href: '/maze',
+		title: '야옹이 미로 찾기',
+		emoji: '😺',
+		genre: '키즈',
+		desc: '5살도 혼자 OK! 야옹이를 움직여 물고기를 찾는 유아용 미로. 실패 없음, 칭찬만.',
+		cover: '/images/games/cat-maze.jpg',
+	},
+	{
 		href: '/snake',
 		title: '네온 스네이크',
 		emoji: '🐍',
