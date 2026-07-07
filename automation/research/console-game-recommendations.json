@@ -1,0 +1,33 @@
+{
+  "type": "review",
+  "keyword": "콘솔 게임 추천",
+  "serp": [
+    { "url": "https://cupass.co.kr/콘솔-게임기-추천-top-5", "opened": true, "note": "페르소나별(성능/가족/가성비/휴대) 콘솔 추천 5개. GTA6·게임패스 월1만원대 언급. 기기추천 중심, 게임 목록은 얕음" },
+    { "url": "https://www.singular.net/blog/best-console-games/", "opened": true, "note": "2025 콘솔게임 12선, 판매량·평점 수치 제시(몬헌 와일즈 1050만장 등). 크로스플랫폼 표준화 강조. 기기선택 가이드는 없음" },
+    { "url": "https://gemlog.co.kr/닌텐도-스위치2-가격-총정리", "opened": true, "note": "스위치2 한국정발 기본 648,000원/마리오카트월드 번들 688,000원. 가격만 다룸(단일 기종)" },
+    { "url": "https://www.playstation.com/en-us/editorial/most-anticipated-games-coming-to-playstation-this-year/", "opened": true, "note": "PS5 2026 기대작 공식목록(마블 울버린·니오3 2026-02-06·RE 레퀴엠·붉은사막 등). 1차출처" },
+    { "url": "https://dc.wondershare.kr/record-games/ps5-games-top20.html", "opened": true, "note": "PS5 베스트20 장르별 표(배틀로열·FPS·스포츠·RPG…). 게임목록형, 기기선택·타 플랫폼 없음" },
+    { "url": "https://www.inven.co.kr/webzine/news/?news=310756", "opened": true, "note": "차세대 콘솔 3사 전략(PS6 AMD·엑박 탈콘솔화·닌텐도 스위치2 2500만대). 뉴스형, 추천 아님" },
+    { "url": "https://www.ajunews.com/view/20260630153627121", "opened": true, "note": "한국게임사 멀티플랫폼 전략(붉은사막 스위치2 검토 등). 콘솔가격 상승 배경. 뉴스" },
+    { "url": "https://www.xbox.com/en-US/xbox-game-pass", "opened": true, "note": "게임패스 등급(Essential/Premium/Ultimate/PC). Ultimate=신작 출시일 플레이·500+게임. 1차출처" },
+    { "url": "https://v.daum.net/v/8m5by2LxDL", "opened": true, "note": "PS5프로·스위치2 인기이유(DDR5 4배급등으로 PC조립 비싸짐→콘솔 가성비 역전, PSSR2.0, 수급부족 프리미엄가). 뉴스" },
+    { "url": "https://namu.wiki/w/거치형 콘솔 게임기", "opened": false, "note": "403 차단(WAF). 거치형 콘솔 정의·기종 분류 참고하려 했으나 미개봉" }
+  ],
+  "factcheck": [
+    { "claim": "닌텐도 스위치2 한국 정발가 기본 약 648,000원 / 마리오카트월드 번들 약 688,000원, 2025-06 출시", "sources": ["https://gemlog.co.kr/닌텐도-스위치2-가격-총정리", "WebSearch 2026-03 기준 스위치2 648,000원·PS5슬림 748,000·Xbox X 688,000"] },
+    { "claim": "PS5 독점 대작 라인업(스파이더맨·갓오브워)이 입문 1순위 근거; 2026 PS5 기대작 니오3(2026-02-06)·마블 울버린·RE 레퀴엠·붉은사막", "sources": ["https://www.playstation.com/en-us/editorial/most-anticipated-games-coming-to-playstation-this-year/", "https://v.daum.net/v/8m5by2LxDL"] },
+    { "claim": "엑스박스 게임패스 최상위(Ultimate) 등급은 엑박 신작을 출시일부터 플레이 가능·500+ 게임 구독", "sources": ["https://www.xbox.com/en-US/xbox-game-pass", "https://cupass.co.kr/콘솔-게임기-추천-top-5"] },
+    { "claim": "2026년 콘솔은 크로스플랫폼이 표준화되어 독점의 벽이 낮아짐", "sources": ["https://www.singular.net/blog/best-console-games/", "https://www.ajunews.com/view/20260630153627121"] },
+    { "claim": "메모리(DDR5) 가격 급등으로 PC 조립비가 올라 콘솔의 상대적 가성비가 개선됨", "sources": ["https://v.daum.net/v/8m5by2LxDL", "https://www.inven.co.kr/webzine/news/?news=310756"] }
+  ],
+  "variables": {
+    "keyword": "콘솔 게임 추천",
+    "headline_finding": "콘솔 게임 추천의 핵심은 기기 스펙이 아니라 '누구와·어떤 게임을 할지'를 먼저 정하는 것 — PS5(독점 서사)·스위치2(가족·휴대·파티)·Xbox(게임패스 구독) 세 갈래로 갈린다",
+    "price_snapshot_2026": "스위치2 기본 약 648,000원(번들 688,000), PS5 슬림 약 748,000원, Xbox Series X 약 688,000원 — 2026 상반기·시세 변동",
+    "platform_matchup": "혼자 서사형→PS5 / 가족·휴대·파티→스위치2 / 다다익선 가성비→Xbox 게임패스 / PC 자산 많고 휴대→스팀덱",
+    "must_play_2026": "PS5 독점=마블 울버린·스파이더맨·갓오브워·호라이즌, 스위치2=마리오카트·포켓몬·젤다, 멀티플랫폼(PS5로도 가능)=붉은사막(펄어비스)·인왕3·몬헌 와일즈",
+    "market_context": "DDR5 급등으로 PC 조립비↑ → 콘솔 가성비 역전, 스위치2·PS5프로 수급부족 프리미엄가"
+  },
+  "hermes_score": 91,
+  "hermes_note": "독립 심판(별도 에이전트) 1차 82 FAIL(붉은사막 제작사 날조'카이막'+멀티플랫폼 PS5독점 오인) → 정정 후 재채점 91 PASS. 사실정확성 24/25"
+}
