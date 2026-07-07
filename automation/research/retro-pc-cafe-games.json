@@ -1,0 +1,33 @@
+{
+  "type": "listicle",
+  "keyword": "추억의 PC방 고전게임",
+  "serp": [
+    { "url": "https://hyugajung.com/pc-온라인-게임-레전드/", "opened": true, "note": "2000년대 온라인게임 장르별 목록·표(리니지1998·메이플2003·카트2004·서든2005·던파2005·스타1998·워크32002·크아·포트리스2001 등). 장르 소제목 6개 구성 참고" },
+    { "url": "https://www.gamevu.co.kr/news/articleView.html?idxno=51178", "opened": true, "note": "서든어택 2005.8 출시, 2006.10~2008.11 106주 연속 PC방 1위(국산 최장), 누적 3천만·최고동접 35만. 20년 서비스" },
+    { "url": "https://www.hankookilbo.com/news/article/A2023011717020000837", "opened": true, "note": "카트라이더 2004.6 출시(넥슨), 한때 스타 제치고 PC방 1위, 출시 1년내 회원1000만·동접20만, 여성 게이머 유입" },
+    { "url": "https://soulbound.game/blog/100-of-the-most-nostalgic-computer-games-from-the-90s-2010s/", "opened": true, "note": "영어권 향수 목록: 스타1998·워크3 2002(DotA→MOBA)·디아블로2 2000·카운터스트라이크 2000·WoW 2004. 연도 교차확인" },
+    { "url": "https://ko.wikipedia.org/wiki/메이플스토리", "opened": true, "note": "메이플스토리 2003.4.29 정식서비스, 넥슨, 2D 횡스크롤 MMORPG(세계 최초 2D 사이드스크롤 MMORPG 표방)" },
+    { "url": "https://ko.wikipedia.org/wiki/크레이지_아케이드", "opened": true, "note": "크레이지아케이드(BnB) 2001.10.16 한국 출시, 넥슨, 물풍선 캐주얼. 국내 2000만·세계 1억 유저. 서비스 종료 예정 2026.8.13 명시" },
+    { "url": "https://ko.wikipedia.org/wiki/포트리스2", "opened": true, "note": "포트리스2 블루 2001.1 PC방 유료화, 개발 CCR, 턴제 포격(각도·바람), 최대 8인 개인/팀전" },
+    { "url": "https://ko.wikipedia.org/wiki/던전_앤_파이터", "opened": true, "note": "던전앤파이터 2005.8.10 오픈베타, 개발 네오플·서비스 넥슨, 온라인 액션RPG(횡스크롤). 중국 대성공, 전세계 6억+" },
+    { "url": "https://namu.wiki/w/고전 게임/목록", "opened": false, "note": "WAF 차단. 고전게임 전체목록 참고하려 했으나 미개봉(위키·블로그·언론으로 대체 확인)" },
+    { "url": "https://bbs.ruliweb.com/etcs/board/300781/read/59565589", "opened": false, "note": "커뮤니티 게시글, WAF/로그인 차단 추정. 대표작 목록은 다른 8개 소스로 충분 커버" }
+  ],
+  "factcheck": [
+    { "claim": "서든어택 2005년 출시, 2006~2008년 약 106주 연속 PC방 점유율 1위(국산 게임 최장), 누적 이용자 약 3천만 명", "sources": ["https://www.gamevu.co.kr/news/articleView.html?idxno=51178", "WebSearch 요약(서든어택 106주·3천만·동접35만 국민게임)"] },
+    { "claim": "카트라이더 2004.6 출시(넥슨), 출시 1년 내 등록회원 1천만 돌파, 한때 스타크래프트 제치고 PC방 점유율 1위", "sources": ["https://www.hankookilbo.com/news/article/A2023011717020000837", "https://hyugajung.com/pc-온라인-게임-레전드/"] },
+    { "claim": "메이플스토리 2003.4 정식서비스(넥슨, 2D 횡스크롤 MMORPG), 던전앤파이터 2005.8 오픈베타(네오플 개발·넥슨 서비스, 액션RPG)", "sources": ["https://ko.wikipedia.org/wiki/메이플스토리", "https://ko.wikipedia.org/wiki/던전_앤_파이터"] },
+    { "claim": "크레이지아케이드 2001.10 출시(넥슨, 물풍선), 포트리스2 블루 2001(CCR, 턴제 포격), 스타크래프트1998·워크래프트3 2002(RTS)", "sources": ["https://ko.wikipedia.org/wiki/크레이지_아케이드", "https://ko.wikipedia.org/wiki/포트리스2"] },
+    { "claim": "크레이지아케이드는 오랜 서비스 끝에 종료가 예고됨(위키 기준 2026년) — 잘 바뀌는 정보라 공식 공지 확인 권장", "sources": ["https://ko.wikipedia.org/wiki/크레이지_아케이드", "WebSearch(크레이지아케이드 LIVE 서비스 종료)"] }
+  ],
+  "variables": {
+    "keyword": "추억의 PC방 고전게임",
+    "headline_finding": "대표작을 RTS·FPS·캐주얼·MMORPG 장르로 묶고 '지금도 할 수 있는지'와 출시연도 표까지 = 단순 추억 나열을 넘어선 정보게인",
+    "era_context": "2000년대 PC방 황금기(초고속 인터넷+PC방 확산). 서든 106주 연속 1위, 카트 1년내 회원 1천만",
+    "still_alive": "현역=스타(리마스터)·메이플·던파·마비노기·서든 / 종료·종료예고=크레이지아케이드(2026 예고)",
+    "by_genre": "RTS 스타1998·워크3 2002 / FPS 서든2005·CS2000·스페셜포스 / 캐주얼 카트2004·크아2001·포트리스2001 / MMORPG 바람의나라1996·리니지1998·메이플2003·마비노기2004·던파2005 / 리듬·스포츠 오디션·프리스타일",
+    "timely_hook": "물풍선 국민게임 크레이지아케이드 서비스 종료 예고 = 향수+시의성 결합"
+  },
+  "hermes_score": 96,
+  "hermes_note": "독립 심판(별도 에이전트) 96 PASS, 치명결함 0. 연도·개발사(포트리스2=CCR, 던파=네오플·넥슨) 정확·단정 절제 우수. 지시반영: 리니지 공성전 '확장'으로 시점 정밀화, 서든 '누적 가입자'로 기준 명시"
+}
