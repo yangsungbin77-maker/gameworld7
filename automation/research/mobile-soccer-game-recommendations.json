@@ -1,0 +1,34 @@
+{
+  "type": "review",
+  "keyword": "모바일 축구게임 추천",
+  "note": "게임 추천 로운드업(AI 인용·추천스니펫 유리). 한국 SERP 약함(uptodown·앱스토어 리스트·제너릭 애그리게이터뿐)이라 진입 여지 큼. 차별화=목적별 4분류(대전/육성/아케이드/매니저)+저사양·오프라인 표+과금(P2W) 주의박스+라이선스 차이. 경쟁글은 단순 나열이 많아 결정가이드로 10x.",
+  "serp": [
+    { "url": "https://madfox.dev/games_en/best-soccer-games-mobile-2026", "opened": true, "note": "랭킹형 5선(EA FC/eFootball/DLS/Score!Hero/Soccer Manager). EA=엔트리, eFootball=심화, DLS=취향, Score Hero=짧은세션 포지셔닝. quick pick+FAQ 구조" },
+    { "url": "https://www.apkmadness.com/blog/best-football-games-for-android-2026/", "opened": true, "note": "오프라인vs온라인 분류. 6선(eFootball/EA FC/DLS2026/Total Football/Football League2026/Vive le Football). 저사양·오프라인(DLS·Football League) 명시. 저장/성능 비교표" },
+    { "url": "https://dls26.net/top-10-best-football-game/", "opened": true, "note": "TOP10 표(퍼블·무료·온오프·특징). EA FC(EA)·eFootball(Konami)·DLS2026(First Touch)·FM Mobile·Top Eleven(Nordeus)·Score!Hero·Soccer Stars(Miniclip)·Head Ball2(Masomo)·Football Strike(Miniclip)·World Soccer Champs" },
+    { "url": "https://www.mistplay.com/blog/soccer-games-to-play", "opened": true, "note": "5선 표(DLS/Top Eleven(Nordeus)/OSM(Gamebasics)/Score!Hero(First Touch)/Rocket League Sideswipe(Psyonix)). 매니저·아케이드 분류 근거" },
+    { "url": "https://en.uptodown.com/android/soccer-games", "opened": true, "note": "안드로 437개 큐레이션 TOP10. EA FC26·eFootball PES2026·DLS2026(4000 라이선스 선수)·Blue Lock·Score! World Goals·Soccer Manager2026(90+리그 FIFPro). DLS 완전 오프라인 커리어 명시" },
+    { "url": "https://www.ea.com/en/games/ea-sports-fc/fc-mobile", "opened": true, "note": "EA 공식. FC Mobile 26 시즌(2025.9), 무료+인앱, 50+ 국가대표·얼티밋팀·디비전라이벌스·H2H, 공식 라이선스(레알·리버풀 등). 외부링크 후보" },
+    { "url": "https://apps.apple.com/us/app/ea-sports-fc-soccer-mobile-26/id1094930513", "opened": true, "note": "앱스토어 공식. 무료+인앱, 개발 EA Swiss Sarl, 19,000+선수·690팀·35리그(UCL·EPL·라리가·분데스·세리에A·리그1), H2H·VS어택·디비전라이벌스. 라이선스 수치 1차 확인" },
+    { "url": "https://apps.apple.com/us/iphone/story/id1457236648?l=ko", "opened": true, "note": "앱스토어 한국 스토리 TOP10. EA FC 축구 모바일2026·Head Ball2·DLS2026·eFootball·Score!Hero·Top Eleven2026·Captain Tsubasa·Retro Goal·Mini Football·OSM. 한국 노출 게임군 확인" },
+    { "url": "https://www.fixgamingchannel.com/best-soccer-games-mobile-2026-ios-android/", "opened": false, "note": "429 차단. 검색 스니펫으로 EA FC=안전한 첫선택, DLS/Top Eleven/Soccer Manager 확인, madfox로 대체" },
+    { "url": "https://games.gg/news/best-soccer-games-in-2026/", "opened": false, "note": "403 차단. 다른 8개 소스로 충분히 교차" }
+  ],
+  "factcheck": [
+    { "claim": "EA SPORTS FC 모바일=옛 피파 모바일 후속, 무료+인앱, 공식 라이선스 19,000+선수·690팀·35리그(UCL·EPL·라리가·분데스·세리에A·리그1), 얼티밋팀·H2H·디비전라이벌스, 2025.9 'FC 모바일 26' 시즌", "sources": ["https://www.ea.com/en/games/ea-sports-fc/fc-mobile", "https://apps.apple.com/us/app/ea-sports-fc-soccer-mobile-26/id1094930513"] },
+    { "claim": "eFootball=코나미, 옛 위닝일레븐/PES 후신, 무료, 볼물리·전술 리얼리즘 중심", "sources": ["https://dls26.net/top-10-best-football-game/", "https://en.uptodown.com/android/soccer-games"] },
+    { "claim": "드림 리그 사커 2026=퍼스트터치게임즈, 무료, FIFPro 라이선스, 오프라인 커리어 가능·2~3GB 램 저사양 구동", "sources": ["https://www.apkmadness.com/blog/best-football-games-for-android-2026/", "https://en.uptodown.com/android/soccer-games", "https://dls26.net/top-10-best-football-game/"] },
+    { "claim": "매니저형=탑 일레븐(노르데우스, 실시간)·풋볼 매니저 모바일(오프라인 관리심층)·OSM(Gamebasics)·사커 매니저 2026(FIFPro 90+리그)", "sources": ["https://www.mistplay.com/blog/soccer-games-to-play", "https://en.uptodown.com/android/soccer-games", "https://dls26.net/top-10-best-football-game/"] },
+    { "claim": "아케이드형=스코어 히어로(퍼스트터치, 스와이프·오프라인)·헤드볼2(Masomo, 1v1)·풋볼스트라이크/사커스타즈(Miniclip)·로켓리그 사이드스와이프(Psyonix, 자동차축구)", "sources": ["https://dls26.net/top-10-best-football-game/", "https://www.mistplay.com/blog/soccer-games-to-play"] },
+    { "claim": "무거운 3D 대전형은 온라인·과금(P2W) 영향 큼, 커리어·아케이드·매니저형은 오프라인 가능·과금 부담 적음", "sources": ["https://www.apkmadness.com/blog/best-football-games-for-android-2026/", "https://madfox.dev/games_en/best-soccer-games-mobile-2026"] }
+  ],
+  "variables": {
+    "keyword": "모바일 축구게임 추천",
+    "headline_finding": "유명순이 아니라 목적(대전/육성/아케이드/매니저)+폰사양+과금취향으로 골라야 실패 없음",
+    "category_framework": "4분류: 실시간 대전(EA FC·eFootball) / 커리어 육성(DLS·풋볼리그) / 아케이드(스코어히어로·헤드볼2·로켓리그) / 매니저(탑일레븐·FM모바일·OSM)",
+    "low_spec_offline_pick": "저사양·오프라인·무과금이면 드림 리그 사커 2026(2~3GB 램)·스코어 히어로·매니저형이 정답",
+    "p2w_warning": "대전형 무료지만 카드뽑기 과금이 랭킹에 영향(P2W), 부담 싫으면 커리어·아케이드",
+    "license_gap": "EA FC 모바일이 라이선스 최다(19,000선수·35리그), eFootball은 화려함보다 게임성"
+  },
+  "hermes_score": 91
+}
