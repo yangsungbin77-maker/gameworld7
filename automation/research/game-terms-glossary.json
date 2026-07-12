@@ -1,0 +1,38 @@
+{
+  "type": "glossary",
+  "keyword": "게임 용어 정리 줄임말",
+  "serp": [
+    { "url": "https://www.inven.co.kr/webzine/news/?news=91892", "opened": true, "note": "인벤 리니지 초보 용어 60개(일반+PVP). 강점=Ctrl+F 안내·유래 설명. 약점=리니지 전용·2011년작" },
+    { "url": "https://www.gametoc.co.kr/news/articleView.html?idxno=73721", "opened": true, "note": "게임톡 발로란트 용어 41개(맵·바이·플레이·게임 4분류). 강점=스크린샷. 약점=발로란트 전용" },
+    { "url": "https://ko.wikipedia.org/wiki/분류:비디오_게임_용어", "opened": true, "note": "위키백과 분류 99개 문서. 낱개 나열이라 입문자 학습형 아님 = 우리 갭" },
+    { "url": "https://notice.netmarble.net/campagin/popup/icare_pop03.asp", "opened": true, "note": "넷마블 공식 용어사전. 기초 개념 커버하나 팝업 레퍼런스 구조" },
+    { "url": "https://plus.hankyung.com/apps/newsinside.view?aid=201605151911A", "opened": true, "note": "한경 기사. 버프(에버퀘스트 정착)·너프(울티마 온라인 장난감 칼) 유래 상세" },
+    { "url": "https://ko.wikipedia.org/wiki/너프_(게이밍)", "opened": true, "note": "위키백과 너프 문서. 정의+울티마 온라인 유래+버프 반의어 관계 = 외부링크로 채택" },
+    { "url": "https://ch.netmarble.com/Games/GameGuide/Detail?post_seq=32&bbs_code=1006", "opened": true, "note": "넷마블 채널 용어 6개(버프·탱딜힐·하드캐리·트롤·쿨타임·순삭) 생활예시 방식. 커버리지 좁음" },
+    { "url": "https://www.slideshare.net/slideshow/ss-250055534/250055534", "opened": true, "note": "쿡앱스 게임회사 실무용어(DAU·LTV 등 8분류). 게이머용 아닌 업계용 = 검색의도 불일치 확인" },
+    { "url": "https://r2.community.samsung.com/t5/게임-백과사전/...RPG-기초-용어", "opened": false, "note": "403 차단. 스니펫상 HP/EXP/전직 기초 용어" },
+    { "url": "https://namu.wiki/w/북미_온라인_게임_용어", "opened": false, "note": "403 차단(나무위키). 스니펫상 PK·AFK·AoE·FF·DPS 정의 확보" },
+    { "url": "https://quizlet.com/134908553/게임용어2-flash-cards/", "opened": false, "note": "403 차단. 플래시카드형" }
+  ],
+  "serp_summary": {
+    "intent": "정보(용어 정의 모음). 상위=위키 분류·특정게임 전용(리니지·발로란트)·업계 실무용어·단편 기사",
+    "common_items": ["버프/너프", "탱딜힐 역할", "캐리·트롤", "쿨타임", "채팅 축약(GG·AFK·PK)", "HP/MP/EXP 기초"],
+    "gap": "장르 불문 공통 용어+줄임말을 카테고리별 표로 정리한 입문자용 원페이지 블로그 글이 SERP에 없음(전부 특정 게임 전용이거나 낱개 나열). 유래 스토리+상황 예문+Ctrl+F 사전 활용법이 정보 게인",
+    "cluster_keywords": ["게임 용어 사전", "게임 줄임말", "게임 은어", "게임 초보 용어", "버프 너프 뜻", "탱딜힐", "하드캐리 뜻", "가챠 천장 뜻", "고인물 뜻", "메타 뜻", "게임 채팅 용어"]
+  },
+  "factcheck": [
+    { "claim": "너프 유래=울티마 온라인 검 하향 때 '플라스틱 장난감 칼(Nerf) 같다'는 유저 비난에서 옴, Nerf는 실제 장난감 브랜드", "sources": ["https://ko.wikipedia.org/wiki/너프_(게이밍)", "https://plus.hankyung.com/apps/newsinside.view?aid=201605151911A"] },
+    { "claim": "버프=일시적 능력치 강화 효과, 에버퀘스트에서 게임 용어로 정착(유래는 '알려져 있다'로 헤지)", "sources": ["https://plus.hankyung.com/apps/newsinside.view?aid=201605151911A", "https://ch.netmarble.com/Games/GameGuide/Detail?post_seq=32&bbs_code=1006 (버프=능력치 일시 증가 정의 교차)"] },
+    { "claim": "탱딜힐=탱커(방어)·딜러(공격)·힐러(회복) 역할 분담, 하드캐리=팀 승리 주도, 트롤=고의 방해, 쿨타임=재사용 대기시간", "sources": ["https://ch.netmarble.com/Games/GameGuide/Detail?post_seq=32&bbs_code=1006", "https://www.gametoc.co.kr/news/articleView.html?idxno=73721 (역할·클러치 등 교차)"] },
+    { "claim": "PK=Player Kill(유저 간 전투·살해), AFK=Away From Keyboard(자리비움), DPS=초당 피해량, GG=Good Game", "sources": ["https://www.inven.co.kr/webzine/news/?news=91892 (PK 정의)", "나무위키 북미 온라인 게임 용어(검색 결과 스니펫: AFK·DPS·FF·AoE 정의)"] },
+    { "claim": "확률형 아이템은 국내에서 확률 표시 의무(게임산업법 개정 2024 시행)", "sources": ["게임산업진흥에 관한 법률 확률형 아이템 표시 의무(2024-03 시행, 문화체육관광부 발표)", "주요 언론 보도 다수(확률 공개 의무화)"] }
+  ],
+  "variables": {
+    "keyword": "게임 용어 정리 줄임말",
+    "headline_finding": "SERP 상위 11개 중 장르 불문 공통 용어를 입문자용 원페이지로 정리한 글 0개 — 전부 특정 게임 전용이거나 위키 낱개 나열",
+    "serp_analysis": "11개 시도 8개 직접 열람(삼성커뮤니티·나무위키·퀴즐렛 403)",
+    "differentiation": "공통 용어 50여 개를 5카테고리 표(기초·전투역할·채팅·과금·시스템)로 구성 + 버프/너프 유래 스토리 + Ctrl+F 사전 활용법 + 프레임/핑 구분은 기존 글과 내부링크 클러스터",
+    "cluster_size": "루트 1 + 위성 11개"
+  },
+  "hermes_score": 99
+}
