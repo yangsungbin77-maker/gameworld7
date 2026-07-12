@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#1c2050"/>
+      <stop offset="100%" stop-color="#0c0e22"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <g stroke="#232a5c" stroke-width="1">
+    <path d="M0 300 H640 M0 250 H640 M0 200 H640"/>
+    <path d="M100 360 L140 180 M250 360 L270 180 M400 360 L390 180 M540 360 L510 180"/>
+  </g>
+  <text x="200" y="215" font-size="120" text-anchor="middle" filter="url(#glow)">⚔️</text>
+  <text x="430" y="205" font-size="95" text-anchor="middle" filter="url(#glow)">🐉</text>
+  <text x="320" y="295" font-size="44" text-anchor="middle" font-family="sans-serif" font-weight="800" fill="#7ef9ff" filter="url(#glow)">네온 히어로</text>
+  <text x="320" y="330" font-size="20" text-anchor="middle" font-family="sans-serif" fill="#aab" >방치형 용사 키우기</text>
+</svg>

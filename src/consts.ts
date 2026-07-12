@@ -13,6 +13,14 @@ export const NAVER_VERIFICATION = '38ab2f323b2b7acf211e5afa0a16ebf533a1f7e3';
 // 사이트 내장 미니게임 목록. 홈 그리드와 /games 허브가 함께 사용한다.
 export const GAMES = [
 	{
+		href: '/hero',
+		title: '네온 히어로',
+		emoji: '⚔️',
+		genre: '방치형',
+		desc: '클릭으로 몬스터 사냥, 용병 자동 DPS, 꺼도 쌓이는 골드! 환생으로 무한 성장.',
+		cover: '/images/games/neon-hero.svg',
+	},
+	{
 		href: '/craft',
 		title: '네온 크래프트',
 		emoji: '⛏️',
