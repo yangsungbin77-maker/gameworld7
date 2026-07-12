@@ -1,0 +1,40 @@
+{
+  "type": "howto",
+  "keyword": "게임 프레임 드랍 해결",
+  "serp": [
+    { "url": "http://www.ilovepcbang.com/news/articleView.html?idxno=107705", "opened": true, "note": "PC방 매체 기사. 전원옵션 고성능·팬 70%+·CPU 90도 스로틀링 수치. 원인 나열형, 진단 순서 없음" },
+    { "url": "https://paduck.co.kr/blog/2026/04/04/프레임-드랍/", "opened": true, "note": "최상위 경쟁글. 원인 6종(CPU병목·VRAM·SSD·셰이더·발열·오버레이)+체크 5단계. CPU 85~95도·GPU 80도·VRAM 1~2GB 여유 수치. 약점=증상별 분기 없음" },
+    { "url": "https://www.a-ha.io/questions/4c17e97ac6b93d4bb4105c9dcb5b31ce", "opened": true, "note": "Q&A. 모니터링 도구(CapFrameX·애프터버너)·네트워크 구분 언급. 단편적, 온도 기준 없음" },
+    { "url": "https://www.a-ha.io/questions/43427874dd9434a2ae4c23fead1edd22", "opened": true, "note": "Q&A. 서멀구리스 마름→스로틀링, 드라이버·포맷. 진단 순서 모호" },
+    { "url": "https://extrememanual.net/32939", "opened": true, "note": "윈도우 설정 6종(주사율·수직동기·게임바 DVR·전체화면 최적화·FTH 레지스트리). 원인 분석 약함" },
+    { "url": "https://talk.op.gg/s/lol/tip/6524673/", "opened": true, "note": "롤 특화 커뮤니티 팁. 공식 가이드 우선·마우스 폴링 125Hz. 가상메모리/제어판 만지기는 소용없다는 실전 반증" },
+    { "url": "https://itmarublog.com/게임-프레임-표시-확인/", "opened": true, "note": "프레임 표시 방법(지포스 익스피리언스·Win+G 게임바 성능 위젯 고정). 표시만 다루고 해결 없음 → 우리는 표시+진단+해결 통합" },
+    { "url": "https://www.inven.co.kr/board/valorant/5620/26515", "opened": true, "note": "게이밍 노트북 수시 드랍 질문(i7·3060). 노트북 발열 수요 확인, 답변 부재 → FAQ로 커버" },
+    { "url": "https://www.intel.com/content/www/us/en/gaming/resources/how-to-fix-your-low-frame-rate.html", "opened": false, "note": "403 차단(직전 최적화 글에서 기분석: 저프레임 일반 해결)" },
+    { "url": "https://quasarzone.com/bbs/qf_cmr/views/1362549", "opened": false, "note": "403 차단. 검색 스니펫상 VRAM 1~2GB 여유 시 프레임 안정 언급" },
+    { "url": "https://coolenjoy.net/bbs/28/3525200", "opened": false, "note": "타임아웃(TLS 차단 이력 있는 사이트)" },
+    { "url": "https://kakaogames.oqupie.com/portals/2215/articles/51780", "opened": false, "note": "배그 공식 지원 문서, 본문 렌더 안 됨(빈 페이지)" }
+  ],
+  "serp_summary": {
+    "intent": "How-to 문제해결(정보성). 상위=소형블로그·커뮤니티·Q&A, 위키/대형언론 없음 → 진입 가능",
+    "common_items": ["발열 스로틀링·온도", "백그라운드/오버레이 정리", "드라이버 업데이트", "전원 옵션 고성능", "VRAM/그래픽 옵션", "네트워크(핑) 구분"],
+    "gap": "전부 원인 나열형. ①증상 패턴→원인 매핑(항상/점점/순간 3분류)이 없음 ②프레임 표시 방법과 해결을 한 글에 통합한 글 없음 ③진단 먼저 순서 제시 없음 → 우리 차별화",
+    "cluster_keywords": ["프레임 드랍 원인", "게임 프레임 확인", "게임 프레임 표시", "프레임타임", "발열 스로틀링", "VRAM 부족", "게임 끊김", "노트북 프레임 드랍", "프레임 제한", "전체 화면 최적화", "게임바 DVR"]
+  },
+  "factcheck": [
+    { "claim": "CPU는 대체로 90도 안팎부터 보호를 위해 성능을 스스로 낮춤(스로틀링), 모델마다 상이", "sources": ["http://www.ilovepcbang.com/news/articleView.html?idxno=107705 (85도까지 정상, 90도+ 강제 저하)", "https://paduck.co.kr/blog/2026/04/04/프레임-드랍/ (CPU 85~95도 스로틀링)"] },
+    { "claim": "GPU는 80도대부터 클럭을 낮추는 경우가 많음(모델별 상이로 헤지 표기)", "sources": ["https://paduck.co.kr/blog/2026/04/04/프레임-드랍/ (GPU 80도 이상)", "https://www.a-ha.io/questions/4c17e97ac6b93d4bb4105c9dcb5b31ce (과열 스로틀링 원인 교차)"] },
+    { "claim": "VRAM이 꽉 차면 시스템 램을 빌려 쓰며 프레임타임 급등·순간 드랍 발생", "sources": ["https://paduck.co.kr/blog/2026/04/04/프레임-드랍/ (VRAM 부족=가장 흔한 원인, 1~2GB 여유 권장)", "https://quasarzone.com/bbs/qf_cmr/views/1362549 (검색 결과 스니펫: VRAM 1~2GB 여유 시 프레임 안정성 상승)"] },
+    { "claim": "Win+G Xbox 게임 바 성능 위젯으로 FPS·CPU·GPU·RAM 표시 및 화면 고정 가능(윈도우 10+ 기본 내장)", "sources": ["https://itmarublog.com/게임-프레임-표시-확인/", "https://www.thefastcode.com/ko-krw/article/4-quick-ways-to-see-a-pc-game-s-fps-frames-per-second"] },
+    { "claim": "NVIDIA 앱 오버레이로 실시간 FPS·성능 통계 표시(공식 기능)", "sources": ["https://www.nvidia.com/ko-kr/software/nvidia-app/ (공식 페이지 직접 확인)", "https://www.inven.co.kr/board/aion2/6444/228 (NVIDIA App 활용 프레임 보는법)"] },
+    { "claim": "전체 화면 최적화 해제·게임바 DVR 비활성화가 일부 게임 끊김 완화 사례로 보고됨(게임별 상이로 헤지 표기)", "sources": ["https://extrememanual.net/32939", "구글 검색 결과 요약(게임 바 오버레이→프레임 드랍 연결, 호환성 탭 전체 화면 최적화 중지)"] }
+  ],
+  "variables": {
+    "keyword": "게임 프레임 드랍 해결",
+    "headline_finding": "상위 12개 SERP 중 증상 패턴(항상/점점/순간)→원인 매핑을 제시한 글 0개 — 진단 퍼스트 프레임워크가 정보 게인",
+    "serp_analysis": "12개 시도 8개 직접 열람. 상위는 원인 나열형 블로그·커뮤니티·Q&A, 공식·위키 부재",
+    "differentiation": "표시(Win+G·스팀·NVIDIA 앱)→렉 구분→증상 3분류 표→갈래별 처방 통합 구성. 기존 최적화 글과 역할 분담(평균 프레임=최적화 글, 순간 드랍=이 글)",
+    "cluster_size": "루트 1 + 위성 11개(프레임 확인·표시·프레임타임·발열 스로틀링·VRAM·노트북·프레임 제한 등)"
+  },
+  "hermes_score": 94
+}
