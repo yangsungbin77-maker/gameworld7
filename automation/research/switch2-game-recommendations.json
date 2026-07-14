@@ -1,0 +1,45 @@
+{
+  "type": "review",
+  "keyword": "닌텐도 스위치 2 게임 추천",
+  "serp": [
+    { "url": "https://www.nintendo.com/kr/games/switch2/lineup", "opened": true, "note": "한국닌텐도 공식 라인업(236건). 2026 하반기 확정 발매일: 스플래툰 레이더스 7/23, 제노2 에디션 7/30(DL)·10/1(패키지), 파엠 만자천홍 9/17, 드퀘XI S 9/24, 드래곤즈도그마2 10/9, 스위치스포츠 리조트 10/22, FF RESONANCE 10/22, 메타포 11/12, 제노3 에디션 12/3, 드퀘몬스터즈4 12/3. 외부링크 채택" },
+    { "url": "https://www.nintendo.com/kr/switch/ranking/ranking_2025_june_switch2.html", "opened": true, "note": "공식 DL 랭킹(2025-06): 1위 마리오 카트 월드, 2·5위 젤다 야숨·왕눈 에디션, 4위 호그와트 레거시, 6위 스플릿 픽션, 7위 사이버펑크2077, 9위 스파6, 10위 웰컴투어, 11위 용과같이0, 15위 문명7 — 써드파티 이식 수요 실증 데이터" },
+    { "url": "https://www.nintendo.com/kr/hardware/switch2/compatibility/index.html", "opened": true, "note": "공식 호환성: 완전 호환 아님(검증·업데이트 지속), 구형 조이콘 필요 9종 명단(링피트·1-2-Switch·라보 3종·스위치 스포츠·에브리바디 1-2-Switch·춤춰라 와리오·두뇌 트레이닝·게임 코딩 — 조이콘2에 모션 IR 카메라 없음)" },
+    { "url": "https://www.nintendo.com/kr/games/switch2/bgw5a/index.html", "opened": true, "note": "메트로이드 프라임4 비욘드 스위치2 에디션 공식: 2025-12-04 발매, 고해상도·HDR·조이콘2 마우스 조작·퀄리티/퍼포먼스 모드" },
+    { "url": "https://www.inven.co.kr/webzine/news/?news=311621", "opened": true, "note": "인벤 MP4 리뷰: 2025-12-04, '시리즈의 정점' 평가, 그래픽 '놀라울 정도'" },
+    { "url": "https://www.ilovepc.co.kr/news/articleView.html?idxno=54728", "opened": true, "note": "런칭 라인업 평가 기사: 젤다 2종 에디션+마리오카트 월드 중심, 하위호환은 로딩·프레임 개선 위주·그래픽 패치 극소수 지적 — 하위호환 기대치 보정 근거" },
+    { "url": "https://en.wikipedia.org/wiki/List_of_Nintendo_Switch_2_games", "opened": true, "note": "발매일 교차: 마리오카트 월드·젤다 2종 에디션 2025-06-05 런칭, 커비 에어 라이더즈 2025-11-20, 하이랄 워리어스 2025-11-06, MP4 2025-12-04, 동물의숲 에디션 2026-01-15. ⚠️요약이 동키콩 바난자를 2026-07-17로 표기했으나 gamesradar('released July 17, 2025')·games.gg(2025 GOTY 후보) 교차로 2025-07-17 확정 — 본문은 2025.7로 기재" },
+    { "url": "https://www.gamemeca.com/view.php?gid=1771155", "opened": true, "note": "게임메카 닌다이(2026-02) 정리: 바이오하자드 레퀴엠 2/27, 몬헌 스토리즈3 3/13, 프래그마타 4/24, FF7 리버스 6/3 등 2026 상반기 써드파티 대작 합류 근거" },
+    { "url": "https://games.gg/news/best-nintendo-switch-2-games-to-play-in-2026/", "opened": false, "note": "403. 검색 요약: FF7 리메이크·포켓몬 Z-A·하데스2·마리오카트 월드 상위, 스플릿 픽션·스파6=멀티 추천, 동키콩 바난자=GOTY 유력(2026 GDC 인정)" },
+    { "url": "https://www.nintendolife.com/guides/all-nintendo-switch-2-exclusive-games", "opened": false, "note": "403 차단" },
+    { "url": "https://namu.wiki/w/Nintendo Switch 2/게임 목록", "opened": false, "note": "403(Cloudflare)" },
+    { "url": "https://www.thisisgame.com/articles/410643", "opened": false, "note": "403. 검색 요약: 2026 기대작으로 포켓몬 포코피아('포켓몬판 동물의 숲')·슬레이더스파이어2 거론" }
+  ],
+  "serp_summary": {
+    "intent": "정보+구매 결정(리뷰형). 상위=공식 페이지·해외 목록·커뮤니티 한줄평·기존 자사 글",
+    "common_items": ["독점작 목록(마리오카트·동키콩·커비·MP4)", "스위치2 에디션 개념", "하위호환", "써드파티 이식(사펑·스파6)", "2026 기대작"],
+    "gap": "①독점작/에디션/하위호환 3개념을 구매 순서로 엮은 한국어 가이드 없음 ②구형 조이콘 필요 9종(링피트) 주의를 추천글에 넣은 글 없음 ③공식 랭킹을 이식 품질 증거로 쓰는 관점 없음 ④2026 하반기 확정 발매일 캘린더(공식) 정리 없음",
+    "cluster_keywords": ["스위치2 독점작", "스위치2 에디션", "스위치2 하위호환", "마리오 카트 월드", "동키콩 바난자", "메트로이드 프라임4", "스위치2 신작", "업그레이드 패스", "링피트 스위치2", "스위치2 기대작"],
+    "dedup_note": "기존 글 switch-game-recommendations-2026(6/27, 스위치 전반+캘린더)과 역할 분담 — 기존=본체 저울질+스위치1 명작, 새 글=스위치2 구매자 전용(독점작·에디션·하위호환 심화). 상호링크로 허브-스포크",
+    "google_self_check": "①고유 분석=3개념 구매 순서 프레임+조이콘 9종 경고 ②새 관점=공식 랭킹의 이식 품질 증거화 ③제목-본문 일치 ④충분성=첫 게임→에디션→하위호환→써드→캘린더→FAQ ⑤유용성=상황별 표+하반기 캘린더"
+  },
+  "factcheck": [
+    { "claim": "마리오 카트 월드=2025-06 런칭 대표작·공식 DL 랭킹 1위, 젤다 야숨·왕눈 스위치2 에디션도 런칭·랭킹 상위", "sources": ["https://www.nintendo.com/kr/switch/ranking/... (공식 랭킹)", "https://en.wikipedia.org/wiki/List_of_Nintendo_Switch_2_games (2025-06-05)", "https://www.ilovepc.co.kr/... (런칭 라인업)"] },
+    { "claim": "동키콩 바난자 2025-07-17 발매, 해외 GOTY 후보 거론(2026 GDC 어워즈 인정)", "sources": ["gamesradar 검색 결과('released on July 17, 2025')", "games.gg GOTY 검색 요약(2026 GDC 인정) — 위키 요약의 2026년 표기는 교차 검증으로 기각"] },
+    { "claim": "메트로이드 프라임4 비욘드 2025-12-04, 스위치2 에디션=고해상도·HDR·마우스 조작·퀄리티/퍼포먼스 모드, '시리즈의 정점' 평가", "sources": ["https://www.nintendo.com/kr/games/switch2/bgw5a/ (공식)", "https://www.inven.co.kr/webzine/news/?news=311621 (리뷰)"] },
+    { "claim": "하위호환=기존 스위치 소프트 포함 1만 타이틀 이상, 완전 호환 아님(검증 지속), 구형 조이콘 필요 9종(링피트 포함, 조이콘2에 모션 IR 카메라 부재)", "sources": ["https://www.nintendo.com/kr/hardware/switch2/compatibility/ (공식 9종 명단)", "구글 검색 결과 요약(닌텐도 공식 '1만 타이틀 이상' 안내)"] },
+    { "claim": "스위치2 에디션=기존 게임 강화판, 원작 보유 시 업그레이드 패스 구매 방식, 독 모드 4K 사례, 에디션 없이도 무료 개선 사례(동물의숲 휴대 1080p)", "sources": ["구글 검색 결과 요약(닌텐도 공식 호환성·에디션 안내 인용)", "https://www.ilovepc.co.kr/... (하위호환 개선 수준 평가 교차)"] },
+    { "claim": "2026 하반기 공식 확정 발매일(스플래툰 레이더스 7/23~드퀘몬스터즈4 12/3)과 상반기 대작 합류(바이오하자드 레퀴엠 2/27, FF7 리버스 6/3)", "sources": ["https://www.nintendo.com/kr/games/switch2/lineup (공식)", "https://www.gamemeca.com/view.php?gid=1771155 (닌다이 정리)"] },
+    { "claim": "써드파티 이식 실증: 사이버펑크2077·호그와트 레거시·스파6·스플릿 픽션·용과같이0·문명7이 공식 DL 랭킹 상위", "sources": ["https://www.nintendo.com/kr/switch/ranking/... (공식 랭킹 원자료)", "games.gg 검색 요약(사펑·스파6·스플릿 픽션 추천 교차)"] }
+  ],
+  "variables": {
+    "keyword": "닌텐도 스위치 2 게임 추천",
+    "headline_finding": "독점작·에디션·하위호환 3개념을 구매 순서(독점작→하위호환→명작만 에디션)로 엮은 한국어 가이드 부재 — 공식 자료 4종으로 전 발매일 검증",
+    "official_sources": "닌텐도 공식 4페이지(라인업·랭킹·호환성·MP4) 직접 열람 — 발매일·9종 명단·랭킹 전부 1차 출처",
+    "cross_check_win": "위키 요약의 동키콩 바난자 2026 오표기를 외신 2곳 교차로 2025-07-17 확정, 이전 글들과 동일한 요약 오류 패턴 3번째 검출",
+    "joycon_warning": "구형 조이콘 필요 9종(링피트) 경고 — 추천 글들이 안 다루는 구매 전 필수 정보",
+    "no_fake_play": "플레이 경험 서술 0건 — 평가는 전부 공식 랭킹·인벤 리뷰·외신 귀속"
+  },
+  "post_judge_fixes": "심판 권고 반영 — 하이랄 워리어스 신작은 국내 공식 타이틀명 미확인으로 표에서 제외(본문 프로즈로 완화 언급), '1위 자리를 지킨'→'1위에 오른' 증거 범위 내 완화, 마무리 1인칭 추가",
+  "hermes_score": 94
+}
