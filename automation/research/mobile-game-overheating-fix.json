@@ -1,0 +1,44 @@
+{
+  "type": "howto",
+  "keyword": "핸드폰 게임 발열 줄이기",
+  "serp": [
+    { "url": "https://consumer.huawei.com/kr/support/content/ko-kr00409878/", "opened": true, "note": "화웨이 공식: 발열 원인(CPU/GPU/메모리 고속), 주변온도 25도 정상 기준, 충전중 게임 자제·밝기·해상도 낮추기 권장" },
+    { "url": "https://moonsup.net/smartphone-overheat-fix/", "opened": true, "note": "과열 원인7·해결7. 위험신호(배터리팽창·과열경고반복·충전불가), 물/냉장고 금지(결로) 강조. danger 박스 근거" },
+    { "url": "https://itsmart100.com/entry/게임할-때-핸드폰-발열-심한-이유와-해결법", "opened": true, "note": "발열 원인5(CPU·배터리·네트워크·밝기/주사율·환경)+해결8. 쿨링팬/냉각패드 효과 명시" },
+    { "url": "https://support.apple.com/en-us/118431", "opened": true, "note": "애플 공식: 아이폰 작동 권장범위 0~35도, 35도 초과시 배터리 수명 영구 단축. 외부링크 채택" },
+    { "url": "https://endless9rowth.com/entry/갤럭시-발열", "opened": true, "note": "갤럭시 주사율 60Hz(설정→디스플레이→부드러운모션), RAM Plus 해제 등. '게임 중엔 효과 제한적'이라 명시=게임 특화 각도 필요" },
+    { "url": "https://m.dailyesports.com/view.php?ud=2015050116345573656", "opened": true, "note": "게임 발열 제어. 그래핀 쿨링패드 3~5도 감소, 기준온도 초과시 CPU클럭 감소=쓰로틀링→프레임드랍 명시. 스로틀링 각도 확증" },
+    { "url": "https://www.ilovepc.co.kr/news/articleView.html?idxno=15944", "opened": true, "note": "발열 방지. 메쉬 케이스·쿨패드(3~5도), 피해야할것=케이스로 열막기·충전중 사용" },
+    { "url": "https://www.korea-iphone.com/blog/KXuEBZoYayTs.html", "opened": true, "note": "아이폰 0~35도 공식범위 재확인(애플 스펙 2차 출처), 저전력 모드·백그라운드 새로고침 끄기" },
+    { "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=111215", "opened": true, "note": "칩플레이션 기사로 주제 불일치(발열 무관)로 확인·배제" },
+    { "url": "https://r1.community.samsung.com/t5/gaming-hub/td-p/29160411", "opened": false, "note": "삼성 멤버스 공식 커뮤니티 팁글(403 차단으로 미오픈). 게임부스터 각도" }
+  ],
+  "serp_analysis": {
+    "intent": "정보성 How-to (발열 줄이는 방법). 상위 다수가 개인 블로그·제조사 공식·Q&A로 블로그 진입 가능",
+    "common_items": ["그래픽/해상도/주사율 낮추기", "백그라운드 앱 종료", "화면 밝기 낮추기", "충전 중 게임 자제", "케이스 제거", "서늘한 환경", "쿨링팬/냉각패드", "네트워크(Wi-Fi) 최적화"],
+    "gaps_our_edge": [
+      "대부분 나열식 리스티클 — 효과 큰 순서(우선순위 8단계표)로 정리한 곳이 드묾",
+      "발열→스로틀링→프레임저하 메커니즘을 게이머 관점으로 연결(발열 잡으면 게임 부드러워짐). dailyesports만 짧게 언급, 게임블로그 각도로 확장",
+      "정상 발열 vs 위험 발열 구분(25도/0~35도 수치 + 배터리팽창 신호) 명확히 준 곳 적음",
+      "갤럭시 게임부스터/아이폰 저전력 실제 설정 경로를 표로 준 곳 적음(endless는 게임 중 효과 제한적이라 함)",
+      "펠티어 쿨러 결로 위험 경고 부족"
+    ]
+  },
+  "factcheck": [
+    { "claim": "제조사 정상 사용 기준 주변온도 약 25도", "sources": ["https://consumer.huawei.com/kr/support/content/ko-kr00409878/", "https://support.apple.com/en-us/118431"] },
+    { "claim": "아이폰 권장 작동 온도 0~35도, 35도 초과 시 배터리 수명 영구 단축", "sources": ["https://support.apple.com/en-us/118431", "https://www.korea-iphone.com/blog/KXuEBZoYayTs.html"] },
+    { "claim": "게임 발열 원인은 CPU/GPU/메모리 고속 연산 + 배터리 방전열 + 통신모듈 + 화면(밝기/주사율)", "sources": ["https://consumer.huawei.com/kr/support/content/ko-kr00409878/", "https://itsmart100.com/entry/게임할-때-핸드폰-발열-심한-이유와-해결법"] },
+    { "claim": "기준 온도 초과 시 CPU 클럭이 자동 감소하는 스로틀링 발생 → 프레임 드랍 등 성능 저하", "sources": ["https://m.dailyesports.com/view.php?ud=2015050116345573656", "/game-frame-drop-fix/ (자사 성능글 교차)"] },
+    { "claim": "냉장고/냉동실/물로 식히면 결로로 기판 손상 — 절대 금지, 자연 냉각이 정답", "sources": ["https://moonsup.net/smartphone-overheat-fix/", "https://support.apple.com/en-us/118431"] },
+    { "claim": "쿨링팬/냉각패드(그래핀·거치대형)는 장시간 플레이 시 약 3~5도 온도 저하에 효과적", "sources": ["https://m.dailyesports.com/view.php?ud=2015050116345573656", "https://www.ilovepc.co.kr/news/articleView.html?idxno=15944"] },
+    { "claim": "위험 발열 신호: 배터리 팽창·과열 경고 반복·충전 불가·미사용중 지속발열 → AS 대상", "sources": ["https://moonsup.net/smartphone-overheat-fix/", "https://consumer.huawei.com/kr/support/content/ko-kr00409878/"] }
+  ],
+  "variables": {
+    "keyword": "핸드폰 게임 발열 줄이기",
+    "headline_finding": "밖에서 식히기 전에 게임 안 그래픽/주사율부터 낮추는 게 효과 최대",
+    "unique_angle": "발열→스로틀링→프레임저하 메커니즘을 게이머 관점으로 연결",
+    "priority_table": "발열 감소 효과 큰 순서 8단계 우선순위표",
+    "safety_line": "정상 발열(25도/0~35도) vs 위험 신호 구분 + 물·냉장고 금지"
+  },
+  "hermes_score": 92
+}
