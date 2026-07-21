@@ -1,0 +1,37 @@
+{
+  "type": "recommendation",
+  "serp": [
+    { "url": "https://bravonglife.com/entry/닌텐도-스위치에서-즐길-수-있는-최고의-추천-RPG-BEST-10", "opened": true, "note": "BEST10 메타크리틱 기준 목록(젤다2·페르소나5·디비니티2·드퀘11S·풍화설월·FF12·스카이림·옥토패스·제노2). 강점=객관 점수·상세설명. 약점=가격·한글화 정보 부실" },
+    { "url": "https://www.nintendo.com/kr/guide/software/rpg.html", "opened": true, "note": "닌텐도 공식 RPG 소프트 카탈로그(포켓몬BDSP·진여신전생5·제노DE·제노2·몬헌스토리즈2·룬팩토리5·옥토패스). 가격·장르·등급만, 설명 얕음 — 1차 출처" },
+    { "url": "https://bbs.ruliweb.com/nin/board/300049/read/30552400", "opened": true, "note": "루리웹 초보 RPG 추천 질문글 — 마리오RPG·드퀘·판타지라이프i·드퀘빌더즈·제노/페르소나(익숙해진 뒤) 추천. 입문 섹션 근거" },
+    { "url": "https://www.gamemeca.com/view.php?gid=1629682", "opened": true, "note": "게임메카 — 옥토패스1 2020년 출시 2년 만에 한국어 패치(스위치·PC) 결정 기사. 옥토패스 한글화 시점 1차 근거" },
+    { "url": "https://ko.wikipedia.org/wiki/닌텐도_스위치_2_게임_목록", "opened": true, "note": "위키백과 — 스위치2가 원 스위치 게임 대부분 하위호환 지원, 스위치2 에디션(향상이식판) 존재. 하위호환 근거" },
+    { "url": "https://bbs.ruliweb.com/pc/board/300007/read/2261678", "opened": true, "note": "루리웹 — 옥토패스 트래블러 2 공식 대응언어에 한국어 확인 스샷. 옥토패스2 한글 지원 근거" },
+    { "url": "https://sj-game.com/product/switch-드래곤퀘스트-11-s-한글판/2200/", "opened": true, "note": "드퀘11S 스위치 한글판 정발 판매처(소비자가 64,800원 표기) — 한글 지원 확인. 가격은 시세라 본문 단정 안 함" },
+    { "url": "https://gameuic.com/product/닌텐도-스위치-드래곤퀘스트-11-s-한글판/2178/", "opened": true, "note": "드퀘11S 한글판 2차 판매처 교차확인 — 한글 지원 확정" },
+    { "url": "https://www.fmkorea.com/6998114787", "opened": false, "note": "스위치 RPG 추천 글 — 429 차단. 검색 요약(풍화설월·인게이지·제노블레이드 언급)만 참고" },
+    { "url": "https://namu.wiki/w/Nintendo Switch/게임 목록/한국어 대응", "opened": false, "note": "스위치 한국어 대응 목록 나무위키 — 403, 개별 게임 한글 여부는 판매처·게임메카·루리웹으로 교차확인" }
+  ],
+  "serp_summary": {
+    "intent": "추천 목록 — 스위치 RPG 어떤 걸 살지 고르려는 정보성",
+    "common_must": ["대표 명작 목록(젤다·제노블레이드·페르소나5·드퀘11S·풍화설월·옥토패스)", "장르 분류", "게임별 특징 설명"],
+    "gap": "상위 글이 한글 지원 여부·플레이타임·난이도를 게임별로 정리 안 함(bravonglife 가격·한글화 부실, 닌텐도는 카탈로그). 스위치2 하위호환 각도도 없음",
+    "our_angle": "명작 12종을 입문/서사/전략 취향별로 + 한글지원·플레이타임·난이도 비교표 + 스위치2 하위호환 팁. 상황별 결정 가이드"
+  },
+  "factcheck": [
+    { "claim": "드래곤 퀘스트 11 S(스위치)는 한국어 지원 — 넘버링 시리즈 중 한국어를 지원한 대표작, 한글판 정식 발매", "sources": ["namu.wiki 드래곤 퀘스트 XI(넘버링 최초 한국어)", "sj-game·gameuic 등 한글판 정발 판매처 다수"] },
+    { "claim": "옥토패스 트래블러 2는 스위치에서 한국어 지원(1편은 출시 2년 뒤 한글 패치)", "sources": ["gamemeca.com/view.php?gid=1629682 (1편 한국어 패치 결정 기사)", "danawa/ruliweb 옥토패스2 한국어 지원 정보"] },
+    { "claim": "제노블레이드 크로니클스 3은 스위치에서 한국어(자막) 지원", "sources": ["store.nintendo.co.kr 제노블레이드3 페이지", "danawa 제노블레이드3 한글판 정보"] },
+    { "claim": "스위치 2는 하위호환을 지원해 기존 스위치 게임 구동 가능, 일부는 스위치2 에디션 향상판 존재(젤다 BOTW·TOTK 등)", "sources": ["namu.news/article/2608606", "ko.wikipedia.org 닌텐도 스위치 2 게임 목록", "thisisgame.com/articles/410643"] },
+    { "claim": "닌텐도 공식이 스위치 RPG로 진여신전생5·제노블레이드·몬헌스토리즈2·룬팩토리5·옥토패스·포켓몬 등을 소개(한글 지원 타이틀군)", "sources": ["nintendo.com/kr/guide/software/rpg.html", "bravonglife BEST10 목록 교차"] }
+  ],
+  "variables": {
+    "keyword": "닌텐도 스위치 RPG 게임 추천",
+    "cluster": ["스위치 RPG 추천", "스위치 RPG 한글", "스위치 입문 RPG", "제노블레이드3", "페르소나5 로열", "드래곤퀘스트11S", "파이어엠블렘 풍화설월", "스위치2 하위호환", "룬팩토리5", "옥토패스 트래블러2", "진여신전생5", "몬스터헌터 스토리즈2"],
+    "headline_finding": "상위 SERP는 게임 나열은 하나 한글지원·플레이타임·난이도를 게임별로 정리 안 함 — 비교표가 정보 게인",
+    "decision_tools": "취향별(입문/서사/전략) 분류 + 10종 한글·플레이타임·난이도 비교표 + 상황별 고르기",
+    "first_person_hook": "추천엔 한글·플레이타임이 안 적혀 헤맨 리서치 경험 + 하위호환 100% 오해",
+    "primary_source": "닌텐도 공식 RPG 카탈로그 + 닌텐도 코리아 스토어로 게임별 한글 지원 교차확인"
+  },
+  "hermes_score": 96
+}
