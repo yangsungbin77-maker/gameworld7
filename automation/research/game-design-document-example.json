@@ -1,0 +1,37 @@
+{
+  "type": "guide",
+  "serp": [
+    { "url": "https://brunch.co.kr/@kimwayne/50", "opened": true, "note": "GDD 정의+핵심 8구성(개요·기획·시스템·UI/UX·아트·사운드·기술·일정)+작성법(간결·다이어그램 병행·용어통일). 항목 뼈대 근거" },
+    { "url": "https://prime-career.com/article/477", "opened": true, "note": "효과적 GDD 템플릿 8항목 표(개요·메카닉·스토리/캐릭터·비주얼·오디오·기술·수익화·타임라인)+프로젝트 규모별 템플릿 선택. 항목 표 근거" },
+    { "url": "https://brunch.co.kr/@whtdrgon/188", "opened": true, "note": "핵심 정보게인 — 학생 기획서 항목별 페이지수, 코어루프 예시(자원수집→제작→전투→보상→반복), 초보 3대 실수('다양한'은 재미아님·추상표현 대신 구체수치·아류작 감점), 포트폴리오 팁(로그라인·페르소나·피라미드구조)" },
+    { "url": "https://prime-career.com/article/484", "opened": true, "note": "좋은 기획서 5특징(명확성·검색가능구조·시각자료·협업·지속업데이트)+피할 실수(과도한 텍스트·불명확·기술적 비현실·일방적·정적문서). 품질기준 근거" },
+    { "url": "https://prime-career.com/article/100", "opened": true, "note": "기획서 종류 — 바이블형(수백페이지·폭포수) vs 위키형(수정용이·애자일), 초기 핵심요소(제목·컨셉·의도·타깃·차별점·BM). 원페이지/위키형 근거" },
+    { "url": "https://jungjinlog.com/blog/post-gdd", "opened": true, "note": "GDD 마인드맵 5요소 — 코어루프(30초/5분/30분 변주·행동→보상→강화), 시스템가지, 세계관/톤('X처럼 보이고 Y처럼 들린다'·hex·BPM), 출시후 로드맵, 플레이테스트. 코어루프 변주·아트레퍼런스 근거" },
+    { "url": "https://www.nuclino.com/articles/game-design-document-template", "opened": true, "note": "영문 — GDD=청사진, 핵심섹션(개요·메카닉·규칙·세계관·에셋), 원페이지 vs 100+페이지(요즘은 가벼운 원페이지 선호·계속 진화). 원페이지 트렌드 교차확정" },
+    { "url": "https://milanote.com/templates/game-design/game-design-document", "opened": true, "note": "영문 템플릿 11스텝 — 허브·브레인스토밍·무드보드·세계관·레벨디자인(탑다운맵·진행·챌린지·보상)·캐릭터. 레벨/캐릭터 항목 근거" },
+    { "url": "https://namu.wiki/w/게임 기획자/입문", "opened": false, "note": "나무위키 게임기획자 입문 — 클라우드플레어 차단 추정, 미열람. 위 출처들로 대체" },
+    { "url": "https://www.gamedeveloper.com/production/how-to-write-a-game-design-document", "opened": false, "note": "게임디벨로퍼 — 해당 URL이 뉴스섹션이라 GDD 본문 없음, 미채택" }
+  ],
+  "serp_summary": {
+    "intent": "정보/템플릿 — 게임 기획서 어떻게 쓰는지+예시 보려는 의도",
+    "common_must": ["GDD 정의·역할", "필수 구성 항목", "작성법", "종류(원페이지/상세)"],
+    "gap": "상위 대부분이 항목만 추상적으로 나열. '실제로 채운 예시'를 보여주는 글이 드묾. 간단한 게임으로 항목별 채운 샘플 + 코어루프 예시 + 초보 3대 실수 구체화 + 원페이지 트렌드가 차별점",
+    "our_angle": "필수 항목 표 + 가상 게임(네온 점퍼)으로 항목별 실제 채운 예시 + 원페이지/상세/위키형 + 초보 3대 실수 + 학생 포트폴리오 팁"
+  },
+  "factcheck": [
+    { "claim": "GDD는 게임 개발의 청사진(컨셉·시스템·의도·계획), 팀 방향성 통일·의사결정·커뮤니케이션 역할, 개발중 계속 수정하는 살아있는 문서", "sources": ["https://brunch.co.kr/@kimwayne/50", "https://www.nuclino.com/articles/game-design-document-template"] },
+    { "claim": "필수 항목 — 개요(제목·장르·플랫폼·타깃·차별점)·기획의도·코어게임플레이/규칙·코어루프·세계관/캐릭터·레벨·아트/사운드·시스템·수익모델·개발일정", "sources": ["https://prime-career.com/article/477", "https://brunch.co.kr/@kimwayne/50", "https://milanote.com/templates/game-design/game-design-document"] },
+    { "claim": "코어 루프=반복 사이클(행동→보상→강화), 30초/5분/30분 변주로 설계. 기획서의 심장", "sources": ["https://jungjinlog.com/blog/post-gdd", "https://brunch.co.kr/@whtdrgon/188"] },
+    { "claim": "종류 — 원페이지(요즘 선호·소규모/포트폴리오), 바이블/상세(수백페이지·폭포수·대형), 위키형(수정용이·애자일). 요즘은 가벼운 원페이지로 시작해 확장", "sources": ["https://prime-career.com/article/100", "https://www.nuclino.com/articles/game-design-document-template"] },
+    { "claim": "초보 3대 실수 — '다양한'을 재미로 착각(하나가 잘돼야), 추상표현('흥미진진한 전투')대신 구체수치('턴제·매턴 3AP'), 차별성 없는 아류작", "sources": ["https://brunch.co.kr/@whtdrgon/188", "https://prime-career.com/article/484"] }
+  ],
+  "variables": {
+    "keyword": "게임 기획서 예시",
+    "cluster": ["게임 기획서", "GDD", "게임 디자인 문서", "게임 기획서 템플릿", "원페이지 기획서", "코어 루프", "게임 기획", "게임 기획서 작성법", "게임 개발", "인디게임 개발"],
+    "headline_finding": "상위글은 항목만 나열 — 간단한 게임으로 항목별 실제 채운 예시 + 코어루프 예시가 정보 게인",
+    "decision_tools": "항목별 작성표 + 채운 예시(네온 점퍼) + 종류 비교 + 3대 실수 + 한눈 정리표",
+    "first_person_hook": "항목 목록만 보고 뭘 채울지 몰라 헤맨 리서치 경험 + 상세 기획서부터 써야 하는 줄 안 오해",
+    "primary_source": "국내 기획 실무글(prime-career·brunch)+영문 템플릿(nuclino·milanote) 교차. 채운 예시는 가상 게임이라 사실 날조 아님(픽셀=자료 종합·기획자 자격 주장 없음)"
+  },
+  "hermes_score": 96
+}
