@@ -1,0 +1,8 @@
+[
+  { "pattern": "RPG|롤플레잉|판타지|모험|오픈월드", "file": "banner-05-fantasy.png" },
+  { "pattern": "스위치|콘솔|플레이스테이션|플스|PS5|엑스박스|Xbox|닌텐도", "file": "banner-06-console.png" },
+  { "pattern": "레트로|고전|오락실|추억", "file": "banner-04-retro.png" },
+  { "pattern": "PC|스팀|그래픽|사양|최적화|프레임|세팅|설정", "file": "banner-03-pcsetup.png" },
+  { "pattern": "e스포츠|대회|롤|리그오브레전드|프로게이머", "file": "banner-02-esports.png" },
+  { "pattern": "뉴스|소식|출시|업데이트|기획|용어|닉네임", "file": "banner-01-news.png" }
+]
