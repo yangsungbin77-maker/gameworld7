@@ -9,10 +9,21 @@ const today = new Date();
 			<a href="/">홈</a>
 			<a href="/blog">전체 글</a>
 			<a href="/about">소개</a>
+			<a href="/author">운영자 소개</a>
 			<a href="/privacy">개인정보처리방침</a>
+			<a href="/contact">문의하기</a>
 			<a href="/rss.xml">RSS</a>
 		</nav>
 		<span class="copy">&copy; {today.getFullYear()} 게임월드7</span>
+	</div>
+	<div class="meta">
+		<p class="desc">
+			게임 뉴스·공략·리뷰와 브라우저에서 바로 즐기는 미니게임을 직접 만들어 올리는 1인 게임 블로그입니다.
+		</p>
+		<p class="who">
+			운영자 <strong>Sungbin</strong> · 문의
+			<a href="mailto:yangsungbin77@gmail.com">yangsungbin77@gmail.com</a>
+		</p>
 	</div>
 </footer>
 <style>
@@ -46,4 +57,20 @@ const today = new Date();
 	}
 	.links a:hover { color: var(--accent); }
 	.copy { color: var(--text-dim); font-size: 0.85rem; }
+	.meta {
+		width: var(--maxw);
+		max-width: calc(100% - 2.5em);
+		margin: -1rem auto 0;
+		padding: 1.2rem 0 2.5rem;
+		border-top: 1px solid var(--border, rgba(128, 128, 128, 0.25));
+	}
+	.meta p {
+		margin: 0 0 0.4rem;
+		color: var(--text-dim);
+		font-size: 0.85rem;
+		line-height: 1.6;
+	}
+	.meta .who strong { color: var(--text-muted); }
+	.meta a { color: var(--text-muted); font-weight: 600; }
+	.meta a:hover { color: var(--accent); }
 </style>
