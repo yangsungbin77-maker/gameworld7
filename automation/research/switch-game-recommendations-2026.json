@@ -2,21 +2,70 @@
   "type": "info",
   "keyword_root": "스위치 게임 추천 2026",
   "keyword_cluster": [
-    "닌텐도 스위치 게임 추천", "스위치 2 게임 추천", "스위치 명작", "스위치 RPG 추천",
-    "스위치 파티 게임", "스위치 협동 게임", "포켓몬 추천", "스위치 입문 게임",
-    "스위치 하위호환", "스위치 vs 스위치2", "마리오 카트 월드", "스위치 신작 2026"
+    "닌텐도 스위치 게임 추천",
+    "스위치 2 게임 추천",
+    "스위치 명작",
+    "스위치 RPG 추천",
+    "스위치 파티 게임",
+    "스위치 협동 게임",
+    "포켓몬 추천",
+    "스위치 입문 게임",
+    "스위치 하위호환",
+    "스위치 vs 스위치2",
+    "마리오 카트 월드",
+    "스위치 신작 2026"
   ],
   "serp": [
-    { "url": "https://filmora.wondershare.kr/game-information/nintendo-switch-game-recommendation.html", "opened": true, "note": "스위치 게임 Top10 2026(젤다·마리오·드퀘XIS·동물의숲·파엠 등). 명작 풀리스트. 단순 나열형 → 우리는 상황별+스위치2 시대로 차별화" },
-    { "url": "https://www.nintendo.com/kr/games/switch2/lineup", "opened": true, "note": "닌텐도 공식 스위치2 라인업(220개). 드퀘몬4·제노블레이드3 SW2에디션 등 신작 일정. 1차 출처" },
-    { "url": "https://www.nintendo.com/kr/hardware/switch2/compatibility/index.html", "opened": true, "note": "공식 호환성 정책. 모션IR 카메라/링피트/라보/조이콘충전 등 제약. 하위호환 단서 근거" },
-    { "url": "https://on.com2us.com/content/switch2-graphic-fps-upgrade/", "opened": true, "note": "하위호환 성능개선 사례(마리오오디세이 4K/60fps, 스칼렛바이올렛 프레임·시야 개선). 단 게임마다 다름" },
-    { "url": "https://bravonglife.com/entry/닌텐도-스위치-RPG-BEST10", "opened": true, "note": "스위치 RPG BEST10(젤다 97점·페르소나5R·드퀘XIS·파엠·제노블레이드). 메타크리틱 점수 근거" },
-    { "url": "https://pricetoday.info/스위치-포켓몬-시리즈-추천/", "opened": true, "note": "포켓몬 입문 추천(소드·아르세우스·스칼렛바이올렛). 가격 5~6만원대. 입문 섹션 근거" },
-    { "url": "https://www.ilovepc.co.kr/news/articleView.html?idxno=54728", "opened": true, "note": "스위치2 라인업/하위호환 비판적 평가(일부 게임만 패치, 라인업 부족). 보수적 표현 근거" },
-    { "url": "https://news.nate.com/view/20250120n31379", "opened": true, "note": "스위치2 하위호환 공식 발표(카트리지·다운로드 호환). 단 완벽보장 아님 단서" },
-    { "url": "https://games.gg/news/best-nintendo-switch-2-games-to-play-in-2026/", "opened": false, "note": "HTTP 403 차단 — 직접 열람 실패" },
-    { "url": "https://namu.wiki/w/Nintendo Switch 2/게임 목록", "opened": false, "note": "차단 — 직접 열람 실패" }
+    {
+      "url": "https://filmora.wondershare.kr/game-information/nintendo-switch-game-recommendation.html",
+      "opened": true,
+      "note": "스위치 게임 Top10 2026(젤다·마리오·드퀘XIS·동물의숲·파엠 등). 명작 풀리스트. 단순 나열형 → 우리는 상황별+스위치2 시대로 차별화"
+    },
+    {
+      "url": "https://www.nintendo.com/kr/games/switch2/lineup",
+      "opened": true,
+      "note": "닌텐도 공식 스위치2 라인업(220개). 드퀘몬4·제노블레이드3 SW2에디션 등 신작 일정. 1차 출처"
+    },
+    {
+      "url": "https://www.nintendo.com/kr/hardware/switch2/compatibility/index.html",
+      "opened": true,
+      "note": "공식 호환성 정책. 모션IR 카메라/링피트/라보/조이콘충전 등 제약. 하위호환 단서 근거"
+    },
+    {
+      "url": "https://on.com2us.com/content/switch2-graphic-fps-upgrade/",
+      "opened": true,
+      "note": "하위호환 성능개선 사례(마리오오디세이 4K/60fps, 스칼렛바이올렛 프레임·시야 개선). 단 게임마다 다름"
+    },
+    {
+      "url": "https://bravonglife.com/entry/닌텐도-스위치-RPG-BEST10",
+      "opened": true,
+      "note": "스위치 RPG BEST10(젤다 97점·페르소나5R·드퀘XIS·파엠·제노블레이드). 메타크리틱 점수 근거"
+    },
+    {
+      "url": "https://pricetoday.info/스위치-포켓몬-시리즈-추천/",
+      "opened": true,
+      "note": "포켓몬 입문 추천(소드·아르세우스·스칼렛바이올렛). 가격 5~6만원대. 입문 섹션 근거"
+    },
+    {
+      "url": "https://www.ilovepc.co.kr/news/articleView.html?idxno=54728",
+      "opened": true,
+      "note": "스위치2 라인업/하위호환 비판적 평가(일부 게임만 패치, 라인업 부족). 보수적 표현 근거"
+    },
+    {
+      "url": "https://news.nate.com/view/20250120n31379",
+      "opened": true,
+      "note": "스위치2 하위호환 공식 발표(카트리지·다운로드 호환). 단 완벽보장 아님 단서"
+    },
+    {
+      "url": "https://games.gg/news/best-nintendo-switch-2-games-to-play-in-2026/",
+      "opened": false,
+      "note": "HTTP 403 차단 — 직접 열람 실패"
+    },
+    {
+      "url": "https://namu.wiki/w/Nintendo Switch 2/게임 목록",
+      "opened": false,
+      "note": "차단 — 직접 열람 실패"
+    }
   ],
   "factcheck": [
     {
@@ -60,7 +109,59 @@
     "headline_finding": "경쟁글은 단순 Top10 나열 — 우리는 '스위치2 출시 후 시점'을 반영해 하위호환+상황별 추천+기기 선택 가이드로 차별화",
     "unique_angle": "기기에 얽매이지 말고 플레이 목적(입문/RPG/파티)부터 정하게 하고, 기존 명작이 스위치2에서 더 좋아지는 점과 스위치 vs 스위치2 구매가이드를 결합",
     "competitor_gap": "2026 시점에 Switch와 Switch 2를 하위호환으로 통합해 의사결정까지 닫아주는 글이 드뭄",
-    "internal_links": ["/switch-2player-games/", "/switch-co-op-games/", "/rpg-game-recommendations/"]
+    "internal_links": [
+      "/switch-2player-games/",
+      "/switch-co-op-games/",
+      "/rpg-game-recommendations/"
+    ]
   },
-  "hermes_score": 91
+  "hermes_score": 91,
+  "refreshes": [
+    {
+      "date": "2026-09-15",
+      "why": "GSC 90일 8.9위·노출 59·클릭 0 스트라이킹 페이지. 9/1 가격 인상 시점이 지나 본문이 낡음",
+      "factcheck": [
+        {
+          "claim": "스위치 2 본체 648,000→758,000원, 2026-09-01 적용, 16.9%",
+          "sources": [
+            "https://zdnet.co.kr/view/?no=20260629112251",
+            "https://www.inven.co.kr/webzine/news/?news=317909"
+          ]
+        },
+        {
+          "claim": "기존 스위치 OLED 415,000→465,000 / 일반 360,000→410,000 / 라이트 249,800→279,800, 2026-05-25",
+          "sources": [
+            "https://zdnet.co.kr/view/?no=20260629112251",
+            "https://kitpa.org/news/1718"
+          ]
+        },
+        {
+          "claim": "DQ몬스터즈4·제노블레이드3 NS2에디션 12/3, 몬헌 와일즈 12/4, 피크민4 NS2 11/12, 스포츠 리조트 10/22, 메트로이드 2027-01-28, 젤다무쌍DX 2027-02-25, P4 리바이벌 2027-05-20",
+          "sources": [
+            "https://www.nintendo.com/kr/games/switch2/lineup",
+            "https://www.gamevu.co.kr/news/articleView.html?idxno=60713"
+          ]
+        },
+        {
+          "claim": "LEGO 해리포터 10/16, FF 레조넌스·아랑전설·원피스 10/22, 헬로키티·아노말리스 10/29, 가디언즈 11/5, 스텔라 블레이드 11/6, 메타포 11/12, 레이튼 12/10",
+          "sources": [
+            "https://www.nintendo.com/kr/games/switch2/lineup"
+          ]
+        }
+      ],
+      "geo": {
+        "numeric_facts": "5개 이상(가격표·캘린더)",
+        "source_mentions": [
+          "한국닌텐도 공식 발표 기준",
+          "닌텐도 공식 라인업 페이지 기준",
+          "메타크리틱 기준",
+          "9월 9일 닌텐도 다이렉트 기준"
+        ],
+        "quote": "다양한 시장 환경의 변화에 따라 향후의 글로벌 사업성을 검토한 결과",
+        "as_of": "2026-09-15 첫 화면 명시"
+      },
+      "ai_smell_score": 7,
+      "hub": "스위치 6편 상호링크 블록 삽입(add_hub_links.py)"
+    }
+  ]
 }

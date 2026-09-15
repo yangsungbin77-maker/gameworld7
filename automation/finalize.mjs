@@ -85,6 +85,33 @@ const gate = [
   [factOk, `팩트체크가 부족합니다. 핵심 수치/사실 ${FACTCHECK_MIN}건 이상을 각각 출처 2곳 이상으로 교차한 기록(factcheck[].sources)이 필요합니다.`],
   [Number.isFinite(hermes) && hermes >= HERMES_PASS, `헤르메스 심판 점수가 ${RG.hermes_score ?? '없음'}입니다. ${HERMES_PASS}점 이상이어야 발행됩니다.`],
 ];
+// ── 키워드 3필터 게이트(2026-08-21): 경쟁·수요·의도 확인 증거를 코드로 강제 ──
+// 배경: 8/21 진단 — 헤드 키워드(best chatgpt alternatives·마사지건 추천 등)가 필터 실행 기록 없이
+// 발행돼 색인·노출 실패. 스킬의 3필터를 research.json 증거 없이는 통과 못 하게 막는다.
+const kwf = RG.keyword_filter;
+if (!kwf || typeof kwf !== 'object') {
+  gate.push([false, `keyword_filter가 없습니다. 발행 전 키워드 3필터(경쟁·수요·의도)를 실제로 확인하고 research.json에 기록해야 발행됩니다.
+"keyword_filter": {
+  "keyword": "최종 루트 키워드",
+  "competition": { "method": "allintitle/serp-scan", "evidence": "allintitle 결과 수, 1페이지 구성(개인 블로그·포럼 존재 여부)", "pass": true },
+  "demand":      { "method": "autocomplete/gsc/trends", "evidence": "구글 자동완성 노출·GSC 쿼리 등 수요 근거", "pass": true },
+  "intent":      { "method": "serp-scan", "evidence": "상위 결과가 블로그·정보글 위주라는 근거", "pass": true }
+}
+불합격 필터가 있으면 그 키워드를 버리고 더 롱테일한 키워드로 좁혀 다시 검증하세요(헤드 키워드 발행 금지).`]);
+} else {
+  for (const k of ['competition', 'demand', 'intent']) {
+    const f = kwf[k];
+    if (!f || f.pass !== true) {
+      gate.push([false, `키워드 필터 "${k}"가 통과(pass:true)로 기록되지 않았습니다. 실제로 확인해 기록하고, 불합격이면 더 롱테일한 키워드로 바꿔 재검증하세요.`]);
+    } else if (typeof f.evidence !== 'string' || f.evidence.trim().length < 15) {
+      gate.push([false, `키워드 필터 "${k}"의 evidence가 부실합니다(구체 근거 15자 이상). "확인함" 같은 형식 기록은 통과할 수 없습니다.`]);
+    }
+  }
+  if (typeof kwf.keyword !== 'string' || !kwf.keyword.trim()) {
+    gate.push([false, 'keyword_filter.keyword(최종 루트 키워드)가 비어 있습니다. 실제 검증한 키워드를 기록하세요.']);
+  }
+}
+
 // 리뷰·비교 글(type=review/comparison/리뷰/비교)은 데이터 변수 주입을 게이트로 강제. 그 외 유형은 권장(경고만).
 if (isReview) gate.push([varCount >= VAR_MIN, `리뷰·비교 글(type=${RG.type})은 데이터 변수 주입(variables) ${VAR_MIN}개 이상이 필요합니다. 현재 ${varCount}개 — research.json의 variables를 채우세요.`]);
 
@@ -108,6 +135,35 @@ if (!isReview && varCount < VAR_MIN) console.warn(`⚠️ 데이터 변수 주�
 console.log(`✔ 증거 게이트 통과 — SERP ${openedCount}개 열람 · 팩트체크 ${factcheck.length}건 · 헤르메스 ${hermes}점${scoreHistory ? ` · 심판 ${scoreHistory.length}라운드` : ''}${isReview ? ` · 변수 ${varCount}개(리뷰형)` : ''}`);
 
 const run = (cmd) => execSync(cmd, { cwd: root, stdio: 'inherit' });
+
+// ── AI 냄새 + GEO 인용 재료 게이트(2026-09-15): 글이 "AI가 대충 쓴 글"처럼 읽히면 차단, 숫자 없는 글도 차단 ──
+{
+  const smellScript = 'C:\\Users\\use\\.claude\\skills\\seo-blog-post\\scripts\\ai_smell_check.py';
+  const geoFails = [];
+  if (existsSync(smellScript)) {
+    try {
+      const outJson = execSync(`py "${smellScript}" "${postPath}" --json --threshold 100`, { encoding: 'utf8', env: { ...process.env, PYTHONIOENCODING: 'utf-8' } });
+      const r = JSON.parse(outJson)[0];
+      if (r.score > 30) {
+        geoFails.push(`AI 냄새 지수 ${r.score}점(허용 30 이하). 지적 항목: ${r.flags.map((f) => `${f.check} -${f.penalty}`).join(', ')}. 상투구를 빼고 문장 길이를 섞고 숫자를 넣으세요.`);
+      } else {
+        console.log(`✔ AI 냄새 검사 ${r.score}점`);
+      }
+    } catch (e) {
+      console.warn('⚠️ AI 냄새 검사 실행 실패(게이트 건너뜀):', e.message.split('\n')[0]);
+    }
+  }
+  // 단위 붙은 구체 수치 5개 이상(GEO 인용 재료 규칙 ①)
+  const numericFacts = (body.match(/\d[\d,.]*\s?(%|원|달러|\$|명|개|배|년|월|일|시간|분|초|GB|MB|TB|Hz|fps|인치|kg|만|억|점|위|회|편|종|단계|시즌|레벨)/g) || []).length;
+  if (numericFacts < 5) geoFails.push(`단위 붙은 구체 수치가 ${numericFacts}개뿐입니다(5개 이상). 가격·날짜·점수·용량처럼 출처 있는 숫자를 넣으세요.`);
+  if (geoFails.length) {
+    console.error('FINALIZE_ERROR: AI 냄새·GEO 재료 게이트 미충족\n- ' + geoFails.join('\n- '));
+    process.exit(1);
+  }
+}
+
+// 0) llms.txt(AI 검색용 목차)를 글 목록에서 다시 만든다 — 빌드에 포함되게 빌드 전에.
+run('node automation/gen_llms.mjs');
 
 // 1) 빌드가 깨지면 발행 중단.
 console.log('▶ 빌드 검증...');
@@ -152,6 +208,9 @@ console.log('▶ 커밋·푸시...');
 run('git add -A');
 run(`git commit -m "자동 발행: ${assignment.topic}"`);
 run('git push');
+
+// 4.5) 밖에 뿌릴 공유 문구 생성(Threads·X·핀터레스트). 실패해도 발행엔 영향 없음.
+try { run(`node automation/share_text.mjs ${slug}`); } catch (e) { console.warn('⚠️ 공유 문구 생성 실패:', e.message); }
 
 // 5) 대시보드(블로그자동발행-full)의 발행 큐 자동 동기화. 실패해도 발행엔 영향 없음.
 try {

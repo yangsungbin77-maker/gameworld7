@@ -100,6 +100,10 @@ PS5로 즐길 만한 기대작은 인섬니악의 마블 울버린 같은 독점
 
 자, 이거 하나만 기억하면 돼요. 콘솔 게임 추천의 정답은 스펙표가 아니라 "누구와, 어떤 게임을 할지"에 있습니다. 혼자 깊게 빠질 서사라면 PS5, 가족·친구와 웃고 떠들거나 들고 다닐 거면 스위치2, 다양한 게임을 저렴하게 굴릴 거면 엑스박스 게임패스. 이 갈래만 정하면 나머지는 자연스럽게 따라옵니다. 기기를 정한 다음엔 [RPG 게임 추천](/rpg-game-recommendations/)이나 [2026 스위치 게임 추천](/switch-game-recommendations-2026/) 글에서 실제로 할 게임을 골라보세요. 즐거운 콘솔 게임 라이프 되시길 바랍니다. 🎮
 
+<!-- hub:switch start -->
+<div class="cg-box cg-tip"><span class="cg-title">🎮 닌텐도 스위치 가이드 모음</span><ul><li><a href="/switch-game-recommendations-2026/">닌텐도 스위치 게임 추천 2026 (허브)</a></li><li><a href="/switch2-game-recommendations/">스위치 2 게임 추천 — 독점작·에디션</a></li><li><a href="/switch-rpg-game-recommendations/">스위치 RPG 게임 추천 12선</a></li><li><a href="/switch-2player-games/">스위치 2인 게임 추천 12선</a></li><li><a href="/switch-co-op-games/">스위치 협동(코옵) 게임 추천 12선</a></li></ul></div>
+<!-- hub:switch end -->
+
 ---
 
 **관련 키워드** — #콘솔게임추천 #콘솔게임기추천 #PS5게임추천 #스위치2게임추천 #엑스박스게임패스 #콘솔입문 #플스5추천 #닌텐도스위치2 #스팀덱 #콘솔게임순위 #콘솔신작2026 #게임기추천

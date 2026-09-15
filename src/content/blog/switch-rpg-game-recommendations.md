@@ -108,6 +108,10 @@ heroImage: '../../assets/pool/banner-05-fantasy.png'
 
 이거 하나만 기억하면 돼요. 스위치 RPG는 **한글 지원·플레이타임·난이도**를 먼저 보고 취향에 맞추는 것. 이 세 가지만 챙기면 명작 목록에서 헤매지 않고 내게 맞는 한 작품을 바로 고를 수 있습니다.
 
+<!-- hub:switch start -->
+<div class="cg-box cg-tip"><span class="cg-title">🎮 닌텐도 스위치 가이드 모음</span><ul><li><a href="/switch-game-recommendations-2026/">닌텐도 스위치 게임 추천 2026 (허브)</a></li><li><a href="/switch2-game-recommendations/">스위치 2 게임 추천 — 독점작·에디션</a></li><li><a href="/switch-2player-games/">스위치 2인 게임 추천 12선</a></li><li><a href="/switch-co-op-games/">스위치 협동(코옵) 게임 추천 12선</a></li><li><a href="/console-game-recommendations/">콘솔 게임 추천 2026 — PS5·스위치 2·엑스박스</a></li></ul></div>
+<!-- hub:switch end -->
+
 ---
 
 **관련 키워드** — #닌텐도스위치RPG #스위치RPG추천 #스위치게임추천 #스위치RPG한글 #제노블레이드3 #페르소나5로열 #드래곤퀘스트11S #파이어엠블렘풍화설월 #스위치입문RPG #스위치2하위호환 #룬팩토리5 #옥토패스트래블러2

@@ -105,3 +105,7 @@ heroImage: '../../assets/posts/switch-co-op-games-hero.png'
 **Q. 게임을 잘 못하는 사람과 해도 괜찮은 게임이 있나요?** 마리오브라더스 원더나 디즈니 일루전 아일랜드는 한 명이 막혀도 다른 사람이 도와줄 수 있어, 실력 차가 나도 끝까지 함께 즐길 수 있습니다.
 
 #스위치협동게임추천 #닌텐도스위치협동게임 #스위치코옵게임 #스위치2인협동 #잇테이크투스위치 #오버쿡드스위치 #스위치커플게임 #스위치파티게임 #스타듀밸리협동 #스위치게임추천
+
+<!-- hub:switch start -->
+<div class="cg-box cg-tip"><span class="cg-title">🎮 닌텐도 스위치 가이드 모음</span><ul><li><a href="/switch-game-recommendations-2026/">닌텐도 스위치 게임 추천 2026 (허브)</a></li><li><a href="/switch2-game-recommendations/">스위치 2 게임 추천 — 독점작·에디션</a></li><li><a href="/switch-rpg-game-recommendations/">스위치 RPG 게임 추천 12선</a></li><li><a href="/switch-2player-games/">스위치 2인 게임 추천 12선</a></li><li><a href="/console-game-recommendations/">콘솔 게임 추천 2026 — PS5·스위치 2·엑스박스</a></li></ul></div>
+<!-- hub:switch end -->

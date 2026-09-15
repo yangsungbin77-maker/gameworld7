@@ -109,6 +109,10 @@ heroImage: '../../assets/posts/switch-2player-games-hero.png'
 
 **Q. 추가 컨트롤러를 꼭 사야 하나요?** 오버쿡드·마리오 카트·스니퍼클립스 등은 기본 조이콘만으로 충분합니다. 디아블로·스매시브라더스처럼 버튼을 많이 쓰는 게임을 즐길 때만 프로 컨트롤러를 추가하면 됩니다.
 
+<!-- hub:switch start -->
+<div class="cg-box cg-tip"><span class="cg-title">🎮 닌텐도 스위치 가이드 모음</span><ul><li><a href="/switch-game-recommendations-2026/">닌텐도 스위치 게임 추천 2026 (허브)</a></li><li><a href="/switch2-game-recommendations/">스위치 2 게임 추천 — 독점작·에디션</a></li><li><a href="/switch-rpg-game-recommendations/">스위치 RPG 게임 추천 12선</a></li><li><a href="/switch-co-op-games/">스위치 협동(코옵) 게임 추천 12선</a></li><li><a href="/console-game-recommendations/">콘솔 게임 추천 2026 — PS5·스위치 2·엑스박스</a></li></ul></div>
+<!-- hub:switch end -->
+
 ---
 
 **관련 키워드** — #스위치2인게임추천 #닌텐도스위치2인용 #스위치협동게임 #스위치커플게임 #오버쿡드 #잇테이크투 #마리오카트8디럭스 #스위치파티게임 #조이콘2인플레이 #스위치코옵게임 #스위치가족게임 #스니퍼클립스

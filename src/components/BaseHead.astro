@@ -54,7 +54,13 @@ if (type === 'article') {
 		image: imageURL.href,
 		datePublished: publishedTime?.toISOString(),
 		dateModified: (modifiedTime ?? publishedTime)?.toISOString(),
-		author: { '@type': 'Person', name: '픽셀', url: new URL('/about/', Astro.site).href, worksFor: { '@type': 'Organization', name: SITE_TITLE, url: Astro.site?.href } },
+		// 작성자 엔티티 — /author 페이지(운영자 Sungbin)와 이름·URL을 일치시켜 AI·구글이 같은 사람으로 인식하게 한다(2026-09-15 GEO 보강)
+		author: {
+			'@type': 'Person', '@id': new URL('/author/#person', Astro.site).href,
+			name: 'Sungbin', url: new URL('/author/', Astro.site).href,
+			sameAs: ['https://github.com/yangsungbin77-maker'],
+			worksFor: { '@id': new URL('/#org', Astro.site).href },
+		},
 		publisher: {
 			'@type': 'Organization',
 			name: SITE_TITLE,

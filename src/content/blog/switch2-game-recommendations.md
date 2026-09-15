@@ -100,6 +100,10 @@ heroImage: '../../assets/posts/switch2-game-recommendations.webp'
 
 **Q. 2026년 스위치 2 기대작은 뭐가 있나요?** 공식 라인업 기준으로 스플래툰 레이더스(7월), 파이어 엠블렘 만자천홍(9월), 메타포: 리판타지오(11월), 제노블레이드 3 에디션과 드래곤 퀘스트 몬스터즈 4(12월) 등이 하반기에 예정돼 있습니다. 발매일은 변동될 수 있으니 공식 페이지 확인을 권해요.
 
+<!-- hub:switch start -->
+<div class="cg-box cg-tip"><span class="cg-title">🎮 닌텐도 스위치 가이드 모음</span><ul><li><a href="/switch-game-recommendations-2026/">닌텐도 스위치 게임 추천 2026 (허브)</a></li><li><a href="/switch-rpg-game-recommendations/">스위치 RPG 게임 추천 12선</a></li><li><a href="/switch-2player-games/">스위치 2인 게임 추천 12선</a></li><li><a href="/switch-co-op-games/">스위치 협동(코옵) 게임 추천 12선</a></li><li><a href="/console-game-recommendations/">콘솔 게임 추천 2026 — PS5·스위치 2·엑스박스</a></li></ul></div>
+<!-- hub:switch end -->
+
 ---
 
 **관련 키워드** — #닌텐도스위치2 #스위치2게임추천 #스위치2독점작 #스위치2에디션 #스위치2하위호환 #마리오카트월드 #동키콩바난자 #메트로이드프라임4 #스위치2신작 #업그레이드패스 #스위치2기대작 #링피트스위치2
