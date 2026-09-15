@@ -1,0 +1,204 @@
+{
+  "type": "howto",
+  "keyword_filter": {
+    "keyword": "게임 부스터 설정",
+    "competition": {
+      "method": "serp-scan",
+      "evidence": "구글 1페이지 구성 = 삼성전자서비스 공식 2건 + 삼성 멤버스 + 원더쉐어 광고성 블로그 + 나무위키 + 디시·아카라이브 커뮤니티 글. 개인·커뮤니티 글이 절반이라 신생 사이트 진입 가능 신호. 공식 문서는 선택지 값·권장값이 없어 갭 존재",
+      "pass": true
+    },
+    "demand": {
+      "method": "autocomplete",
+      "evidence": "구글 자동완성 '게임 부스터 설정' 10건 노출 — 설정 끄기·게임 최적화·추천·fps·실험실·갤럭시 게임 부스터 설정·명조 게임 부스터 설정. '게임 부스터' 자동완성에도 설정·플러스·끄기·활성화·삭제 등 10건",
+      "pass": true
+    },
+    "intent": {
+      "method": "serp-scan",
+      "evidence": "상위가 삼성 공식 How-to 안내·커뮤니티 설정 정리·블로그(원더쉐어)로 전부 정보성/How-to. 쇼핑·앱 카드 없음(애플 앱스토어 GFX 앱 1건은 2페이지). 블로그 글이 상위 노출되는 의도",
+      "pass": true
+    }
+  },
+  "cluster": [
+    "갤럭시 게임 부스터 설정",
+    "게임 부스터 플러스",
+    "프레임 부스터",
+    "게임 부스터 fps",
+    "게임 부스터 끄기",
+    "게임 부스터 팝업",
+    "게이밍 허브 설정",
+    "갤럭시 게임 최적화",
+    "게임 부스터 해상도",
+    "One UI 8 게임 설정",
+    "모드 및 루틴 게임",
+    "게임 부스터 실험실"
+  ],
+  "serp": [
+    {
+      "url": "https://www.samsungsvc.co.kr/solution/3187947",
+      "opened": true,
+      "note": "삼성 공식 One UI 7 안내. 경로(게이밍 허브→옵션 더 보기→게임 부스터), 개별 게임 맞춤 설정 4항목, 모드 및 루틴 게임. 선택지 값·권장값 없음(갭)"
+    },
+    {
+      "url": "https://www.samsungsvc.co.kr/solution/1017702",
+      "opened": true,
+      "note": "삼성 공식 게임 부스터 정의. 패턴 분석해 배터리·성능·온도 균형, 내비바 버튼·스와이프로 실행"
+    },
+    {
+      "url": "https://www.samsungsvc.co.kr/solution/982046",
+      "opened": true,
+      "note": "삼성 공식 게임 최적화 3모드(성능/표준/배터리 절약) 설명, 게이밍 허브 7.0 이하는 더보기 아이콘 하단"
+    },
+    {
+      "url": "https://drfone.wondershare.kr/samsung-tips/how-to-disable-galaxy-game-booster-and-fix-lag.html",
+      "opened": true,
+      "note": "비활성화 3방법(바로가기 바·알림·다른 앱 위 표시). Dr.Fone 광고 30%로 신뢰 약함"
+    },
+    {
+      "url": "https://r1.community.samsung.com/t5/갤럭시-s/게임-부스터-설정/td-p/15768896",
+      "opened": false,
+      "note": "403 + 캡차"
+    },
+    {
+      "url": "https://namu.wiki/w/게임 플러그인",
+      "opened": false,
+      "note": "403 + 캡차(Jina 우회도 캡차)"
+    },
+    {
+      "url": "https://gall.dcinside.com/mgallery/board/view/?id=galaxy&no=876476",
+      "opened": true,
+      "note": "2023 질문글, 성능/표준/배터리우선 캡처만 있고 댓글 0 — 정보 없음"
+    },
+    {
+      "url": "https://r1.community.samsung.com/t5/galaxy-게임-최적화/bd-p/kr-community-svc-GameOptimizer",
+      "opened": false,
+      "note": "403"
+    },
+    {
+      "url": "https://arca.live/b/zenlesszonezero/113873062",
+      "opened": true,
+      "note": "젠레스 갤럭시 최적화 총정리(폴드3). 게임 플러그인 직접설정·성능우선·그래픽 45%·최대FPS, 실험실 게임 퍼포먼스 관리, 절전 CPU 70%, 해상도 최고 회피, 성능 영향도 순위, '발열 자체를 줄이진 않음'"
+    },
+    {
+      "url": "https://arca.live/b/wutheringwaves/170679721",
+      "opened": true,
+      "note": "명조 One UI 8.5 정리. 설정>게임 부스터 설정, 게임 부스터+는 굿락, 회전 최적화 끄기(크래시), 모드 및 루틴>게임 탭 해상도, S24 이상 75% 권장"
+    },
+    {
+      "url": "https://gall.dcinside.com/mgallery/board/view/?id=galaxy&no=2219010",
+      "opened": true,
+      "note": "One UI 8.5 게임별 설정 방법(2026-05). 재시작 없이 적용, 모드 및 루틴에 있음"
+    },
+    {
+      "url": "https://www.digitalfocus.news/news/articleView.html?idxno=13485",
+      "opened": true,
+      "note": "게임 부스터+ One UI 8 지원 v1.0.01.6(2025-08-19), GPU 조정·키 리매핑, 지원 기기 S25/S24/Z폴드7·플립7·폴드6·플립6, 설치 경로"
+    },
+    {
+      "url": "https://r1.community.samsung.com/t5/갤럭시-s/팁-갤럭시s25-울트라-게임-설정-팁-공유드립니다/td-p/32781297",
+      "opened": true,
+      "note": "S25U 팁(Jina 우회). 설정>유용한 기능>게임 부스터, 성능/균형/배터리 절약, 120Hz 권장, 프레임 부스터 켬 권장, USB PD 충전 일시정지, 인게임 패널"
+    }
+  ],
+  "serp_summary": {
+    "intent": "How-to/정보(설정 위치·항목별 권장값)",
+    "common_items": [
+      "진입 경로",
+      "개별 게임 맞춤 설정 4항목",
+      "성능/표준/배터리 절약 모드",
+      "모드 및 루틴 게임",
+      "팝업 끄기·비활성화",
+      "게임 부스터 플러스"
+    ],
+    "gaps": [
+      "공식 문서엔 항목별 권장값 없음",
+      "One UI 버전별 메뉴 위치 표가 없음",
+      "게임 장르별 세팅표 없음",
+      "프레임이 안 오르는 이유(상한선·주사율·절전) 설명 없음",
+      "발열 vs 프레임 트레이드오프 정리 없음"
+    ],
+    "avg_length": "공식 300~500자, 커뮤니티 1,000~2,000자"
+  },
+  "factcheck": [
+    {
+      "claim": "One UI 7 게임 부스터 경로 = 게이밍 허브 → 옵션 더 보기 → 게임 부스터 → 개별 게임 맞춤 설정(성능 수준·FPS·해상도·프레임 부스터)",
+      "sources": [
+        "https://www.samsungsvc.co.kr/solution/3187947",
+        "https://www.samsungsvc.co.kr/solution/982046"
+      ]
+    },
+    {
+      "claim": "게임 모드(방해 금지·밝기·빅스비 잠금·엣지 패널 잠금)는 설정 → 모드 및 루틴 → 게임",
+      "sources": [
+        "https://www.samsungsvc.co.kr/solution/3187947",
+        "https://gall.dcinside.com/mgallery/board/view/?id=galaxy&no=2219010",
+        "https://arca.live/b/wutheringwaves/170679721"
+      ]
+    },
+    {
+      "claim": "게임 최적화 3모드 = 성능/표준/배터리 절약(버전에 따라 '균형' 표기), 성능은 배터리 소모 빠름·절약은 일부 기능 제한",
+      "sources": [
+        "https://www.samsungsvc.co.kr/solution/982046",
+        "https://r1.community.samsung.com/t5/갤럭시-s/팁-갤럭시s25-울트라-게임-설정-팁-공유드립니다/td-p/32781297"
+      ]
+    },
+    {
+      "claim": "게임 부스터 플러스는 굿락 별도 앱, One UI 8 지원 v1.0.01.6(2025-08), GPU 조정·키 리매핑, 지원 S25/S24/Z폴드7·플립7·폴드6·플립6",
+      "sources": [
+        "https://www.digitalfocus.news/news/articleView.html?idxno=13485",
+        "https://arca.live/b/wutheringwaves/170679721"
+      ]
+    },
+    {
+      "claim": "설정 앱 경로 = 설정 → 유용한 기능 → 게임 부스터(One UI 8·S25); 8.5는 재시작 없이 적용, 해상도는 모드 및 루틴 게임 탭",
+      "sources": [
+        "https://r1.community.samsung.com/t5/갤럭시-s/팁-갤럭시s25-울트라-게임-설정-팁-공유드립니다/td-p/32781297",
+        "https://arca.live/b/wutheringwaves/170679721",
+        "https://gall.dcinside.com/mgallery/board/view/?id=galaxy&no=2219010"
+      ]
+    },
+    {
+      "claim": "비활성화 3방법(바로가기 바·알림·다른 앱 위 표시), 팝업은 컨트롤러 아이콘→설정→게임 부스터 팝업 표시 끄기",
+      "sources": [
+        "https://drfone.wondershare.kr/samsung-tips/how-to-disable-galaxy-game-booster-and-fix-lag.html",
+        "https://www.samsungsvc.co.kr/solution/3187947"
+      ]
+    },
+    {
+      "claim": "커뮤니티 권장: S24 이상 해상도 75%, 회전 최적화 끄기(8.5 크래시), 최적화는 발열 자체를 줄이지 않음 — 본문에 '커뮤니티 기준'으로 헤지",
+      "sources": [
+        "https://arca.live/b/wutheringwaves/170679721",
+        "https://arca.live/b/zenlesszonezero/113873062"
+      ]
+    }
+  ],
+  "variables": {
+    "keyword": "게임 부스터 설정",
+    "headline_finding": "4가지 설정 중 프레임 손잡이=성능 수준·FPS, 발열 손잡이=해상도. 게임 부스터 FPS는 상한선이라 게임 내 설정·주사율·절전 모드 셋을 같이 봐야 한다",
+    "version_table": "One UI 6 이하 / 7 / 8·8.5 메뉴 위치 3단 표",
+    "genre_table": "슈팅·오픈월드 RPG·MOBA·캐주얼·외출 5유형 × 4항목 세팅표",
+    "plus_vs_basic": "게임 부스터 vs 게임 부스터 플러스 4행 비교표(설치·항목·지원 기기·대상)",
+    "as_of": "2026-09-15"
+  },
+  "geo": {
+    "numeric_facts": "One UI 7·8·8.5, v1.0.01.6, 2025년 8월, 75%, 120Hz, 60, 4가지, 3방법, 90%",
+    "source_mentions": [
+      "삼성전자서비스 안내 기준",
+      "디지털포커스 보도 기준",
+      "젠레스 존 제로 커뮤니티 정리 글",
+      "명조 커뮤니티 One UI 8.5 정리 글",
+      "갤럭시 S25 사용자 팁 글"
+    ],
+    "quote": "게임 플레이 패턴을 분석해 배터리·성능·온도의 균형을 맞추고 / 가장 최적화된 게임 경험",
+    "as_of": "2026년 9월 기준(3줄 요약·도입)"
+  },
+  "images": {
+    "hero": "galaxy-game-booster-settings.webp (PIL 자체 제작, 크레딧 0)",
+    "body": "galaxy-game-booster-settings-4items.webp (4항목 인포그래픽)"
+  },
+  "hermes_score": 95,
+  "score_history": [
+    86,
+    95
+  ],
+  "judge_notes": "1R 86: 플러스 두 의미 미분리·8.5 경로 단정·팝업 출처 약함·시그니처 5종 → 10건 수정. 2R 95 통과, 선택 개선 2건(세 가지 표기·후반 1인칭) 반영"
+}
