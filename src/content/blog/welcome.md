@@ -1,6 +1,6 @@
 ---
 title: '게임월드7을 새롭게 시작합니다'
-description: '게임 뉴스, 공략, 리뷰를 매일 전하는 게임월드7이 새 단장을 마치고 돌아왔습니다.'
+description: '게임 추천, 공략, 설정 팁을 정리하는 게임월드7이 정적 사이트로 새 단장을 마치고 돌아왔습니다.'
 pubDate: 'Jun 09 2026'
 heroImage: '../../assets/welcome-hero.png'
 ---
