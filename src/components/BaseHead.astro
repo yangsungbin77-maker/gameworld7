@@ -16,6 +16,10 @@ interface Props {
 	publishedTime?: Date;
 	modifiedTime?: Date;
 	faq?: { q: string; a: string }[];
+	/** 광고 스크립트를 넣지 않을 페이지(404 등) */
+	noAds?: boolean;
+	/** 검색 색인에서 뺄 페이지(404 등) */
+	noindex?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -27,6 +31,8 @@ const {
 	publishedTime,
 	modifiedTime,
 	faq = [],
+	noAds = false,
+	noindex = false,
 } = Astro.props;
 const imageURL = new URL(image.src, Astro.site);
 
@@ -99,6 +105,7 @@ if (type === 'article') {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <!-- Google AdSense: 계정 재승인 심사 동안 제거(sportskingdom24만 남김). 승인 후 client=ca-pub-8312549013849190 스니펫 복구 -->
+{/* 스니펫 복구 시 404처럼 noAds인 페이지에는 광고가 나가지 않도록 noAds 조건으로 감싼다 */}
 <!-- Google Analytics 4 (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKY67BPNQE" is:inline></script>
 <script is:inline>
@@ -123,8 +130,8 @@ if (type === 'article') {
 
 <Font cssVariable="--font-atkinson" preload />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+<!-- Canonical URL (noindex 페이지는 canonical 대신 robots noindex) -->
+{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

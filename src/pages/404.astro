@@ -1,0 +1,45 @@
+---
+// 없는 주소로 들어온 방문자를 글 목록·미니게임·주요 가이드로 안내하는 404 오류 페이지(광고·색인 제외)
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead
+			title={`페이지를 찾을 수 없습니다 · ${SITE_TITLE}`}
+			description="요청하신 주소의 페이지가 없거나 옮겨졌습니다."
+			noAds
+			noindex
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="nf">
+				<h1>페이지를 찾을 수 없습니다</h1>
+				<p>주소가 바뀌었거나 삭제된 글일 수 있어요. 아래에서 찾아보세요.</p>
+				<ul>
+					<li><a href="/blog">전체 글 목록</a></li>
+					<li><a href="/games">브라우저 미니게임</a></li>
+					<li><a href="/switch-game-recommendations-2026/">스위치 게임 추천</a></li>
+					<li><a href="/game-performance-optimization/">게임 성능 최적화 방법</a></li>
+					<li><a href="/">홈으로</a></li>
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.nf { max-width: 640px; margin: 2rem auto; }
+	.nf h1 { font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 0.5rem; }
+	.nf p { color: var(--text-muted); }
+	.nf ul { padding-left: 1.2em; }
+	.nf li { margin: 0.3em 0; }
+	.nf a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+</style>
