@@ -32,6 +32,18 @@ const rest = posts.slice(1, 7);
 				</div>
 			</section>
 
+			<section class="start">
+				<h2>처음 오셨다면 여기서 시작하세요</h2>
+				<p class="start-note">게임을 고르거나 설정을 손보려는 분을 위해, 상황별로 먼저 읽으면 좋은 글을 모았습니다.</p>
+				<ul class="start-list">
+					<li><strong>무슨 게임을 할지 고민 중</strong> — <a href="/switch-game-recommendations-2026/">스위치 게임 추천</a> · <a href="/switch-2player-games/">스위치 2인 게임</a> · <a href="/game-genre-guide/">게임 장르 가이드</a></li>
+					<li><strong>PC 게임이 끊기거나 느릴 때</strong> — <a href="/game-performance-optimization/">게임 성능 최적화</a> · <a href="/game-frame-drop-fix/">프레임 드랍 해결</a></li>
+					<li><strong>폰으로 게임할 때</strong> — <a href="/mobile-game-overheating-fix/">발열 줄이기</a> · <a href="/galaxy-game-booster-settings/">갤럭시 게임 부스터 설정</a></li>
+					<li><strong>스팀에서 살 때</strong> — <a href="/steam-sale-guide/">스팀 세일 활용법</a> · <a href="/steam-refund-guide/">스팀 환불 방법</a></li>
+					<li><strong>게임 용어가 낯설 때</strong> — <a href="/game-terms-glossary/">게임 용어·줄임말 정리</a></li>
+				</ul>
+			</section>
+
 			<section class="games" id="games">
 				<div class="section-head">
 					<h2>🎮 지금 바로 플레이</h2>
@@ -139,6 +151,11 @@ const rest = posts.slice(1, 7);
 		flex-wrap: wrap;
 	}
 
+	.start { margin-bottom: 2.5rem; }
+	.start h2 { margin: 0 0 0.4rem; }
+	.start-note { color: var(--text-muted); margin: 0 0 0.8rem; }
+	.start-list { padding-left: 1.2em; margin: 0; }
+	.start-list li { margin: 0.45em 0; line-height: 1.7; }
 	.games {
 		margin-bottom: 3rem;
 	}
