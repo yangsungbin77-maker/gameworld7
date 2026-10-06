@@ -84,3 +84,11 @@
 - 핵심 과제(게임월드7 구축+배포+도메인+디자인) 완료. 글은 `src/content/blog/`에 .md 추가 후 push하면 자동 게시.
 - Higgsfield MCP는 claude.ai 커넥터로 연결됨(이미지 생성). 코딩 세션에서 쓰려면 앱 재시작 후 반영.
 - 두 번째 사이트 `sportskingdom24.com`은 이 사이트 동일 틀로 복제 예정(Namecheap일 가능성 높음).
+
+### 애드센스 승인 준비 점검 (2026-10-06)
+- 404 페이지 신설 + `wrangler.jsonc` `not_found_handling: "404-page"`. BaseHead에 `noAds`/`noindex` 속성 추가 — 애드센스 스니펫을 복구할 때 `{!noAds && ...}`로 감싸 404에 광고가 안 나가게 하려는 것.
+- 스니펫은 커밋 5f42926의 의도적 제거 상태를 유지(광고 활성화 안 함). ads.txt의 pub ID는 그대로.
+- 개인정보처리방침은 실제 로딩 서비스(GA4만 외부 스크립트, 미니게임 localStorage, Cloudflare)와 애드센스 '준비 중' 기준으로 재작성. CMP는 미설치라 '적용 시 안내'로만 적음.
+- 자동 발행 파이프라인이 있으므로 /about·/author에 AI 활용을 고지하고, '직접 해보고 씁니다'를 '공식 자료 기준'으로 바꿈. 글 속 '픽셀'은 필명이라고 명시(운영자 Sungbin과의 모순 해소).
+- AI가 넣은 '직접 경험' 문장 13곳은 삭제하지 않고 `adsense-review.md` 5-2에 목록화 — 운영자 확인 필요.
+- 상세 기록·검증표·사람 검토 체크리스트는 `adsense-review.md`.
