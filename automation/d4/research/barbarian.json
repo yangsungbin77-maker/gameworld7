@@ -1,0 +1,1532 @@
+{
+ "id": "barbarian",
+ "en": "Barbarian",
+ "ko": "야만용사",
+ "sources": [
+  "https://diablo4.inven.co.kr/db/skillsimulator",
+  "https://diablo4.inven.co.kr/db/item",
+  "https://news.blizzard.com/ko-kr/article/24271857/",
+  "https://news.blizzard.com/ko-kr/article/24266869/",
+  "https://m.inven.co.kr/webzine/wznews.php?idx=313545",
+  "https://www.diablobytes.com/diablo-iv/guides/skill-tree-rework/",
+  "https://diablo4.inven.co.kr/db/skillsimulator/1928",
+  "https://diablo4.wiki.fextralife.com/Barbarian_Skills",
+  "https://diablo4.wiki.fextralife.com/Arsenal_System",
+  "https://diablo4.wiki.fextralife.com/Barbarian",
+  "https://maxroll.gg/d4/build-guides/minion-barbarian-guide"
+ ],
+ "tree_note": "증오의 군주(3.0) 개편으로 패시브와 핵심 지속 효과가 모두 사라지고 트리가 액티브 기술(궁극기 포함)로만 구성됩니다. 각 기술은 최대 15등급이며, 연결 노드를 거쳐 '기술 변화형'(major, 3개 중 1개)과 '부가 업그레이드'(minor1·minor2, 각 2개 중 1개)를 고릅니다. 야만용사는 기본·핵심·방어·난투·무기 숙련·궁극기 6개 분류, 24개 기술입니다.",
+ "categories": [
+  {
+   "en": "Basic",
+   "ko": "기본",
+   "skills": [
+    {
+     "en": "Lunging Strike",
+     "ko": "달려들기",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Whirling",
+       "ko": "선풍",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Impaling",
+       "ko": "꿰뚫기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Skewer",
+       "ko": "꼬챙이",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Berserking",
+       "ko": "광폭화",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Fury Generation",
+       "ko": "분노 생성",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Range",
+       "ko": "범위",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Bash",
+     "ko": "후려치기",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Atomic Blast",
+       "ko": "원자력 돌풍",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Violent Swings",
+       "ko": "난폭한 휘두르기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Heavy Knuckles",
+       "ko": "육중한 손마디",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Clobbering",
+       "ko": "매질",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Fury Generation",
+       "ko": "분노 생성",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Frenzy",
+     "ko": "광분",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Barrage",
+       "ko": "탄막",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Throwing",
+       "ko": "투척",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Raging",
+       "ko": "노도",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Unhindered",
+       "ko": "방해받지 않음",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Frenzy Stacks",
+       "ko": "광분 중첩",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Fury Generation",
+       "ko": "분노 생성",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Flay",
+     "ko": "도려내기",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Anemia",
+       "ko": "빈혈",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Hemorrhaging",
+       "ko": "과다출혈",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "The Flayer",
+       "ko": "가죽을 벗기는 자",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Slow",
+       "ko": "감속",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Duration Bonus",
+       "ko": "지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Core",
+   "ko": "핵심",
+   "skills": [
+    {
+     "en": "Upheaval",
+     "ko": "지각 변동",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Suppress",
+       "ko": "억압",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Iron Burst",
+       "ko": "철의 격발",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Trailblazing",
+       "ko": "개척",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Free Cast",
+       "ko": "자원 소모 없이 시전",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Fury Cost Reduction",
+       "ko": "분노 소모량 감소",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Damage Increase",
+       "ko": "피해 증가",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Double Swing",
+     "ko": "이중 타격",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Slice and Dice",
+       "ko": "썰고 다지기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Twister",
+       "ko": "돌개바람",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Flurry",
+       "ko": "연타",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Fury Cost Reduction",
+       "ko": "분노 소모량 감소",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Increase",
+       "ko": "피해 증가",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Chance To Hit Twice",
+       "ko": "두 번 적중 확률",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Fortify",
+       "ko": "보강",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Rend",
+     "ko": "분쇄",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Scorching",
+       "ko": "불태우기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Blood Sworn",
+       "ko": "피의 맹세",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Flailing",
+       "ko": "타작",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Cast Speed",
+       "ko": "시전 속도",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Vulnerable Damage Bonus",
+       "ko": "취약 피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Moving Damage Bonus",
+       "ko": "이동 피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Whirlwind",
+     "ko": "소용돌이",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Winding",
+       "ko": "굽이",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Bursting",
+       "ko": "격발",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Tornado",
+       "ko": "회오리바람",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Channel Damage Bonus",
+       "ko": "정신 집중 피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Cost Damage Bonus",
+       "ko": "소모량 피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Movement Speed",
+       "ko": "이동 속도",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Hammer of the Ancients",
+     "ko": "선조의 망치",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Ancestral",
+       "ko": "선조",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Fissure",
+       "ko": "균열",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Explosive",
+       "ko": "폭발성",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Fury Generation",
+       "ko": "분노 생성",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Size and Damage Bonus",
+       "ko": "규모 및 피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Critical Strike",
+       "ko": "극대화",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Defensive",
+   "ko": "방어",
+   "skills": [
+    {
+     "en": "Ground Stomp",
+     "ko": "발 구르기",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Breach",
+       "ko": "균열",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Seismic",
+       "ko": "지각 충격",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Stomping Grounds",
+       "ko": "구르는 바닥",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Size Bonus",
+       "ko": "규모 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Fury Generation",
+       "ko": "분노 생성",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Additional Charges",
+       "ko": "추가 충전",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Rallying Cry",
+     "ko": "집결의 함성",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "The World",
+       "ko": "세상",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Madawc",
+       "ko": "마도크",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Booming",
+       "ko": "뇌성",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Fury Gain",
+       "ko": "분노 획득",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Potency",
+       "ko": "지속 효력",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Duration Bonus",
+       "ko": "지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Fortify",
+       "ko": "보강",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Iron Skin",
+     "ko": "철갑 피부",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Retaliation",
+       "ko": "응징",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Endure",
+       "ko": "인내",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Juggernaut",
+       "ko": "거한",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Maximum Life",
+       "ko": "최대 생명력",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Movement Speed",
+       "ko": "이동 속도",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Challenging Shout",
+     "ko": "도전의 외침",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Raging",
+       "ko": "노도",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Talic",
+       "ko": "탈릭",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Bawl",
+       "ko": "호통",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Fury Generation",
+       "ko": "분노 생성",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Duration Bonus",
+       "ko": "지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Brawling",
+   "ko": "난투",
+   "skills": [
+    {
+     "en": "War Cry",
+     "ko": "전장의 함성",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Mighty Roar",
+       "ko": "강력한 포효",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Korlic",
+       "ko": "콜릭",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "The Scream",
+       "ko": "비명",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Slow",
+       "ko": "감속",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Duration Increase",
+       "ko": "지속시간 증가",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Charge",
+     "ko": "돌진",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Merciless Assault",
+       "ko": "힘세고 강한 돌진",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Phalanx",
+       "ko": "결사대",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Battering Ram",
+       "ko": "공성추",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Unstoppable",
+       "ko": "저지 불가",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Distance Damage Bonus",
+       "ko": "거리 피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Enemy Damage Bonus",
+       "ko": "적 피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Leap",
+     "ko": "도약",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Death From Above",
+       "ko": "죽음의 내리꽂기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Earthshatter",
+       "ko": "대지진",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Mosh",
+       "ko": "격렬한 춤",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Arsenal Bonus",
+       "ko": "무기고 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Fury Generation",
+       "ko": "분노 생성",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Pull",
+       "ko": "끌어당기기",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Damage Bonus and Crowd Control",
+       "ko": "피해 보너스 및 군중 제어",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Kick",
+     "ko": "발차기",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Madness",
+       "ko": "광기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Crimson",
+       "ko": "진홍빛",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Power",
+       "ko": "위력",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Collide",
+       "ko": "부딪침",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Increase Damage",
+       "ko": "공격력 증가",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Weapon Mastery",
+   "ko": "무기 숙련",
+   "skills": [
+    {
+     "en": "Death Blow",
+     "ko": "결정타",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Consecutive",
+       "ko": "연속",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Sonic Boom",
+       "ko": "음속 폭음",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Blast",
+       "ko": "돌풍",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Execute",
+       "ko": "처형",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Fury Generation",
+       "ko": "분노 생성",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Charges",
+       "ko": "충전 횟수",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Steel Grasp",
+     "ko": "강철 손아귀",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Chain Whip",
+       "ko": "사슬 채찍",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Devil's Chain",
+       "ko": "악마의 사슬",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Solo Chain",
+       "ko": "단독 사슬",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Extra Charges",
+       "ko": "추가 충전 횟수",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Berserking",
+       "ko": "광폭화",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Rupture",
+     "ko": "파열",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "All For One",
+       "ko": "하나를 위한 모두",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Blood Pool",
+       "ko": "피 웅덩이",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Gore",
+       "ko": "선혈",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Size Bonus",
+       "ko": "규모 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Mighty Throw",
+     "ko": "강력한 투척",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Mightiest",
+       "ko": "최강자",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Rapid",
+       "ko": "재빠름",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Spares",
+       "ko": "예비품",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Size Bonus",
+       "ko": "크기 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Barrier",
+       "ko": "보호막",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Ultimate",
+   "ko": "궁극기",
+   "skills": [
+    {
+     "en": "Call of the Ancients",
+     "ko": "선조의 귀환",
+     "type": "ultimate",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Empowered",
+       "ko": "강화됨",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "The Chosen",
+       "ko": "선택받은 자",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Highlander",
+       "ko": "고산지 사람",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Attack Speed and Damage Bonus",
+       "ko": "공격 속도 및 피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Ancient Attack Speed",
+       "ko": "선조 공격 속도",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Damage Reduction",
+       "ko": "피해 감소",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Iron Maelstrom",
+     "ko": "강철 소용돌이",
+     "type": "ultimate",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Armageddon",
+       "ko": "아마겟돈",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Hidden Technique",
+       "ko": "숨겨진 기술",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Mastered Weapon",
+       "ko": "숙련한 무기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Additional Effect",
+       "ko": "추가 효과",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Global Cooldown Reduction",
+       "ko": "전역 재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Wrath of the Berserker",
+     "ko": "광전사의 진노",
+     "type": "ultimate",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Full Throttle",
+       "ko": "전속력",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Deep Impact",
+       "ko": "깊은 충격",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Maximum Carnage",
+       "ko": "극한의 학살",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Duration Bonus",
+       "ko": "지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Berserking",
+       "ko": "광폭화",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Fury Generation",
+       "ko": "분노 생성",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "mechanic": {
+  "en": "Arsenal (Weapon Expertise + Technique slot)",
+  "ko": "무기고",
+  "options": [
+   {
+    "en": "One-Handed Axe Expertise",
+    "ko": null,
+    "weapon_ko": "도끼",
+    "desc_ko": "부상당한 적 상대로 극대화 확률이 오르고, 극대화 적중 시 공격 속도가 잠깐 오름."
+   },
+   {
+    "en": "One-Handed Mace Expertise",
+    "ko": null,
+    "weapon_ko": "철퇴",
+    "desc_ko": "기절한 적에게 더 큰 피해, 기절한 적을 때리면 광폭화를 얻을 수 있음."
+   },
+   {
+    "en": "One-Handed Sword Expertise",
+    "ko": null,
+    "weapon_ko": "도검",
+    "desc_ko": "군중 제어된 적을 때리면 분노를 얻고, 그런 적을 처치하면 공격 속도가 오름."
+   },
+   {
+    "en": "Two-Handed Axe Expertise",
+    "ko": null,
+    "weapon_ko": "양손 도끼",
+    "desc_ko": "취약 상태 적에게 피해와 극대화 확률이 증가."
+   },
+   {
+    "en": "Two-Handed Mace Expertise",
+    "ko": null,
+    "weapon_ko": "양손 철퇴",
+    "desc_ko": "적중 시 분노를 얻을 수 있고, 광폭화 중 극대화 피해가 증가."
+   },
+   {
+    "en": "Two-Handed Sword Expertise",
+    "ko": null,
+    "weapon_ko": "양손 검",
+    "desc_ko": "직접 피해 일부가 출혈 피해로 바뀌고, 처치 후 출혈 피해가 잠깐 증가(3.2에서 출혈 보너스 30%→15% 하향 보고)."
+   },
+   {
+    "en": "Polearm Expertise",
+    "ko": null,
+    "weapon_ko": "미늘창",
+    "desc_ko": "행운의 적중 확률이 오르고, 건강 상태일 때 피해 증가."
+   }
+  ],
+  "notes": "무기 4개(양손 둔기·양손 베기·쌍수 2개)를 기술별로 배정하는 시스템. 무기 종류별 전문성은 사용하며 1~10등급 성장, 퀘스트로 여는 기술(Technique) 슬롯에 전문성 1개를 끼우면 무기와 상관없이 항상 적용. 도약의 '무기고 보너스' 부가 업그레이드가 무기고 선택(쌍수 무기·둔기·베는 무기)에 따라 효과가 달라짐. 전문성 효과 수치는 개편 전 자료 기준이라 변동 가능."
+ },
+ "uniques": [
+  {
+   "en": "Ramaladni's Magnum Opus",
+   "ko": "라말라드니의 역작",
+   "slot_ko": "도검"
+  },
+  {
+   "en": "Ancients' Oath",
+   "ko": "선조의 맹세",
+   "slot_ko": "양손 도끼"
+  },
+  {
+   "en": "Hellhammer",
+   "ko": "지옥망치",
+   "slot_ko": "양손 철퇴"
+  },
+  {
+   "en": "Overkill",
+   "ko": "과잉 살상",
+   "slot_ko": "양손 철퇴"
+  },
+  {
+   "en": "Fields of Crimson",
+   "ko": "심홍색의 전장",
+   "slot_ko": "양손 검"
+  },
+  {
+   "en": "Battle Trance",
+   "ko": "전투 무아지경",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "100,000 Steps",
+   "ko": "만보",
+   "slot_ko": "장화"
+  },
+  {
+   "en": "Rage of Harrogath",
+   "ko": "하로가스의 분노",
+   "slot_ko": "가슴 방어구"
+  },
+  {
+   "en": "Gohr's Devastating Grips",
+   "ko": "고르의 파멸적인 손 보호구",
+   "slot_ko": "장갑"
+  },
+  {
+   "en": "Tuskhelm of Joritz the Mighty",
+   "ko": "위대한 조리츠의 엄니 투구",
+   "slot_ko": "투구"
+  },
+  {
+   "en": "Ring of Red Furor",
+   "ko": "붉은 열광의 반지",
+   "slot_ko": "반지"
+  },
+  {
+   "en": "Ring of the Ravenous",
+   "ko": "걸신들린 자의 반지",
+   "slot_ko": "반지"
+  },
+  {
+   "en": "Arreat's Bearing",
+   "ko": "아리앗의 자세",
+   "slot_ko": "바지"
+  },
+  {
+   "en": "Twin Strikes",
+   "ko": "이중 강타",
+   "slot_ko": "장갑"
+  },
+  {
+   "en": "Unbroken Chain",
+   "ko": "부서지지 않는 사슬",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "The Third Blade",
+   "ko": "세 번째 칼날",
+   "slot_ko": "도검"
+  },
+  {
+   "en": "Ugly Bastard Helm",
+   "ko": "못생긴 놈 투구",
+   "slot_ko": "투구"
+  },
+  {
+   "en": "Mantle of Mountain's Fury",
+   "ko": "산의 분노의 어깨걸이",
+   "slot_ko": "가슴 방어구"
+  },
+  {
+   "en": "Bane of Ahjad-Den",
+   "ko": "파괴의 군대의 숙적",
+   "slot_ko": "장갑"
+  },
+  {
+   "en": "Hooves of the Mountain God",
+   "ko": "산신의 발굽",
+   "slot_ko": "장화"
+  },
+  {
+   "en": "Sabre of Tsasgal",
+   "ko": "차스갈의 세이버",
+   "slot_ko": "도검"
+  },
+  {
+   "en": "Chainscourged Mail",
+   "ko": "사슬참화 쇠미늘",
+   "slot_ko": "바지"
+  },
+  {
+   "en": "Dark Stalker's Medallion",
+   "ko": "어둠의 추적자의 메달",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "Emblem of Staalbreak",
+   "ko": "스탈브레이크의 표징",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "Might of Qual-Kehk",
+   "ko": "콸케크의 힘",
+   "slot_ko": "장갑"
+  },
+  {
+   "en": "Nomad's Longing Heart",
+   "ko": "유목민의 그리운 마음",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "The Open Eye of Gorgorra",
+   "ko": "고르고라의 뜬 눈",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "The Relentless Heart",
+   "ko": "가차없는 마음",
+   "slot_ko": "가슴 방어구"
+  }
+ ],
+ "weapon_slots_ko": [
+  "양손 둔기",
+  "양손 베기 무기",
+  "쌍수 무기(주 무기)",
+  "쌍수 무기(보조 무기)"
+ ],
+ "globals": {
+  "max_level": 70,
+  "skill_points": 83,
+  "notes": "증오의 군주(3.0, 2026-04-28)에서 레벨 제한 60→70. 스킬 포인트 83은 인벤 스킬 시뮬레이터의 사용 포인트 상한(83 초과 시 경고)과 제3자 가이드 수치가 일치해 채택(블리자드 공식 문서로는 미확인). 레벨업 외에 시즌 여정·명망으로 추가 포인트를 얻는 구조. 기술 등급 최대 15(장비·부적 +등급으로 초과 가능). 노드 비용 추정: 기술 등급 1포인트씩 + 연결 노드 + 변화형/부가 업그레이드 각 1포인트."
+ },
+ "confidence": "기술·분류·변화형·부가 업그레이드의 한국어 이름과 구조(최대 15등급, 변화형 3택1, 부가 2택1×2)는 인벤 스킬 시뮬레이터의 시즌15 실데이터에서 직접 추출(공식 패치노트 문구 '선풍', '고산지 사람', '지각 충격', '집결의 함성 지속 효력', '도전의 외침', '결정타 분노 생성/제압 업그레이드'로 교차확인). 영어 이름은 Fextralife 목록과 효과 설명을 대조해 매칭(의미 기준 매칭이라 일부 오매칭 가능). loh_only(확장팩 전용 변화형)는 Fextralife 기준으로 미검증. 고유 아이템은 인벤 아이템 DB 기준 28개(신화 고유·공용 제외). 무기 전문성 각 항목의 공식 한국어 명칭과 기술 슬롯 한국어 명칭은 확인 못해 null, 무기 슬롯 한국어 표기는 게임 내 기술 설명 용어(양손 둔기·양손 베기·쌍수)를 조합한 것."
+}

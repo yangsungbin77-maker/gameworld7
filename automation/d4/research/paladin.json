@@ -1,0 +1,1741 @@
+{
+  "id": "paladin",
+  "en": "Paladin",
+  "ko": "성기사",
+  "sources": [
+    "https://news.blizzard.com/ko-kr/article/24244399/",
+    "https://news.blizzard.com/en-us/article/24244399/",
+    "https://assets-ng.maxroll.gg/d4-tools/game/data.min.json (maxroll D4 플래너 게임데이터, 빌드 3.2.1.73552 = 시즌 15)",
+    "https://assets-ng.maxroll.gg/d4-tools/game/data.kokr.json (같은 빌드의 한국어 클라이언트 문자열)",
+    "https://assets-ng.maxroll.gg/d4-tools/game/data.enus.json",
+    "https://maxroll.gg/d4/planner/",
+    "https://github.com/DiabloTools/d4data (3.2.1.73552 빌드 확인용)"
+  ],
+  "tree_note": "증오의 군주(2026-04-28)에서 트리가 전면 개편되어 지속 효과·핵심 지속 효과 노드가 사라지고, 6개 분류에 기술 24개만 남았습니다. 기술마다 본체(최대 15랭크)에서 세 갈래가 뻗는데, 보조 갈래 2개(각각 2개 중 1개 선택, 1점)와 주 갈래 1개(변형 3개 중 1개 선택, 1점, 세 번째 변형은 레벨 30~40 필요)입니다. 분류 관문은 캐릭터 레벨로 열립니다(기본 1, 핵심 3, 오라 4, 넷째 분류 8, 다섯째 분류 13, 궁극기 19).",
+  "upgrade_kind_legend": "kind=choice: 주 갈래 변형(3개 중 1개, 기술 성격 자체가 바뀜). kind=enhancement: 보조 갈래 수정치(branch side_1, side_2 각각 2개 중 1개). unlock_level: 그 노드를 찍을 수 있는 캐릭터 레벨.",
+  "categories": [
+    {
+      "en": "Basic",
+      "ko": "기본",
+      "ko_ingame_tag": "기본",
+      "unlock_level": 1,
+      "skills": [
+        {
+          "en": "Clash",
+          "ko": "격돌",
+          "id": "Paladin_Punish",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Resolve",
+              "ko": "결의",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Faith Generation",
+              "ko": "신념 생성",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Damage Increase",
+              "ko": "공격력 증가",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Crusader's March Effectiveness",
+              "ko": "성전사의 행군 효과",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Punishment",
+              "ko": "징벌",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Skirmish",
+              "ko": "교전",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Seize Them",
+              "ko": "붙잡아라",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 30
+            }
+          ]
+        },
+        {
+          "en": "Advance",
+          "ko": "전진",
+          "id": "Paladin_Advance_lunge",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Critical Strike Chance",
+              "ko": "극대화 확률",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Unhindered",
+              "ko": "방해받지 않음",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Vanguard's Rush",
+              "ko": "선봉대의 약진",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Wave Dash",
+              "ko": "파동 질주",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Flash of the Blade",
+              "ko": "칼날의 섬광",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 30
+            }
+          ]
+        },
+        {
+          "en": "Holy Bolt",
+          "ko": "신성한 빛줄기",
+          "id": "Paladin_StormBolt",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage Increase",
+              "ko": "피해 증가",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Faith Generation",
+              "ko": "신념 생성",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Slow",
+              "ko": "감속",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Ricocheting Bolt",
+              "ko": "튕기는 빛줄기",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Divine Bolt",
+              "ko": "천상의 빛줄기",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Storm Bolt",
+              "ko": "폭풍 빛줄기",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 30
+            }
+          ]
+        },
+        {
+          "en": "Brandish",
+          "ko": "휘두르기",
+          "id": "Paladin_Brandish",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage Increase",
+              "ko": "공격력 증가",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Faith Generation",
+              "ko": "신념 생성",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Cross Strike",
+              "ko": "십자 타격",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Sword of Mastery",
+              "ko": "숙련된 검",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Returning Light",
+              "ko": "돌아오는 빛",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Core",
+      "ko": "핵심",
+      "ko_ingame_tag": "핵심",
+      "unlock_level": 3,
+      "skills": [
+        {
+          "en": "Blessed Shield",
+          "ko": "축복받은 방패",
+          "id": "Paladin_BlessedShield",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Armor and Block Chance Bonus",
+              "ko": "방어도 및 방패막기 확률 보너스",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Faith Generation",
+              "ko": "신념 생성",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Shield of Justice",
+              "ko": "정의의 방패",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Shield of the Revenant",
+              "ko": "혼백의 방패",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Shield of Retribution",
+              "ko": "응보의 방패",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        },
+        {
+          "en": "Shield Bash",
+          "ko": "방패 후려치기",
+          "id": "Paladin_ShieldBash",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Hits Are Blocks",
+              "ko": "적중이 막기로 간주",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Size Bonus",
+              "ko": "규모 보너스",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Distance",
+              "ko": "거리",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Lay Siege",
+              "ko": "포위 공격",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Smite",
+              "ko": "천벌",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Breach",
+              "ko": "파손",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        },
+        {
+          "en": "Blessed Hammer",
+          "ko": "축복받은 망치",
+          "id": "Paladin_BlessedHammer",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Slow",
+              "ko": "감속",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Shattering Blow",
+              "ko": "분쇄의 타격",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Disciple's Halo",
+              "ko": "사도의 후광",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Mortar Combat",
+              "ko": "포격 전투",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        },
+        {
+          "en": "Divine Lance",
+          "ko": "천상의 기병창",
+          "id": "Paladin_Impale",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Stacking Damage",
+              "ko": "중첩 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Tip of the Spear",
+              "ko": "창의 끝",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Zealous Joust",
+              "ko": "열성적인 창 결투",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Divine Javelin",
+              "ko": "천상의 투창",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        },
+        {
+          "en": "Zeal",
+          "ko": "열의",
+          "id": "Paladin_PreTrailZeal",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Additional Strikes",
+              "ko": "추가 타격",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Critical Strike Chance",
+              "ko": "극대화 확률",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Zealot's Legacy",
+              "ko": "광신도의 유산",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Death or Glory",
+              "ko": "죽음 아니면 영광을",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Cull the Wicked",
+              "ko": "간교한 자 처단",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Aura",
+      "ko": "오라",
+      "ko_ingame_tag": "오라",
+      "unlock_level": 4,
+      "skills": [
+        {
+          "en": "Defiance Aura",
+          "ko": "저항 오라",
+          "id": "Paladin_Defensive_Aura",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Maximum Life",
+              "ko": "최대 생명력",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Unstoppable",
+              "ko": "저지 불가",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Bonus Healing",
+              "ko": "보너스 치유",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Potency",
+              "ko": "위력",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Rite of Might",
+              "ko": "위세의 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Rite of Prayer",
+              "ko": "기도의 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Rite of Thorns",
+              "ko": "가시의 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 34
+            }
+          ]
+        },
+        {
+          "en": "Fanaticism Aura",
+          "ko": "광신 오라",
+          "id": "Paladin_Offensive_Aura",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Additional Maximum Resource",
+              "ko": "추가 최대 자원",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Extra Passive Stack",
+              "ko": "추가 지속 효과 중첩",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Resource Generation",
+              "ko": "자원 생성량",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Potency",
+              "ko": "위력",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Rite of Vengeance",
+              "ko": "복수의 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Rite of Humility",
+              "ko": "겸손의 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Rite of Redemption",
+              "ko": "구원의 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 34
+            }
+          ]
+        },
+        {
+          "en": "Holy Light Aura",
+          "ko": "신성한 빛 오라",
+          "id": "Paladin_HolyShock_Aura",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Additional Targets",
+              "ko": "추가 대상",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Additional Bounce",
+              "ko": "추가 튕김",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Potency",
+              "ko": "위력",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Judgement Damage Bonus",
+              "ko": "심판 피해 보너스",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Rite of Judgement",
+              "ko": "심판의 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Rite of Mercy",
+              "ko": "자비의 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Rite of Submission",
+              "ko": "굴복의 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 34
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Valor",
+      "ko": "용맹",
+      "ko_ingame_tag": "용맹",
+      "unlock_level": 8,
+      "skills": [
+        {
+          "en": "Shield Charge",
+          "ko": "방패 돌진",
+          "id": "Paladin_ShieldCharge_Channel_Short",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Resolve",
+              "ko": "결의",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Retribution",
+              "ko": "응보",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Hit Count As Blocking",
+              "ko": "적중을 막기로 간주",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Relentless Charge",
+              "ko": "가차없는 돌진",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Virtuous Charge",
+              "ko": "미덕의 돌진",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Phalanx Charge",
+              "ko": "결사대의 돌진",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 36
+            }
+          ]
+        },
+        {
+          "en": "Falling Star",
+          "ko": "유성",
+          "id": "Paladin_LanceDive_OLD",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Additional Charge",
+              "ko": "추가 충전",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Damage",
+              "ko": "피해",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Starfall",
+              "ko": "별똥별",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Fanatic Descent",
+              "ko": "광적인 하강",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Faster Than Light",
+              "ko": "빛보다 빠르게",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 36
+            }
+          ]
+        },
+        {
+          "en": "Aegis",
+          "ko": "이지스",
+          "id": "Paladin_Smite_FalconPunch_Recast_1",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Unstoppable",
+              "ko": "저지 불가",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Block Damage Reduction",
+              "ko": "막기 피해 감소",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Duration",
+              "ko": "지속시간",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Stay Resolute",
+              "ko": "변치 않는 결의",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Faith Is My Shield",
+              "ko": "신념이 곧 나의 방패니",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Impunity",
+              "ko": "면책",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 36
+            }
+          ]
+        },
+        {
+          "en": "Rally",
+          "ko": "집결",
+          "id": "Paladin_Sacrifice",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Critical Strike Chance",
+              "ko": "극대화 확률",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Duration Bonus",
+              "ko": "지속시간 보너스",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Unhindered and Movement Speed",
+              "ko": "방해받지 않음과 이동 속도",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Words of Rejuvenation",
+              "ko": "소생의 전언",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Words of Inspiration",
+              "ko": "격려의 전언",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Words of Sacrifice",
+              "ko": "희생의 전언",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Justice",
+      "ko": "정의",
+      "ko_ingame_tag": "심판",
+      "unlock_level": 13,
+      "skills": [
+        {
+          "en": "Spear of the Heavens",
+          "ko": "천상의 창",
+          "id": "Paladin_SpearOfTheHeavens",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Judgement Damage Bonus",
+              "ko": "심판 피해 보너스",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Projectiles",
+              "ko": "투사체",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Pronouncement of Heaven",
+              "ko": "천상의 선언",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Part the Heavens",
+              "ko": "하늘 가르기",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Fist of the Heavens",
+              "ko": "천상의 주먹",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 38
+            }
+          ]
+        },
+        {
+          "en": "Condemn",
+          "ko": "규탄",
+          "id": "Paladin_Condemn",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Size Increase",
+              "ko": "규모 증가",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Gather the Guilty",
+              "ko": "죄인 집합",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Atonement",
+              "ko": "속죄",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Shepherd the Flock",
+              "ko": "양몰이",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 38
+            }
+          ]
+        },
+        {
+          "en": "Purify",
+          "ko": "정화",
+          "id": "Paladin_Purify",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Faith Generation",
+              "ko": "신념 생성",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Echo",
+              "ko": "메아리",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Size Bonus",
+              "ko": "규모 보너스",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Sentence",
+              "ko": "판결",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Surrender",
+              "ko": "항복",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Absolution",
+              "ko": "속죄",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 38
+            }
+          ]
+        },
+        {
+          "en": "Consecration",
+          "ko": "신성화",
+          "id": "Paladin_Consecration",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Duration",
+              "ko": "지속시간",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Resource Generation",
+              "ko": "자원 생성량",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Hallowed Ground",
+              "ko": "거룩한 지대",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Bastion",
+              "ko": "철벽",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Sanctify",
+              "ko": "축성",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 38
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Ultimate",
+      "ko": "궁극기",
+      "ko_ingame_tag": "궁극기",
+      "unlock_level": 19,
+      "skills": [
+        {
+          "en": "Heaven's Fury",
+          "ko": "하늘의 분노",
+          "id": "Paladin_HeavensFury",
+          "type": "ultimate",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Judgement",
+              "ko": "심판",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Slow",
+              "ko": "감속",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Duration",
+              "ko": "지속시간",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Triplicate",
+              "ko": "삼배수",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Walk With The Light",
+              "ko": "빛과 함께 행하라",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Final Justice",
+              "ko": "최후의 심판",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 40
+            }
+          ]
+        },
+        {
+          "en": "Arbiter of Justice",
+          "ko": "정의의 중재자",
+          "id": "Paladin_Disciple_of_Justice",
+          "type": "ultimate",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Wing Strike Recast",
+              "ko": "날개 타격 재시전",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Duration",
+              "ko": "지속시간",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Seraph's Wings",
+              "ko": "치천사의 날개",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Reach of the Law",
+              "ko": "율법의 손길",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Divine Intervention",
+              "ko": "신성한 개입",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 40
+            }
+          ]
+        },
+        {
+          "en": "Fortress",
+          "ko": "요새",
+          "id": "Paladin_Fortress",
+          "type": "ultimate",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Free Cast",
+              "ko": "자원 소모 없이 시전",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Unstoppable",
+              "ko": "저지 불가",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Resolve Damage Bonus",
+              "ko": "결의 피해 보너스",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Duration",
+              "ko": "지속시간",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Entrench",
+              "ko": "참호 파기",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Barricade",
+              "ko": "방벽",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Rampart of Thorns",
+              "ko": "가시의 성벽",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 40
+            }
+          ]
+        },
+        {
+          "en": "Zenith",
+          "ko": "정점",
+          "id": "Paladin_Trinity",
+          "type": "ultimate",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Unstoppable",
+              "ko": "저지 불가",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Critical Strike Chance",
+              "ko": "극대화 확률",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Empyrean Edge",
+              "ko": "창공의 날붙이",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Sermon of Steel",
+              "ko": "강철의 설교",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Sunder",
+              "ko": "분리",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 40
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "mechanic": {
+    "en": "Oaths",
+    "ko": "맹세",
+    "note_ko": "공식 한국어 글 제목이 '정의로운 소명: 맹세를 선택하십시오'. 4개 중 1개를 고릅니다. 기술마다 광신도, 거한, 심판관, 사도 중 어느 계열인지 태그가 붙습니다.",
+    "options": [
+      {
+        "en": "Zealot",
+        "ko": "광신도",
+        "desc_ko": "광신도 기술을 쓰면 열성이 쌓이고, 극대화로 맞히면 열성 중첩 수만큼 공격이 메아리처럼 한 번 더 들어갑니다. 열성이 가득 차면 보강도 얻습니다."
+      },
+      {
+        "en": "Juggernaut",
+        "ko": "거한",
+        "desc_ko": "거한 기술을 쓰면 결의 중첩을 써서 잠시 거한 기술 피해와 크기가 커집니다. 최소 결의가 1 늘고, 맞아도 결의가 깎이지 않습니다."
+      },
+      {
+        "en": "Judicator",
+        "ko": "심판관",
+        "desc_ko": "기본 기술이 적에게 심판 표식을 남기고, 핵심 심판관 기술로 표식을 미리 터뜨릴 수 있습니다. 심판받은 적은 죽을 때까지 내게 받는 피해가 점점 늘어납니다."
+      },
+      {
+        "en": "Disciple",
+        "ko": "사도",
+        "desc_ko": "재사용 대기시간이 있는 사도 기술을 쓰면 잠시 천사 모습의 중재자 형상이 됩니다. 이 동안 사도 기술 피해가 크게 오르고 날개 타격도 사도 기술로 쳐 줍니다."
+      }
+    ]
+  },
+  "resources": [
+    {
+      "en": "Faith",
+      "ko": "신념"
+    }
+  ],
+  "keywords": [
+    {
+      "en": "Resolve",
+      "ko": "결의"
+    },
+    {
+      "en": "Judgement",
+      "ko": "심판"
+    },
+    {
+      "en": "Fervor",
+      "ko": "열성"
+    },
+    {
+      "en": "Arbiter",
+      "ko": "중재자"
+    },
+    {
+      "en": "Retribution",
+      "ko": "응보"
+    },
+    {
+      "en": "Zealot",
+      "ko": "광신도"
+    },
+    {
+      "en": "Juggernaut",
+      "ko": "거한"
+    },
+    {
+      "en": "Disciple",
+      "ko": "사도"
+    },
+    {
+      "en": "Judicator",
+      "ko": "심판관"
+    }
+  ],
+  "uniques": [
+    {
+      "en": "Lightburst Hammer",
+      "ko": "빛의 파열 망치",
+      "slot_ko": "한손 철퇴",
+      "slot_en": "Mace",
+      "game_id": "X2_1HMace_Unique_Paladin_uniq14"
+    },
+    {
+      "en": "Herald's Morningstar",
+      "ko": "전령의 샛별",
+      "slot_ko": "한손 철퇴",
+      "slot_en": "Mace",
+      "game_id": "1HMace_Unique_Paladin_001"
+    },
+    {
+      "en": "Gate of the Red Dawn",
+      "ko": "붉은 새벽의 문",
+      "slot_ko": "방패",
+      "slot_en": "Shield",
+      "game_id": "1HShield_Unique_Paladin_001"
+    },
+    {
+      "en": "Bastion of Sir Matthias",
+      "ko": "마티아스 경의 철벽",
+      "slot_ko": "방패",
+      "slot_en": "Shield",
+      "game_id": "1HShield_Unique_Paladin_002"
+    },
+    {
+      "en": "Argent Veil",
+      "ko": "은빛 장막",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Paladin_001"
+    },
+    {
+      "en": "Ward of the White Dove",
+      "ko": "하얀 비둘기의 호신부",
+      "slot_ko": "방패",
+      "slot_en": "Shield",
+      "game_id": "1HShield_Unique_Paladin_003"
+    },
+    {
+      "en": "March of the Stalwart Soul",
+      "ko": "굳건한 영혼의 행진",
+      "slot_ko": "장화",
+      "slot_en": "Boots",
+      "game_id": "Boots_Unique_Paladin_001"
+    },
+    {
+      "en": "Supplication",
+      "ko": "간청",
+      "slot_ko": "한손 도검",
+      "slot_en": "Sword",
+      "game_id": "1HSword_Unique_Paladin_001"
+    },
+    {
+      "en": "Red Sermon",
+      "ko": "붉은 설교",
+      "slot_ko": "양손 도검",
+      "slot_en": "Sword2H",
+      "game_id": "2HSword_Unique_Paladin_002"
+    },
+    {
+      "en": "Judicant's Glaivehelm",
+      "ko": "사법관의 글레이브투구",
+      "slot_ko": "투구",
+      "slot_en": "Helm",
+      "game_id": "Helm_Unique_Paladin_002"
+    },
+    {
+      "en": "Light's Rebuke",
+      "ko": "빛의 질책",
+      "slot_ko": "한손 도리깨",
+      "slot_en": "Flail",
+      "game_id": "1HFlail_Unique_Paladin_003"
+    },
+    {
+      "en": "Herald of Zakarum",
+      "ko": "자카룸의 전령",
+      "slot_ko": "방패",
+      "slot_en": "Shield",
+      "game_id": "1HShield_Unique_Paladin_004"
+    },
+    {
+      "en": "Cathedral's Song",
+      "ko": "대성당의 노래",
+      "slot_ko": "방패",
+      "slot_en": "Shield",
+      "game_id": "1HShield_Unique_Paladin_005"
+    },
+    {
+      "en": "Dawnfire",
+      "ko": "새벽불길",
+      "slot_ko": "장갑",
+      "slot_en": "Gloves",
+      "game_id": "Gloves_Unique_Paladin_003"
+    },
+    {
+      "en": "Sanctis of Kethamar",
+      "ko": "케타마르의 성물",
+      "slot_ko": "목걸이",
+      "slot_en": "Amulet",
+      "game_id": "Amulet_Unique_Paladin_002"
+    },
+    {
+      "en": "Griswold's Opus",
+      "ko": "그리스월드의 작품",
+      "slot_ko": "한손 도검",
+      "slot_en": "Sword",
+      "game_id": "1HSword_Unique_Paladin_002"
+    },
+    {
+      "en": "Sundered Night",
+      "ko": "갈라진 밤",
+      "slot_ko": "양손 도끼",
+      "slot_en": "Axe2H",
+      "game_id": "2HAxe_Unique_Paladin_001"
+    },
+    {
+      "en": "Mantle of the Grey",
+      "ko": "회색의 어깨걸이",
+      "slot_ko": "가슴 방어구",
+      "slot_en": "ChestArmor",
+      "game_id": "Chest_Unique_Paladin_001"
+    },
+    {
+      "en": "Seal of the Second Trumpet",
+      "ko": "두 번째 나팔의 문장",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Paladin_002"
+    },
+    {
+      "en": "Arcadia",
+      "ko": "아카디아",
+      "slot_ko": "바지",
+      "slot_en": "Legs",
+      "game_id": "Pants_Unique_Paladin_002"
+    },
+    {
+      "en": "Judgment of Auriel",
+      "ko": "아우리엘의 심판",
+      "slot_ko": "목걸이",
+      "slot_en": "Amulet",
+      "game_id": "Amulet_Unique_Paladin_003"
+    },
+    {
+      "en": "Wreath of Auric Laurel",
+      "ko": "금빛 월계수의 화관",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Paladin_003"
+    },
+    {
+      "en": "Sunbrand",
+      "ko": "태양의 낙인",
+      "slot_ko": "한손 도리깨",
+      "slot_en": "Flail",
+      "game_id": "1HFlail_Unique_Paladin_004"
+    }
+  ],
+  "talisman_sets": [
+    {
+      "en": "Cathan's Righteous Will",
+      "ko": "카탄의 정의로운 의지"
+    },
+    {
+      "en": "Cathan's Dauntless Faith",
+      "ko": "카탄의 담대한 신념"
+    },
+    {
+      "en": "Heaven's Radiant Fire",
+      "ko": "천상의 찬란한 불"
+    },
+    {
+      "en": "Light's Epiphany",
+      "ko": "빛의 현현"
+    },
+    {
+      "en": "Cathan's Iron Conviction",
+      "ko": "카탄의 강철 같은 소신"
+    }
+  ],
+  "weapon_slots_ko": [
+    "주 무기: 한손 무기(한손 도검, 한손 도끼, 한손 철퇴, 한손 도리깨) 또는 양손 무기(양손 도검, 양손 도끼, 양손 철퇴)",
+    "보조 무기: 방패(한손 무기를 들 때만)"
+  ],
+  "armor_slots_ko": [
+    "투구",
+    "가슴 방어구",
+    "장갑",
+    "바지",
+    "장화",
+    "목걸이",
+    "반지 2개"
+  ],
+  "extra_slots_ko": [
+    "호라드림 문장 1칸",
+    "부적 6칸(호라드림 부적)"
+  ],
+  "globals": {
+    "max_level": 70,
+    "skill_points": 83,
+    "skill_points_breakdown": {
+      "levels": 69,
+      "renown": 14
+    },
+    "notes": "최대 레벨 70(증오의 군주에서 60→70, maxroll 플래너 로직도 min(70,레벨)). 레벨업 스킬 포인트는 레벨 2~70에서 1점씩 69점. 명성(Renown) 스킬 포인트는 maxroll 플래너 기본값 14점이라 합계 83점(명성 14점은 공식 확인 못함). 포인트 비용: 기술 본체 1랭크당 1점(최대 15랭크), 업그레이드 노드는 각 1점. 핵심 지속 효과·일반 지속 효과 노드는 새 트리에 없음."
+  },
+  "confidence": "기술 24개와 업그레이드 168개의 영/한 이름은 시즌 15 게임 클라이언트 문자열(maxroll 추출) 그대로이고, 기술, 오라, 맹세 이름은 블리자드 한국어 공식 글과 일치. 분류 Justice는 공식 글의 '정의 기술'을 따름(게임 태그 문자열은 '심판'이라 ko_ingame_tag에 따로 적음). 출시 전 공식 글의 Promise of Glory(영광의 서약) 도리깨는 현재 데이터에 없음(제거나 개명 추정). 공식 글은 케타마르의 성물을 바지, 굳건한 영혼의 행진을 목걸이로 적었지만 현재 게임 데이터는 각각 목걸이, 장화라서 게임 데이터를 따름. Purify의 Absolution과 Condemn의 Atonement가 한국어로 둘 다 '속죄'인 것은 게임 원문 그대로. 사도 맹세 설명은 게임 안에서도 일부 미번역. 무기 종류는 아이템 직업 제한 데이터로 추정, 명성 포인트 14점은 미검증."
+}

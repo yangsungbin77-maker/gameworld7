@@ -1,0 +1,1932 @@
+{
+  "id": "warlock",
+  "en": "Warlock",
+  "ko": "악마술사",
+  "sources": [
+    "https://news.blizzard.com/ko-kr/article/24267728/",
+    "https://news.blizzard.com/en-us/article/24267728/",
+    "https://assets-ng.maxroll.gg/d4-tools/game/data.min.json (maxroll D4 플래너 게임데이터, 빌드 3.2.1.73552 = 시즌 15)",
+    "https://assets-ng.maxroll.gg/d4-tools/game/data.kokr.json (같은 빌드의 한국어 클라이언트 문자열)",
+    "https://assets-ng.maxroll.gg/d4-tools/game/data.enus.json",
+    "https://maxroll.gg/d4/planner/",
+    "https://github.com/DiabloTools/d4data (3.2.1.73552 빌드 확인용)",
+    "https://diablofilter.com/guide/every-warlock-skill-in-diablo-4 (출시 전 1월 플레이테스트 기준, 교차확인용)"
+  ],
+  "tree_note": "증오의 군주(2026-04-28)에서 트리가 전면 개편되어 지속 효과·핵심 지속 효과 노드가 사라지고, 6개 분류에 기술 24개만 남았습니다. 기술마다 본체(최대 15랭크)에서 세 갈래가 뻗는데, 보조 갈래 2개(각각 2개 중 1개 선택, 1점)와 주 갈래 1개(변형 3개 중 1개 선택, 1점, 세 번째 변형은 레벨 30~40 필요)입니다. 분류 관문은 캐릭터 레벨로 열립니다(기본 1, 핵심 3, 방어 4, 넷째 분류 8, 다섯째 분류 13, 궁극기 19).",
+  "upgrade_kind_legend": "kind=choice: 주 갈래 변형(3개 중 1개, 기술 성격 자체가 바뀜). kind=enhancement: 보조 갈래 수정치(branch side_1, side_2 각각 2개 중 1개). unlock_level: 그 노드를 찍을 수 있는 캐릭터 레벨.",
+  "categories": [
+    {
+      "en": "Basic",
+      "ko": "기본",
+      "ko_ingame_tag": "기본",
+      "unlock_level": 1,
+      "skills": [
+        {
+          "en": "Command Fallen",
+          "ko": "몰락자 지배",
+          "id": "Warlock_Summon_Lunatic",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage Per Demon",
+              "ko": "악마 하나당 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Wrath",
+              "ko": "진노",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Lifetime Damage",
+              "ko": "통산 피해",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Dominance",
+              "ko": "지배력",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Mega Lunatic",
+              "ko": "거대한 미치광이",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Meat Shields",
+              "ko": "고기 방패",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Fallen Rush",
+              "ko": "몰락자 돌진",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 30
+            }
+          ]
+        },
+        {
+          "en": "Molten Bomb",
+          "ko": "녹아내린 폭탄",
+          "id": "Warlock_BrimstoneOrb",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Ranged Damage",
+              "ko": "원거리 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Wrath",
+              "ko": "진노",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Knock Down",
+              "ko": "넘어뜨리기",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Area Bonus",
+              "ko": "범위 보너스",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Brimstone Mortar",
+              "ko": "유황 포격",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Demon Turret",
+              "ko": "악마 포탑",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Cluster Bomb",
+              "ko": "집속 폭탄",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 30
+            }
+          ]
+        },
+        {
+          "en": "Doom",
+          "ko": "파멸",
+          "id": "Warlock_HexCast",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage",
+              "ko": "피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Wrath",
+              "ko": "진노",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Assimilation",
+              "ko": "동화",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Echo",
+              "ko": "메아리",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Contagion",
+              "ko": "오염",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Jailer",
+              "ko": "간수",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Doomfire Ritual",
+              "ko": "파멸의 불 의식",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 30
+            }
+          ]
+        },
+        {
+          "en": "Hellion Sting",
+          "ko": "지옥개 독침",
+          "id": "Warlock_TailWhip",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage",
+              "ko": "피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Wrath",
+              "ko": "진노",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 5
+            },
+            {
+              "en": "Eviscerate",
+              "ko": "내장 적출",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 9
+            },
+            {
+              "en": "Multi-Strike",
+              "ko": "다중 타격",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Tail Spikes",
+              "ko": "꼬리 쐐기",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 14
+            },
+            {
+              "en": "Demonic Swipe",
+              "ko": "악마의 휘두르기",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Core",
+      "ko": "핵심",
+      "ko_ingame_tag": "핵심",
+      "unlock_level": 3,
+      "skills": [
+        {
+          "en": "Bombardment",
+          "ko": "폭격",
+          "id": "Warlock_DemonicBombard",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage",
+              "ko": "피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Additional Demon",
+              "ko": "추가 악마",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Telekinesis",
+              "ko": "염력",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Focused Target",
+              "ko": "집중 조준",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Brutality",
+              "ko": "잔혹성",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Demon Mangler",
+              "ko": "악마 망나니",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Endless Barrage",
+              "ko": "끝없는 포화",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        },
+        {
+          "en": "Hell Fracture",
+          "ko": "지옥 균열",
+          "id": "Warlock_Fissure",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Volatility",
+              "ko": "일촉즉발",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Ramp Up",
+              "ko": "증강",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Additional Fracture",
+              "ko": "추가 균열",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Lava Fissures",
+              "ko": "용암 균열",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Eruption",
+              "ko": "분출",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Ruptured Abyss",
+              "ko": "파열된 심연",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        },
+        {
+          "en": "Umbral Chains",
+          "ko": "어스름 사슬",
+          "id": "Warlock_ChainLash",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Long Range Slow",
+              "ko": "원거리 감속",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Capture Damage",
+              "ko": "포획 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Wrath Refund",
+              "ko": "진노 반환",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Heavy Harpoon",
+              "ko": "무거운 작살",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Chain Burst",
+              "ko": "사슬 폭발",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Epicenter",
+              "ko": "진원지",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Chain Whips",
+              "ko": "사슬 채찍",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        },
+        {
+          "en": "Blazing Scream",
+          "ko": "타오르는 비명",
+          "id": "Warlock_BurningSkull",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Damage",
+              "ko": "피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Impact Velocity",
+              "ko": "충격 속도",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Brimstone Hunger",
+              "ko": "유황 굶주림",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Skull Splitter",
+              "ko": "두개골 절단기",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Orbital Scream",
+              "ko": "궤도 비명",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Abyssal Oppression",
+              "ko": "심연의 폭압",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        },
+        {
+          "en": "Dread Claws",
+          "ko": "공포의 발톱",
+          "id": "Warlock_ShadowShred",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage",
+              "ko": "피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 6
+            },
+            {
+              "en": "Ambush",
+              "ko": "매복",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 10
+            },
+            {
+              "en": "Cascading Dread",
+              "ko": "밀려드는 두려움",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Enveloping Terror",
+              "ko": "에워싸는 공포",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 15
+            },
+            {
+              "en": "Ravenous Jaws",
+              "ko": "굶주린 턱",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Defensive",
+      "ko": "방어",
+      "ko_ingame_tag": "방어",
+      "unlock_level": 4,
+      "skills": [
+        {
+          "en": "Wall of Agony",
+          "ko": "고통의 벽",
+          "id": "Warlock_Demon_Wall",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Knock Down",
+              "ko": "넘어뜨리기",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Damage",
+              "ko": "피해",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Small Walls",
+              "ko": "작은 벽",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Fallen Army",
+              "ko": "몰락자 군대",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Encircle",
+              "ko": "원형 벽",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Waller",
+              "ko": "벽 생성",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 34
+            }
+          ]
+        },
+        {
+          "en": "Tortured Wretch",
+          "ko": "고문당한 타락자",
+          "id": "Warlock_DemonDefender",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Unstoppable",
+              "ko": "저지 불가",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Enrage",
+              "ko": "격분",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Duration",
+              "ko": "지속시간",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Death Saws",
+              "ko": "죽음의 톱",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Punching Bag",
+              "ko": "샌드백",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Domination",
+              "ko": "지배",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 34
+            }
+          ]
+        },
+        {
+          "en": "Dark Prison",
+          "ko": "어둠의 감옥",
+          "id": "Warlock_ChainTotem",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Missile Slow",
+              "ko": "투사체 감속",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Tripwire",
+              "ko": "인계선",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Calamity Cage",
+              "ko": "재앙의 우리",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Chain Aura",
+              "ko": "사슬 오라",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 34
+            }
+          ]
+        },
+        {
+          "en": "Nether Step",
+          "ko": "황천 걸음",
+          "id": "Warlock_WraithStep",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage Reduction",
+              "ko": "피해 감소",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Extra Charge",
+              "ko": "추가 충전",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 7
+            },
+            {
+              "en": "Vacuum Swap",
+              "ko": "진공 교체",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 11
+            },
+            {
+              "en": "Portals",
+              "ko": "차원문",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Gloomwalker",
+              "ko": "어스름방랑자",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 16
+            },
+            {
+              "en": "Shadow Recall",
+              "ko": "그림자 재소집",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 34
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Archfiend",
+      "ko": "대마귀",
+      "ko_ingame_tag": "대마귀",
+      "unlock_level": 8,
+      "skills": [
+        {
+          "en": "Rampage",
+          "ko": "광란",
+          "id": "Warlock_DemonicSlash",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Killstreak Damage",
+              "ko": "연속 처치 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Lesser Demon Wrath",
+              "ko": "하급 악마 진노",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Elite Hit Chance",
+              "ko": "정예 적중 확률",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Demon Masher",
+              "ko": "악마 분쇄자",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Shockwave",
+              "ko": "충격파",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Abyssal Titan",
+              "ko": "심연의 거한",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Demonic Smash",
+              "ko": "악마의 강타",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 36
+            }
+          ]
+        },
+        {
+          "en": "Infernal Breath",
+          "ko": "지옥불 숨결",
+          "id": "Warlock_Demonic_Breath",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Ramping Damage",
+              "ko": "광란 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Lesser Demon Volatility",
+              "ko": "하급 악마 일촉즉발",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Expensive Damage",
+              "ko": "고비용 피해",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Heavy Impact Damage",
+              "ko": "큰 충돌 피해",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Demonic Breath",
+              "ko": "악마의 숨결",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Explosive Death",
+              "ko": "폭발적인 죽음",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Abyssal Torrent",
+              "ko": "심연의 격류",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 36
+            }
+          ]
+        },
+        {
+          "en": "Tyrant's Grasp",
+          "ko": "폭군의 손아귀",
+          "id": "Warlock_DemonicGrasp",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Unstoppable Damage",
+              "ko": "저지 불가 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Lesser Demon Slow",
+              "ko": "하급 악마 감속",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Knock Down",
+              "ko": "넘어뜨리기",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Grasp Area",
+              "ko": "손아귀 범위",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Demonic Grasp",
+              "ko": "악마의 손아귀",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Inescapable Grapple",
+              "ko": "벗어날 수 없는 손아귀",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Abyssal Pit",
+              "ko": "심연의 구덩이",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 36
+            }
+          ]
+        },
+        {
+          "en": "Profane Sentinel",
+          "ko": "불경한 파수꾼",
+          "id": "Warlock_Demonic_Drain",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Single Target Damage",
+              "ko": "단일 대상 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Lesser Demon Vulnerable",
+              "ko": "하급 악마 취약",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 12
+            },
+            {
+              "en": "Narrow Blast",
+              "ko": "좁은 폭발",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Wide Beam",
+              "ko": "넓은 광선",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 17
+            },
+            {
+              "en": "Focused Glare",
+              "ko": "시선 집중",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Sentry",
+              "ko": "보초",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 20
+            },
+            {
+              "en": "Demonic Sight",
+              "ko": "악마 시야",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Sigil",
+      "ko": "인장",
+      "ko_ingame_tag": "인장",
+      "unlock_level": 13,
+      "skills": [
+        {
+          "en": "Sigil of Summons",
+          "ko": "소환의 인장",
+          "id": "Warlock_SigilOfSummons",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage",
+              "ko": "피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Blood Ritual",
+              "ko": "피의 의식",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Stronger Summons",
+              "ko": "더 강한 소환수",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Cooldown",
+              "ko": "재사용 대기시간",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Feeding Frenzy",
+              "ko": "증식하는 광분",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Summon Succubus",
+              "ko": "서큐버스 소환",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Summon Hellwyrm",
+              "ko": "지옥벌레 소환",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 38
+            }
+          ]
+        },
+        {
+          "en": "Sigil of Chaos",
+          "ko": "혼돈의 인장",
+          "id": "Warlock_SigilOfFlames",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Volatility Duration",
+              "ko": "일촉즉발 지속시간",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Blood Ritual",
+              "ko": "피의 의식",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Volatility Casts",
+              "ko": "일촉즉발 시전",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Chain Reaction",
+              "ko": "연쇄 반응",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Diabolic Rebuke",
+              "ko": "잔학무도한 응징",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Hellfire Aura",
+              "ko": "지옥불 오라",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Sigil of Smoke",
+              "ko": "연기의 인장",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 38
+            }
+          ]
+        },
+        {
+          "en": "Sigil of Subversion",
+          "ko": "전복의 인장",
+          "id": "Warlock_SigilOfShadows",
+          "type": "active",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Blood Ritual",
+              "ko": "피의 의식",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 18
+            },
+            {
+              "en": "Slow",
+              "ko": "감속",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Cast Range",
+              "ko": "시전 범위",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 21
+            },
+            {
+              "en": "Infiltration Trails",
+              "ko": "침투 경로",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Seekers",
+              "ko": "구도자",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 23
+            },
+            {
+              "en": "Sigil of Lava",
+              "ko": "용암의 인장",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 38
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Ultimate",
+      "ko": "궁극기",
+      "ko_ingame_tag": "궁극기",
+      "unlock_level": 19,
+      "skills": [
+        {
+          "en": "Fiend of Abaddon",
+          "ko": "아바돈의 마귀",
+          "id": "Warlock_UltimateDemon",
+          "type": "ultimate",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Crowd Damage",
+              "ko": "군중 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Lesser Demon Bonus",
+              "ko": "하급 악마 보너스",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Elite Damage",
+              "ko": "정예 피해",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Dominance",
+              "ko": "지배력",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Spiteful Enrage",
+              "ko": "한 서린 격분",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Abyssal Colossus",
+              "ko": "심연의 거수",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Vanguard of Flames",
+              "ko": "불꽃의 선봉",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 40
+            }
+          ]
+        },
+        {
+          "en": "Apocalypse",
+          "ko": "종말",
+          "id": "Warlock_Doombringer",
+          "type": "ultimate",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Shared Damage",
+              "ko": "피해 공유",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Survivor Damage",
+              "ko": "생존자 피해",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Double Blast",
+              "ko": "이중 발파",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Epicenter Damage",
+              "ko": "진원지 피해",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Armageddon Ritual",
+              "ko": "아마겟돈 의례",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Annihilation",
+              "ko": "절멸",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Minefield",
+              "ko": "지뢰밭",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 40
+            }
+          ]
+        },
+        {
+          "en": "Terror Swarm",
+          "ko": "공포의 무리",
+          "id": "Warlock_HellStorm",
+          "type": "ultimate",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Extra Bites",
+              "ko": "추가 이빨",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Pull",
+              "ko": "끌어당기기",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Lesser Demons",
+              "ko": "하급 악마",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Nightmare",
+              "ko": "악몽",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Devouring Swarm",
+              "ko": "게걸스러운 무리",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Searing Infestation",
+              "ko": "이글거리는 창궐",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 40
+            }
+          ]
+        },
+        {
+          "en": "Metamorphosis",
+          "ko": "탈태",
+          "id": "Warlock_ArchDemon",
+          "type": "ultimate",
+          "max_rank": 15,
+          "upgrades": [
+            {
+              "en": "Damage Scaling",
+              "ko": "피해 증가 비율",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Maximum Life",
+              "ko": "최대 생명력",
+              "kind": "enhancement",
+              "branch": "side_1",
+              "unlock_level": 22
+            },
+            {
+              "en": "Dominance",
+              "ko": "지배력",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Stagger Bar",
+              "ko": "비틀거림 막대",
+              "kind": "enhancement",
+              "branch": "side_2",
+              "unlock_level": 24
+            },
+            {
+              "en": "Sin Demon",
+              "ko": "죄악의 악마",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Destruction Demon",
+              "ko": "파괴의 악마",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 25
+            },
+            {
+              "en": "Terror Demon",
+              "ko": "공포의 악마",
+              "kind": "choice",
+              "branch": "main",
+              "unlock_level": 40
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "mechanic": {
+    "en": "Soul Shards",
+    "ko": "영혼 조각",
+    "unlock_level": 30,
+    "note_ko": "30레벨에 열림. 조각 4개 중 1개를 골라 상급 악마 1마리와 연결되고, 조각마다 파편 보너스 3개가 딸려 있습니다(파편을 고르는 방식의 세부는 미확인).",
+    "options": [
+      {
+        "en": "Legion Shard",
+        "ko": "군단 조각",
+        "demon_en": "Ae'grom",
+        "demon_ko": "아이그롬",
+        "desc_ko": "아이그롬을 부리는 머릿수 소환형. 상급 악마 기술을 쓰면 잠시 하급 악마 기술이 빨라지고, 하급 악마가 많이 죽으면 다음 상급 악마 기술을 공짜로 씁니다.",
+        "fragments": [
+          {
+            "en": "Spawn Fragment",
+            "ko": "종자 조각"
+          },
+          {
+            "en": "Sacrificial Fragment",
+            "ko": "희생 파편"
+          },
+          {
+            "en": "Evisceration Fragment",
+            "ko": "내장 적출 파편"
+          }
+        ]
+      },
+      {
+        "en": "Vanguard Shard",
+        "ko": "선봉 조각",
+        "demon_en": "Abodian",
+        "demon_ko": "아보디안",
+        "desc_ko": "지옥사냥개 아보디안과 함께 앞에서 싸우는 근접형. 악마 형상일 때 대마귀 기술을 쓰면 그 대마귀 악마가 하나 더 나와 따라다니며 싸웁니다.",
+        "fragments": [
+          {
+            "en": "Hellguard Fragment",
+            "ko": "지옥수호 조각"
+          },
+          {
+            "en": "Warden Fragment",
+            "ko": "파수꾼 조각"
+          },
+          {
+            "en": "Inferno Fragment",
+            "ko": "지옥불 조각"
+          }
+        ]
+      },
+      {
+        "en": "Mastermind Shard",
+        "ko": "전략가 조각",
+        "demon_en": "Laalish",
+        "demon_ko": "라아리쉬",
+        "desc_ko": "그림자 속에서 싸우는 암살형. 재시전 기술을 써도 어둠의 형상 은폐가 풀리지 않는 대신 중첩을 쓰고, 어둠의 형상 동안 심연 기술 피해와 이동 속도가 오릅니다.",
+        "fragments": [
+          {
+            "en": "Unfathomable Fragment",
+            "ko": "헤아릴 수 없는 파편"
+          },
+          {
+            "en": "Blasphemous Fragment",
+            "ko": "신성 모독의 파편"
+          },
+          {
+            "en": "Subjugation Fragment",
+            "ko": "종속 파편"
+          }
+        ]
+      },
+      {
+        "en": "Ritualist Shard",
+        "ko": "의식집행자 조각",
+        "demon_en": "Valloch",
+        "demon_ko": "발로크",
+        "desc_ko": "몰락자 발로크의 생기를 빨아 제압 중첩을 쌓는 의식형. 중첩이 많을수록 비술 기술이 세지고 커지며, 사술과 일촉즉발 효과가 강해집니다.",
+        "fragments": [
+          {
+            "en": "Abyssal Fragment",
+            "ko": "심연의 파편"
+          },
+          {
+            "en": "Scorching Fragment",
+            "ko": "불타는 파편"
+          },
+          {
+            "en": "Twisted Fragment",
+            "ko": "뒤틀린 파편"
+          }
+        ]
+      }
+    ]
+  },
+  "resources": [
+    {
+      "en": "Wrath",
+      "ko": "진노"
+    },
+    {
+      "en": "Dominance",
+      "ko": "지배력"
+    }
+  ],
+  "keywords": [
+    {
+      "en": "Hex",
+      "ko": "사술"
+    },
+    {
+      "en": "Eviscerate",
+      "ko": "내장 적출"
+    },
+    {
+      "en": "Shadowform",
+      "ko": "어둠의 형상"
+    },
+    {
+      "en": "Demonform",
+      "ko": "악마 형상"
+    },
+    {
+      "en": "Volatility",
+      "ko": "일촉즉발"
+    },
+    {
+      "en": "Brimstone",
+      "ko": "유황"
+    },
+    {
+      "en": "Abyss",
+      "ko": "심연"
+    },
+    {
+      "en": "Hellfire",
+      "ko": "지옥불"
+    },
+    {
+      "en": "Occult",
+      "ko": "비술"
+    },
+    {
+      "en": "Demonology",
+      "ko": "악마학"
+    },
+    {
+      "en": "Recast",
+      "ko": "재시전"
+    },
+    {
+      "en": "Greater Demon",
+      "ko": "상급 악마"
+    },
+    {
+      "en": "Lesser Demon",
+      "ko": "하급 악마"
+    }
+  ],
+  "uniques": [
+    {
+      "en": "Lurid Pact",
+      "ko": "소름 끼치는 맹약",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Warlock_001"
+    },
+    {
+      "en": "Elegy",
+      "ko": "비가",
+      "slot_ko": "한손 도검",
+      "slot_en": "Sword",
+      "game_id": "1HSword_Unique_Warlock_001"
+    },
+    {
+      "en": "Anathema of the Primes",
+      "ko": "대악마의 대척점",
+      "slot_ko": "양손 도검",
+      "slot_en": "Sword2H",
+      "game_id": "2HSword_Unique_Warlock_001"
+    },
+    {
+      "en": "Dirge of Odium",
+      "ko": "혐오의 만가",
+      "slot_ko": "양손 도끼",
+      "slot_en": "Axe2H",
+      "game_id": "2HAxe_Unique_Warlock_001"
+    },
+    {
+      "en": "Spine of Tathamet",
+      "ko": "타타메트의 척추",
+      "slot_ko": "한손 철퇴",
+      "slot_en": "Mace",
+      "game_id": "1HMace_Unique_Warlock_001"
+    },
+    {
+      "en": "Scepter of the Three",
+      "ko": "셋의 홀",
+      "slot_ko": "양손 철퇴",
+      "slot_en": "Mace2H",
+      "game_id": "2HMace_Unique_Warlock_001"
+    },
+    {
+      "en": "Litany of Sable",
+      "ko": "흑담비의 기도문",
+      "slot_ko": "단검",
+      "slot_en": "Dagger",
+      "game_id": "1HDagger_Unique_Warlock_001"
+    },
+    {
+      "en": "Infernal Homunculus",
+      "ko": "지옥불 호문쿨루스",
+      "slot_ko": "중심점",
+      "slot_en": "Focus",
+      "game_id": "1HFocus_Unique_Warlock_001"
+    },
+    {
+      "en": "Scourge of Duriel",
+      "ko": "두리엘의 회초리",
+      "slot_ko": "한손 도리깨",
+      "slot_en": "Flail",
+      "game_id": "1HFlail_Unique_Warlock_001"
+    },
+    {
+      "en": "Sire of Sin",
+      "ko": "죄악의 아비",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Warlock_002"
+    },
+    {
+      "en": "Hecaton Chasm",
+      "ko": "일백의 균열",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Warlock_003"
+    },
+    {
+      "en": "Seal of the Ophanim",
+      "ko": "오파님의 문장",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Warlock_004"
+    },
+    {
+      "en": "The Fecund Seal",
+      "ko": "다산의 문장",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Warlock_005"
+    },
+    {
+      "en": "Hellbrand Signet",
+      "ko": "지옥낙인 인장",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Warlock_006"
+    },
+    {
+      "en": "The Eightfold Idol",
+      "ko": "여덟 겹의 우상",
+      "slot_ko": "반지",
+      "slot_en": "Ring",
+      "game_id": "Ring_Unique_Warlock_007"
+    },
+    {
+      "en": "Seed of Horazon",
+      "ko": "호라존의 씨앗",
+      "slot_ko": "목걸이",
+      "slot_en": "Amulet",
+      "game_id": "Amulet_Unique_Warlock_001"
+    },
+    {
+      "en": "Nails of the Gore-Crowned",
+      "ko": "선혈 왕관의 못",
+      "slot_ko": "투구",
+      "slot_en": "Helm",
+      "game_id": "Helm_Unique_Warlock_001"
+    },
+    {
+      "en": "Fleshwrit Carapace",
+      "ko": "살점 갑각",
+      "slot_ko": "가슴 방어구",
+      "slot_en": "ChestArmor",
+      "game_id": "Chest_Unique_Warlock_001"
+    },
+    {
+      "en": "Gauntlets of Sheol",
+      "ko": "황천의 팔목 장갑",
+      "slot_ko": "장갑",
+      "slot_en": "Gloves",
+      "game_id": "Gloves_Unique_Warlock_001"
+    },
+    {
+      "en": "Kabraxis' Will",
+      "ko": "카브락시스의 의지",
+      "slot_ko": "바지",
+      "slot_en": "Legs",
+      "game_id": "Pants_Unique_Warlock_001"
+    },
+    {
+      "en": "Footfalls of the Waning World",
+      "ko": "기우는 세계의 발소리",
+      "slot_ko": "장화",
+      "slot_en": "Boots",
+      "game_id": "Boots_Unique_Warlock_001"
+    },
+    {
+      "en": "Hellhound's Sabatons",
+      "ko": "지옥사냥개의 발덮개",
+      "slot_ko": "장화",
+      "slot_en": "Boots",
+      "game_id": "Boots_Unique_Warlock_002"
+    },
+    {
+      "en": "Ae'grom's Schism",
+      "ko": "아이그롬의 분열",
+      "slot_ko": "가슴 방어구",
+      "slot_en": "ChestArmor",
+      "game_id": "Chest_Unique_Warlock_002"
+    },
+    {
+      "en": "Hand of Apotheosis",
+      "ko": "극치의 손",
+      "slot_ko": "장갑",
+      "slot_en": "Gloves",
+      "game_id": "Gloves_Unique_Warlock_002"
+    },
+    {
+      "en": "Thrice-Woven Nightmare",
+      "ko": "세 번 엮은 악몽",
+      "slot_ko": "장갑",
+      "slot_en": "Gloves",
+      "game_id": "Gloves_Unique_Warlock_003"
+    },
+    {
+      "en": "Hands of the Worldbreaker",
+      "ko": "세계파괴자의 손",
+      "slot_ko": "장갑",
+      "slot_en": "Gloves",
+      "game_id": "Gloves_Unique_Warlock_004"
+    },
+    {
+      "en": "Cowl of Malefic Torment",
+      "ko": "흉악한 고행의 머리쓰개",
+      "slot_ko": "투구",
+      "slot_en": "Helm",
+      "game_id": "Helm_Unique_Warlock_002"
+    },
+    {
+      "en": "Cage of Madness",
+      "ko": "광기의 우리",
+      "slot_ko": "투구",
+      "slot_en": "Helm",
+      "game_id": "Helm_Unique_Warlock_003"
+    },
+    {
+      "en": "Rictus of Terror",
+      "ko": "공포의 억지웃음",
+      "slot_ko": "투구",
+      "slot_en": "Helm",
+      "game_id": "Helm_Unique_Warlock_004"
+    },
+    {
+      "en": "Bridle of Tor'Baalos",
+      "ko": "토르바알로스의 굴레",
+      "slot_ko": "투구",
+      "slot_en": "Helm",
+      "game_id": "Helm_Unique_Warlock_005"
+    },
+    {
+      "en": "Sashes of the Wretched",
+      "ko": "뒤틀린 자의 현장",
+      "slot_ko": "바지",
+      "slot_en": "Legs",
+      "game_id": "Pants_Unique_Warlock_002"
+    },
+    {
+      "en": "Bindings of Attrition",
+      "ko": "마멸의 구속구",
+      "slot_ko": "바지",
+      "slot_en": "Legs",
+      "game_id": "Pants_Unique_Warlock_003"
+    },
+    {
+      "en": "Morlu Fleshward",
+      "ko": "몰루 살점결계",
+      "slot_ko": "바지",
+      "slot_en": "Legs",
+      "game_id": "Pants_Unique_Warlock_004"
+    },
+    {
+      "en": "Moloch's Beating Flame",
+      "ko": "몰로크의 퍼덕이는 불길",
+      "slot_ko": "목걸이",
+      "slot_en": "Amulet",
+      "game_id": "Amulet_Unique_Warlock_002"
+    },
+    {
+      "en": "Night Terror",
+      "ko": "밤의 공포",
+      "slot_ko": "목걸이",
+      "slot_en": "Amulet",
+      "game_id": "Amulet_Unique_Warlock_003"
+    },
+    {
+      "en": "The Hemat Stone",
+      "ko": "피의 돌",
+      "slot_ko": "목걸이",
+      "slot_en": "Amulet",
+      "game_id": "Amulet_Unique_Warlock_004"
+    },
+    {
+      "en": "Eye of Baal",
+      "ko": "바알의 눈",
+      "slot_ko": "중심점",
+      "slot_en": "Focus",
+      "game_id": "1HFocus_Unique_Warlock_002"
+    },
+    {
+      "en": "The Blade of Sight Aflame",
+      "ko": "타오르는 시야의 검",
+      "slot_ko": "한손 도검",
+      "slot_en": "Sword",
+      "game_id": "1HSword_Unique_Warlock_002"
+    }
+  ],
+  "talisman_sets": [
+    {
+      "en": "Fulcrum of Mefis",
+      "ko": "메피스의 지주"
+    },
+    {
+      "en": "Flesh of Abaddon",
+      "ko": "아바돈의 살점"
+    },
+    {
+      "en": "Shadow of Harash",
+      "ko": "하라쉬의 그림자"
+    },
+    {
+      "en": "Rite of the Nameless",
+      "ko": "이름 없는 자의 의례"
+    },
+    {
+      "en": "Chains of Horazon",
+      "ko": "호라존의 사슬"
+    }
+  ],
+  "weapon_slots_ko": [
+    "주 무기: 한손 무기(한손 도검, 한손 도끼, 한손 철퇴, 한손 도리깨, 단검) 또는 양손 무기(양손 도검, 양손 도끼, 양손 철퇴)",
+    "보조 무기: 중심점(한손 무기를 들 때만)"
+  ],
+  "armor_slots_ko": [
+    "투구",
+    "가슴 방어구",
+    "장갑",
+    "바지",
+    "장화",
+    "목걸이",
+    "반지 2개"
+  ],
+  "extra_slots_ko": [
+    "호라드림 문장 1칸",
+    "부적 6칸(호라드림 부적)"
+  ],
+  "globals": {
+    "max_level": 70,
+    "skill_points": 83,
+    "skill_points_breakdown": {
+      "levels": 69,
+      "renown": 14
+    },
+    "notes": "최대 레벨 70(증오의 군주에서 60→70, maxroll 플래너 로직도 min(70,레벨)). 레벨업 스킬 포인트는 레벨 2~70에서 1점씩 69점. 명성(Renown) 스킬 포인트는 maxroll 플래너 기본값 14점이라 합계 83점(명성 14점은 공식 확인 못함). 포인트 비용: 기술 본체 1랭크당 1점(최대 15랭크), 업그레이드 노드는 각 1점. 핵심 지속 효과·일반 지속 효과 노드는 새 트리에 없음."
+  },
+  "confidence": "기술 24개와 업그레이드 168개의 영/한 이름은 시즌 15 게임 클라이언트 문자열(maxroll 추출, 빌드 3.2.1.73552) 그대로이고, 기술 본체 이름은 블리자드 한국어 공식 글과 모두 일치. 출시 전 공식 글과 현재 게임 이름이 다른 경우는 게임 데이터를 따름: 고유템 공포의 미소→공포의 억지웃음, 대악마의 저주받은 자→대악마의 대척점, 칠흑의 송가→흑담비의 기도문, 사악한 고통의 머리쓰개→흉악한 고행의 머리쓰개, 아이그롬의 분파→아이그롬의 분열, 영혼 조각 선봉대 조각→선봉 조각, 전략가 파편→전략가 조각, 악마 볼라크→발로크. 무기 종류는 아이템 직업 제한 데이터로 추정(공식 표 없음). 명성 스킬 포인트 14점은 플래너 기본값이라 미검증. max_rank 15는 플래너가 쓰는 트리 데이터 값."
+}

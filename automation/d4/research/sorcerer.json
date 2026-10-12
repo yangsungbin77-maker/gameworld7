@@ -1,0 +1,1681 @@
+{
+ "id": "sorcerer",
+ "en": "Sorcerer",
+ "ko": "원소술사",
+ "sources": [
+  "https://diablo4.inven.co.kr/db/skillsimulator",
+  "https://diablo4.inven.co.kr/db/item",
+  "https://news.blizzard.com/ko-kr/article/24271857/",
+  "https://news.blizzard.com/ko-kr/article/24266869/",
+  "https://m.inven.co.kr/webzine/wznews.php?idx=313545",
+  "https://www.diablobytes.com/diablo-iv/guides/skill-tree-rework/",
+  "https://diablo4.inven.co.kr/db/skillsimulator/1890",
+  "https://diablo4.wiki.fextralife.com/Sorcerer_Skills",
+  "https://www.rpgstash.com/blog/diablo-4-lord-of-hatred-best-new-unique-items"
+ ],
+ "tree_note": "증오의 군주(3.0) 개편으로 패시브와 핵심 지속 효과가 모두 사라지고 트리가 액티브 기술(궁극기 포함)로만 구성됩니다. 각 기술은 최대 15등급이며, 연결 노드를 거쳐 '기술 변화형'(major, 3개 중 1개)과 '부가 업그레이드'(minor1·minor2, 각 2개 중 1개)를 고릅니다. 원소술사는 기본·핵심·방어·구현·숙련·궁극기 6개 분류, 25개 기술이며, 사역마만 변화형이 4개(분광 사역마 포함)입니다.",
+ "categories": [
+  {
+   "en": "Basic",
+   "ko": "기본",
+   "skills": [
+    {
+     "en": "Spark",
+     "ko": "벼락불",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Firework",
+       "ko": "불꽃놀이",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Electric Blast",
+       "ko": "전기 돌풍",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Overcharged",
+       "ko": "과충전",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Additional Hits",
+       "ko": "추가 적중",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Crackling Energy",
+       "ko": "짜릿한 에너지",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Critical Strike Chance",
+       "ko": "극대화 확률",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Additional Hits",
+       "ko": "추가 적중",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Frost Bolt",
+     "ko": "서리 화살",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Static Shock",
+       "ko": "전하 충격",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Shatter",
+       "ko": "산산조각",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Relentless Bolt",
+       "ko": "가차없는 화살",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Resource Generation",
+       "ko": "자원 생성량",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Barrier",
+       "ko": "보호막",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Pierce",
+       "ko": "관통",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Fire Bolt",
+     "ko": "화염탄",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Twin Flame",
+       "ko": "쌍둥이 불꽃",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Firefly",
+       "ko": "반딧불이",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Shiver",
+       "ko": "오싹",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Resource Generation",
+       "ko": "자원 생성량",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Arc Lash",
+     "ko": "전기 채찍",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Full Lash",
+       "ko": "온전한 채찍질",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Inescapable Reach",
+       "ko": "벗어날 수 없는 손아귀",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Icy Thrash",
+       "ko": "얼음 채찍질",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Stun",
+       "ko": "기절",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Resource Generation",
+       "ko": "자원 생성량",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Core",
+   "ko": "핵심",
+   "skills": [
+    {
+     "en": "Frozen Orb",
+     "ko": "얼음 보주",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Seeking Orb",
+       "ko": "유도 보주",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Shattered Path",
+       "ko": "산산조각 난 길",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Great Orb of Fire",
+       "ko": "커다란 화염 보주",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Damage Over Time Bonus",
+       "ko": "지속 피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Barrier",
+       "ko": "보호막",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Explosion Damage Bonus",
+       "ko": "폭발 피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Duration Bonus",
+       "ko": "지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Ice Shards",
+     "ko": "얼음 파편",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Piercing Cold",
+       "ko": "꿰뚫는 냉기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Glacial Spike",
+       "ko": "빙하 가시",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Thunderbolt",
+       "ko": "벼락",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Cost Reduction",
+       "ko": "소모량 감소",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Pierce Damage Bonus",
+       "ko": "관통 피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Barrier",
+       "ko": "보호막",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Hit Damage Bonus",
+       "ko": "적중 피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Chain Lightning",
+     "ko": "연쇄 번개",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Chain Whipping",
+       "ko": "연쇄 채찍질",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Power Flux",
+       "ko": "힘의 유동체",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Chain of Cold",
+       "ko": "냉기 사슬",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Additional Chains",
+       "ko": "추가 연쇄",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Critical Strike Chance",
+       "ko": "극대화 확률",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": null,
+       "ko": "점점 커지는 피해",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Charged Bolts",
+     "ko": "번개 줄기",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Burn Through",
+       "ko": "싹 태우기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Overload",
+       "ko": "과부하",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Surging Charge",
+       "ko": "넘쳐나는 충전",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Cast Speed",
+       "ko": "시전 속도",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Movement Speed",
+       "ko": "이동 속도",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Incinerate",
+     "ko": "소각",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Focused Flame",
+       "ko": "집중된 불길",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Flamethrower",
+       "ko": "화염 방사",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Disintegration",
+       "ko": "파열",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Healthy Damage Bonus",
+       "ko": "건강 피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Execute",
+       "ko": "처형",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Fireball",
+     "ko": "화염구",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Instantaneous Destruction",
+       "ko": "즉각적인 파괴",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Illumination",
+       "ko": "조명",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Frostball",
+       "ko": "서리구",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Damage Over Time",
+       "ko": "지속 피해",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Critical Strike Damage",
+       "ko": "극대화 피해",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Size Bonus",
+       "ko": "크기 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Defensive",
+   "ko": "방어",
+   "skills": [
+    {
+     "en": "Flame Shield",
+     "ko": "화염 보호막",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Scorch",
+       "ko": "불태우기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Firebird",
+       "ko": "불새",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Flash",
+       "ko": "섬광",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Duration Bonus",
+       "ko": "지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Teleport",
+     "ko": "순간이동",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Electrobolt",
+       "ko": "전기탄",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Wormhole",
+       "ko": "시공의 구멍",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Blaze",
+       "ko": "불길",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Movement Speed",
+       "ko": "이동 속도",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Crackling Energy",
+       "ko": "짜릿한 에너지",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Ice Armor",
+     "ko": "얼음 갑옷",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Permafrost",
+       "ko": "영구 결빙",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Razor Ice",
+       "ko": "서슬 얼음",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Blast Chill",
+       "ko": "돌풍 오한",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Resource Regeneration",
+       "ko": "자원 재생",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Frozen and Chill",
+       "ko": "빙결 및 오한",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Duration Bonus and Barrier",
+       "ko": "지속시간 보너스 및 보호막",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Frost Nova",
+     "ko": "서릿발",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Shatter",
+       "ko": "산산조각",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Cold Front",
+       "ko": "한랭 전선",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Freezing Mist",
+       "ko": "빙결의 안개",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Size Bonus",
+       "ko": "규모 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Resource Generation",
+       "ko": "자원 생성량",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Charge",
+       "ko": "충전",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Conjuration",
+   "ko": "구현",
+   "skills": [
+    {
+     "en": "Hydra",
+     "ko": "히드라",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Bathed in Flame",
+       "ko": "불길 세례",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Behemoth",
+       "ko": "괴수",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Frigid Hydra",
+       "ko": "혹한의 히드라",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Cast Speed",
+       "ko": "시전 속도",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Ice Blades",
+     "ko": "얼음 칼날",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Ice Crack",
+       "ko": "얼음 균열",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Frozen Tomb",
+       "ko": "얼어붙은 무덤",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Blazing Blades",
+       "ko": "타오르는 칼날",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Area Bonus",
+       "ko": "범위 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Cast Speed",
+       "ko": "시전 속도",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Duration Bonus",
+       "ko": "지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Lightning Spear",
+     "ko": "번개 창",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Chain Reaction",
+       "ko": "연쇄 반응",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Reverse Polarity",
+       "ko": "역 극성",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Flame Spear",
+       "ko": "불길 창",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Projectile Speed",
+       "ko": "투사체 속도",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Duration Bonus",
+       "ko": "지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Critical Strike",
+       "ko": "극대화",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Familiar",
+     "ko": "사역마",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Healing Flames",
+       "ko": "치유의 불길",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Fast As Lightning",
+       "ko": "번개처럼 빠른",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Freezing Familiar",
+       "ko": "빙결 사역마",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Prismatic Familiar",
+       "ko": "분광 사역마",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Charge",
+       "ko": "충전",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Size Bonus",
+       "ko": "크기 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Duration Bonus",
+       "ko": "지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Bonus Effect",
+       "ko": "보너스 효과",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Mastery",
+   "ko": "숙련",
+   "skills": [
+    {
+     "en": "Ball Lightning",
+     "ko": "구상 번개",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Attraction",
+       "ko": "인력",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Orbital",
+       "ko": "공전",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Implosion",
+       "ko": "내파",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Multiple Projectiles",
+       "ko": "다중 투사체",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Crackling Energy",
+       "ko": "짜릿한 에너지",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Blizzard",
+     "ko": "눈보라",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Exposure",
+       "ko": "노출",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Hailstorm",
+       "ko": "우박폭풍",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Static Field",
+       "ko": "정전기장",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Barrier",
+       "ko": "보호막",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Seek and Duration Bonus",
+       "ko": "추적 및 지속시간 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Resource Generation",
+       "ko": "자원 생성량",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Firewall",
+     "ko": "화염벽",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Wildfire",
+       "ko": "들불",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Ring of Fire",
+       "ko": "화염 고리",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Grounding",
+       "ko": "접지",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Cost Reduction",
+       "ko": "소모량 감소",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Meteor",
+     "ko": "운석 낙하",
+     "type": "active",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Shooting Star",
+       "ko": "유성",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Air Burst",
+       "ko": "공중 격발",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Comet",
+       "ko": "혜성",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Resource Damage Bonus",
+       "ko": "자원 피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Immobilize",
+       "ko": "이동 불가",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Damage and Size Bonus",
+       "ko": "피해 및 크기 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Ultimate",
+   "ko": "궁극기",
+   "skills": [
+    {
+     "en": "Deep Freeze",
+     "ko": "냉대",
+     "type": "ultimate",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Frigid Ward",
+       "ko": "혹한의 결계",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Bonechill",
+       "ko": "뼛속까지 시린 오한",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Glacier",
+       "ko": "빙하",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Duration",
+       "ko": "지속시간",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Vulnerable and Weakened",
+       "ko": "취약 및 약화",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Reduce Cooldown",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Cooldown with Barrier",
+       "ko": "보호막과 재사용 대기시간",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Inferno",
+     "ko": "지옥불",
+     "type": "ultimate",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Lifecoil",
+       "ko": "생명의 똬리",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Meteor Shower",
+       "ko": "운석 소나기",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Living Bomb",
+       "ko": "살아 있는 폭탄",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Direct Damage Bonus",
+       "ko": "직접 피해 보너스",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Pull",
+       "ko": "끌어당기기",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    },
+    {
+     "en": "Unstable Currents",
+     "ko": "불안정한 전류",
+     "type": "ultimate",
+     "max_rank": 15,
+     "upgrades": [
+      {
+       "en": "Ramping Currents",
+       "ko": "증가하는 전류",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Boundless",
+       "ko": "무한",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": false
+      },
+      {
+       "en": "Thunder God",
+       "ko": "천둥 신",
+       "kind": "choice",
+       "slot": "major",
+       "loh_only": true
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "slot": "minor1"
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "slot": "minor2"
+      },
+      {
+       "en": "Cost Reduction",
+       "ko": "소모량 감소",
+       "kind": "choice",
+       "slot": "minor2"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "mechanic": {
+  "en": "Enchantments (Enchantment Slots)",
+  "ko": "마법부여",
+  "options": [
+   {
+    "en": "Spark",
+    "ko": "벼락불",
+    "desc_ko": "적 처치 시 일정 확률로 짜릿한 에너지가 떨어짐."
+   },
+   {
+    "en": "Frost Bolt",
+    "ko": "서리 화살",
+    "desc_ko": "기술로 직접 피해를 주면 대상에게 오한이 쌓임."
+   },
+   {
+    "en": "Fire Bolt",
+    "ko": "화염탄",
+    "desc_ko": "연소 피해를 줄 때 가끔 생명력을 회복하고 주변 적에게 화염탄을 쏨."
+   },
+   {
+    "en": "Arc Lash",
+    "ko": "전기 채찍",
+    "desc_ko": "재사용 대기시간이 있는 기술을 쓰면 주변 적이 잠깐 기절."
+   },
+   {
+    "en": "Frozen Orb",
+    "ko": "얼음 보주",
+    "desc_ko": "기술 시전 때마다 일정 확률로 주변 적에게 얼음 보주가 자동 발사."
+   },
+   {
+    "en": "Ice Shards",
+    "ko": "얼음 파편",
+    "desc_ko": "빙결된 적에게 얼음 파편이 자동으로 날아감."
+   },
+   {
+    "en": "Chain Lightning",
+    "ko": "연쇄 번개",
+    "desc_ko": "마나를 일정량 쓸 때마다 연쇄 번개가 자동 발동."
+   },
+   {
+    "en": "Charged Bolts",
+    "ko": "번개 줄기",
+    "desc_ko": "적을 기절시키면 확률적으로 그 적에게서 번개 줄기가 터져 나옴."
+   },
+   {
+    "en": "Incinerate",
+    "ko": "소각",
+    "desc_ko": "가만히 서 있으면 불뱀이 나와 주변 적을 태움."
+   },
+   {
+    "en": "Fireball",
+    "ko": "화염구",
+    "desc_ko": "지속 피해로 죽은 적이 폭발하며 화염구가 됨."
+   },
+   {
+    "en": "Flame Shield",
+    "ko": "화염 보호막",
+    "desc_ko": "짧은 시간에 생명력을 크게 잃으면 화염 보호막이 자동 발동(재발동 대기 있음)."
+   },
+   {
+    "en": "Teleport",
+    "ko": "순간이동",
+    "desc_ko": "회피가 짧은 재사용 대기시간의 순간이동으로 바뀜."
+   },
+   {
+    "en": "Ice Armor",
+    "ko": "얼음 갑옷",
+    "desc_ko": "물약을 마시면 얼음 갑옷이 켜지고 가끔 물약을 돌려받음."
+   },
+   {
+    "en": "Frost Nova",
+    "ko": "서릿발",
+    "desc_ko": "적중 시 행운의 적중으로 서릿발이 터짐."
+   },
+   {
+    "en": "Hydra",
+    "ko": "히드라",
+    "desc_ko": "마나를 일정량 쓰면 머리 5개 히드라가 잠시 소환."
+   },
+   {
+    "en": "Ice Blades",
+    "ko": "얼음 칼날",
+    "desc_ko": "재사용 대기시간 기술을 일정 시간 쓸 때마다 무작위 적 위치에 얼음 칼날 생성."
+   },
+   {
+    "en": "Lightning Spear",
+    "ko": "번개 창",
+    "desc_ko": "짜릿한 에너지를 먹으면 확률적으로 번개 창 소환."
+   },
+   {
+    "en": "Familiar",
+    "ko": "사역마",
+    "desc_ko": "다른 구현 기술을 쓸 때 확률적으로 같은 원소의 사역마가 따라 나옴."
+   },
+   {
+    "en": "Ball Lightning",
+    "ko": "구상 번개",
+    "desc_ko": "기술이 극대화로 적중하면 확률적으로 제자리 구상 번개 생성."
+   },
+   {
+    "en": "Blizzard",
+    "ko": "눈보라",
+    "desc_ko": "일정 주기마다 나를 따라다니는 눈보라가 생기고, 보호막이 클수록 주기가 짧아짐."
+   },
+   {
+    "en": "Firewall",
+    "ko": "화염벽",
+    "desc_ko": "연소 피해를 줄 때 확률적으로 화염벽 2개 생성."
+   },
+   {
+    "en": "Meteor",
+    "ko": "운석 낙하",
+    "desc_ko": "시전 기술로 피해를 주면 확률적으로 적 위에 운석이 떨어짐."
+   }
+  ],
+  "notes": "궁극기를 제외한 22개 기술을 마법부여 슬롯에 넣어 별도 자동 효과를 얻음. 개편 전 기준 슬롯 2개(레벨 15 퀘스트·레벨 30). 3.0 패치노트에 '순간이동 마법부여', '운석 낙하 마법부여', '화염 보호막 마법부여' 문구가 있어 시스템 유지 확인, 슬롯 수 변경 여부는 미확인."
+ },
+ "uniques": [
+  {
+   "en": "Flamescar",
+   "ko": "화염흉터",
+   "slot_ko": "마법봉"
+  },
+  {
+   "en": "Staff of Endless Rage",
+   "ko": "끝없는 분노의 지팡이",
+   "slot_ko": "지팡이"
+  },
+  {
+   "en": "Staff of Lam Esen",
+   "ko": "람 에센의 지팡이",
+   "slot_ko": "지팡이"
+  },
+  {
+   "en": "Esadora's Overflowing Cameo",
+   "ko": "에사도라의 넘실거리는 카메오",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "Esu's Heirloom",
+   "ko": "에수의 가보",
+   "slot_ko": "장화"
+  },
+  {
+   "en": "Raiment of the Infinite",
+   "ko": "무한의 의복",
+   "slot_ko": "가슴 방어구"
+  },
+  {
+   "en": "Iceheart Brais",
+   "ko": "얼음심장 브레이스",
+   "slot_ko": "바지"
+  },
+  {
+   "en": "The Oculus",
+   "ko": "망울",
+   "slot_ko": "마법봉"
+  },
+  {
+   "en": "Blue Rose",
+   "ko": "푸른 장미",
+   "slot_ko": "반지"
+  },
+  {
+   "en": "Tal Rasha's Iridescent Loop",
+   "ko": "탈 라샤의 오색찬란한 고리",
+   "slot_ko": "반지"
+  },
+  {
+   "en": "Starfall Coronet",
+   "ko": "별똥별의 관",
+   "slot_ko": "투구"
+  },
+  {
+   "en": "Fractured Winterglass",
+   "ko": "조각난 겨울유리",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "Flameweaver",
+   "ko": "화염직조자",
+   "slot_ko": "장갑"
+  },
+  {
+   "en": "Axial Conduit",
+   "ko": "축 도관",
+   "slot_ko": "바지"
+  },
+  {
+   "en": "Vox Omnium",
+   "ko": "만인지성",
+   "slot_ko": "지팡이"
+  },
+  {
+   "en": "Sidhe Bindings",
+   "ko": "시드헤 구속구",
+   "slot_ko": "장갑"
+  },
+  {
+   "en": "Strike of Stormhorn",
+   "ko": "폭풍뿔의 공격",
+   "slot_ko": "중심점"
+  },
+  {
+   "en": "Hail of Verglas",
+   "ko": "살얼음의 우박",
+   "slot_ko": "투구"
+  },
+  {
+   "en": "Ophidian Iris",
+   "ko": "뱀의 홍채",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "Galvanic Azurite",
+   "ko": "전류의 남동석",
+   "slot_ko": "반지"
+  },
+  {
+   "en": "Orsivane",
+   "ko": "오르시베인",
+   "slot_ko": "철퇴"
+  },
+  {
+   "en": "Drognan's Anguish",
+   "ko": "드로그난의 고뇌",
+   "slot_ko": "반지"
+  },
+  {
+   "en": "Emberfury",
+   "ko": "잿불의 분노",
+   "slot_ko": "목걸이"
+  },
+  {
+   "en": "Fang of the Vipermagi",
+   "ko": "독사마술사의 송곳니",
+   "slot_ko": "단검"
+  },
+  {
+   "en": "Gift of Frost",
+   "ko": "서리의 선물",
+   "slot_ko": "장화"
+  },
+  {
+   "en": "Levin Grasp",
+   "ko": "전광의 손아귀",
+   "slot_ko": "장갑"
+  },
+  {
+   "en": "Molten Band",
+   "ko": "녹아내린 가락지",
+   "slot_ko": "반지"
+  },
+  {
+   "en": "Onyx Soul",
+   "ko": "흑마노 영혼",
+   "slot_ko": "중심점"
+  },
+  {
+   "en": "Raiment of the Sea",
+   "ko": "바다의 의복",
+   "slot_ko": "가슴 방어구"
+  },
+  {
+   "en": "Rimeblood",
+   "ko": "서리피",
+   "slot_ko": "장갑"
+  },
+  {
+   "en": "Shanar's Resonance",
+   "ko": "샤나르의 공명",
+   "slot_ko": "중심점"
+  },
+  {
+   "en": "Staff of Zerae",
+   "ko": "제레이의 지팡이",
+   "slot_ko": "지팡이"
+  },
+  {
+   "en": "Vision of the Firestorm",
+   "ko": "화염폭풍의 환영",
+   "slot_ko": "투구"
+  }
+ ],
+ "weapon_slots_ko": [
+  "주 무기(한손: 마법봉·단검·철퇴·도검 등) 또는 양손 지팡이",
+  "보조 무기(중심점, 한손 무기 사용 시)"
+ ],
+ "globals": {
+  "max_level": 70,
+  "skill_points": 83,
+  "notes": "증오의 군주(3.0, 2026-04-28)에서 레벨 제한 60→70. 스킬 포인트 83은 인벤 스킬 시뮬레이터의 사용 포인트 상한(83 초과 시 경고)과 제3자 가이드 수치가 일치해 채택(블리자드 공식 문서로는 미확인). 레벨업 외에 시즌 여정·명망으로 추가 포인트를 얻는 구조. 기술 등급 최대 15(장비·부적 +등급으로 초과 가능). 노드 비용 추정: 기술 등급 1포인트씩 + 연결 노드 + 변화형/부가 업그레이드 각 1포인트."
+ },
+ "confidence": "기술·변화형·부가 업그레이드 한국어 이름과 구조는 인벤 스킬 시뮬레이터 시즌15 실데이터에서 직접 추출(공식 패치노트의 '산산조각 난 길', '불길 기술 변화형', '구상 번개', '화염벽 소모량 감소 부가 업그레이드'로 교차확인). 영어 이름은 Fextralife와 효과 설명을 대조해 매칭. 연쇄 번개의 '점점 커지는 피해'는 Fextralife 표기(Cost Reduction)와 효과가 달라 영어 이름 null. loh_only는 Fextralife 기준 미검증. 마법부여 설명은 인벤 데이터 요약(직접 작성). 고유 아이템은 인벤 아이템 DB 기준 33개. 무기 슬롯 문구는 아이템 분류명 기반 정리."
+}

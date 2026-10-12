@@ -1,0 +1,1626 @@
+{
+  "id": "spiritborn",
+  "en": "Spiritborn",
+  "ko": "혼령사",
+  "sources": [
+    "https://diablo4.inven.co.kr/db/skillsimulator (인벤 S15 스킬 시뮬레이터 데이터, 한글명 원천)",
+    "https://diablo4.inven.co.kr/db/item (인벤 아이템 DB, 한/영 이름)",
+    "https://assets-ng.maxroll.gg/d4-tools/game/data.min.json (maxroll 게임 데이터 3.1.3, 영문명·노드 구조)",
+    "https://news.blizzard.com/ko-kr/article/24295394 (공식 S15 '지옥의 유산 시즌' 안내+3.2.1 패치노트, 한/영 대조)",
+    "https://news.blizzard.com/en-us/article/24295394",
+    "https://news.blizzard.com/ko-kr/article/24171214 (공식 2.1 패치노트, 영혼 은총 한글명)",
+    "https://news.blizzard.com/ko-kr/article/24140806 (공식 1.3~1.5 패치노트, 영혼 은총 한글명)",
+    "https://news.blizzard.com/ko-kr/article/24140808 (공식 2.0 패치노트)",
+    "https://news.blizzard.com/ko-kr/article/24092668 (공식 1.0~1.2 패치노트)",
+    "https://news.blizzard.com/en-gb/article/24267729/prepare-for-the-reckoning-lord-of-hatred-draws-near",
+    "https://us.forums.blizzard.com/en/d4/t/gginotes-unofficial-patch-notes-loh-30-update/246470",
+    "https://www.icy-veins.com/d4/guides/druid-skills/ (next.icy-veins.com 미러로 열람)"
+  ],
+  "tree_note": "증오의 군주(3.0) 이후 지속 효과·핵심 지속 효과 노드가 사라지고 6개 분류(기본·핵심·집중·방어·위력·궁극기) 24개 기술만 남았습니다. 기술마다 최대 15포인트, 업그레이드는 '보조 업그레이드 2쌍(각 쌍에서 1개) + 변화형 3개 중 1개'입니다. 수호자·추적자·사냥꾼·탐식자는 궁극기 분류에 있고, 세 번째 변화형(레벨 30~40)은 확장팩 전용으로 추정됩니다.",
+  "categories": [
+    {
+      "en": "Basic",
+      "ko": "기본",
+      "unlock_level": 1,
+      "skills": [
+        {
+          "en": "Thunderspike",
+          "ko": "천둥쐐기",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Damage to Sparking",
+              "ko": "벼락불 상태 피해",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Critical Strike",
+              "ko": "극대화",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Vigor Generation",
+              "ko": "원기 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Infected Ground",
+              "ko": "감염된 대지",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 30,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Lightning Dancer",
+              "ko": "번개춤꾼",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Lightning's Grip",
+              "ko": "번개의 손아귀",
+              "kind": "choice",
+              "node": "variant"
+            }
+          ]
+        },
+        {
+          "en": "Thrash",
+          "ko": "후리기",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Vigor Generation",
+              "ko": "원기 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Ferocity",
+              "ko": "포악함",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Ramping Damage",
+              "ko": "광란 피해",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Wanton Rampage",
+              "ko": "날뛰는 광란",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Crashing and Thrashing",
+              "ko": "덮치기와 후리기",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Storm Conjurer",
+              "ko": "폭풍 창조술사",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 30,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        },
+        {
+          "en": "Withering Fist",
+          "ko": "메마름의 주먹",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Vigor Generation",
+              "ko": "원기 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Healing",
+              "ko": "치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Weakened",
+              "ko": "약화됨",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Poisoning Duration",
+              "ko": "중독 지속시간",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Shared Suffering",
+              "ko": "함께 나누는 고통",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Precision Strike",
+              "ko": "정밀 타격",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Fist of the Forest",
+              "ko": "숲의 주먹",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 30,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        },
+        {
+          "en": "Rock Splitter",
+          "ko": "암석 분쇄",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Block and Vigor",
+              "ko": "막기와 원기",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Crowd Control Damage",
+              "ko": "군중 제어 피해",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Free Strike",
+              "ko": "자원 소모 없는 강타",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Resolve",
+              "ko": "결의",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Shattered Stone",
+              "ko": "산산조각 난 돌",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Unbreakable",
+              "ko": "파괴 불가",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Inner Ferocity",
+              "ko": "내면의 포악함",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 30,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Core",
+      "ko": "핵심",
+      "unlock_level": 3,
+      "skills": [
+        {
+          "en": "Crushing Hand",
+          "ko": "짓이기는 손",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Block to Damage",
+              "ko": "방패막기 시 피해 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Barrier",
+              "ko": "보호막",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Increased Cost and Damage",
+              "ko": "자원 소모량 및 공격력 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B",
+              "ko_note": "인벤 원문 '사원 소모량…'은 오타로 판단해 '자원'으로 수정(공식 원문 미확인)"
+            },
+            {
+              "en": "Resolve",
+              "ko": "결의",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Unrelenting Assault",
+              "ko": "멈추지 않는 맹공",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Heavy Hitter",
+              "ko": "강타자",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "100 Crushing Hands",
+              "ko": "백 개의 짓이기는 손",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        },
+        {
+          "en": "Quill Volley",
+          "ko": "깃털 일제 사격",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Vulnerable Damage",
+              "ko": "취약 피해",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Bonus Feathers",
+              "ko": "추가 깃털",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Returning Feathers",
+              "ko": "돌아오는 깃털",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Evade Damage",
+              "ko": "피하기 피해",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Volatile Feathers",
+              "ko": "일촉즉발의 깃털",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Quill Command",
+              "ko": "깃털 지배",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Claw Volley",
+              "ko": "발톱 일제 사격",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        },
+        {
+          "en": "Rake",
+          "ko": "갈퀴 발톱",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Cost Reduction and Damage",
+              "ko": "자원 소모량 감소 및 피해",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Ferocity",
+              "ko": "포악함",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Spirit Jaguar",
+              "ko": "혼령 재규어",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Grasping Claw",
+              "ko": "붙잡는 발톱",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Simian Swipe",
+              "ko": "원숭이의 휩쓸기",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Stinger",
+          "ko": "독침 쏘기",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Healing and Vulnerable",
+              "ko": "치유 및 취약",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Weakened Damage Bonus",
+              "ko": "약화 상태 피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Size Bonus",
+              "ko": "범위 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Potent Sting",
+              "ko": "강력한 쐐기",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Unleash the Swarm",
+              "ko": "무리 내보내기",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Nimbostratal Strike",
+              "ko": "난층운 타격",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        }
+      ],
+      "ko_note": "인벤 원문 '헥심'은 오타로 판단, 공식 패치노트 표기 '핵심 기술'에 맞춤"
+    },
+    {
+      "en": "Focus",
+      "ko": "집중",
+      "unlock_level": 4,
+      "skills": [
+        {
+          "en": "Vortex",
+          "ko": "와류",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": false,
+          "upgrades": [
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Vigor Generation",
+              "ko": "원기 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Knock Down",
+              "ko": "넘어뜨리기",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Damage Increase",
+              "ko": "피해 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Overcharged",
+              "ko": "과충전",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "1000 Year Storm",
+              "ko": "천 년의 폭풍",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Insect Swarm",
+              "ko": "벌레 무리",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 34,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        },
+        {
+          "en": "Soar",
+          "ko": "비상",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": false,
+          "upgrades": [
+            {
+              "en": "Size Bonus",
+              "ko": "범위 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Damage Increase",
+              "ko": "피해 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Free Bird",
+              "ko": "자유로운 새",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Eye of the Storm",
+              "ko": "태풍의 눈",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Jaguar's Execution",
+              "ko": "재규어의 처형",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 34,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Ravager",
+          "ko": "유린자",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Duration Increase",
+              "ko": "지속시간 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Vigor Generation",
+              "ko": "원기 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Damage Increase",
+              "ko": "피해 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Ferocity Maximum",
+              "ko": "포악함 최대",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Carnage",
+              "ko": "도륙",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Flurry of Claws",
+              "ko": "발톱 연타",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Strength of the Forest",
+              "ko": "숲의 힘",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 34,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Toxic Skin",
+          "ko": "독성 피부",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Vigor Generation",
+              "ko": "원기 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Thorns",
+              "ko": "가시",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Duration Increase",
+              "ko": "지속시간 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Healing",
+              "ko": "치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Erupting Skin",
+              "ko": "분출하는 피부",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Skuttle Bug",
+              "ko": "재빠른 벌레",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Fiery Soul",
+              "ko": "이글거리는 영혼",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 34,
+              "loh_only": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Defensive",
+      "ko": "방어",
+      "unlock_level": 8,
+      "skills": [
+        {
+          "en": "Armored Hide",
+          "ko": "철갑 가죽",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Blocked Damage Reduction",
+              "ko": "막은 피해 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Thorns",
+              "ko": "가시",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Barrier",
+              "ko": "보호막",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Duration",
+              "ko": "지속시간",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Force of Nature",
+              "ko": "자연의 힘",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Trampled Under Foot",
+              "ko": "짓밟힘",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Ferocious Meal",
+              "ko": "매서운 식사",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 36,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Concussive Stomp",
+          "ko": "뇌 흔들기",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Barrier Generation",
+              "ko": "보호막 생성량",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Additional Charge",
+              "ko": "추가 충전",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Resolve Generation",
+              "ko": "결의 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Debilitate",
+              "ko": "쇠약",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Crushing Blow",
+              "ko": "강타",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Crackling Earth",
+              "ko": "짜릿한 대지",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 36,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Counterattack",
+          "ko": "역습",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": false,
+          "upgrades": [
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Damage Over Time Reduction",
+              "ko": "지속 피해 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Duration Increase",
+              "ko": "지속시간 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Controlled Reflection",
+              "ko": "통제된 반사",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Asymmetrical Warfare",
+              "ko": "비대칭적 전쟁",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Counterattack of the Swarm",
+              "ko": "무리의 역습",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 36,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        },
+        {
+          "en": "Scourge",
+          "ko": "참화",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": false,
+          "upgrades": [
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Vigor Generation",
+              "ko": "원기 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Healing",
+              "ko": "치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Hive Mind",
+              "ko": "군체 의식",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Scourge Commander",
+              "ko": "참화의 사령관",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "The Beast Within",
+              "ko": "내면의 야수",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 36,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Potency",
+      "ko": "위력",
+      "unlock_level": 13,
+      "skills": [
+        {
+          "en": "Touch of Death",
+          "ko": "죽음의 손길",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Healing",
+              "ko": "치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Weakened Damage",
+              "ko": "약화 상태 피해",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Additional Charge",
+              "ko": "추가 충전",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Erupting Swarm",
+              "ko": "분출하는 무리",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Swarm of Swarms",
+              "ko": "무리 중의 무리",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Touch of Lightning",
+              "ko": "번개의 손길",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 38,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        },
+        {
+          "en": "Rushing Claw",
+          "ko": "격렬한 할퀴기",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Damage Increase",
+              "ko": "피해 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Charge Increase",
+              "ko": "충전 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Incarnate Duration",
+              "ko": "화신 지속시간",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Evolving Claws",
+              "ko": "진화하는 발톱",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Colossal Claw",
+              "ko": "거대 발톱",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Evasive Swipe",
+              "ko": "회피 휘둘러치기",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 38,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Razor Wings",
+          "ko": "서슬 날개",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Damage Increase",
+              "ko": "피해 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Refund Charges",
+              "ko": "충전 반환",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Charge Cooldown",
+              "ko": "충전 재사용 대기시간",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Wing Storm",
+              "ko": "날개 폭풍",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Flock of Feathers",
+              "ko": "깃털 한 무리",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Brutal Blast",
+              "ko": "잔혹한 돌풍",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 38,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        },
+        {
+          "en": "Payback",
+          "ko": "보복",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": false,
+          "upgrades": [
+            {
+              "en": "Damage Increase",
+              "ko": "피해 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Resolve Generation",
+              "ko": "결의 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Area Increase",
+              "ko": "범위 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Block Chance",
+              "ko": "방패막기 확률",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Break Free",
+              "ko": "빠져나가기",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Wrath of the Gorilla",
+              "ko": "고릴라의 진노",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Insidious Retribution",
+              "ko": "음흉한 응보",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 38,
+              "loh_only": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Ultimate",
+      "ko": "궁극기",
+      "unlock_level": 19,
+      "skills": [
+        {
+          "en": "The Protector",
+          "ko": "수호자",
+          "type": "ultimate",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Damage Increase",
+              "ko": "피해 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Barrier",
+              "ko": "보호막",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Resolve Generation",
+              "ko": "결의 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Thorns Damage",
+              "ko": "가시 피해",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Canopy Shelter",
+              "ko": "수림 안식처",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Brutal Barrage",
+              "ko": "냉혹한 탄막",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "The Infected Forest",
+              "ko": "감염된 숲",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 40,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "The Seeker",
+          "ko": "추적자",
+          "type": "ultimate",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Charge Refund",
+              "ko": "충전 반환",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Vigor Generation",
+              "ko": "원기 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Storm Feathers",
+              "ko": "폭풍 깃털",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Stormbringer",
+              "ko": "폭풍인도자",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Lone Seeker",
+              "ko": "고독한 추적자",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Tag Team",
+              "ko": "태그 팀",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 40,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "The Hunter",
+          "ko": "사냥꾼",
+          "type": "ultimate",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Vigor Generation",
+              "ko": "원기 생성",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Size Bonus",
+              "ko": "범위 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Healing",
+              "ko": "치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Execute",
+              "ko": "처형",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Push and Pounce",
+              "ko": "밀치고 덮치기",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 40,
+              "loh_only": true
+            },
+            {
+              "en": "Shredder",
+              "ko": "파쇄자",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Relentless Pursuit",
+              "ko": "끈질긴 추격",
+              "kind": "choice",
+              "node": "variant"
+            }
+          ]
+        },
+        {
+          "en": "The Devourer",
+          "ko": "탐식자",
+          "type": "ultimate",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Instant Kill",
+              "ko": "즉시 처치",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Poisoning Duration",
+              "ko": "중독 지속시간",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Thorns",
+              "ko": "가시",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Healing",
+              "ko": "치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Spew Putrefaction",
+              "ko": "부패물 뿜기",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Blast of Bile",
+              "ko": "담즙 폭발",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Sky and Soil",
+              "ko": "하늘과 흙",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 40,
+              "loh_only": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "mechanic": {
+    "en": "Spirit Hall",
+    "ko": "혼령 전당",
+    "note_ko": "수호령 4종 중 주 수호령 1개와 보조 수호령 1개를 고릅니다(같은 영혼 중복 불가). 주로 고를 때와 보조로 고를 때 효과가 다릅니다.",
+    "options": [
+      {
+        "en": "Jaguar",
+        "ko": "재규어",
+        "desc_ko": "주: 재규어 기술로 여러 번 때리면 강한 추가 타격이 터지고 피해가 점점 커집니다. 보조: 최대 포악함이 늘고 처치·우두머리 공격 때 포악함을 얻습니다."
+      },
+      {
+        "en": "Eagle",
+        "ko": "독수리",
+        "desc_ko": "주: 독수리 기술을 쓰거나 회피하면 폭풍 깃털이 날아가 번개 피해를 주고 취약을 겁니다. 보조: 취약 피해와 극대화 확률이 오릅니다."
+      },
+      {
+        "en": "Gorilla",
+        "ko": "고릴라",
+        "desc_ko": "주: 고릴라 기술 공격이 가시 피해와 보호막을 주고, 모든 기술이 고릴라 기술로도 취급됩니다. 보조: 최대 결의가 늘고 결의가 충분하면 저지 불가와 방어도를 얻습니다."
+      },
+      {
+        "en": "Centipede",
+        "ko": "지네",
+        "desc_ko": "주: 지네 기술에 맞은 적은 피해가 줄고 느려지며 중독이 쌓이고, 모든 기술이 지네 기술로도 취급됩니다. 보조: 주변 중독된 적 수만큼 생명력을 회복합니다."
+      }
+    ]
+  },
+  "uniques": [
+    {
+      "en": "Nesekem, the Herald",
+      "ko": "전령 네세켐",
+      "slot_ko": "양손 무기(글레이브)",
+      "mythic": true,
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Loyalty's Mantle",
+      "ko": "충의의 어깨걸이",
+      "slot_ko": "투구"
+    },
+    {
+      "en": "Jacinth Shell",
+      "ko": "적황색 갑각",
+      "slot_ko": "가슴 방어구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Protection of the Prime",
+      "ko": "대악마의 수호",
+      "slot_ko": "바지"
+    },
+    {
+      "en": "Craze of the Dead God",
+      "ko": "죽은 신의 발광",
+      "slot_ko": "장갑",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Scorn of the Earth",
+      "ko": "대지 경멸",
+      "slot_ko": "장화",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Rod of Kepeleke",
+      "ko": "케펠레케의 막대",
+      "slot_ko": "양손 무기(육척봉)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Sepazontec",
+      "ko": "세파존텍",
+      "slot_ko": "양손 무기(육척봉)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Wushe Nak Pa",
+      "ko": "우셰 낙 파",
+      "slot_ko": "양손 무기(글레이브)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Band of First Breath",
+      "ko": "첫 숨결의 가락지",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Ring of the Midnight Sun",
+      "ko": "한밤중 태양의 반지",
+      "slot_ko": "반지"
+    },
+    {
+      "en": "Ring of the Midday Hunt",
+      "ko": "정오 사냥의 반지",
+      "slot_ko": "반지"
+    },
+    {
+      "en": "Peacemonger's Signet",
+      "ko": "평화주의자의 인장",
+      "slot_ko": "반지"
+    },
+    {
+      "en": "Ring of Writhing Moon",
+      "ko": "꿈틀거리는 달의 반지",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Wound Drinker",
+      "ko": "상처 포식자",
+      "slot_ko": "반지"
+    },
+    {
+      "en": "Harmony of Ebewaka",
+      "ko": "에베와카의 조화",
+      "slot_ko": "투구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Sunstained War-Crozier",
+      "ko": "태양바램 전쟁용 의식 지팡이",
+      "slot_ko": "양손 무기(육척봉)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Sunbird's Gorget",
+      "ko": "태양새의 목가리개",
+      "slot_ko": "목걸이",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Balazan's Maxtlatl",
+      "ko": "발라잔의 짚허리띠",
+      "slot_ko": "바지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Hesha e Kesungi",
+      "ko": "헤샤 에 케순기",
+      "slot_ko": "장갑"
+    },
+    {
+      "en": "Path of the Emissary",
+      "ko": "밀사의 길",
+      "slot_ko": "장화"
+    },
+    {
+      "en": "Echo of Kwatli",
+      "ko": "크와틀리의 메아리",
+      "slot_ko": "목걸이"
+    },
+    {
+      "en": "Protean Heart",
+      "ko": "프로테우스의 심장",
+      "slot_ko": "목걸이"
+    },
+    {
+      "en": "Widow's Web",
+      "ko": "과부거미의 거미줄",
+      "slot_ko": "목걸이"
+    }
+  ],
+  "weapon_slots_ko": [
+    "양손 무기 1칸(글레이브·육척봉·미늘창)"
+  ],
+  "confidence": "한글명은 인벤 S15 시뮬레이터 기준이며 3글자 이상 기술명 19/19개가 블리자드 공식 한글 문서에서 같은 표기로 확인됩니다(2글자 이하는 판정 제외). '혼령사'·'혼령 전당'은 공식 S15 패치노트 표기입니다. 영문명은 maxroll 3.1.3 데이터와 좌표로 1:1 대응(중복·누락 0). 인벤 오타 2건('헥심'→핵심, '사원'→자원)을 고치고 ko_note로 표시했습니다. 혼령 전당의 '주/보조' 공식 한글 용어는 미확인이라 설명에만 썼습니다. 전령 네세켐은 혼령사 전용 신화 고유(mythic:true)입니다."
+}

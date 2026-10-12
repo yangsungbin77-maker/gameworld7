@@ -1,0 +1,1851 @@
+{
+ "id": "necromancer",
+ "en": "Necromancer",
+ "ko": "강령술사",
+ "sources": [
+  "https://github.com/DiabloTools/d4data (game data dump, build 3.2.1.73552, 2026-09-15: SkillKit/SkillTreeRewards/Power/enUS StringList)",
+  "https://diablo4.inven.co.kr/db/skillsimulator (Season 15 skill tree, Korean names)",
+  "https://diablo4.inven.co.kr/db/item (unique item DB, KO + EN names)",
+  "https://news.blizzard.com/en-gb/article/24267729/prepare-for-the-reckoning-lord-of-hatred-draws-near",
+  "https://news.blizzard.com/ko-kr/article/24267729/ (위 기사 한국어판: 기술 트리 개편·최대 레벨 70·기술 포인트 83)",
+  "https://news.blizzard.com/ko-kr/diablo4/24140806/ (패치 노트 1.3-1.5, 한국어 하수인·전문화 명칭 대조)",
+  "https://news.blizzard.com/ko-kr/article/24092668/ (패치 노트 1.0-1.2)",
+  "https://news.blizzard.com/ko-kr/article/24287406/ (패치 노트 3.1)",
+  "https://news.blizzard.com/en-us/article/24295395/diablo-iv-patch-notes (3.2.x)",
+  "https://news.blizzard.com/ko-kr/article/23816542/iv-2022-6 (망자의 서 소개, 참고용)"
+ ],
+ "tree_note": "증오의 군주(3.0.0, 2026-04-28) 이후 지속 효과·핵심 지속 효과 노드가 사라지고 사용 기술만 남았습니다. 기술마다 레벨에 따라 열리는 분기 3개가 있고, 1·2분기는 일반 속성 2개 중 1개, 3분기는 \"추가 기술 변화형\" 3개 중 1개를 고릅니다(3번째 변화형은 증오의 군주 필요로 추정). 궁극기는 1개만 선택 가능합니다.",
+ "categories": [
+  {
+   "en": "Basic",
+   "ko": "기본",
+   "skills": [
+    {
+     "en": "Reap",
+     "ko": "수확",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 0,
+     "upgrades": [
+      {
+       "en": "Critical Strike Chance",
+       "ko": "극대화 확률",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Essence Generation",
+       "ko": "정수 생성",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Corpse Generation",
+       "ko": "시체 생성",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Harvest",
+       "ko": "채집",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Cull The Weak",
+       "ko": "약자 도태",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Chilled To The Bone",
+       "ko": "뼛속까지 스미는 한기",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14,
+       "requires_level": 30,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Decompose",
+     "ko": "부패",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 0,
+     "upgrades": [
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Barrier",
+       "ko": "보호막",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Crowd Control",
+       "ko": "군중 제어",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Lucky Hit Chance",
+       "ko": "행운의 적중 확률",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Dry Rot",
+       "ko": "메마른 부패",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Putrid Burst",
+       "ko": "역겨운 폭발",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Rip and Tear",
+       "ko": "찢고 죽이기",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14,
+       "requires_level": 30,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Hemorrhage",
+     "ko": "과다출혈",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 0,
+     "upgrades": [
+      {
+       "en": "Cast Speed",
+       "ko": "시전 속도",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Blood Orb",
+       "ko": "피의 구슬",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Blood Boil",
+       "ko": "피 종기",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Blood Runs Cold",
+       "ko": "차갑게 식는 피",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Soul Rip",
+       "ko": "영혼 도려내기",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14,
+       "requires_level": 30,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Bone Splinters",
+     "ko": "뼈 파편",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 0,
+     "upgrades": [
+      {
+       "en": "Projectiles",
+       "ko": "투사체",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Essence Generation",
+       "ko": "정수 생성",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Bouncing Spines",
+       "ko": "튕기는 뼛조각",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Bloody Splinter",
+       "ko": "피투성이 파편",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Shadow Seekers",
+       "ko": "암흑 유도탄",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14,
+       "requires_level": 30,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Core",
+   "ko": "핵심",
+   "skills": [
+    {
+     "en": "Blood Lance",
+     "ko": "피의 창",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Ricochet",
+       "ko": "튕기기",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Fortify",
+       "ko": "보강",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Cost Reduction",
+       "ko": "소모량 감소",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Blood Seeker",
+       "ko": "피 추적자",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Gore Quills",
+       "ko": "피 가시",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Festering Wound",
+       "ko": "곪은 상처",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Blood Surge",
+     "ko": "피의 쇄도",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Fortify",
+       "ko": "보강",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Bloodbath",
+       "ko": "피바다",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "You And What Army?",
+       "ko": "너와 무슨 군대 말이지?",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Pins and Needles",
+       "ko": "핀과 바늘",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Skeleton Mage",
+     "ko": "해골 마법학자",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Duration Damage Bonus",
+       "ko": "지속시간 피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Critical Strike Chance",
+       "ko": "극대화 확률",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Crowd Control Damage Bonus",
+       "ko": "군중 제어 피해 보너스",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Ferocity, Resolve, or Overpower",
+       "ko": "포악함, 결의 또는 제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Coven",
+       "ko": "마녀단",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Gift of Death",
+       "ko": "죽음의 선물",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Singularity",
+       "ko": "특이점",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Blight",
+     "ko": "마름병",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Area Damage Bonus",
+       "ko": "광역 피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Size Bonus",
+       "ko": "범위 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Crowd Control Damage Bonus",
+       "ko": "군중 제어 피해 보너스",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Lucky Hit Chance",
+       "ko": "행운의 적중 확률",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Piercing Darkness",
+       "ko": "관통하는 어둠",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Whirlpool",
+       "ko": "소용돌이",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Volatile Blood",
+       "ko": "불안정한 피",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Sever",
+     "ko": "절단",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Cost Reduction",
+       "ko": "소모량 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Crowd Control and Corpse Generation",
+       "ko": "군중 제어 및 시체 생성",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Reaping Lotus",
+       "ko": "수확하는 연꽃",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Inexorable Reaper",
+       "ko": "거침없는 수확자",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Cold Pursuit",
+       "ko": "차디찬 추격",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Bone Spear",
+     "ko": "뼈 창",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "First Hit Damage Bonus",
+       "ko": "첫 적중 피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Cost Reduction",
+       "ko": "소모량 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Pierce Damage Bonus",
+       "ko": "관통 피해 보너스",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Bone Spikes",
+       "ko": "뼈 쐐기",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Blood Spear",
+       "ko": "피 창",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Shadow Splitter",
+       "ko": "그림자 가르기",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Corpse",
+   "ko": "시체",
+   "skills": [
+    {
+     "en": "Corpse Explosion",
+     "ko": "시체 폭발",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 4,
+     "upgrades": [
+      {
+       "en": "Multiple Corpses",
+       "ko": "다수의 시체",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Essence Generation",
+       "ko": "정수 생성",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Corpse Efficiency",
+       "ko": "시체 효율",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Blood Orb",
+       "ko": "피의 구슬",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Bloody Mess",
+       "ko": "핏빛 난장판",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Miasma",
+       "ko": "독기",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Shrapnel",
+       "ko": "파편",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16,
+       "requires_level": 34,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Skeleton Warrior",
+     "ko": "해골 전사",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 4,
+     "upgrades": [
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Master of Puppets",
+       "ko": "꼭두각시의 주인",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Service and Sacrifice",
+       "ko": "섬김과 희생",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Litany of Death",
+       "ko": "죽음의 기도문",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16,
+       "requires_level": 34,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Corpse Tendrils",
+     "ko": "시체 촉수",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 4,
+     "upgrades": [
+      {
+       "en": "Critical Strike Chance",
+       "ko": "극대화 확률",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Essence Generation",
+       "ko": "정수 생성",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Lucky Hit Chance",
+       "ko": "행운의 적중 확률",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Bitter Harvest",
+       "ko": "혹독한 수확",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Get Over Here!",
+       "ko": "이리 온!",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Jaws Of Death",
+       "ko": "죽음의 아가리",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16,
+       "requires_level": 34,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Macabre",
+   "ko": "섬뜩함",
+   "skills": [
+    {
+     "en": "Bone Prison",
+     "ko": "뼈 감옥",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 8,
+     "upgrades": [
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Essence Generation",
+       "ko": "정수 생성",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Bramble",
+       "ko": "찔레",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Plunging Darkness",
+       "ko": "낙하하는 어둠",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Life Imprisonment",
+       "ko": "종신형",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20,
+       "requires_level": 36,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Blood Mist",
+     "ko": "피 안개",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 8,
+     "upgrades": [
+      {
+       "en": "Critical Strike",
+       "ko": "극대화",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Movement Speed",
+       "ko": "이동 속도",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Vulnerable and Slow",
+       "ko": "취약 및 감속",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Blood Transfusion",
+       "ko": "피 수혈",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Blood Rush",
+       "ko": "피의 질주",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Devouring Mist",
+       "ko": "포식하는 안개",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20,
+       "requires_level": 36,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Golem",
+     "ko": "골렘",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 8,
+     "upgrades": [
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Unstoppable",
+       "ko": "저지 불가",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Resolve, Overpower, or Ferocity",
+       "ko": "결의, 제압 또는 포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Gravebloom",
+       "ko": "무덤꽃",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Fel Gluttony",
+       "ko": "지옥 폭식",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Gargantua",
+       "ko": "덩치",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20,
+       "requires_level": 36,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Bone Spirit",
+     "ko": "뼈 영혼",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 8,
+     "upgrades": [
+      {
+       "en": "Charges",
+       "ko": "충전 횟수",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Core Skill",
+       "ko": "핵심 기술",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Maximum Essence",
+       "ko": "최대 정수",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Poltergeists",
+       "ko": "유령들",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Unfinished Business",
+       "ko": "끝나지 않은 일",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Astral Projection",
+       "ko": "별무리의 투영",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20,
+       "requires_level": 36,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Curse",
+   "ko": "저주",
+   "skills": [
+    {
+     "en": "Iron Maiden",
+     "ko": "가시 박힌 철관",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 13,
+     "upgrades": [
+      {
+       "en": "Essence Generation",
+       "ko": "정수 생성",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Execute and Fortify",
+       "ko": "처형과 보강",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Ferocity and Overpower",
+       "ko": "포악함 및 제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Schadenfreude",
+       "ko": "샤덴프로이데",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Torture Artist",
+       "ko": "고문 예술가",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Blood Maiden",
+       "ko": "피의 여제",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23,
+       "requires_level": 38,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Decrepify",
+     "ko": "노화",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 13,
+     "upgrades": [
+      {
+       "en": "Critical Strike Chance",
+       "ko": "극대화 확률",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Movement Speed",
+       "ko": "이동 속도",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Dizzying Curse",
+       "ko": "어질어질한 저주",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Life Tap",
+       "ko": "생명력 추출",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Unholy Frenzy",
+       "ko": "부정한 광분",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23,
+       "requires_level": 38,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Ultimate",
+   "ko": "궁극기",
+   "skills": [
+    {
+     "en": "Blood Wave",
+     "ko": "피의 파도",
+     "type": "ultimate",
+     "max_rank": 15,
+     "unlock_level": 19,
+     "upgrades": [
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Damage Reduction",
+       "ko": "피해 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Blood Orb",
+       "ko": "피의 구슬",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Tides of Blood",
+       "ko": "피의 격류",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Path of Darkness",
+       "ko": "어둠의 길",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Hematolagnia",
+       "ko": "피 도착증",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25,
+       "requires_level": 40,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Army of the Dead",
+     "ko": "망자의 군대",
+     "type": "ultimate",
+     "max_rank": 15,
+     "unlock_level": 19,
+     "upgrades": [
+      {
+       "en": "Damage Bonus",
+       "ko": "피해 보너스",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Cooldown Reduction",
+       "ko": "재사용 대기시간 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Passive Bonus",
+       "ko": "지속 보너스",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Corpse Generation",
+       "ko": "시체 생성",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Unyielding Commander",
+       "ko": "굳센 사령관",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Pile the Bodies",
+       "ko": "시체 쌓기",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Dead Cold",
+       "ko": "차갑게 식은 사체",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25,
+       "requires_level": 40,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Bone Storm",
+     "ko": "뼈 폭풍",
+     "type": "ultimate",
+     "max_rank": 15,
+     "unlock_level": 19,
+     "upgrades": [
+      {
+       "en": "Damage Reduction",
+       "ko": "피해 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Duration Increase",
+       "ko": "지속시간 증가",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Barrier",
+       "ko": "보호막",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Roll The Bones",
+       "ko": "뼈 주사위",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Shadow And Bone",
+       "ko": "그림자와 뼈",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Hungry Cyclone",
+       "ko": "굶주린 싹쓸바람",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25,
+       "requires_level": 40,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Soulrift",
+     "ko": "영혼문",
+     "type": "ultimate",
+     "max_rank": 15,
+     "unlock_level": 19,
+     "upgrades": [
+      {
+       "en": "Movement Speed",
+       "ko": "이동 속도",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Barrier",
+       "ko": "보호막",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Vulnerable and Crowd Control",
+       "ko": "취약 및 군중 제어",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Distilled Anima",
+       "ko": "정제된 원혼",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Soul Vortex",
+       "ko": "영혼 소용돌이",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Frozen Wasteland",
+       "ko": "얼어붙은 황무지",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25,
+       "requires_level": 40,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "mechanic": {
+  "en": "Book of the Dead",
+  "ko": "망자의 서",
+  "options": [
+   {
+    "group_en": "Skeleton Warrior",
+    "group_ko": "해골 전사",
+    "en": "Skirmisher",
+    "ko": "척후병",
+    "desc_ko": "공격력이 높은 대신 몸이 약한 검사 해골.",
+    "upgrades": [
+     {
+      "en": "Upgrade A",
+      "ko": "첫 번째 업그레이드",
+      "desc_ko": "척후병을 2마리 더 부르고, 소환되면 바로 적에게 뛰어들어 공격."
+     },
+     {
+      "en": "Upgrade B",
+      "ko": "두 번째 업그레이드",
+      "desc_ko": "적을 베어 취약 상태로 만들고 느리게 함."
+     },
+     {
+      "en": "Sacrifice",
+      "ko": "희생 업그레이드",
+      "desc_ko": "내 극대화 확률이 오르는 대신 척후병 소환 수가 줄어듦."
+     }
+    ]
+   },
+   {
+    "group_en": "Skeleton Warrior",
+    "group_ko": "해골 전사",
+    "en": "Defender",
+    "ko": "방어병",
+    "desc_ko": "방패를 든 튼튼한 해골.",
+    "upgrades": [
+     {
+      "en": "Upgrade A",
+      "ko": "첫 번째 업그레이드",
+      "desc_ko": "가시 피해를 얻고 맞을 때 주변에 반사, 명령하면 적을 도발."
+     },
+     {
+      "en": "Upgrade B",
+      "ko": "두 번째 업그레이드",
+      "desc_ko": "피해를 줄 때 일정 확률로 피의 구슬 생성."
+     },
+     {
+      "en": "Sacrifice",
+      "ko": "희생 업그레이드",
+      "desc_ko": "모든 원소 저항이 오르는 대신 방어병 소환 수가 줄어듦."
+     }
+    ]
+   },
+   {
+    "group_en": "Skeleton Warrior",
+    "group_ko": "해골 전사",
+    "en": "Reaper",
+    "ko": "수확자",
+    "desc_ko": "큰 낫으로 느리지만 강하게 베는 해골.",
+    "upgrades": [
+     {
+      "en": "Upgrade A",
+      "ko": "첫 번째 업그레이드",
+      "desc_ko": "모아 치는 공격이 내 재사용 대기시간을 줄이고 시체를 만듦."
+     },
+     {
+      "en": "Upgrade B",
+      "ko": "두 번째 업그레이드",
+      "desc_ko": "피해 증가와 함께 적을 기절시킬 확률."
+     },
+     {
+      "en": "Sacrifice",
+      "ko": "희생 업그레이드",
+      "desc_ko": "내 피해가 오르는 대신 수확자 소환 수가 줄어듦."
+     }
+    ]
+   },
+   {
+    "group_en": "Skeleton Mage",
+    "group_ko": "해골 마법학자",
+    "en": "Shadow Mage",
+    "ko": "암흑 마법학자",
+    "desc_ko": "암흑 화살을 쏘는 마법학자.",
+    "upgrades": [
+     {
+      "en": "Upgrade A",
+      "ko": "첫 번째 업그레이드",
+      "desc_ko": "추가로 지속 암흑(부패) 피해를 줌."
+     },
+     {
+      "en": "Upgrade B",
+      "ko": "두 번째 업그레이드",
+      "desc_ko": "화살이 나와 마법학자에게 보호막을 줌."
+     },
+     {
+      "en": "Sacrifice",
+      "ko": "희생 업그레이드",
+      "desc_ko": "정수 재생과 최대 정수가 오르는 대신 소환 수가 줄어듦."
+     }
+    ]
+   },
+   {
+    "group_en": "Skeleton Mage",
+    "group_ko": "해골 마법학자",
+    "en": "Cold Mage",
+    "ko": "냉기 마법학자",
+    "desc_ko": "냉기 화살로 적을 얼리는 마법학자.",
+    "upgrades": [
+     {
+      "en": "Upgrade A",
+      "ko": "첫 번째 업그레이드",
+      "desc_ko": "첫 투사체가 둘로 갈라지고 적을 약화."
+     },
+     {
+      "en": "Upgrade B",
+      "ko": "두 번째 업그레이드",
+      "desc_ko": "가끔 눈보라를 불러 냉기 지속 피해와 오한을 줌."
+     },
+     {
+      "en": "Sacrifice",
+      "ko": "희생 업그레이드",
+      "desc_ko": "취약한 적에게 주는 피해가 오르는 대신 소환 수가 줄어듦."
+     }
+    ]
+   },
+   {
+    "group_en": "Skeleton Mage",
+    "group_ko": "해골 마법학자",
+    "en": "Bone Mage",
+    "ko": "뼈 마법학자",
+    "desc_ko": "뼈 조각을 던지는 마법학자.",
+    "upgrades": [
+     {
+      "en": "Upgrade A",
+      "ko": "첫 번째 업그레이드",
+      "desc_ko": "투사체 2개를 추가로 발사."
+     },
+     {
+      "en": "Upgrade B",
+      "ko": "두 번째 업그레이드",
+      "desc_ko": "공격할 때 나를 보강시키고, 죽으면 시체를 남김."
+     },
+     {
+      "en": "Sacrifice",
+      "ko": "희생 업그레이드",
+      "desc_ko": "제압 중첩이 있을 때 피해가 오르는 대신 소환 수가 줄어듦."
+     }
+    ]
+   },
+   {
+    "group_en": "Golem",
+    "group_ko": "골렘",
+    "en": "Blood Golem",
+    "ko": "피 골렘",
+    "desc_ko": "생명력을 빨아들이는 골렘.",
+    "upgrades": [
+     {
+      "en": "Upgrade A",
+      "ko": "첫 번째 업그레이드",
+      "desc_ko": "명령하면 다른 하수인의 생명력을 흡수해 골렘이 강해짐."
+     },
+     {
+      "en": "Upgrade B",
+      "ko": "두 번째 업그레이드",
+      "desc_ko": "명령으로 적을 흡수할 때마다 내가 보강을 얻음."
+     },
+     {
+      "en": "Sacrifice",
+      "ko": "희생 업그레이드",
+      "desc_ko": "내 최대 생명력이 오르는 대신 골렘 피해가 줄어듦."
+     }
+    ]
+   },
+   {
+    "group_en": "Golem",
+    "group_ko": "골렘",
+    "en": "Bone Golem",
+    "ko": "뼈 골렘",
+    "desc_ko": "뼈로 된 방어형 골렘.",
+    "upgrades": [
+     {
+      "en": "Upgrade A",
+      "ko": "첫 번째 업그레이드",
+      "desc_ko": "명령하면 시체를 여러 개 만듦."
+     },
+     {
+      "en": "Upgrade B",
+      "ko": "두 번째 업그레이드",
+      "desc_ko": "맞으면 뼈 가시를 터뜨려 피해를 주고 적을 취약하게 함."
+     },
+     {
+      "en": "Sacrifice",
+      "ko": "희생 업그레이드",
+      "desc_ko": "내 공격 속도가 오르는 대신 골렘 피해가 줄어듦."
+     }
+    ]
+   },
+   {
+    "group_en": "Golem",
+    "group_ko": "골렘",
+    "en": "Iron Golem",
+    "ko": "무쇠 골렘",
+    "desc_ko": "쇠로 된 강타형 골렘.",
+    "upgrades": [
+     {
+      "en": "Upgrade A",
+      "ko": "첫 번째 업그레이드",
+      "desc_ko": "공격할 때마다 충격파를 일으킴."
+     },
+     {
+      "en": "Upgrade B",
+      "ko": "두 번째 업그레이드",
+      "desc_ko": "내려치기가 적을 끌어당기고 범위가 커짐."
+     },
+     {
+      "en": "Sacrifice",
+      "ko": "희생 업그레이드",
+      "desc_ko": "극대화 피해가 오르는 대신 골렘 피해가 줄어듦."
+     }
+    ]
+   }
+  ],
+  "notes_ko": "증오의 군주부터 해골 전사·해골 마법학자·골렘은 기술 트리의 사용 기술이 되었고, 망자의 서는 하수인 종류와 업그레이드를 고르는 곳으로 남았습니다. 희생은 하수인을 없애지 않고 소환 수(골렘은 피해)를 줄이는 대신 보너스를 줍니다. 업그레이드 한국어 표기 \"첫 번째/두 번째/희생 업그레이드\"는 공식 패치 노트 표현 기준이며 게임 UI 라벨과 다를 수 있습니다."
+ },
+ "uniques": [
+  {
+   "en": "Bloodless Scream",
+   "ko": "피 말리는 비명",
+   "slot_ko": "양손 무기 (양손 낫)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Deathspeaker's Pendant",
+   "ko": "죽음예언자의 펜던트",
+   "slot_ko": "목걸이",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Blood Artisan's Cuirass",
+   "ko": "피 장인의 흉갑",
+   "slot_ko": "가슴 방어구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Howl from Below",
+   "ko": "아래에서 들려오는 울부짖음",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Deathless Visage",
+   "ko": "죽음 없는 얼굴",
+   "slot_ko": "투구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Lidless Wall",
+   "ko": "각성의 벽",
+   "slot_ko": "보조 무기 (방패)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Blood Moon Breeches",
+   "ko": "핏빛 달의 무릎바지",
+   "slot_ko": "바지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Ring of the Sacrilegious Soul",
+   "ko": "신성모독자 영혼의 반지",
+   "slot_ko": "반지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Mutilator Plate",
+   "ko": "절단자의 판금 갑옷",
+   "slot_ko": "가슴 방어구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Ebonpiercer",
+   "ko": "칠흑쐐기",
+   "slot_ko": "목걸이",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Cruor's Embrace",
+   "ko": "크루올의 포옹",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "The Mortacrux",
+   "ko": "죽음십자",
+   "slot_ko": "한손 무기 (단검)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Path of Trag'Oul",
+   "ko": "트래그울의 길",
+   "slot_ko": "장화",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "The Unmaker",
+   "ko": "파괴자",
+   "slot_ko": "투구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Kessime's Legacy",
+   "ko": "케시메의 유산",
+   "slot_ko": "바지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Sanguivor, Blade of Zir",
+   "ko": "지르의 칼날, 생귀보르",
+   "slot_ko": "양손 무기 (양손 검)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "The Hand of Naz",
+   "ko": "나즈의 손",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Gospel of the Devotee",
+   "ko": "헌신자의 복음",
+   "slot_ko": "보조 무기 (중심점)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Blood Wake",
+   "ko": "피의 흔적",
+   "slot_ko": "장화",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Deathgrip",
+   "ko": "죽음의 손아귀",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Gravewalker's Hand",
+   "ko": "무덤방랑자의 손",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Hangman's Hand",
+   "ko": "교수형 집행인의 손",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Mace of King Leoric",
+   "ko": "레오릭 왕의 철퇴",
+   "slot_ko": "한손 무기 (철퇴)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Omen of Pain",
+   "ko": "고통의 징조",
+   "slot_ko": "반지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Pact of Bone",
+   "ko": "뼈의 맹약",
+   "slot_ko": "반지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Red Blessing",
+   "ko": "붉은 축복",
+   "slot_ko": "목걸이",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "The Gloom Ward",
+   "ko": "어스름 결계",
+   "slot_ko": "보조 무기 (방패)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "The Undercrown",
+   "ko": "지하왕관",
+   "slot_ko": "투구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Vengeful Sinew",
+   "ko": "원한 서린 힘줄",
+   "slot_ko": "가슴 방어구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Will of Rathma",
+   "ko": "라트마의 의지",
+   "slot_ko": "목걸이",
+   "grade_ko": "고유"
+  }
+ ],
+ "weapon_slots_ko": [
+  "주무기 (한손 또는 양손 무기)",
+  "보조 무기 (방패/중심점, 한손 무기 사용 시)"
+ ],
+ "globals": {
+  "max_level": 70,
+  "skill_points": 83,
+  "notes": "최대 레벨 70(증오의 군주/결전의 시즌부터). 기술 포인트는 최대 83(블리자드 공지, 시즌 등급 보상 최대 12 포함). 각 사용 기술 최대 등급 15(게임 데이터 dwMaxTalentRanks=15, 인벤 시뮬 max 15). 분기 선택지(속성)는 고르는 방식이며 포인트 비용 여부는 공식 확인 못 함. 지속 효과·핵심 지속 효과 노드는 트리에서 삭제됨."
+ },
+ "confidence": "검증됨: 트리 구조·기술/분기/변화형 영문명은 게임 데이터(3.2.1, 시즌15)에서 추출, 한국어명은 인벤 시즌15 스킬 시뮬(게임 데이터 기반)과 1:1 대조해 전부 일치. 기술명 23개 전부 블리자드 한국어 패치노트에서도 확인, 변화형 69개 중 27개도 공식 노트에서 확인(나머지는 인벤 단일 출처). 고유 아이템은 인벤 DB(한/영 병기) 단일 출처. 불확실: 3번째 변화형(요구 레벨 30~40)이 확장팩 전용이라는 점은 추정, 분기 속성의 포인트 비용 여부, 망자의 서 업그레이드 한국어 라벨(패치노트 표현), 무기 칸 표기는 설명용."
+}

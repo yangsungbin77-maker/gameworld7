@@ -1,0 +1,2124 @@
+{
+  "id": "druid",
+  "en": "Druid",
+  "ko": "드루이드",
+  "sources": [
+    "https://diablo4.inven.co.kr/db/skillsimulator (인벤 S15 스킬 시뮬레이터 데이터, 한글명 원천)",
+    "https://diablo4.inven.co.kr/db/item (인벤 아이템 DB, 한/영 이름)",
+    "https://assets-ng.maxroll.gg/d4-tools/game/data.min.json (maxroll 게임 데이터 3.1.3, 영문명·노드 구조)",
+    "https://news.blizzard.com/ko-kr/article/24295394 (공식 S15 '지옥의 유산 시즌' 안내+3.2.1 패치노트, 한/영 대조)",
+    "https://news.blizzard.com/en-us/article/24295394",
+    "https://news.blizzard.com/ko-kr/article/24171214 (공식 2.1 패치노트, 영혼 은총 한글명)",
+    "https://news.blizzard.com/ko-kr/article/24140806 (공식 1.3~1.5 패치노트, 영혼 은총 한글명)",
+    "https://news.blizzard.com/ko-kr/article/24140808 (공식 2.0 패치노트)",
+    "https://news.blizzard.com/ko-kr/article/24092668 (공식 1.0~1.2 패치노트)",
+    "https://news.blizzard.com/en-gb/article/24267729/prepare-for-the-reckoning-lord-of-hatred-draws-near",
+    "https://us.forums.blizzard.com/en/d4/t/gginotes-unofficial-patch-notes-loh-30-update/246470",
+    "https://www.icy-veins.com/d4/guides/druid-skills/ (next.icy-veins.com 미러로 열람)"
+  ],
+  "tree_note": "증오의 군주(3.0) 이후 기술 트리가 전면 개편되어 지속 효과(패시브)·핵심 지속 효과(키 패시브) 노드가 사라지고 6개 분류 26개 기술만 남았습니다. 기술마다 최대 15포인트를 넣을 수 있고, 업그레이드는 '보조 업그레이드 2쌍(각 쌍에서 1개) + 형상 노드 1개(늑대인간·곰인간·인간·다재다능 중 택1) + 변화형 3개 중 1개'입니다. 분류는 캐릭터 레벨(1·3·4·8·13·19)로 열리고, 가장 늦게 열리는 세 번째 변화형(레벨 30~40)은 확장팩 전용으로 추정됩니다.",
+  "categories": [
+    {
+      "en": "Basic",
+      "ko": "기본",
+      "unlock_level": 1,
+      "skills": [
+        {
+          "en": "Earth Spike",
+          "ko": "대지의 쐐기",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Spirit",
+              "ko": "영력",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Critical Strike Chance",
+              "ko": "극대화 확률",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Overpower",
+              "ko": "제압",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Megalith Stone",
+              "ko": "거석",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Seismic Shift",
+              "ko": "지각 이동",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Aftershock",
+              "ko": "여파",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 30,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Wind Shear",
+          "ko": "바람 칼날",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Barrier",
+              "ko": "보호막",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Spirit",
+              "ko": "영력",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Solar Wind",
+              "ko": "태양풍",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 30,
+              "loh_only": true
+            },
+            {
+              "en": "Wind Swept",
+              "ko": "바람몰이",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Boomerang",
+              "ko": "부메랑",
+              "kind": "choice",
+              "node": "variant"
+            }
+          ]
+        },
+        {
+          "en": "Storm Strike",
+          "ko": "폭풍 강타",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Armor",
+              "ko": "방어구",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Additional Chain",
+              "ko": "추가 연쇄",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Ferocity",
+              "ko": "포악함",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Spirit",
+              "ko": "영력",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Chain Reaction",
+              "ko": "연쇄 반응",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Storm Hammer",
+              "ko": "폭풍 망치",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Focused Strike",
+              "ko": "집중 강타",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 30,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Claw",
+          "ko": "발톱",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": false,
+          "upgrades": [
+            {
+              "en": "Spirit",
+              "ko": "영력",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Ferocity",
+              "ko": "포악함",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Critical Strike Chance",
+              "ko": "극대화 확률",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Viper Strikes",
+              "ko": "독사의 타격",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Lightning Claw",
+              "ko": "번개 발톱",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Dash",
+              "ko": "질주",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 30,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Maul",
+          "ko": "할퀴기",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Berserking",
+              "ko": "광폭화",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Resolve",
+              "ko": "결의",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Overpower",
+              "ko": "제압",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Spirit",
+              "ko": "영력",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Wide Sweeps",
+              "ko": "넓은 휩쓸기",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Reckless Rage",
+              "ko": "무절제한 분노",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Stone Fists",
+              "ko": "돌 주먹",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 30,
+              "loh_only": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Core",
+      "ko": "핵심",
+      "unlock_level": 3,
+      "skills": [
+        {
+          "en": "Lightning Storm",
+          "ko": "번개 폭풍",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Additional Strikes",
+              "ko": "추가 타격",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Minimum Strikes",
+              "ko": "최소 타격",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Supercell",
+              "ko": "뇌운",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Omnibolt",
+              "ko": "번개의 총체",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Hero of the Storm",
+              "ko": "폭풍의 영웅",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Tornado",
+          "ko": "회오리바람",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Increased Duration",
+              "ko": "지속시간 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Additional Tornado",
+              "ko": "추가 회오리바람",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Slow",
+              "ko": "감속",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Swelling Storm",
+              "ko": "불어나는 폭풍",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Explosive Tornado",
+              "ko": "폭발성 회오리바람",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Greater Tornado",
+              "ko": "상급 회오리바람",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Pulverize",
+          "ko": "쳐부수기",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Initial Damage Bonus",
+              "ko": "최초 피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Greater Pulverize",
+              "ko": "상급 쳐부수기",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Shockwave",
+              "ko": "충격파",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Mega Bear Punch",
+              "ko": "초강력 곰 주먹",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Shred",
+          "ko": "칼날 발톱",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Spirit",
+              "ko": "영력",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cast Speed",
+              "ko": "시전 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Berserking",
+              "ko": "광폭화",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Healing",
+              "ko": "치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Critical Shred",
+              "ko": "극한의 칼날 발톱",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true
+            },
+            {
+              "en": "Roundhouse",
+              "ko": "돌려치기",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Storm Shred",
+              "ko": "폭풍 칼날 발톱",
+              "kind": "choice",
+              "node": "variant"
+            }
+          ]
+        },
+        {
+          "en": "Stone Burst",
+          "ko": "암석 폭발",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Growth Speed",
+              "ko": "성장 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Spirit Cost Reduction",
+              "ko": "영력 소모량 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Armor",
+              "ko": "방어구",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Epicenter",
+              "ko": "진원지",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Rumbling Stones",
+              "ko": "울리는 돌",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Living Stones",
+              "ko": "살아 있는 돌",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Landslide",
+          "ko": "산사태",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Additional Pillar",
+              "ko": "추가 기둥",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Initial Damage Bonus",
+              "ko": "최초 피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Resolve",
+              "ko": "결의",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Critical Strike Chance",
+              "ko": "극대화 확률",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Continental Shift",
+              "ko": "대륙 이동",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Vengeance of Earth",
+              "ko": "대지의 복수",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Land Mine",
+              "ko": "땅 지뢰",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 32,
+              "loh_only": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Defensive",
+      "ko": "방어",
+      "unlock_level": 4,
+      "skills": [
+        {
+          "en": "Earthen Bulwark",
+          "ko": "대지 방벽",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Fortify and Healing",
+              "ko": "보강 및 치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Barrier Duration and Bonus",
+              "ko": "보호막 지속시간 및 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Unstoppable",
+              "ko": "저지 불가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Overpower",
+              "ko": "제압",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Versatile",
+              "ko": "다재다능",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Reconstruction",
+              "ko": "재구축",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Earthen Shrapnel",
+              "ko": "대지의 파편",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Travertine Bulwark",
+              "ko": "석회 방책",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 34,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Cyclone Armor",
+          "ko": "회오리 갑옷",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Increased Radius",
+              "ko": "반경 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Resistance",
+              "ko": "저항",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Versatile",
+              "ko": "다재다능",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Greater Cyclone Armor",
+              "ko": "상급 회오리 갑옷",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Slipstream",
+              "ko": "바람결",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Reversal",
+              "ko": "번복",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 34,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Blood Howl",
+          "ko": "피의 울부짖음",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Healing",
+              "ko": "치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Dodge Chance",
+              "ko": "회피 확률",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Unstoppable",
+              "ko": "저지 불가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Hungering Howl",
+              "ko": "굶주린 울부짖음",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Spirit Howl",
+              "ko": "영의 울부짖음",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Berserking Howl",
+              "ko": "광폭화의 울부짖음",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 34,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Debilitating Roar",
+          "ko": "쇠약의 포효",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Maximum Life",
+              "ko": "최대 생명력",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cooldown",
+              "ko": "재사용 대기시간",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Increased Duration",
+              "ko": "지속시간 증가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Slow",
+              "ko": "감속",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Roar of Resolve",
+              "ko": "결의의 포효",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 34,
+              "loh_only": true
+            },
+            {
+              "en": "Survival Instincts",
+              "ko": "생존 본능",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Booming Roar",
+              "ko": "우렁찬 포효",
+              "kind": "choice",
+              "node": "variant"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Companion",
+      "ko": "동료",
+      "unlock_level": 8,
+      "skills": [
+        {
+          "en": "Wolves",
+          "ko": "늑대 무리",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Stun",
+              "ko": "기절",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Damage Bonus",
+              "ko": "피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Attack Speed",
+              "ko": "공격 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Additional Wolf",
+              "ko": "추가 늑대",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Versatile",
+              "ko": "다재다능",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Thrill of the Hunt",
+              "ko": "사냥의 전율",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Werewolf Pack",
+              "ko": "늑대인간 무리",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Berserking",
+              "ko": "광폭화",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 36,
+              "loh_only": true,
+              "ko_in_official_notes": true
+            }
+          ]
+        },
+        {
+          "en": "Poison Creeper",
+          "ko": "맹독 덩굴",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Active Poisoning Duration",
+              "ko": "사용 중독 지속시간",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Additional Poison Creeper",
+              "ko": "추가 맹독 덩굴",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Versatile",
+              "ko": "다재다능",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Germinate",
+              "ko": "발아",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Carnivorous",
+              "ko": "육식",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Toxic Vegetation",
+              "ko": "독성 초목",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 36,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Ravens",
+          "ko": "큰까마귀",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Active Damage Bonus",
+              "ko": "사용 피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Resolve",
+              "ko": "결의",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Additional Raven",
+              "ko": "추가 큰까마귀",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Versatile",
+              "ko": "다재다능",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Raven Flock",
+              "ko": "까마귀 떼",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Stormcrow",
+              "ko": "폭풍까마귀",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Migration",
+              "ko": "대이동",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 36,
+              "loh_only": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Wrath",
+      "ko": "진노",
+      "unlock_level": 13,
+      "skills": [
+        {
+          "en": "Boulder",
+          "ko": "바위",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": false,
+          "upgrades": [
+            {
+              "en": "Additional Boulder",
+              "ko": "추가 바위",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Critical Strike Chance",
+              "ko": "극대화 확률",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Slow",
+              "ko": "감속",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Crushing Impact",
+              "ko": "분쇄하는 충격",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Dolmen's Will",
+              "ko": "고인돌의 의지",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Landslip",
+              "ko": "땅사태",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 38,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Trample",
+          "ko": "짓밟기",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Spirit",
+              "ko": "기백",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Unstoppable",
+              "ko": "저지 불가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Stun",
+              "ko": "기절",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Brunt Force",
+              "ko": "예봉의 힘",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Trampled Earth",
+              "ko": "짓밟힌 대지",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Exsanguination",
+              "ko": "방혈",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 38,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Rabies",
+          "ko": "광견병",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Spread Distance",
+              "ko": "확산 거리",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Poisoning Speed",
+              "ko": "중독 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Healing",
+              "ko": "치유",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Cost Reduction",
+              "ko": "소모량 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Malaise",
+              "ko": "불쾌감",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Superinfection",
+              "ko": "초감염",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Relapse",
+              "ko": "재발",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 38,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Hurricane",
+          "ko": "싹쓸바람",
+          "type": "active",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Critical Strike Chance",
+              "ko": "극대화 확률",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Movement Speed",
+              "ko": "이동 속도",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Slow",
+              "ko": "감속",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Weaken",
+              "ko": "약화",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Versatile",
+              "ko": "다재다능",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Rapid Intensification",
+              "ko": "빠른 격화",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Twin Storms",
+              "ko": "쌍둥이 폭풍",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Derecho",
+              "ko": "데레초",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 38,
+              "loh_only": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "en": "Ultimate",
+      "ko": "궁극기",
+      "unlock_level": 19,
+      "skills": [
+        {
+          "en": "Cataclysm",
+          "ko": "대격변",
+          "type": "ultimate",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Duration",
+              "ko": "지속시간",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Slow",
+              "ko": "감속",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Vulnerable",
+              "ko": "취약",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Ferocity",
+              "ko": "포악함",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Severe Storm",
+              "ko": "세찬 폭풍",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Terrible Twisters",
+              "ko": "끔찍한 돌개바람",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Tectonic Spikes",
+              "ko": "지각 쐐기",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 40,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Lacerate",
+          "ko": "찢어발기기",
+          "type": "ultimate",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Damage Bonus to Target",
+              "ko": "대상에 대한 피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Additional Strikes",
+              "ko": "추가 타격",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Ferocity",
+              "ko": "포악함",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Damage Bonus to Multiple",
+              "ko": "다수에 대한 피해 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werewolf",
+              "ko": "늑대인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Hunter Killer",
+              "ko": "사냥꾼 학살자",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Toxin Outburst",
+              "ko": "독소 폭발",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Temperance Training",
+              "ko": "극기 훈련",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 40,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Grizzly Rage",
+          "ko": "회색곰의 격노",
+          "type": "ultimate",
+          "max_rank": 15,
+          "ko_in_official_notes": true,
+          "upgrades": [
+            {
+              "en": "Unstoppable",
+              "ko": "저지 불가",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Cooldown Reduction",
+              "ko": "재사용 대기시간 감소",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Armor Bonus",
+              "ko": "방어도 보너스",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Immunity",
+              "ko": "면역",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Cornered Beast",
+              "ko": "궁지에 몰린 야수",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Avatar of Nature",
+              "ko": "자연의 화신",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 40,
+              "loh_only": true
+            }
+          ]
+        },
+        {
+          "en": "Petrify",
+          "ko": "석화",
+          "type": "ultimate",
+          "max_rank": 15,
+          "ko_in_official_notes": false,
+          "upgrades": [
+            {
+              "en": "Spirit",
+              "ko": "영력",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Duration",
+              "ko": "지속시간",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "A"
+            },
+            {
+              "en": "Fortify",
+              "ko": "보강",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Resolve",
+              "ko": "결의",
+              "kind": "enhancement",
+              "node": "side_upgrade",
+              "pair": "B"
+            },
+            {
+              "en": "Werebear",
+              "ko": "곰인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Human",
+              "ko": "인간",
+              "kind": "choice",
+              "node": "form"
+            },
+            {
+              "en": "Greater Petrify",
+              "ko": "상급 석화",
+              "kind": "choice",
+              "node": "variant"
+            },
+            {
+              "en": "Seismic Shift",
+              "ko": "지각변동",
+              "kind": "choice",
+              "node": "variant",
+              "ko_in_official_notes": true
+            },
+            {
+              "en": "Enduring Consequences",
+              "ko": "오래가는 결말",
+              "kind": "choice",
+              "node": "variant",
+              "unlock_level": 40,
+              "loh_only": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "mechanic": {
+    "en": "Spirit Boons",
+    "ko": "영혼 은총",
+    "note_ko": "사슴·독수리·늑대·뱀 4영혼에서 각 1개씩 고르고, 결속한 영혼 1곳은 1개를 더 골라 총 5개를 켭니다.",
+    "options": [
+      {
+        "spirit_en": "Deer",
+        "spirit_ko": "사슴",
+        "en": "Prickleskin",
+        "ko": "따끔거리는 거죽",
+        "desc_ko": "나를 때린 적에게 잠시 동안 더 큰 피해를 줍니다."
+      },
+      {
+        "spirit_en": "Deer",
+        "spirit_ko": "사슴",
+        "en": "Gift of the Stag",
+        "ko": "수사슴의 선물",
+        "desc_ko": "최대 영력이 늘고 매초 영력이 조금씩 찹니다."
+      },
+      {
+        "spirit_en": "Deer",
+        "spirit_ko": "사슴",
+        "en": "Wariness",
+        "ko": "경계심",
+        "desc_ko": "정예 몬스터에게 받는 피해가 줄어듭니다."
+      },
+      {
+        "spirit_en": "Deer",
+        "spirit_ko": "사슴",
+        "en": "Advantageous Beast",
+        "ko": "이로운 야수",
+        "desc_ko": "이동 속도가 오르고 방해 효과를 덜 받습니다."
+      },
+      {
+        "spirit_en": "Eagle",
+        "spirit_ko": "독수리",
+        "en": "Scythe Talons",
+        "ko": "낫 발톱",
+        "desc_ko": "극대화 확률과 행운의 적중 확률이 오릅니다."
+      },
+      {
+        "spirit_en": "Eagle",
+        "spirit_ko": "독수리",
+        "en": "Iron Feather",
+        "ko": "무쇠 깃털",
+        "desc_ko": "최대 생명력이 크게 늘어납니다."
+      },
+      {
+        "spirit_en": "Eagle",
+        "spirit_ko": "독수리",
+        "en": "Swooping Attacks",
+        "ko": "급강하 공격",
+        "desc_ko": "공격 속도가 오릅니다."
+      },
+      {
+        "spirit_en": "Eagle",
+        "spirit_ko": "독수리",
+        "en": "Avian Wrath",
+        "ko": "새의 격노",
+        "desc_ko": "극대화 피해가 오릅니다."
+      },
+      {
+        "spirit_en": "Wolf",
+        "spirit_ko": "늑대",
+        "en": "Pack Leader",
+        "ko": "무리 우두머리",
+        "ko_note": "1.x 패치노트는 '무리의 지도자', 2.0 이후 '무리 우두머리' 표기",
+        "desc_ko": "극대화 공격이 확률적으로 동료 기술 재사용 대기시간을 초기화합니다."
+      },
+      {
+        "spirit_en": "Wolf",
+        "spirit_ko": "늑대",
+        "en": "Energize",
+        "ko": "기력 충전",
+        "desc_ko": "피해를 줄 때 확률적으로 영력을 되찾습니다."
+      },
+      {
+        "spirit_en": "Wolf",
+        "spirit_ko": "늑대",
+        "en": "Bolster",
+        "ko": "강화",
+        "desc_ko": "보강 상태일 때 방어 기술 재사용 대기시간이 더 빨리 돕니다."
+      },
+      {
+        "spirit_en": "Wolf",
+        "spirit_ko": "늑대",
+        "en": "Calamity",
+        "ko": "재앙",
+        "desc_ko": "궁극기 지속시간이 길어집니다."
+      },
+      {
+        "spirit_en": "Snake",
+        "spirit_ko": "뱀",
+        "en": "Obsidian Slam",
+        "ko": "흑요석 내리치기",
+        "desc_ko": "대지 기술로 결의를 쌓고, 결의가 바뀔 때 대지 기술 피해가 오릅니다."
+      },
+      {
+        "spirit_en": "Snake",
+        "spirit_ko": "뱀",
+        "en": "Overload",
+        "ko": "과부하",
+        "desc_ko": "폭풍 기술이 확률적으로 포악함을 주고, 포악함이 있으면 폭풍 기술 시전이 빨라집니다."
+      },
+      {
+        "spirit_en": "Snake",
+        "spirit_ko": "뱀",
+        "en": "Masochistic",
+        "ko": "피학성",
+        "desc_ko": "변신 기술 극대화가 확률적으로 광폭화를 줍니다."
+      },
+      {
+        "spirit_en": "Snake",
+        "spirit_ko": "뱀",
+        "en": "Calm Before the Storm",
+        "ko": "폭풍전야",
+        "desc_ko": "자연 마법 기술이 확률적으로 궁극기 재사용 대기시간을 줄입니다."
+      }
+    ]
+  },
+  "uniques": [
+    {
+      "en": "Waxing Gibbous",
+      "ko": "차오르는 철월",
+      "slot_ko": "한손 무기(도끼)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Greatstaff of the Crone",
+      "ko": "마녀의 큰지팡이",
+      "slot_ko": "한손 무기(지팡이)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Mad Wolf's Glee",
+      "ko": "미친 늑대의 환희",
+      "slot_ko": "가슴 방어구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Insatiable Fury",
+      "ko": "만족을 모르는 분노",
+      "slot_ko": "가슴 방어구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Storm's Companion",
+      "ko": "폭풍의 동료",
+      "slot_ko": "바지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Hunter's Zenith",
+      "ko": "사냥꾼의 정점",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Fleshrender",
+      "ko": "살점 분쇄봉",
+      "slot_ko": "한손 무기(철퇴)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Dolmen Stone",
+      "ko": "고인돌",
+      "slot_ko": "목걸이",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Airidah's Inexorable Will",
+      "ko": "아이리다의 거침없는 의지",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Unsung Ascetic's Wraps",
+      "ko": "무명 고행자의 두르개",
+      "slot_ko": "장갑",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Earthbreaker",
+      "ko": "대지 파괴자",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Wildheart Hunger",
+      "ko": "야생심장의 갈망",
+      "slot_ko": "장화",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "The Basilisk",
+      "ko": "바실리스크",
+      "slot_ko": "한손 무기(지팡이)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Mjölnic Ryng",
+      "ko": "묠니르의 반지",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Stone of Vehemen",
+      "ko": "맹위의 돌",
+      "slot_ko": "보조 무기(토템)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Malefic Crescent",
+      "ko": "사악한 초승달",
+      "slot_ko": "목걸이",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Gathlen's Birthright",
+      "ko": "가틀렌의 생득권",
+      "slot_ko": "투구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Kilt of Blackwing",
+      "ko": "검은날개의 킬트",
+      "slot_ko": "바지"
+    },
+    {
+      "en": "Khamsin Steppewalkers",
+      "ko": "캄신 평원방랑자",
+      "slot_ko": "장화"
+    },
+    {
+      "en": "Accord of the Wilds",
+      "ko": "황야의 합의",
+      "slot_ko": "반지"
+    },
+    {
+      "en": "Autumnal Crown",
+      "ko": "가을의 왕관",
+      "slot_ko": "투구"
+    },
+    {
+      "en": "Dark Howl",
+      "ko": "어둠의 포효",
+      "slot_ko": "장갑"
+    },
+    {
+      "en": "Dirge of Airidah",
+      "ko": "아이리다의 만가",
+      "slot_ko": "반지"
+    },
+    {
+      "en": "Fractured Runestone",
+      "ko": "조각난 룬석",
+      "slot_ko": "반지"
+    },
+    {
+      "en": "Fury of the Wilds",
+      "ko": "황야의 분노",
+      "slot_ko": "반지"
+    },
+    {
+      "en": "Greenwalker's Oath",
+      "ko": "초원방랑자의 서약",
+      "slot_ko": "장화"
+    },
+    {
+      "en": "Greenwalker's Signet",
+      "ko": "초원방랑자의 인장",
+      "slot_ko": "반지"
+    },
+    {
+      "en": "Heart of Azgar",
+      "ko": "아즈가의 심장",
+      "slot_ko": "가슴 방어구"
+    },
+    {
+      "en": "Ifeh's Dire Totem",
+      "ko": "이페의 섬뜩한 토템",
+      "slot_ko": "보조 무기(토템)"
+    },
+    {
+      "en": "Mark of the Old Wolf",
+      "ko": "늙은 늑대의 징표",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Might of the Ursine",
+      "ko": "곰의 힘",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Purified Lightbringer",
+      "ko": "정화된 빛의 인도자",
+      "slot_ko": "양손 무기(양손 철퇴)"
+    },
+    {
+      "en": "Will of Stone",
+      "ko": "돌의 의지",
+      "slot_ko": "투구"
+    }
+  ],
+  "weapon_slots_ko": [
+    "양손 무기(지팡이·양손 철퇴·양손 도끼·미늘창 등)",
+    "또는 한손 무기(도끼·철퇴·도검·단검 등) + 보조 무기(토템)"
+  ],
+  "confidence": "기술 트리 한글명은 인벤 S15 시뮬레이터(게임 데이터 기반)에서 가져왔고, 3글자 이상 기술명 23/23개가 블리자드 공식 한글 문서(패치노트)에서 같은 표기로 확인됩니다(ko_in_official_notes, 2글자 이하는 우연 일치 우려로 판정 제외). 영문명은 maxroll 3.1.3 데이터와 노드 좌표로 1:1 대응시켰습니다(중복·누락 0). 업그레이드 영문명은 3.1.3 기준이라 3.2.x에서 바뀐 것이 있을 수 있고, 세 번째 변화형의 '확장팩 전용'(loh_only) 표시는 추정입니다. 영혼 은총 한글명은 공식 패치노트(1.x~2.1)로 확인했고 효과 설명은 3.1.3 데이터 요약입니다."
+}

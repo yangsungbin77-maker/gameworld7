@@ -1,0 +1,1716 @@
+{
+ "id": "rogue",
+ "en": "Rogue",
+ "ko": "도적",
+ "sources": [
+  "https://github.com/DiabloTools/d4data (game data dump, build 3.2.1.73552, 2026-09-15: SkillKit/SkillTreeRewards/Power/enUS StringList)",
+  "https://diablo4.inven.co.kr/db/skillsimulator (Season 15 skill tree, Korean names)",
+  "https://diablo4.inven.co.kr/db/item (unique item DB, KO + EN names)",
+  "https://news.blizzard.com/en-gb/article/24267729/prepare-for-the-reckoning-lord-of-hatred-draws-near",
+  "https://news.blizzard.com/ko-kr/article/24267729/ (위 기사 한국어판: 기술 트리 개편·최대 레벨 70·기술 포인트 83)",
+  "https://news.blizzard.com/ko-kr/diablo4/24140806/ (패치 노트 1.3-1.5, 한국어 하수인·전문화 명칭 대조)",
+  "https://news.blizzard.com/ko-kr/article/24092668/ (패치 노트 1.0-1.2)",
+  "https://news.blizzard.com/ko-kr/article/24287406/ (패치 노트 3.1)",
+  "https://news.blizzard.com/en-us/article/24295395/diablo-iv-patch-notes (3.2.x)"
+ ],
+ "tree_note": "증오의 군주(3.0.0, 2026-04-28) 이후 지속 효과·핵심 지속 효과 노드가 사라지고 사용 기술만 남았습니다. 기술마다 레벨에 따라 열리는 분기 3개가 있고, 1·2분기는 일반 속성 2개 중 1개, 3분기는 \"추가 기술 변화형\" 3개 중 1개를 고릅니다(3번째 변화형은 증오의 군주 필요로 추정). 궁극기는 1개만 선택 가능합니다.",
+ "categories": [
+  {
+   "en": "Basic",
+   "ko": "기본",
+   "skills": [
+    {
+     "en": "Invigorating Strike",
+     "ko": "원기의 일격",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 0,
+     "upgrades": [
+      {
+       "en": "Energy",
+       "ko": "기력",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Cast Speed",
+       "ko": "시전 속도",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Accumulating Strike",
+       "ko": "누적되는 일격",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Quick Strike",
+       "ko": "빠른 타격",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Enervating Strike",
+       "ko": "약화하는 타격",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14,
+       "requires_level": 30,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Blade Shift",
+     "ko": "칼날 차원 이동",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 0,
+     "upgrades": [
+      {
+       "en": "Resistance",
+       "ko": "저항",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Energy",
+       "ko": "기력",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Range of Motion",
+       "ko": "움직임의 범위",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Grenade Shift",
+       "ko": "수류탄 차원 이동",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Impossible Escape",
+       "ko": "불가능한 탈출",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14,
+       "requires_level": 30,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Puncture",
+     "ko": "구멍 뚫기",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 0,
+     "upgrades": [
+      {
+       "en": "Energy",
+       "ko": "기력",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Crowd Control",
+       "ko": "군중 제어",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Pierce",
+       "ko": "관통",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Propulsion",
+       "ko": "추진력",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Three of a Kind",
+       "ko": "셋이 하나",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Blight Burst",
+       "ko": "역병 격발",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14,
+       "requires_level": 30,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Heartseeker",
+     "ko": "심장추적자",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 0,
+     "upgrades": [
+      {
+       "en": "Critical Strike Chance",
+       "ko": "극대화 확률",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Energy",
+       "ko": "기력",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Pierce",
+       "ko": "관통",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Weakened",
+       "ko": "약화됨",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Procession",
+       "ko": "행렬",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Devouring Arrow",
+       "ko": "아귀 화살",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Confluence",
+       "ko": "합류",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14,
+       "requires_level": 30,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Forceful Arrow",
+     "ko": "강력한 화살",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 0,
+     "upgrades": [
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Energy",
+       "ko": "기력",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 5
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 9
+      },
+      {
+       "en": "Pin",
+       "ko": "고정",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Ender",
+       "ko": "종결자",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14
+      },
+      {
+       "en": "Cloudburst",
+       "ko": "구름폭발",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 14,
+       "requires_level": 30,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Core",
+   "ko": "핵심",
+   "skills": [
+    {
+     "en": "Twisting Blades",
+     "ko": "회전 칼날",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Energy Cost Reduction",
+       "ko": "기력 소모량 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Damage Increase and Execute",
+       "ko": "공격력 증가 및 처형",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Crowd Controlled or Weakened",
+       "ko": "군중 제어 또는 약화",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Sleight of Hand",
+       "ko": "손장난",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Bladedancer",
+       "ko": "칼춤꾼",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Twisted Twin",
+       "ko": "뒤틀린 쌍둥이",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Flurry",
+     "ko": "연타",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Fortify",
+       "ko": "보강",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Cast Speed",
+       "ko": "시전 속도",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Damage Increase",
+       "ko": "피해 증가",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Encircling Blades",
+       "ko": "빙빙 도는 칼날",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Transporter",
+       "ko": "수송",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Vehemence",
+       "ko": "왕성함",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Dance of Knives",
+     "ko": "칼날의 춤",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Energy Cost Reduction",
+       "ko": "기력 소모량 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Slow and Movement Speed",
+       "ko": "감속 및 이동 속도",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Lucky Hit",
+       "ko": "행운의 적중",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Pierce and Size",
+       "ko": "관통과 규모",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Star Shards",
+       "ko": "별 파편",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Fan of Knives",
+       "ko": "칼날 부채",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Grenade Jumper",
+       "ko": "수류탄 도약",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Penetrating Shot",
+     "ko": "꿰뚫는 사격",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Damage Increase",
+       "ko": "피해 증가",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Slow",
+       "ko": "감속",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Trick Shot",
+       "ko": "속임수 사격",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Shadow Shot",
+       "ko": "그림자 사격",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Ballista",
+       "ko": "노포",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Rapid Fire",
+     "ko": "연발 사격",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Critical Strike",
+       "ko": "극대화",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Energy Gain",
+       "ko": "기력 획득",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Additional Projectiles",
+       "ko": "추가 투사체",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Ruckus",
+       "ko": "소동",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Explosive Shot",
+       "ko": "폭발성 사격",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Breakneck Quiver",
+       "ko": "목절단 화살통",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Barrage",
+     "ko": "탄막",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 3,
+     "upgrades": [
+      {
+       "en": "Energy Cost Reduction",
+       "ko": "기력 소모량 감소",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Vulnerable or Weakened",
+       "ko": "취약 또는 약화",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 6
+      },
+      {
+       "en": "Cast Speed",
+       "ko": "시전 속도",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 10
+      },
+      {
+       "en": "Multishot",
+       "ko": "다발 사격",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Broadside",
+       "ko": "퍼붓는 공격",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15
+      },
+      {
+       "en": "Succession",
+       "ko": "부단",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 15,
+       "requires_level": 32,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Agility",
+   "ko": "날쌘 몸놀림",
+   "skills": [
+    {
+     "en": "Shadow Step",
+     "ko": "그림자 걸음",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 4,
+     "upgrades": [
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Cooldown",
+       "ko": "재사용 대기시간",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Cleave",
+       "ko": "쪼개기",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Unstoppable",
+       "ko": "저지 불가",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Sight Unseen",
+       "ko": "보이지 않는 시야",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Safe Arrival",
+       "ko": "안전한 도착",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Artifice",
+       "ko": "책략",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16,
+       "requires_level": 34,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Caltrops",
+     "ko": "쇠못 덫",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 4,
+     "upgrades": [
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Duration",
+       "ko": "지속시간",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Size",
+       "ko": "크기",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Critical Strike",
+       "ko": "극대화",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Catch Cold",
+       "ko": "감기 전염",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Mired Sharpshooter",
+       "ko": "수렁에 빠진 명사수",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Pernicious Poisons",
+       "ko": "악성 독",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16,
+       "requires_level": 34,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Dash",
+     "ko": "질주",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 4,
+     "upgrades": [
+      {
+       "en": "Critical Strike Chance",
+       "ko": "극대화 확률",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 7
+      },
+      {
+       "en": "Charges and Cooldown Reduction",
+       "ko": "충전 및 재사용 대기시간 감소",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 11
+      },
+      {
+       "en": "Echo",
+       "ko": "메아리",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Detonation",
+       "ko": "폭파",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16
+      },
+      {
+       "en": "Primer",
+       "ko": "만반의 준비",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 16,
+       "requires_level": 34,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Subterfuge",
+   "ko": "기만",
+   "skills": [
+    {
+     "en": "Dark Shroud",
+     "ko": "어둠의 장막",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 8,
+     "upgrades": [
+      {
+       "en": "Movement Speed",
+       "ko": "이동 속도",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Critical Strike",
+       "ko": "치명타",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Consume Chance",
+       "ko": "소모 확률",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Healing",
+       "ko": "치유",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Shadow Dancer",
+       "ko": "그림자 춤꾼",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Overflow",
+       "ko": "범람",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Best Served Cold",
+       "ko": "복수혈전",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20,
+       "requires_level": 36,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Concealment",
+     "ko": "은신",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 8,
+     "upgrades": [
+      {
+       "en": "Energy",
+       "ko": "기력",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Unstoppable",
+       "ko": "저지 불가",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Calculation",
+       "ko": "계산",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Recuperate",
+       "ko": "만회",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Concealing Fate",
+       "ko": "비밀을 품은 운명",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20,
+       "requires_level": 36,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Smoke Grenade",
+     "ko": "연막탄",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 8,
+     "upgrades": [
+      {
+       "en": "Increased Duration and Damage",
+       "ko": "지속시간 및 공격력 증가",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Size",
+       "ko": "크기",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Charge or Energy Cost Reduction",
+       "ko": "충전 또는 기력 소모량 감소",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Silhouette",
+       "ko": "실루엣",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Poison Grenade",
+       "ko": "독 수류탄",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Shade Grenade",
+       "ko": "환영 수류탄",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20,
+       "requires_level": 36,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Poison Trap",
+     "ko": "맹독 덫",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 8,
+     "upgrades": [
+      {
+       "en": "Knock Down",
+       "ko": "넘어뜨리기",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 12
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Charges",
+       "ko": "충전 횟수",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 17
+      },
+      {
+       "en": "Contamination",
+       "ko": "오염",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Infiltrator",
+       "ko": "침투자",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20
+      },
+      {
+       "en": "Frostbite Trap",
+       "ko": "동상 덫",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 20,
+       "requires_level": 36,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Imbuements",
+   "ko": "주입",
+   "skills": [
+    {
+     "en": "Cold Imbuement",
+     "ko": "냉기 주입",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 13,
+     "upgrades": [
+      {
+       "en": "Energy",
+       "ko": "기력",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Cooldown",
+       "ko": "재사용 대기시간",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Frozen Heart",
+       "ko": "얼어붙은 심장",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Buffered Battery",
+       "ko": "예비 전지",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Crystal Distillation",
+       "ko": "결정 증류",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23,
+       "requires_level": 38,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Poison Imbuement",
+     "ko": "독 주입",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 13,
+     "upgrades": [
+      {
+       "en": "Energy",
+       "ko": "기력",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Duration",
+       "ko": "지속시간",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Cooldown",
+       "ko": "재사용 대기시간",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Critical Strike",
+       "ko": "극대화",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Toxic Touch",
+       "ko": "독성 손길",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Sapper",
+       "ko": "소진",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Corrosive Ring",
+       "ko": "부식성 고리",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23,
+       "requires_level": 38,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Shadow Imbuement",
+     "ko": "암흑 주입",
+     "type": "active",
+     "max_rank": 15,
+     "unlock_level": 13,
+     "upgrades": [
+      {
+       "en": "Vulnerable",
+       "ko": "취약",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Duration",
+       "ko": "지속시간",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 18
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Overpower",
+       "ko": "제압",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 21
+      },
+      {
+       "en": "Endemic",
+       "ko": "풍토병",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Dark Dance",
+       "ko": "어두운 춤",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23
+      },
+      {
+       "en": "Shadow Play",
+       "ko": "암행",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 23,
+       "requires_level": 38,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "en": "Ultimate",
+   "ko": "궁극기",
+   "skills": [
+    {
+     "en": "Shadow Clone",
+     "ko": "복제된 그림자",
+     "type": "ultimate",
+     "max_rank": 15,
+     "unlock_level": 19,
+     "upgrades": [
+      {
+       "en": "Unstoppable",
+       "ko": "저지 불가",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Weaken & Vulnerable",
+       "ko": "약화 및 취약",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Cooldown",
+       "ko": "재사용 대기시간",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Relentless",
+       "ko": "근성",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Awakening",
+       "ko": "각성",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Sentry",
+       "ko": "보초",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25,
+       "requires_level": 40,
+       "lord_of_hatred_likely": true
+      }
+     ]
+    },
+    {
+     "en": "Death Trap",
+     "ko": "죽음의 덫",
+     "type": "ultimate",
+     "max_rank": 15,
+     "unlock_level": 19,
+     "upgrades": [
+      {
+       "en": "Cooldown",
+       "ko": "재사용 대기시간",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Dodge",
+       "ko": "회피",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Resolve",
+       "ko": "결의",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Weaken",
+       "ko": "약화",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Sudden Death",
+       "ko": "급살",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25,
+       "requires_level": 40,
+       "lord_of_hatred_likely": true
+      },
+      {
+       "en": "Death Pit",
+       "ko": "죽음의 구덩이",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Explosive Trigger",
+       "ko": "폭발적인 발동",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      }
+     ]
+    },
+    {
+     "en": "Rain of Arrows",
+     "ko": "화살비",
+     "type": "ultimate",
+     "max_rank": 15,
+     "unlock_level": 19,
+     "upgrades": [
+      {
+       "en": "Cooldown",
+       "ko": "재사용 대기시간",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Double Damage",
+       "ko": "이중 피해",
+       "kind": "choice",
+       "branch": 1,
+       "unlock_level": 22
+      },
+      {
+       "en": "Ferocity",
+       "ko": "포악함",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Cast Speed and Lucky Hit",
+       "ko": "시전 속도 및 행운의 적중",
+       "kind": "choice",
+       "branch": 2,
+       "unlock_level": 24
+      },
+      {
+       "en": "Monsoon",
+       "ko": "우기",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      },
+      {
+       "en": "Crashing Waves",
+       "ko": "부서지는 파도",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25,
+       "requires_level": 40,
+       "lord_of_hatred_likely": true
+      },
+      {
+       "en": "Flash Flood",
+       "ko": "급속 홍수",
+       "kind": "choice",
+       "branch": 3,
+       "unlock_level": 25
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "mechanic": {
+  "en": "Specializations",
+  "ko": "전문화",
+  "options": [
+   {
+    "en": "Combo Points",
+    "ko": "연계 점수",
+    "desc_ko": "기본 기술로 점수를 쌓고, 핵심 기술이 점수를 써서 추가 효과를 냄."
+   },
+   {
+    "en": "Inner Sight",
+    "ko": "내면의 시야",
+    "desc_ko": "표식 붙은 적을 때려 게이지를 채우면 잠깐 기력 회복·기력 소모 감소·극대화 확률 증가."
+   },
+   {
+    "en": "Preparation",
+    "ko": "전투 준비",
+    "desc_ko": "기력을 쓸수록 궁극기 재사용 대기시간이 줄고, 궁극기를 쓰면 잠깐 피해 감소."
+   }
+  ],
+  "notes_ko": "전문화는 3.1 패치 노트(증오의 군주 이후)에도 계속 언급되어 현재도 존재. 한국어 \"전투 준비\"는 공식 패치 노트 표기(1.x에서는 \"준비\"로 쓰인 곳도 있음)."
+ },
+ "uniques": [
+  {
+   "en": "Condemnation",
+   "ko": "규탄",
+   "slot_ko": "한손 무기 (단검)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Asheara's Khanjar",
+   "ko": "아시아라의 칸자르",
+   "slot_ko": "한손 무기 (단검)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Skyhunter",
+   "ko": "하늘사냥꾼",
+   "slot_ko": "원거리 무기 (활)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Windforce",
+   "ko": "바람살",
+   "slot_ko": "원거리 무기 (활)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Word of Hakan",
+   "ko": "하칸의 말",
+   "slot_ko": "목걸이",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Grasp of Shadow",
+   "ko": "그림자의 매듭끈",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Cowl of the Nameless",
+   "ko": "이름 없는 자의 머리쓰개",
+   "slot_ko": "투구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Eyes in the Dark",
+   "ko": "어둠 속의 눈",
+   "slot_ko": "바지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Eaglehorn",
+   "ko": "수리뿔",
+   "slot_ko": "원거리 무기 (활)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Scoundrel's Leathers",
+   "ko": "건달의 가죽옷",
+   "slot_ko": "가슴 방어구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Writhing Band of Trickery",
+   "ko": "몸부림치는 속임수의 가락지",
+   "slot_ko": "반지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Beastfall Boots",
+   "ko": "야수내림 장화",
+   "slot_ko": "장화",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Scoundrel's Kiss",
+   "ko": "건달의 입맞춤",
+   "slot_ko": "반지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Saboteur's Signet",
+   "ko": "공작원의 인장",
+   "slot_ko": "반지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "The Umbracrux",
+   "ko": "그림자십자",
+   "slot_ko": "한손 무기 (단검)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Shroud of Khanduras",
+   "ko": "칸두라스의 장막",
+   "slot_ko": "가슴 방어구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Pitfighter's Gull",
+   "ko": "투기장 싸움꾼의 사기",
+   "slot_ko": "반지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Assassin's Stride",
+   "ko": "암살자의 걸음",
+   "slot_ko": "장화",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Bands of Ichorous Rose",
+   "ko": "핏빛 장미의 띠",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Deathmask of Nirmitruq",
+   "ko": "니르미트루크의 죽음가면",
+   "slot_ko": "투구",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Orphan Maker",
+   "ko": "고아를 만드는 자",
+   "slot_ko": "원거리 무기 (쇠뇌)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Death's Pavane",
+   "ko": "죽음의 파반",
+   "slot_ko": "바지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Cassia's Grace",
+   "ko": "카시아의 은총",
+   "slot_ko": "원거리 무기 (활)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Desperate March",
+   "ko": "필사적인 행군",
+   "slot_ko": "장화",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Etna's Lost Dagger",
+   "ko": "에트나의 잃어버린 단검",
+   "slot_ko": "한손 무기 (단검)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Fist of the Iron Rose",
+   "ko": "강철 장미의 주먹",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Gladiator's Triumph",
+   "ko": "검투사의 승리",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Misericorde",
+   "ko": "자비의 검",
+   "slot_ko": "한손 무기 (도검)",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Sea Lord's Fine Gloves",
+   "ko": "바다 군주의 좋은 장갑",
+   "slot_ko": "장갑",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "Shrouded Gift",
+   "ko": "가려진 선물",
+   "slot_ko": "바지",
+   "grade_ko": "고유"
+  },
+  {
+   "en": "The Maestro",
+   "ko": "거장",
+   "slot_ko": "한손 무기 (단검)",
+   "grade_ko": "고유"
+  }
+ ],
+ "weapon_slots_ko": [
+  "쌍수 근접 무기 1 (단검/도검)",
+  "쌍수 근접 무기 2 (단검/도검)",
+  "원거리 무기 (활/쇠뇌)"
+ ],
+ "globals": {
+  "max_level": 70,
+  "skill_points": 83,
+  "notes": "최대 레벨 70(증오의 군주/결전의 시즌부터). 기술 포인트는 최대 83(블리자드 공지, 시즌 등급 보상 최대 12 포함). 각 사용 기술 최대 등급 15(게임 데이터 dwMaxTalentRanks=15, 인벤 시뮬 max 15). 분기 선택지(속성)는 고르는 방식이며 포인트 비용 여부는 공식 확인 못 함. 지속 효과·핵심 지속 효과 노드는 트리에서 삭제됨."
+ },
+ "confidence": "검증됨: 트리 구조·영문명은 게임 데이터(3.2.1), 한국어명은 인벤 시즌15 스킬 시뮬과 전부 일치. 기술명 24개 전부 블리자드 한국어 패치노트에서도 확인, 변화형 72개 중 18개 공식 노트에서 확인. 칼날의 춤은 증오의 군주에서 핵심 기술로 이동(데이터 확인). 어둠의 장막의 \"Critical Strike\" 분기는 인벤 표기가 \"치명타\"(다른 기술은 \"극대화\")라 원문 그대로 둠. 고유 아이템 31개는 인벤 DB 기준이며 도적 전용 룬워드 \"서풍(Zephyr)\"은 고유가 아니라 제외. 불확실: 3번째 변화형 확장팩 전용 여부(추정), 분기 포인트 비용, 무기 칸 한국어 표기."
+}

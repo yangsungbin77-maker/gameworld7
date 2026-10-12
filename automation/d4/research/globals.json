@@ -1,0 +1,492 @@
+{
+  "classes": [
+    {
+      "id": "barbarian",
+      "en": "Barbarian",
+      "ko": "야만용사",
+      "added_in": "base (2023)"
+    },
+    {
+      "id": "druid",
+      "en": "Druid",
+      "ko": "드루이드",
+      "added_in": "base (2023)"
+    },
+    {
+      "id": "necromancer",
+      "en": "Necromancer",
+      "ko": "강령술사",
+      "added_in": "base (2023)"
+    },
+    {
+      "id": "rogue",
+      "en": "Rogue",
+      "ko": "도적",
+      "added_in": "base (2023)"
+    },
+    {
+      "id": "sorcerer",
+      "en": "Sorcerer",
+      "ko": "원소술사",
+      "added_in": "base (2023)"
+    },
+    {
+      "id": "spiritborn",
+      "en": "Spiritborn",
+      "ko": "혼령사",
+      "added_in": "Vessel of Hatred / 증오의 그릇 (2024)"
+    },
+    {
+      "id": "paladin",
+      "en": "Paladin",
+      "ko": "성기사",
+      "added_in": "Lord of Hatred / 증오의 군주 (2026, 사전구매 시 출시 전부터 이용)"
+    },
+    {
+      "id": "warlock",
+      "en": "Warlock",
+      "ko": "악마술사",
+      "added_in": "Lord of Hatred / 증오의 군주 (2026-04-28)"
+    }
+  ],
+  "max_level": 70,
+  "skill_points": 83,
+  "skill_points_note": "블리자드 증오의 군주 안내문 기준 '최대 83 기술 포인트'(레벨업 + 시즌 등급 보상 최대 12). S15 '지옥의 유산 시즌'은 시즌 등급 보상이 '기술 포인트 최대 14'로 표기되어 있어 시즌 캐릭터 총합이 85일 수 있으나 미확인. 영원 영역은 명망으로 추가 포인트. 레벨업분의 정확한 분해는 공식 수치를 찾지 못함. 기술 1개에 최대 15포인트, 업그레이드 노드는 1포인트씩.",
+  "gear_slots_ko": [
+    "투구",
+    "가슴 방어구",
+    "장갑",
+    "바지",
+    "장화",
+    "목걸이",
+    "반지 1",
+    "반지 2",
+    "한손 무기",
+    "양손 무기",
+    "보조 무기/방패",
+    "영물"
+  ],
+  "gear_slots_note": "무기 칸 이름은 인벤 DB 분류 기준(게임 UI의 칸 이름은 미확인). '영물'(Talisman)은 증오의 군주 신규 장비로, 문장(Seal)이 부적(Charm) 칸 수(최대 6)를 정합니다. 공식 한글 문서는 Seal을 '문장', 인벤 인터뷰 기사는 '인장'으로 표기.",
+  "generic_uniques": [
+    {
+      "en": "The Butcher's Cleaver",
+      "ko": "도살자의 식칼",
+      "slot_ko": "한손 무기(도끼)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Penitent Greaves",
+      "ko": "참회의 경갑",
+      "slot_ko": "장화",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Razorplate",
+      "ko": "서슬판금",
+      "slot_ko": "가슴 방어구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Fists of Fate",
+      "ko": "운명의 주먹",
+      "slot_ko": "장갑",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Frostburn",
+      "ko": "서리불꽃",
+      "slot_ko": "장갑",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Temerity",
+      "ko": "만용",
+      "slot_ko": "바지"
+    },
+    {
+      "en": "Mother's Embrace",
+      "ko": "어머니의 품",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Azurewrath",
+      "ko": "푸른 서슬",
+      "slot_ko": "한손 무기(도검)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Tassets of the Dawning Sky",
+      "ko": "새벽하늘 무릎받이",
+      "slot_ko": "바지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Godslayer Crown",
+      "ko": "신 살해자 왕관",
+      "slot_ko": "투구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Flickerstep",
+      "ko": "명멸걸음",
+      "slot_ko": "장화",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Tibault's Will",
+      "ko": "티볼트의 의지",
+      "slot_ko": "바지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "X'Fal's Corroded Signet",
+      "ko": "크팔의 부식된 인장",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Soulbrand",
+      "ko": "영혼 낙인",
+      "slot_ko": "가슴 방어구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Banished Lord's Talisman",
+      "ko": "추방된 군주의 영물",
+      "slot_ko": "목걸이",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Paingorger's Gauntlets",
+      "ko": "고통탐식자의 팔목 장갑",
+      "slot_ko": "장갑",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Yen's Blessing",
+      "ko": "엔의 축복",
+      "slot_ko": "장화",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Crown of Lucion",
+      "ko": "루시온의 왕관",
+      "slot_ko": "투구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Endurant Faith",
+      "ko": "인내하는 신앙",
+      "slot_ko": "장갑",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Shard of Verathiel",
+      "ko": "베라티엘의 파편",
+      "slot_ko": "한손 무기(도검)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Rakanoth's Wake",
+      "ko": "라카노스의 자취",
+      "slot_ko": "장화",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Locran's Talisman",
+      "ko": "로크란의 영물",
+      "slot_ko": "목걸이",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Blood-Mad Idol",
+      "ko": "피의 광기 우상",
+      "slot_ko": "목걸이"
+    },
+    {
+      "en": "Wendigo Brand",
+      "ko": "웬디고 낙인",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Rustbitten Dirk",
+      "ko": "녹물림 더크",
+      "slot_ko": "한손 무기(단검)"
+    },
+    {
+      "en": "Wyrdskin",
+      "ko": "운명가죽",
+      "slot_ko": "장갑",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Thousand-Eye Reaver",
+      "ko": "천 개의 눈 강탈자",
+      "slot_ko": "한손 무기(도끼)"
+    },
+    {
+      "en": "Signet of Pelghain",
+      "ko": "펠가인의 인장",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Leoric's Crown",
+      "ko": "레오릭의 왕관",
+      "slot_ko": "투구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Nemesis Bracers",
+      "ko": "천벌의 팔보호구",
+      "slot_ko": "장갑",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Stone of Jordan",
+      "ko": "요르단의 반지",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Squirt's Blouse",
+      "ko": "꼬맹이의 블라우스",
+      "slot_ko": "가슴 방어구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Arioc's Needle",
+      "ko": "아리옥의 바늘",
+      "slot_ko": "양손 무기(미늘창)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Henri's Perquisition",
+      "ko": "앙리의 쥐잡이",
+      "slot_ko": "보조 무기(중심점)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "In-Geom",
+      "ko": "인검",
+      "slot_ko": "한손 무기(도검)"
+    },
+    {
+      "en": "The Furnace",
+      "ko": "용광로",
+      "slot_ko": "양손 무기(양손 철퇴)",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Messerschmidt's Reaver",
+      "ko": "메서슈미트의 도끼",
+      "slot_ko": "양손 무기(양손 도끼)",
+      "ko_in_official_notes": true
+    }
+  ],
+  "mythic_uniques": [
+    {
+      "en": "Doombringer",
+      "ko": "궤멸자",
+      "slot_ko": "한손 무기(도검)",
+      "ko_in_official_notes": true,
+      "note_ko": "혼령사 제외 전 직업"
+    },
+    {
+      "en": "The Grandfather",
+      "ko": "한아비",
+      "slot_ko": "양손 무기(양손 도검)",
+      "ko_in_official_notes": true,
+      "note_ko": "야만용사·강령술사·성기사·악마술사만"
+    },
+    {
+      "en": "Melted Heart of Selig",
+      "ko": "셀리그의 녹은 심장",
+      "slot_ko": "목걸이",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Andariel's Visage",
+      "ko": "안다리엘의 두개골",
+      "slot_ko": "투구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Harlequin Crest",
+      "ko": "할리퀸 관모",
+      "slot_ko": "투구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Ring of Starless Skies",
+      "ko": "별 없는 하늘의 반지",
+      "slot_ko": "반지",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Ahavarion, Spear of Lycander",
+      "ko": "아발리온 - 라이칸더의 창",
+      "slot_ko": "양손 무기(지팡이)",
+      "ko_in_official_notes": true,
+      "note_ko": "원소술사·드루이드만"
+    },
+    {
+      "en": "Tyrael's Might",
+      "ko": "티리엘의 권능",
+      "slot_ko": "가슴 방어구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Nesekem, the Herald",
+      "ko": "전령 네세켐",
+      "slot_ko": "양손 무기(글레이브)",
+      "class_only": "혼령사",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Heir of Perdition",
+      "ko": "영벌의 후예",
+      "slot_ko": "투구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Shroud of False Death",
+      "ko": "거짓된 죽음의 수의",
+      "slot_ko": "가슴 방어구",
+      "ko_in_official_notes": true
+    },
+    {
+      "en": "Shattered Vow",
+      "ko": "박살난 맹세",
+      "slot_ko": "양손 무기(미늘창)",
+      "ko_in_official_notes": true,
+      "note_ko": "드루이드·야만용사·혼령사만"
+    },
+    {
+      "en": "El'Druin, Sword of Justice",
+      "ko": "정의의 검 엘드루인",
+      "slot_ko": "한손 무기(도검)",
+      "note_ko": "혼령사 제외 전 직업"
+    }
+  ],
+  "runewords_note": "S15 인벤 DB에는 룬워드(D2식) 19종도 '공용'으로 올라 있음(고유 아이템이 아니라 별도 목록).",
+  "runewords": [
+    {
+      "en": "Strength",
+      "ko": "강함"
+    },
+    {
+      "en": "Ancient's Pledge",
+      "ko": "고대인의 서약"
+    },
+    {
+      "en": "Pattern",
+      "ko": "귀감"
+    },
+    {
+      "en": "Edge",
+      "ko": "모서리"
+    },
+    {
+      "en": "Infinity",
+      "ko": "무한"
+    },
+    {
+      "en": "Phoenix",
+      "ko": "불사조"
+    },
+    {
+      "en": "Rain",
+      "ko": "비"
+    },
+    {
+      "en": "Zephyr",
+      "ko": "서풍"
+    },
+    {
+      "en": "Call to Arms",
+      "ko": "소집"
+    },
+    {
+      "en": "Enigma",
+      "ko": "수수께끼"
+    },
+    {
+      "en": "Grief",
+      "ko": "슬픔"
+    },
+    {
+      "en": "Holy Thunder",
+      "ko": "신성한 천둥"
+    },
+    {
+      "en": "Prudence",
+      "ko": "신중"
+    },
+    {
+      "en": "Spirit",
+      "ko": "영혼"
+    },
+    {
+      "en": "King's Grace",
+      "ko": "왕의 은총"
+    },
+    {
+      "en": "Leaf",
+      "ko": "잎새"
+    },
+    {
+      "en": "Stealth",
+      "ko": "잠행"
+    },
+    {
+      "en": "Lore",
+      "ko": "전승"
+    },
+    {
+      "en": "Insight",
+      "ko": "통찰"
+    }
+  ],
+  "season": {
+    "number": 15,
+    "ko_name": "지옥의 유산 시즌",
+    "en_name": "Season of Hell's Legacy",
+    "start": "2026-09-15(미주) / 2026-09-16(한국)",
+    "patch": "3.2.x"
+  },
+  "paragon": {
+    "boards": 5,
+    "glyphs": 5,
+    "note": "시작 보드 포함 최대 5개 보드 장착, 보드마다 문양 홈 1개(시작 보드 포함)라 문양 최대 5개. 정복자 레벨 최대 300, 문양 레벨 최대 150. 직업별 보드 수: 드루이드 10개(시작 포함), 혼령사 9개 + S15 신규 '폭풍의 무리(Swarm of Storms)' = 10개."
+  },
+  "terminology_ko": {
+    "skill": "기술",
+    "skill_point": "기술 포인트",
+    "paragon": "정복자",
+    "paragon_board": "정복자 보드",
+    "glyph": "문양",
+    "unique": "고유",
+    "mythic_unique": "신화 고유",
+    "variant": "변화형",
+    "legendary_aspect": "전설 위상",
+    "talisman": "영물",
+    "charm": "부적",
+    "seal": "문장"
+  },
+  "sources": [
+    "https://news.blizzard.com/ko-kr/article/24295394 (S15 지옥의 유산 시즌 안내, 한글)",
+    "https://news.blizzard.com/en-us/article/24295394",
+    "https://news.blizzard.com/en-gb/article/24267729/prepare-for-the-reckoning-lord-of-hatred-draws-near (83 기술 포인트·레벨 70)",
+    "https://news.blizzard.com/ko-kr/article/24271857 (3.0 패치노트, '증오의 군주'·'증오의 그릇' 공식 표기)",
+    "https://diablo4.inven.co.kr/db/item (고유·신화 고유 한/영 이름, 8직업 한글명)",
+    "https://diablo4.inven.co.kr/db/skillsimulator",
+    "https://assets-ng.maxroll.gg/d4-tools/game/data.min.json (신화 등급·직업 제한 교차확인)",
+    "https://maxroll.gg/d4/resources/paragon-boards (보드 5·문양·정복자 300·문양 150)",
+    "https://d4guides.gg/en/guides/diablo-4-lord-of-hatred-overview",
+    "https://m.inven.co.kr/webzine/wznews.php?idx=313545"
+  ],
+  "confidence": "직업·확장팩·시즌 한글명은 블리자드 공식 한글 문서로 확인. 고유/신화 고유 한글명은 인벤 DB(게임 데이터) 기준이며 일부는 공식 S15 패치노트와 일치(ko_in_official_notes). 신화 고유 12종(공용)+네세켐(혼령사)은 maxroll 데이터의 신화 등급과 일치. 기술 포인트 총합(83 vs S15 85)과 무기 칸 공식 명칭은 불확실."
+}
