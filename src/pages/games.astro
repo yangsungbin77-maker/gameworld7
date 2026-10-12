@@ -25,6 +25,12 @@ const description =
 				</p>
 			</section>
 
+			<a href="/d4-build-planner/" class="tool-banner">
+				<span class="tb-emoji">😈</span>
+				<span class="tb-text"><b>디아블로4 빌드 플래너</b><small>시즌 15 · 8개 직업 기술 트리 찍고 링크로 공유</small></span>
+				<span class="tb-go">열기 →</span>
+			</a>
+
 			<ul class="game-grid">
 				{GAMES.map((g) => (
 					<li>
@@ -58,6 +64,14 @@ const description =
 </html>
 
 <style>
+	.tool-banner { display: flex; align-items: center; gap: 14px; margin: 0 0 1.4rem; padding: 14px 18px; border-radius: var(--radius); border: 1px solid #5a4526; background: linear-gradient(100deg, #1f150d, #120d09 70%); text-decoration: none; color: #ece3d3; }
+	.tool-banner:hover { border-color: #c9a35b; }
+	.tb-emoji { font-size: 1.9rem; }
+	.tb-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+	.tb-text b { font-size: 1.05rem; color: #f4e6c8; }
+	.tb-text small { color: #a89c88; font-size: 0.85rem; }
+	.tb-go { color: #e6c47f; font-weight: 700; white-space: nowrap; }
+
 	.games-hero {
 		padding: 2.5rem 0 2rem;
 		text-align: center;

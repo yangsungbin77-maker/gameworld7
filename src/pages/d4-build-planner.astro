@@ -1,0 +1,479 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = '디아블로4 빌드 플래너 — 스킬 트리·단축키·장비 짜기 | 게임월드7';
+const description =
+	'디아블로4 시즌15 빌드를 브라우저에서 짜고 링크로 공유하세요. 8개 직업 스킬 트리 포인트 찍기, 단축키 6칸 배치, 장비·위상·정복자 문양 메모, 카톡용 텍스트 복사까지. 무료 · 설치 없음 · 로그인 없음.';
+const faq = [
+	{ q: '빌드는 어디에 저장되나요?', a: '두 군데입니다. "내 빌드에 저장"을 누르면 이 기기 브라우저에 저장되고, "링크 복사"를 누르면 빌드 전체가 주소 안에 담깁니다. 링크를 받은 사람은 같은 빌드를 그대로 열어 볼 수 있고, 서버에는 아무것도 저장되지 않습니다.' },
+	{ q: '스킬 포인트는 몇 개까지 찍을 수 있나요?', a: '증오의 군주 확장팩 이후 기준 83포인트를 한도로 보여 줍니다. 기술 하나는 최대 15등급이고, 업그레이드 하나를 고르면 연결 노드 1포인트와 업그레이드 1포인트, 모두 2포인트가 듭니다. 한도를 넘겨도 찍을 수는 있지만 빨간색으로 표시돼서, 게임에서 그대로 따라 할 수 없는 빌드인지 바로 알 수 있어요.' },
+	{ q: '데미지 계산도 되나요?', a: '아직은 아닙니다. 지금 버전은 스킬 트리·단축키·장비·정복자 문양을 정리하고 공유하는 도구입니다. 수치 계산은 시즌마다 공식이 바뀌어서, 정확히 검증한 뒤 추가할 예정입니다.' },
+	{ q: '스킬 이름이 게임과 달라요.', a: '스킬 이름은 블리자드 한국어 공식 표기를 기준으로 정리했습니다. 패치로 이름이 바뀌었거나 빠진 스킬이 있으면 문의하기로 알려 주세요. 확인되는 대로 고칩니다.' },
+];
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={title} description={description} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet" />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@graph': [
+				{ '@type': 'WebApplication', name: '디아블로4 빌드 플래너', url: 'https://gameworld7.com/d4-build-planner/', applicationCategory: 'GameApplication', operatingSystem: 'Web', offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' }, inLanguage: 'ko' },
+				{ '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+			],
+		})} />
+	</head>
+	<body class="dp-body">
+		<Header />
+		<main class="dp">
+			<section class="dp-hero">
+				<span class="dp-eyebrow">DIABLO IV · 시즌 15 · 빌드 플래너</span>
+				<h1>성역의 빌드 장부</h1>
+				<p class="dp-lead">직업을 고르고 스킬을 찍고, 단축키와 장비를 적으세요. 완성한 빌드는 링크 하나로 친구·길드에 보낼 수 있어요.</p>
+			</section>
+
+			<nav class="dp-classes" id="classes" aria-label="직업 고르기"></nav>
+
+			<div class="dp-grid">
+				<section class="dp-tree" aria-label="스킬 트리">
+					<div class="dp-tree-head">
+						<h2 id="className">직업을 골라 주세요</h2>
+						<p id="treeNote" class="dp-note"></p>
+						<div class="dp-filter"><input id="q" type="search" placeholder="스킬 이름 찾기" aria-label="스킬 이름 찾기" /><label><input type="checkbox" id="onlyPicked" /> 찍은 것만</label></div>
+					</div>
+					<div id="tree" class="dp-cats"><p class="dp-loading">불러오는 중…</p></div>
+				</section>
+
+				<aside class="dp-side" aria-label="빌드 요약">
+					<div class="dp-card">
+						<input id="buildName" class="dp-title" maxlength="40" placeholder="빌드 이름 (예: 지옥사냥개 방치 파밍)" aria-label="빌드 이름" />
+						<div class="dp-points"><span>기술 포인트</span><b id="pts">0</b><span id="ptsCap"></span></div>
+						<div class="dp-bar-wrap"><div class="dp-bar" id="ptsBar"></div></div>
+						<h3>단축키</h3>
+						<div class="dp-hotbar" id="hotbar"></div>
+						<p class="dp-hint">칸을 누르고, 포인트를 찍은 스킬을 고르세요.</p>
+						<div id="mechWrap" hidden>
+							<h3 id="mechTitle">직업 고유 능력</h3>
+							<div id="mech" class="dp-mech"></div>
+							<p id="mechDesc" class="dp-note"></p>
+						</div>
+						<div class="dp-actions">
+							<button type="button" id="share" class="dp-btn gold">🔗 링크 복사</button>
+							<button type="button" id="copyText" class="dp-btn">📋 글로 복사</button>
+							<button type="button" id="save" class="dp-btn">💾 내 빌드에 저장</button>
+							<button type="button" id="reset" class="dp-btn ghost">처음부터</button>
+						</div>
+						<p id="toast" class="dp-toast" aria-live="polite"></p>
+						<details class="dp-saved" id="savedWrap"><summary>내 빌드 목록 (<span id="savedN">0</span>)</summary><ul id="saved"></ul></details>
+					</div>
+				</aside>
+			</div>
+
+			<section class="dp-block" aria-label="장비">
+				<h2>장비 · 위상</h2>
+				<p class="dp-note">아이템 칸에 고유 아이템 이름을 치면 목록이 떠요. 위상·옵션은 자유롭게 적으세요.</p>
+				<div class="dp-gear" id="gear"></div>
+				<datalist id="uniqList"></datalist>
+			</section>
+
+			<section class="dp-block" aria-label="정복자">
+				<h2>정복자 판 · 문양</h2>
+				<div class="dp-paragon" id="paragon"></div>
+			</section>
+
+			<section class="dp-block" aria-label="메모">
+				<h2>메모</h2>
+				<textarea id="notes" rows="5" maxlength="2000" placeholder="운영법, 스킬 순서, 파밍 루트, 교체 후보 등을 적어 두세요."></textarea>
+			</section>
+
+			<section class="dp-doc">
+				<h2>이렇게 쓰세요</h2>
+				<ol>
+					<li><strong>직업 고르기</strong> — 맨 위에서 직업을 누르면 그 직업의 스킬 트리가 열려요.</li>
+					<li><strong>기술 찍기</strong> — <b>＋</b>는 1포인트씩, <b>최대</b>는 15등급까지 한 번에 올려요. 포인트를 찍은 기술 아래에 "기술 변화형"(3개 중 1개)과 "부가 업그레이드"(두 줄에서 1개씩)가 나타나요. 업그레이드 하나는 연결 노드까지 2포인트로 계산해요.</li>
+					<li><strong>단축키 배치</strong> — 오른쪽 단축키 칸을 눌러 찍은 스킬을 넣으세요. 좌클릭·우클릭·1~4번, 게임과 같은 6칸이에요.</li>
+					<li><strong>장비와 문양 적기</strong> — 고유 아이템은 이름 일부만 쳐도 목록에서 고를 수 있어요.</li>
+					<li><strong>공유하기</strong> — "링크 복사"는 빌드 전체를 주소에 담아요. "글로 복사"는 카톡·커뮤니티에 붙여 넣기 좋은 글로 만들어 줘요.</li>
+				</ol>
+				<h2>자주 묻는 질문</h2>
+				{faq.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+				<p class="dp-legal">게임월드7이 만든 팬 도구이며 Blizzard Entertainment와 관련이 없습니다. Diablo는 Blizzard Entertainment의 상표입니다. 스킬·아이템 이름은 게임의 공개 표기를 따랐습니다.</p>
+			</section>
+		</main>
+		<Footer />
+
+		<div class="dp-modal" id="picker" hidden>
+			<div class="dp-modal-box" role="dialog" aria-modal="true" aria-labelledby="pickTitle">
+				<div class="dp-modal-head"><h3 id="pickTitle">스킬 고르기</h3><button type="button" id="pickClose" aria-label="닫기">✕</button></div>
+				<div id="pickList" class="dp-pick-list"></div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<style is:global>
+	.dp-body {
+		--d-bg: #0d0b0a;
+		--d-panel: #17130f;
+		--d-panel-2: #1f1913;
+		--d-line: #3a2f22;
+		--d-gold: #c9a35b;
+		--d-gold-hi: #e6c47f;
+		--d-blood: #d9493a;
+		--d-text: #ece3d3;
+		--d-muted: #a89c88;
+		background: radial-gradient(1200px 500px at 50% -120px, #2a1a12 0%, transparent 70%), var(--d-bg);
+		color: var(--d-text);
+	}
+	.dp { width: var(--maxw); max-width: calc(100% - 2rem); margin: 0 auto; padding: 1.5rem 0 3rem; }
+	.dp h1, .dp h2, .dp-title, .dp-class b { font-family: 'Noto Serif KR', serif; }
+	.dp-hero { text-align: center; padding: 1.5rem 0 1.2rem; }
+	.dp-eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; color: var(--d-gold); }
+	.dp-hero h1 { font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 900; margin: 0.4rem 0; color: #f4e6c8; text-shadow: 0 0 24px rgba(217, 73, 58, 0.35); letter-spacing: -0.01em; }
+	.dp-lead { color: var(--d-muted); max-width: 40em; margin: 0 auto; line-height: 1.7; }
+	.dp-note { color: var(--d-muted); font-size: 0.86rem; line-height: 1.6; margin: 0.3rem 0; }
+
+	.dp-classes { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; margin: 1rem 0 1.4rem; }
+	.dp-class { appearance: none; border: 1px solid var(--d-line); background: var(--d-panel); color: var(--d-text); border-radius: 12px; padding: 12px 6px 10px; cursor: pointer; text-align: center; font: inherit; transition: border-color 0.15s, transform 0.15s; }
+	.dp-class:hover { border-color: var(--d-gold); }
+	.dp-class span { display: block; font-size: 1.6rem; line-height: 1.2; }
+	.dp-class b { display: block; font-size: 0.92rem; margin-top: 4px; }
+	.dp-class[aria-pressed='true'] { border-color: var(--d-gold); background: linear-gradient(180deg, #2b2116, var(--d-panel)); box-shadow: 0 0 0 1px var(--d-gold) inset, 0 6px 20px rgba(201, 163, 91, 0.15); }
+	.dp-class:focus-visible, .dp-btn:focus-visible, .dp-node-top button:focus-visible, .dp-slot:focus-visible { outline: 2px solid var(--d-gold-hi); outline-offset: 2px; }
+
+	.dp-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 18px; align-items: start; }
+	.dp-tree-head h2 { margin: 0; font-size: 1.5rem; color: #f4e6c8; }
+	.dp-filter { display: flex; gap: 10px; align-items: center; margin: 10px 0 4px; font-size: 0.86rem; color: var(--d-muted); }
+	.dp-filter input[type='search'] { flex: 1; min-width: 0; background: var(--d-panel); border: 1px solid var(--d-line); color: var(--d-text); border-radius: 10px; padding: 9px 12px; font: inherit; }
+	.dp-filter label { display: flex; gap: 5px; align-items: center; white-space: nowrap; }
+	.dp-cat { margin-top: 14px; border-top: 1px solid var(--d-line); padding-top: 10px; }
+	.dp-cat > h3 { margin: 0 0 8px; font-size: 0.82rem; letter-spacing: 0.12em; color: var(--d-gold); display: flex; justify-content: space-between; }
+	.dp-cat > h3 small { color: var(--d-muted); letter-spacing: 0; font-weight: 400; }
+	.dp-nodes { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px; }
+	.dp-node { background: var(--d-panel); border: 1px solid var(--d-line); border-radius: 12px; padding: 10px 10px 9px; }
+	.dp-node.on { border-color: #6b5634; background: linear-gradient(180deg, #221a12, var(--d-panel)); }
+	.dp-node.t-key_passive { border-style: dashed; }
+	.dp-node-top { display: flex; align-items: center; gap: 8px; }
+	.dp-node-name { flex: 1; min-width: 0; }
+	.dp-node-name b { display: block; font-size: 0.98rem; line-height: 1.3; word-break: keep-all; }
+	.dp-node-name small { color: var(--d-muted); font-size: 0.72rem; }
+	.dp-node-top button { width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--d-line); background: var(--d-panel-2); color: var(--d-text); font-size: 1.1rem; cursor: pointer; flex: none; }
+	.dp-node-top button.plus { border-color: #6b5634; color: var(--d-gold-hi); }
+	.dp-node-top button:disabled { opacity: 0.35; cursor: default; }
+	.dp-rank { font-variant-numeric: tabular-nums; font-weight: 800; color: var(--d-gold-hi); font-size: 1rem; min-width: 2.6em; text-align: right; }
+	.dp-rank i { font-style: normal; font-weight: 400; color: var(--d-muted); font-size: 0.72rem; }
+	.dp-node-top button.max { width: auto; padding: 0 7px; font-size: 0.72rem; color: var(--d-muted); }
+	.dp-pips { display: flex; gap: 3px; margin-top: 7px; flex-wrap: wrap; }
+	.dp-pips i { width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid #6b5634; background: transparent; }
+	.dp-pips i.f { background: var(--d-gold); border-color: var(--d-gold); box-shadow: 0 0 6px rgba(201, 163, 91, 0.6); }
+	.dp-pips i.x { background: var(--d-blood); border-color: var(--d-blood); }
+	.dp-ups { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; align-items: center; }
+	.dp-up-l { font-size: 0.7rem; color: var(--d-gold); min-width: 5.2em; }
+	.dp-up { font: inherit; font-size: 0.78rem; line-height: 1.3; padding: 6px 10px; min-height: 32px; word-break: keep-all; border-radius: 999px; border: 1px solid var(--d-line); background: transparent; color: var(--d-muted); cursor: pointer; }
+	.dp-up.on { border-color: var(--d-gold); color: var(--d-bg); background: var(--d-gold); font-weight: 700; }
+	.dp-up:disabled { opacity: 0.35; cursor: not-allowed; }
+	.dp-mech { display: flex; flex-wrap: wrap; gap: 5px; }
+	.dp-loading { color: var(--d-muted); }
+
+	.dp-side { position: sticky; top: 76px; }
+	.dp-card { background: var(--d-panel); border: 1px solid var(--d-line); border-radius: 16px; padding: 16px; }
+	.dp-card h3 { font-size: 0.8rem; letter-spacing: 0.12em; color: var(--d-gold); margin: 16px 0 8px; }
+	.dp-title { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--d-line); color: #f4e6c8; font-size: 1.15rem; font-weight: 700; padding: 4px 0 8px; }
+	.dp-title:focus { outline: none; border-bottom-color: var(--d-gold); }
+	.dp-points { display: flex; align-items: baseline; gap: 6px; margin-top: 12px; color: var(--d-muted); font-size: 0.86rem; }
+	.dp-points b { font-size: 1.6rem; color: var(--d-gold-hi); font-variant-numeric: tabular-nums; margin-left: auto; }
+	.dp-points b.over { color: var(--d-blood); }
+	.dp-bar-wrap { height: 6px; background: var(--d-panel-2); border-radius: 999px; overflow: hidden; margin-top: 6px; }
+	.dp-bar { height: 100%; width: 0; background: linear-gradient(90deg, #8a6a33, var(--d-gold-hi)); transition: width 0.2s; }
+	.dp-bar.over { background: var(--d-blood); }
+	.dp-hotbar { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+	.dp-slot { aspect-ratio: 1; border-radius: 10px; border: 1px solid var(--d-line); background: radial-gradient(circle at 50% 35%, #2a2118, #120f0c); color: var(--d-text); font: inherit; font-size: 0.66rem; line-height: 1.2; padding: 3px; cursor: pointer; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; word-break: keep-all; overflow: hidden; }
+	.dp-slot.has { border-color: var(--d-gold); color: #f4e6c8; font-weight: 700; }
+	.dp-slot em { position: absolute; left: 4px; top: 2px; font-style: normal; font-size: 0.6rem; color: var(--d-gold); font-weight: 700; }
+	.dp-hint { font-size: 0.76rem; color: var(--d-muted); margin: 6px 0 0; }
+	.dp-card select, .dp-gear input, .dp-paragon input, .dp textarea { width: 100%; background: var(--d-panel-2); border: 1px solid var(--d-line); color: var(--d-text); border-radius: 10px; padding: 9px 10px; font: inherit; font-size: 0.92rem; }
+	.dp-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 16px; }
+	.dp-btn { font: inherit; font-size: 0.88rem; padding: 10px 8px; border-radius: 10px; border: 1px solid var(--d-line); background: var(--d-panel-2); color: var(--d-text); cursor: pointer; }
+	.dp-btn.gold { background: linear-gradient(180deg, var(--d-gold-hi), var(--d-gold)); color: #1a1208; border-color: var(--d-gold); font-weight: 800; }
+	.dp-btn.ghost { background: transparent; color: var(--d-muted); }
+	.dp-toast { min-height: 1.2em; font-size: 0.82rem; color: var(--d-gold-hi); margin: 8px 0 0; }
+	.dp-saved summary { cursor: pointer; font-size: 0.86rem; color: var(--d-muted); margin-top: 6px; }
+	.dp-saved ul { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 6px; }
+	.dp-saved li { display: flex; gap: 6px; align-items: center; font-size: 0.86rem; }
+	.dp-saved li a { flex: 1; min-width: 0; color: var(--d-text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+	.dp-saved li button { border: 0; background: none; color: var(--d-muted); cursor: pointer; }
+
+	.dp-block { margin-top: 28px; }
+	.dp-block h2, .dp-doc h2 { font-size: 1.3rem; color: #f4e6c8; margin: 0 0 6px; }
+	.dp-gear { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin-top: 10px; }
+	.dp-g { background: var(--d-panel); border: 1px solid var(--d-line); border-radius: 12px; padding: 10px; display: grid; gap: 6px; }
+	.dp-g label { font-size: 0.78rem; color: var(--d-gold); letter-spacing: 0.06em; }
+	.dp-g input.uniq { border-color: #6b4a2a; color: #f0b56e; }
+	.dp-paragon { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin-top: 10px; }
+	.dp textarea { line-height: 1.6; }
+	.dp-doc { margin-top: 40px; border-top: 1px solid var(--d-line); padding-top: 20px; color: var(--d-text); line-height: 1.75; }
+	.dp-doc li { margin-bottom: 4px; }
+	.dp-doc details { border-bottom: 1px solid var(--d-line); padding: 8px 0; }
+	.dp-doc summary { cursor: pointer; font-weight: 700; }
+	.dp-doc p { color: var(--d-muted); }
+	.dp-legal { font-size: 0.78rem; margin-top: 18px; }
+
+	.dp-modal { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
+	.dp-modal[hidden] { display: none; }
+	.dp-modal-box { width: min(420px, 100%); max-height: 80vh; overflow: auto; background: var(--d-panel); border: 1px solid var(--d-gold); border-radius: 14px; padding: 14px; }
+	.dp-modal-head { display: flex; justify-content: space-between; align-items: center; }
+	.dp-modal-head h3 { margin: 0; color: #f4e6c8; }
+	.dp-modal-head button { background: none; border: 0; color: var(--d-muted); font-size: 1.2rem; cursor: pointer; }
+	.dp-pick-list { display: grid; gap: 6px; margin-top: 10px; }
+	.dp-pick-list button { text-align: left; font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--d-line); background: var(--d-panel-2); color: var(--d-text); cursor: pointer; }
+	.dp-pick-list button:hover { border-color: var(--d-gold); }
+	.dp-pick-list button small { color: var(--d-muted); margin-left: 6px; }
+	[hidden] { display: none !important; }
+
+	@media (max-width: 900px) {
+		.dp-grid { grid-template-columns: 1fr; }
+		.dp-side { position: static; order: -1; }
+		.dp-classes { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	}
+	@media (max-width: 420px) {
+		.dp-nodes { grid-template-columns: 1fr; }
+		.dp-class span { font-size: 1.3rem; }
+		.dp-class b { font-size: 0.8rem; }
+	}
+	@media (prefers-reduced-motion: reduce) { .dp-bar, .dp-class { transition: none; } }
+</style>
+
+<script>
+	type Up = { ko: string | null; en: string; slot: string };
+	type Skill = { id: string; ko: string | null; en: string; type: string; max: number; up: Up[] };
+	type Cat = { ko: string | null; en: string; skills: Skill[] };
+	type Cls = { id: string; ko: string; en: string; note?: string; cats: Cat[]; mech?: { ko: string | null; en: string; max: number; options: { ko: string | null; en: string; desc_ko?: string }[] }; uniques: { ko: string | null; en: string; slot_ko?: string }[]; weapons: string[] };
+	type Meta = { classes: { id: string; ko: string; emoji: string }[]; skill_points: number | null; gear: string[]; generic_uniques: { ko: string | null; en: string }[]; paragon_boards: number; updated: string };
+	type State = { v: 1; c: string; t: string; s: Record<string, number>; u: Record<string, number[]>; b: string[]; m: string[]; g: Record<string, [string, string]>; p: string[]; n: string };
+
+	const $ = (id: string) => document.getElementById(id) as HTMLElement;
+	const esc = (s: string) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+	const nm = (x: { ko: string | null; en: string }) => x.ko || x.en;
+	const HOTKEYS = ['좌클릭', '우클릭', '1', '2', '3', '4'];
+	const SLOTS: [string, string][] = [['minor1', '부가 ①'], ['minor2', '부가 ②'], ['form', '형상'], ['major', '기술 변화형']];
+	const TYPE_KO: Record<string, string> = { active: '액티브', passive: '패시브', key_passive: '핵심 패시브', ultimate: '궁극기' };
+	let meta: Meta, cls: Cls | null = null;
+	const cache: Record<string, Cls> = {};
+	const blank = (c: string): State => ({ v: 1, c, t: '', s: {}, u: {}, b: ['', '', '', '', '', ''], m: [], g: {}, p: [], n: '' });
+	let st: State = blank('');
+
+	// ── 링크 인코딩: JSON → deflate → base64url (지원 안 하면 압축 없이)
+	const b64u = (u8: Uint8Array) => btoa(String.fromCharCode(...u8)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+	const unb64u = (s: string) => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), (c) => c.charCodeAt(0));
+	async function pack(o: unknown) {
+		const raw = new TextEncoder().encode(JSON.stringify(o));
+		if ('CompressionStream' in window) {
+			const out = await new Response(new Blob([raw]).stream().pipeThrough(new CompressionStream('deflate-raw'))).arrayBuffer();
+			return 'z' + b64u(new Uint8Array(out));
+		}
+		return 'j' + b64u(raw);
+	}
+	async function unpack(s: string) {
+		const bytes = unb64u(s.slice(1));
+		if (s[0] === 'z') { const out = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer(); return JSON.parse(new TextDecoder().decode(out)); }
+		return JSON.parse(new TextDecoder().decode(bytes));
+	}
+
+	const allSkills = () => (cls ? cls.cats.flatMap((c) => c.skills) : []);
+	const findSkill = (id: string) => allSkills().find((s) => s.id === id);
+	function used() {
+		let n = 0;
+		for (const [id, r] of Object.entries(st.s)) if (findSkill(id)) n += r;
+		// 업그레이드 1개 = 연결 노드 1포인트 + 업그레이드 1포인트
+		for (const [id, arr] of Object.entries(st.u)) if (findSkill(id) && st.s[id]) n += arr.length * 2;
+		return n;
+	}
+
+	function toast(t: string) { const el = $('toast'); el.textContent = t; clearTimeout((el as any)._t); (el as any)._t = setTimeout(() => (el.textContent = ''), 2500); }
+
+	function renderClasses() {
+		$('classes').innerHTML = meta.classes.map((c) => `<button type="button" class="dp-class" data-c="${c.id}" aria-pressed="${c.id === st.c}"><span>${c.emoji}</span><b>${esc(c.ko)}</b></button>`).join('');
+	}
+
+	function renderTree() {
+		if (!cls) return;
+		const q = ($('q') as HTMLInputElement).value.trim().toLowerCase(), only = ($('onlyPicked') as HTMLInputElement).checked;
+		$('className').textContent = cls.ko + ' 스킬 트리';
+		$('treeNote').textContent = cls.note || '';
+		$('tree').innerHTML = cls.cats.map((cat) => {
+			const nodes = cat.skills.filter((s) => (!q || (nm(s) + s.en).toLowerCase().includes(q)) && (!only || st.s[s.id]));
+			if (!nodes.length) return '';
+			const spent = cat.skills.reduce((n, s) => n + (st.s[s.id] || 0) + (st.s[s.id] ? (st.u[s.id]?.length || 0) * 2 : 0), 0);
+			return `<div class="dp-cat"><h3>${esc(nm(cat))}<small>${spent ? spent + '포인트' : ''}</small></h3><div class="dp-nodes">${nodes.map(node).join('')}</div></div>`;
+		}).join('') || '<p class="dp-loading">찾는 스킬이 없어요.</p>';
+	}
+	function node(s: Skill) {
+		const r = st.s[s.id] || 0;
+		const pips = Array.from({ length: s.max }, (_, i) => `<i class="${i < r ? 'f' : ''}"></i>`).join('');
+		const chosen = st.u[s.id] || [];
+		const groups = SLOTS.map(([slot, label]) => ({ label, items: s.up.map((u, i) => [u, i] as [Up, number]).filter(([u]) => u.slot === slot) })).filter((g) => g.items.length);
+		// 드루이드처럼 "형상"이 있는 기술은 형상을 먼저 골라야 변화형이 열린다(인벤 시뮬레이터 노드 구조)
+		const needForm = s.up.some((u) => u.slot === 'form') && !chosen.some((i) => s.up[i].slot === 'form');
+		const ups = r && groups.length ? groups.map((g) => { const lock = g.items[0][0].slot === 'major' && needForm; return `<div class="dp-ups"><span class="dp-up-l">${g.label}</span>${g.items.map(([u, i]) => `<button type="button" class="dp-up${chosen.includes(i) ? ' on' : ''}" data-s="${s.id}" data-u="${i}" aria-pressed="${chosen.includes(i)}"${lock ? ' disabled title="형상을 먼저 고르세요"' : ''}>${esc(nm(u))}</button>`).join('')}</div>`; }).join('') : '';
+		return `<div class="dp-node t-${s.type}${r ? ' on' : ''}"><div class="dp-node-top"><div class="dp-node-name"><b>${esc(nm(s))}</b><small>${TYPE_KO[s.type] || s.type}${s.ko && s.ko !== s.en ? ' · ' + esc(s.en) : ''}</small></div><span class="dp-rank">${r}<i>/${s.max}</i></span><button type="button" data-minus="${s.id}" aria-label="${esc(nm(s))} 포인트 빼기" ${r ? '' : 'disabled'}>−</button><button type="button" class="plus" data-plus="${s.id}" aria-label="${esc(nm(s))} 포인트 더하기" ${r >= s.max ? 'disabled' : ''}>＋</button><button type="button" class="max" data-max="${s.id}" aria-label="${esc(nm(s))} 최대로" ${r >= s.max ? 'disabled' : ''}>최대</button></div><div class="dp-pips">${pips}</div>${ups}</div>`;
+	}
+
+	function renderSide() {
+		const n = used(), cap = meta.skill_points;
+		$('pts').textContent = String(n); $('pts').classList.toggle('over', !!cap && n > cap);
+		$('ptsCap').textContent = cap ? `/ ${cap}` : '';
+		$('ptsBar').style.width = cap ? Math.min(100, (n / cap) * 100) + '%' : '0'; $('ptsBar').classList.toggle('over', !!cap && n > cap);
+		$('hotbar').innerHTML = HOTKEYS.map((k, i) => { const s = st.b[i] ? findSkill(st.b[i]) : null; return `<button type="button" class="dp-slot${s ? ' has' : ''}" data-slot="${i}" aria-label="${k} 칸${s ? ': ' + esc(nm(s)) : ' 비어 있음'}"><em>${k}</em>${s ? esc(nm(s)) : '＋'}</button>`; }).join('');
+		const mw = $('mechWrap');
+		if (cls?.mech && cls.mech.options.length) {
+			mw.hidden = false; $('mechTitle').textContent = `${nm(cls.mech)} · ${st.m.length}/${cls.mech.max}`;
+			$('mech').innerHTML = cls.mech.options.map((o) => `<button type="button" class="dp-up${st.m.includes(o.en) ? ' on' : ''}" data-m="${esc(o.en)}" aria-pressed="${st.m.includes(o.en)}" title="${esc(o.desc_ko || '')}">${esc(nm(o))}</button>`).join('');
+			const last = cls.mech.options.find((o) => o.en === st.m[st.m.length - 1]);
+			$('mechDesc').textContent = last ? `${nm(last)} — ${last.desc_ko || ''}` : `최대 ${cls.mech.max}개까지 고를 수 있어요.`;
+		} else mw.hidden = true;
+	}
+
+	function renderGear() {
+		if (!cls) return;
+		const slots = [...meta.gear, ...cls.weapons];
+		$('gear').innerHTML = slots.map((sl) => { const [it, asp] = st.g[sl] || ['', '']; return `<div class="dp-g"><label>${esc(sl)}</label><input class="${it && isUniq(it) ? 'uniq' : ''}" data-g="${esc(sl)}" data-k="0" list="uniqList" maxlength="60" placeholder="아이템 이름" value="${esc(it)}" aria-label="${esc(sl)} 아이템"><input data-g="${esc(sl)}" data-k="1" maxlength="80" placeholder="위상 · 핵심 옵션" value="${esc(asp)}" aria-label="${esc(sl)} 위상"></div>`; }).join('');
+		$('uniqList').innerHTML = [...cls.uniques, ...meta.generic_uniques].map((u) => `<option value="${esc(nm(u))}">${u.ko ? esc(u.en) : ''}</option>`).join('');
+		const boards = meta.paragon_boards || 5;
+		$('paragon').innerHTML = Array.from({ length: boards }, (_, i) => `<input data-p="${i}" maxlength="60" placeholder="${i === 0 ? '시작 판' : i + 1 + '번째 판'} · 문양" value="${esc(st.p[i] || '')}" aria-label="정복자 ${i + 1}번째 판">`).join('');
+	}
+	const isUniq = (name: string) => !!cls && [...cls.uniques, ...meta.generic_uniques].some((u) => nm(u) === name);
+
+	function renderAll() {
+		renderClasses(); renderTree(); renderSide(); renderGear();
+		($('buildName') as HTMLInputElement).value = st.t; ($('notes') as HTMLTextAreaElement).value = st.n;
+		document.title = (st.t ? st.t + ' — ' : '') + (cls ? cls.ko + ' ' : '') + '디아블로4 빌드 플래너 | 게임월드7';
+		persistDraft();
+	}
+
+	async function loadClass(id: string) {
+		if (!cache[id]) { const r = await fetch(`/data/d4/${id}.json`); cache[id] = await r.json(); }
+		cls = cache[id];
+	}
+	async function pickClass(id: string, keep = false) {
+		if (!keep) { st = blank(id); if (location.hash) history.replaceState(null, '', location.pathname + location.search); }
+		if (!Array.isArray(st.m)) st.m = st.m ? [st.m as unknown as string] : [];
+		st.c = id; $('tree').innerHTML = '<p class="dp-loading">불러오는 중…</p>';
+		await loadClass(id); renderAll();
+	}
+
+	// ── 클릭 처리
+	$('classes').addEventListener('click', (e) => {
+		const b = (e.target as HTMLElement).closest('[data-c]') as HTMLElement | null; if (!b || b.dataset.c === st.c) return;
+		if (used() && !confirm('직업을 바꾸면 지금 찍은 스킬이 지워져요. 바꿀까요? (먼저 "내 빌드에 저장"을 눌러 두면 안전해요)')) return;
+		pickClass(b.dataset.c!);
+	});
+	$('tree').addEventListener('click', (e) => {
+		const t = e.target as HTMLElement;
+		const mx = t.closest('[data-max]') as HTMLElement | null, plus = t.closest('[data-plus]') as HTMLElement | null, minus = t.closest('[data-minus]') as HTMLElement | null, up = t.closest('[data-u]') as HTMLElement | null;
+		if (mx) { const s = findSkill(mx.dataset.max!)!; st.s[s.id] = s.max; }
+		else if (plus) { const s = findSkill(plus.dataset.plus!)!; st.s[s.id] = Math.min(s.max, (st.s[s.id] || 0) + 1); }
+		else if (minus) { const id = minus.dataset.minus!; st.s[id] = (st.s[id] || 0) - 1; if (st.s[id] <= 0) { delete st.s[id]; delete st.u[id]; st.b = st.b.map((x) => (x === id ? '' : x)); } }
+		else if (up) {
+			const s = findSkill(up.dataset.s!)!, i = Number(up.dataset.u), cur = st.u[s.id] || [];
+			if (cur.includes(i)) st.u[s.id] = cur.filter((x) => x !== i);
+			else st.u[s.id] = [...cur.filter((x) => s.up[x].slot !== s.up[i].slot), i]; // 같은 줄에서는 하나만
+			if (s.up.some((u) => u.slot === 'form') && !st.u[s.id].some((x) => s.up[x].slot === 'form')) st.u[s.id] = st.u[s.id].filter((x) => s.up[x].slot !== 'major');
+			if (!st.u[s.id].length) delete st.u[s.id];
+		} else return;
+		renderTree(); renderSide(); persistDraft();
+	});
+	$('q').addEventListener('input', renderTree); $('onlyPicked').addEventListener('change', renderTree);
+
+	let slotIdx = 0;
+	$('hotbar').addEventListener('click', (e) => {
+		const b = (e.target as HTMLElement).closest('[data-slot]') as HTMLElement | null; if (!b) return;
+		slotIdx = Number(b.dataset.slot);
+		const picks = allSkills().filter((s) => (s.type === 'active' || s.type === 'ultimate') && st.s[s.id]);
+		$('pickTitle').textContent = `${HOTKEYS[slotIdx]} 칸에 넣을 스킬`;
+		$('pickList').innerHTML = (picks.length ? picks.map((s) => `<button type="button" data-pick="${s.id}">${esc(nm(s))}<small>${st.s[s.id]}/${s.max}</small></button>`).join('') : '<p class="dp-note">먼저 스킬 트리에서 액티브 스킬에 포인트를 찍어 주세요.</p>') + (st.b[slotIdx] ? '<button type="button" data-pick="">칸 비우기</button>' : '');
+		$('picker').hidden = false; ($('pickList').querySelector('button') as HTMLElement | null)?.focus();
+	});
+	$('pickList').addEventListener('click', (e) => {
+		const b = (e.target as HTMLElement).closest('[data-pick]') as HTMLElement | null; if (!b) return;
+		const id = b.dataset.pick!; st.b = st.b.map((x) => (x === id && id ? '' : x)); st.b[slotIdx] = id;
+		$('picker').hidden = true; renderSide(); persistDraft();
+	});
+	const closePick = () => ($('picker').hidden = true);
+	$('pickClose').addEventListener('click', closePick);
+	$('picker').addEventListener('click', (e) => { if (e.target === $('picker')) closePick(); });
+	document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePick(); });
+
+	$('mech').addEventListener('click', (e) => {
+		const b = (e.target as HTMLElement).closest('[data-m]') as HTMLElement | null; if (!b || !cls?.mech) return;
+		const v = b.dataset.m!;
+		if (st.m.includes(v)) st.m = st.m.filter((x) => x !== v);
+		else { st.m = [...st.m, v]; if (st.m.length > cls.mech.max) st.m = st.m.slice(-cls.mech.max); }
+		renderSide(); persistDraft();
+	});
+	$('buildName').addEventListener('input', () => { st.t = ($('buildName') as HTMLInputElement).value; persistDraft(); });
+	$('notes').addEventListener('input', () => { st.n = ($('notes') as HTMLTextAreaElement).value; persistDraft(); });
+	$('gear').addEventListener('input', (e) => { const i = e.target as HTMLInputElement; const sl = i.dataset.g!; const cur = st.g[sl] || ['', '']; cur[Number(i.dataset.k)] = i.value; st.g[sl] = cur; if (!cur[0] && !cur[1]) delete st.g[sl]; if (i.dataset.k === '0') i.classList.toggle('uniq', isUniq(i.value)); persistDraft(); });
+	$('paragon').addEventListener('input', (e) => { const i = e.target as HTMLInputElement; st.p[Number(i.dataset.p)] = i.value; persistDraft(); });
+
+	// ── 저장·공유
+	const LS = (k: string) => 'gw7:d4:' + k;
+	const lsGet = (k: string) => { try { return localStorage.getItem(LS(k)); } catch { return null; } };
+	const lsSet = (k: string, v: string) => { try { localStorage.setItem(LS(k), v); } catch {} };
+	let draftT = 0;
+	function persistDraft() { clearTimeout(draftT); draftT = window.setTimeout(() => lsSet('draft', JSON.stringify(st)), 300); }
+	async function link() { return `${location.origin}${location.pathname}#b=${await pack(st)}`; }
+	async function copy(text: string, msg: string) { try { await navigator.clipboard.writeText(text); toast(msg); } catch { prompt('아래 내용을 복사하세요', text); } }
+	$('share').addEventListener('click', async () => { const u = await link(); history.replaceState(null, '', u); copy(u, '링크를 복사했어요. 카톡·디스코드에 붙여 넣으세요.'); });
+	$('copyText').addEventListener('click', async () => {
+		if (!cls) return;
+		const lines = [`[디아블로4 빌드] ${cls.ko}${st.t ? ' — ' + st.t : ''}`];
+		const ss = allSkills().filter((s) => st.s[s.id]);
+		if (ss.length) lines.push('', '■ 기술 (' + used() + '포인트)', ...ss.map((s) => `- ${nm(s)} ${st.s[s.id]}/${s.max}${(st.u[s.id] || []).length ? ' (' + st.u[s.id].map((i) => nm(s.up[i])).join(', ') + ')' : ''}`));
+		if (st.b.some(Boolean)) lines.push('', '■ 단축키', HOTKEYS.map((k, i) => `${k}: ${st.b[i] ? nm(findSkill(st.b[i])!) : '-'}`).join(' / '));
+		if (st.m.length && cls.mech) lines.push('', `■ ${nm(cls.mech)}: ${st.m.map((v) => nm(cls!.mech!.options.find((o) => o.en === v) || { ko: v, en: v })).join(', ')}`);
+		const gs = Object.entries(st.g); if (gs.length) lines.push('', '■ 장비', ...gs.map(([k, [a, b]]) => `- ${k}: ${[a, b].filter(Boolean).join(' / ')}`));
+		const ps = st.p.filter(Boolean); if (ps.length) lines.push('', '■ 정복자', ...ps.map((x, i) => `${i + 1}. ${x}`));
+		if (st.n.trim()) lines.push('', '■ 메모', st.n.trim());
+		lines.push('', '플래너로 보기: ' + (await link()));
+		copy(lines.join('\n'), '빌드를 글로 복사했어요.');
+	});
+	function savedList(): { t: string; c: string; h: string; at: number }[] { try { return JSON.parse(lsGet('saved') || '[]'); } catch { return []; } }
+	function renderSaved() {
+		const l = savedList(); $('savedN').textContent = String(l.length);
+		$('saved').innerHTML = l.map((x, i) => `<li><a href="#b=${x.h}">${esc(meta.classes.find((c) => c.id === x.c)?.ko || '')} · ${esc(x.t || '이름 없는 빌드')}</a><button type="button" data-del="${i}" aria-label="삭제">✕</button></li>`).join('') || '<li class="dp-note">아직 저장한 빌드가 없어요.</li>';
+	}
+	$('save').addEventListener('click', async () => {
+		if (!cls) return;
+		const l = savedList(), h = await pack(st);
+		const i = l.findIndex((x) => x.t === st.t && x.c === st.c && st.t);
+		const item = { t: st.t, c: st.c, h, at: Date.now() };
+		if (i >= 0) l[i] = item; else l.unshift(item);
+		lsSet('saved', JSON.stringify(l.slice(0, 30))); renderSaved(); toast('이 기기에 저장했어요.');
+	});
+	$('saved').addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('[data-del]') as HTMLElement | null; if (!b) return; const l = savedList(); l.splice(Number(b.dataset.del), 1); lsSet('saved', JSON.stringify(l)); renderSaved(); });
+	$('reset').addEventListener('click', () => { if (confirm('이 빌드를 비우고 처음부터 시작할까요?')) { st = blank(st.c); history.replaceState(null, '', location.pathname); renderAll(); } });
+
+	async function fromHash() {
+		const m = location.hash.match(/#b=([\w-]+)/); if (!m) return false;
+		try { const o = await unpack(m[1]); if (o && o.c && meta.classes.some((c) => c.id === o.c)) { st = { ...blank(o.c), ...o }; await pickClass(o.c, true); toast('공유받은 빌드를 열었어요.'); return true; } } catch {}
+		toast('링크가 잘렸거나 잘못됐어요.'); return false;
+	}
+	window.addEventListener('hashchange', fromHash);
+
+	(async () => {
+		meta = await (await fetch('/data/d4/meta.json')).json();
+		renderSaved();
+		if (await fromHash()) return;
+		let d: State | null = null; try { d = JSON.parse(lsGet('draft') || 'null'); } catch {}
+		const qc = new URLSearchParams(location.search).get('class');
+		if (qc && meta.classes.some((c) => c.id === qc)) { if (d?.c === qc) { st = { ...blank(qc), ...d }; await pickClass(qc, true); } else await pickClass(qc); }
+		else if (d && meta.classes.some((c) => c.id === d!.c)) { st = { ...blank(d.c), ...d }; await pickClass(d.c, true); }
+		else await pickClass(meta.classes[0].id);
+	})();
+</script>
