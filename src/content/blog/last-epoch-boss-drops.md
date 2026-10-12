@@ -23,18 +23,18 @@ heroImage: '../../assets/posts/last-epoch-boss-drops.webp'
 
 | 타임라인 | 보스 | 확정 드랍 (둘 중 1개) | 희귀 드랍 |
 | --- | --- | --- | --- |
-| 추방자의 몰락 | 어보미네이션 | 엮인 살점(Woven Flesh) / 피의 띠(Ribbons of Blood) | 박피자의 자긍심(Flayer's Pride), 영혼의 가닥(Strands of Souls) |
-| 훔쳐진 창 | 신 사냥꾼 아르헨투스 | 부서진 창의 파편(Fragments of the Shattered Lance) / 부서진 창의 조각(Shard of the Shattered Lance) | 야망의 왕좌(Throne of Ambition), 아르겐투스의 날개(Wings of Argentus) |
-| 흑태양 | 검은 태양 라예 | 위축(Atrophy) / 검은 잉걸불의 장막(Dark Shroud of Cinders) | 영원한 일식(Eternal Eclipse), 운명의 합류(The Confluence of Fate) |
-| 피, 서리, 그리고 죽음 | 망령 포르모수스 | 산 자의 마지막 걸음(Last Steps of the Living) / 포르모수스의 얼어붙은 눈(Frozen Eyes of Formosus) | 동상의 족쇄(Frostbite Shackles), 피의 추도사(Eulogy of Blood), 리치의 경멸(Lich's Scorn) |
-| 폭풍의 종말 | 폭풍의 신 라곤 | 충적(Alluvion) / 산호의 비호(Coral Aegis) | 폭풍이 새긴 징표(Stormcarved Testament), 폭풍의 눈(Eye of Storms) |
-| 제국의 몰락 | 하튼의 껍데기 | 마지막 심연의 방벽(Bulwark of the Last Abyss) / 마지막 심연의 삼지창(Trident of the Last Abyss) | 밤 인도자(Nightbringer), 망각의 닻(Anchor of Oblivion) |
-| 드래곤의 통치 | 시체의 황제 | 용의 불의 칙령(Dragonflame Edict) / 절명의 상징(Symbol of Demise) | 우케이로스의 뒤틀린 심장(Twisted Heart of Uhkeiros), 우케이로스의 뿔(Horns of Uhkeiros) |
-| 마지막 폐허 | 가스파르 장로의 껍데기 | 가스파르의 명민함(Gaspar's Acuity) / 가스파르의 의지(Gaspar's Will) | 가스파르의 통찰(Gaspar's Insight), 희생의 포옹(Sacrificial Embrace) |
-| 겨울의 시대 | 헤오롯 | 툰드라의 부름(Call of the Tundra) / 겨울의 지배(Reign of Winter) | 율리아의 길(Yulia's Path), 얼어붙은 자의 믿음(Faith of the Frozen) |
-| 화염의 정령 | 화산 주술사 | 불다르의 진노(Bhuldar's Wrath) / 헤르키르의 그릇(Herkir's Vessel) | 로기의 굶주림(Logi's Hunger), 불꽃의 삼위일체(Trinity of Flames) |
+| 추방자의 몰락 | 어보미네이션 | [엮인 살점](https://www.lastepochtools.com/db/ko/items/UAzBsEZKA)(Woven Flesh) / [피의 띠](https://www.lastepochtools.com/db/ko/items/UAzCM4ZiA)(Ribbons of Blood) | [박피자의 자긍심](https://www.lastepochtools.com/db/ko/items/UAwRgrATCxA)(Flayer's Pride), [영혼의 가닥](https://www.lastepochtools.com/db/ko/items/UAzCM4JiA)(Strands of Souls) |
+| 훔쳐진 창 | 신 사냥꾼 아르헨투스 | [부서진 창의 파편](https://www.lastepochtools.com/db/ko/items/UAwRlaA)(Fragments of the Shattered Lance) / [부서진 창의 조각](https://www.lastepochtools.com/db/ko/items/UAwiMwTiA)(Shard of the Shattered Lance) | [야망의 왕좌](https://www.lastepochtools.com/db/ko/items/UAzCsCYEZKA)(Throne of Ambition), [아르겐투스의 날개](https://www.lastepochtools.com/db/ko/items/UAzBsEYFYGYg)(Wings of Argentus) |
+| 흑태양 | 검은 태양 라예 | [위축](https://www.lastepochtools.com/db/ko/items/UAzAsEZwNiA)(Atrophy) / [검은 잉걸불의 장막](https://www.lastepochtools.com/db/ko/items/UAzCsEZwdiA)(Dark Shroud of Cinders) | [영원한 일식](https://www.lastepochtools.com/db/ko/items/UAzDMCYEZyA)(Eternal Eclipse), [운명의 합류](https://www.lastepochtools.com/db/ko/items/UAzAcEZ1I)(The Confluence of Fate) |
+| 피, 서리, 그리고 죽음 | 망령 포르모수스 | [산 자의 마지막 걸음](https://www.lastepochtools.com/db/ko/items/UAzCcEZwViA)(Last Steps of the Living) / [포르모수스의 얼어붙은 눈](https://www.lastepochtools.com/db/ko/items/UAzDMEZwFiA)(Frozen Eyes of Formosus) | [동상의 족쇄](https://www.lastepochtools.com/db/ko/items/UAzBMoRgZiA)(Frostbite Shackles), [피의 추도사](https://www.lastepochtools.com/db/ko/items/UAzCcEYFZyA)(Eulogy of Blood), [리치의 경멸](https://www.lastepochtools.com/db/ko/items/UAwRhCYDYSA)(Lich's Scorn) |
+| 폭풍의 종말 | 폭풍의 신 라곤 | [충적](https://www.lastepochtools.com/db/ko/items/UAzDsEYCZKA)(Alluvion) / [산호의 비호](https://www.lastepochtools.com/db/ko/items/UAwRlCYSA)(Coral Aegis) | [폭풍이 새긴 징표](https://www.lastepochtools.com/db/ko/items/UAwVg7ATAjALEA)(Stormcarved Testament), [폭풍의 눈](https://www.lastepochtools.com/db/ko/items/UAzDMEYFYBYg)(Eye of Storms) |
+| 제국의 몰락 | 하튼의 껍데기 | [마지막 심연의 방벽](https://www.lastepochtools.com/db/ko/items/UAwRgzCIJxA)(Bulwark of the Last Abyss) / [마지막 심연의 삼지창](https://www.lastepochtools.com/db/ko/items/UAzAsEYCZiA)(Trident of the Last Abyss) | [밤 인도자](https://www.lastepochtools.com/db/ko/items/UAzDsCYEYFYg)(Nightbringer), [망각의 닻](https://www.lastepochtools.com/db/ko/items/UAwVgbAjCBMQ)(Anchor of Oblivion) |
+| 드래곤의 통치 | 시체의 황제 | [용의 불의 칙령](https://www.lastepochtools.com/db/ko/items/UAwRgzCBMAsQ)(Dragonflame Edict) / [절명의 상징](https://www.lastepochtools.com/db/ko/items/UAzBsEYCYGYg)(Symbol of Demise) | [우케이로스의 뒤틀린 심장](https://www.lastepochtools.com/db/ko/items/UAwVgHATAjAbEA)(Twisted Heart of Uhkeiros), [우케이로스의 뿔](https://www.lastepochtools.com/db/ko/items/UAwRjFZyA)(Horns of Uhkeiros) |
+| 마지막 폐허 | 가스파르 장로의 껍데기 | [가스파르의 명민함](https://www.lastepochtools.com/db/ko/items/UAzDMEYFYHYg)(Gaspar's Acuity) / [가스파르의 의지](https://www.lastepochtools.com/db/ko/items/UAzAcEYFYDYg)(Gaspar's Will) | [가스파르의 통찰](https://www.lastepochtools.com/db/ko/items/UAzCsEZQDiA)(Gaspar's Insight), [희생의 포옹](https://www.lastepochtools.com/db/ko/items/UAzDsCYEZSA)(Sacrificial Embrace) |
+| 겨울의 시대 | 헤오롯 | [툰드라의 부름](https://www.lastepochtools.com/db/ko/items/UAzBsEZWI)(Call of the Tundra) / [겨울의 지배](https://www.lastepochtools.com/db/ko/items/UAzBsEYFYE4g)(Reign of Winter) | [율리아의 길](https://www.lastepochtools.com/db/ko/items/UAzCsCYEYA4g)(Yulia's Path), [얼어붙은 자의 믿음](https://www.lastepochtools.com/db/ko/items/UAzAcEYDZyA)(Faith of the Frozen) |
+| 화염의 정령 | 화산 주술사 | [불다르의 진노](https://www.lastepochtools.com/db/ko/items/UAzBsEZQJiA)(Bhuldar's Wrath) / [헤르키르의 그릇](https://www.lastepochtools.com/db/ko/items/UAzDMEYDZSA)(Herkir's Vessel) | [로기의 굶주림](https://www.lastepochtools.com/db/ko/items/UAzDsEYDYBYg)(Logi's Hunger), [불꽃의 삼위일체](https://www.lastepochtools.com/db/ko/items/UAzBsCYEYE4g)(Trinity of Flames) |
 
-표를 직접 만들면서 알게 된 소소한 함정도 하나 적어둘게요. 툴즈 한국어 번역은 화염의 정령 타임라인을 불의 정령으로 적는 식의 어긋남이 있습니다. 인게임 표기와 조금 달라도 같은 타임라인이에요. 그리고 장갑 유니크 게걸스러운 공허(Ravenous Void)는 원래 월드 드랍이지만 강화 가스파르가 더 높은 확률로 떨구고 아이템 희귀도의 영향도 받습니다.
+표를 직접 만들면서 알게 된 소소한 함정도 하나 적어둘게요. 툴즈 한국어 번역은 화염의 정령 타임라인을 불의 정령으로 적는 식의 어긋남이 있습니다. 인게임 표기와 조금 달라도 같은 타임라인이에요. 그리고 장갑 유니크 [게걸스러운 공허](https://www.lastepochtools.com/db/ko/items/UAzAcCYyA)(Ravenous Void)는 원래 월드 드랍이지만 강화 가스파르가 더 높은 확률로 떨구고 아이템 희귀도의 영향도 받습니다.
 
 ![라스트에폭 모노리스 타임라인 보스 파밍 구조](../../assets/posts/last-epoch-boss-drops-monolith.webp)
 
@@ -44,35 +44,35 @@ heroImage: '../../assets/posts/last-epoch-boss-drops.webp'
 
 | 선구자 | 전용 드랍 | 나오는 타임라인 |
 | --- | --- | --- |
-| 모독의 선구자 | 아베로스의 명령(Aberroth's Command) | 추방자의 몰락 |
-| 오만의 선구자 | 위상점(Phase Point) | 훔쳐진 창 |
-| 증오의 선구자 | 세계 절단기(World Splitter) | 흑태양 |
-| 전쟁의 선구자 | 천상의 파멸(Celestial Doom) | 피, 서리, 그리고 죽음 |
-| 혼돈의 선구자 | 혼돈의 검은 칼날(Black Blade of Chaos) | 폭풍의 종말 |
-| 배신의 선구자 | 무의 벽(Wall of Nothing) | 제국의 몰락 |
-| 파괴의 선구자 | 사건의 지평선(Event Horizon) | 드래곤의 통치 |
-| 공포의 선구자 | 필연(The Inevitable) | 마지막 폐허 |
-| 포학의 선구자 | 겨울의 파멸(Bane of Winter) | 겨울의 시대 |
-| 잿더미의 선구자 | 한밤의 불꽃(Flames of Midnight) | 화염의 정령 |
+| 모독의 선구자 | [아베로스의 명령](https://www.lastepochtools.com/db/ko/items/UAzAcGYFZKA)(Aberroth's Command) | 추방자의 몰락 |
+| 오만의 선구자 | [위상점](https://www.lastepochtools.com/db/ko/items/UAzCMGYDZSA)(Phase Point) | 훔쳐진 창 |
+| 증오의 선구자 | [세계 절단기](https://www.lastepochtools.com/db/ko/items/UAwRmGYDYFYg)(World Splitter) | 흑태양 |
+| 전쟁의 선구자 | [천상의 파멸](https://www.lastepochtools.com/db/ko/items/UAwRgLAzAbA7EA)(Celestial Doom) | 피, 서리, 그리고 죽음 |
+| 혼돈의 선구자 | [혼돈의 검은 칼날](https://www.lastepochtools.com/db/ko/items/UAzCsGZwTiA)(Black Blade of Chaos) | 폭풍의 종말 |
+| 배신의 선구자 | [무의 벽](https://www.lastepochtools.com/db/ko/items/UAzBsGYFYBYg)(Wall of Nothing) | 제국의 몰락 |
+| 파괴의 선구자 | [사건의 지평선](https://www.lastepochtools.com/db/ko/items/UAwRhGYDYBYg)(Event Horizon) | 드래곤의 통치 |
+| 공포의 선구자 | [필연](https://www.lastepochtools.com/db/ko/items/UAzDsGYBZSA)(The Inevitable) | 마지막 폐허 |
+| 포학의 선구자 | [겨울의 파멸](https://www.lastepochtools.com/db/ko/items/UAzAcGYBYFYg)(Bane of Winter) | 겨울의 시대 |
+| 잿더미의 선구자 | [한밤의 불꽃](https://www.lastepochtools.com/db/ko/items/UAwRhGYDZKA)(Flames of Midnight) | 화염의 정령 |
 
 열 명 전부 선구자의 눈과 바늘, 시간의 초석 같은 공통 전리품도 떨굽니다. 선구자의 눈은 뒤에 나올 아베로스 소환 재료라서 버리면 안 돼요.
 
 ## 오로비스의 그림자는 부패도 몇부터 템이 나오나요?
 
-오로비스의 그림자는 부패도 구간을 넘겨야 드랍 목록이 열립니다. 아무 부패도에서나 나오는 건 고뇌의 흡인(Siphon of Anguish)와 가로막힌 운명(Stymied Fate) 두 개뿐이고 나머지는 이렇게 잠겨 있어요.
+오로비스의 그림자는 부패도 구간을 넘겨야 드랍 목록이 열립니다. 아무 부패도에서나 나오는 건 [고뇌의 흡인](https://www.lastepochtools.com/db/ko/items/UAzAsEYHZKA)(Siphon of Anguish)와 [가로막힌 운명](https://www.lastepochtools.com/db/ko/items/UAzCcEYHYA4g)(Stymied Fate) 두 개뿐이고 나머지는 이렇게 잠겨 있어요.
 
 | 아이템 | 필요 부패도 |
 | --- | --- |
 | 고뇌의 흡인(Siphon of Anguish), 가로막힌 운명(Stymied Fate) | 제한 없음 |
-| 무관심의 아가리(Apathy's Maw) | 50 이상 |
-| 부서진 사슬(Shattered Chains) | 120 이상 |
-| 만물(Omnis) | 200 이상 |
+| [무관심의 아가리](https://www.lastepochtools.com/db/ko/items/UAzAcEYHYE4g)(Apathy's Maw) | 50 이상 |
+| [부서진 사슬](https://www.lastepochtools.com/db/ko/items/UAzBMEYA5iA)(Shattered Chains) | 120 이상 |
+| [만물](https://www.lastepochtools.com/db/ko/items/UAzBMEYHYFYg)(Omnis) | 200 이상 |
 
 치트시트를 대조하다 알았는데 부패도 200을 못 넘기면 만물(Omnis)는 애초에 목록에 없는 아이템이더라고요. 저도 이걸 몰랐다면 100 언저리에서 하염없이 기다릴 뻔했어요. 드랍 확률은 부패도가 높을수록, 그리고 에코 웹 중심에서 멀리 떨어진 그림자일수록 올라갑니다. 망각의 합류점에서 잡으면 거리와 무관하게 더 높은 확률이 적용되고요.
 
 ## 던전 보스 유니크는 어디서 확인하나요?
 
-던전 세 곳은 각각 열쇠로 입장하며 보스마다 전용 유니크가 네 종씩 있습니다. 시간의 성소의 크로노맨서 줄라는 줄라의 성반(Julra's Stardial), 꿈(Somnia), 줄라의 집착(Julra's Obsession), 갈등의 그릇(Vessel of Strife)를 떨굽니다. 소울파이어 바스티온의 크레모루스에게서는 필멸의 재(Ashes of Mortality), 리치의 시기심(Lich's Envy), 번제자의 봉헌(Immolator's Oblation), 괴로움의 장작불(Pyre of Affliction)이 나와요. 라이트리스 아버의 산 아래 잠든 자는 Peak, Foot, Face, 산의 핵(Core of the Mountain) 네 형제를 냅니다.
+던전 세 곳은 각각 열쇠로 입장하며 보스마다 전용 유니크가 네 종씩 있습니다. 시간의 성소의 크로노맨서 줄라는 [줄라의 성반](https://www.lastepochtools.com/db/ko/items/UAzBMoZgDiA)(Julra's Stardial), [꿈](https://www.lastepochtools.com/db/ko/items/UAzBsCYGYE4g)(Somnia), [줄라의 집착](https://www.lastepochtools.com/db/ko/items/UAzDsCYBZiA)(Julra's Obsession), [갈등의 그릇](https://www.lastepochtools.com/db/ko/items/UAzAsCZQRiA)(Vessel of Strife)를 떨굽니다. 소울파이어 바스티온의 크레모루스에게서는 [필멸의 재](https://www.lastepochtools.com/db/ko/items/UAzCMCYFYHYg)(Ashes of Mortality), [리치의 시기심](https://www.lastepochtools.com/db/ko/items/UAzAsCYDZiA)(Lich's Envy), [번제자의 봉헌](https://www.lastepochtools.com/db/ko/items/UAzCMCYFYA4g)(Immolator's Oblation), [괴로움의 장작불](https://www.lastepochtools.com/db/ko/items/UAwRgzATArAnEA)(Pyre of Affliction)이 나와요. 라이트리스 아버의 산 아래 잠든 자는 [산봉우리](https://www.lastepochtools.com/db/ko/items/UAzBMoVgNiA)(Peak of the Mountain), [산의 발](https://www.lastepochtools.com/db/ko/items/UAzBMoVgZiA)(Foot of the Mountain), [산의 얼굴](https://www.lastepochtools.com/db/ko/items/UAwRgbATArALEA)(Face of the Mountain), [산의 핵](https://www.lastepochtools.com/db/ko/items/UAzAsCYFZKA)(Core of the Mountain) 네 형제를 냅니다.
 
 던전은 티어가 높을수록 상위 보상이 나오지만 하위 아이템도 같이 나올 수 있어요. 하위 티어일수록 그 티어 아이템의 드랍률이 좋습니다. 직조공 패시브의 와든 에코 노드를 찍으면 던전 전용 몬스터가 모노리스에도 출현하니, 던전 왕복이 귀찮은 분들은 이 경로도 열어두세요.
 
@@ -80,9 +80,9 @@ heroImage: '../../assets/posts/last-epoch-boss-drops.webp'
 
 ## 시즌 5 신규 보스 드랍 — 모르디타스와 아베로스
 
-시즌 5 서리화신의 분노의 주인공 모르디타스는 드랍 확률까지 공개돼 있습니다. 얼어붙은 피의 서클에서 만나는 모르디타스는 서리화신의 고독(Frostborn Solitude) 80%, 헤오롯의 휴식(Heorot's Repose) 20%, 원소 감내(Withstand the Elements) 50%에 소환 재료인 직조 에코 Demigod's Ascendance를 확정으로 떨궈요. 그 재료로 여는 피나클 모르디타스는 감금의 자취(Vestige of Imprisonment) 80%, 모르디타스의 복수(Morditas' Vengeance) 20%, 충족되지 않는 격노(Unsated Rage) 50%입니다. 일반 모르디타스가 있는 얼어붙은 피의 서클은 모르디타스의 분노 처치 4,000을 쌓아야 열리고, 피나클은 일반 모르디타스가 떨구는 Demigod's Ascendance로 입장하니, 시즌 기믹을 꾸준히 돌리는 게 곧 보스 파밍 준비예요.
+시즌 5 서리화신의 분노의 주인공 모르디타스는 드랍 확률까지 공개돼 있습니다. 얼어붙은 피의 서클에서 만나는 모르디타스는 [서리화신의 고독](https://www.lastepochtools.com/db/ko/items/UAwRgTALAHAbEA)(Frostborn Solitude) 80%, [헤오롯의 휴식](https://www.lastepochtools.com/db/ko/items/UAzBsBYHYCYg)(Heorot's Repose) 20%, [원소 감내](https://www.lastepochtools.com/db/ko/items/UAzDMBYHYE4g)(Withstand the Elements) 50%에 소환 재료인 직조 에코 Demigod's Ascendance를 확정으로 떨궈요. 그 재료로 여는 피나클 모르디타스는 [감금의 자취](https://www.lastepochtools.com/db/ko/items/UAzBsBYA4HYg)(Vestige of Imprisonment) 80%, [모르디타스의 복수](https://www.lastepochtools.com/db/ko/items/UAzAcBZVI)(Morditas' Vengeance) 20%, [충족되지 않는 격노](https://www.lastepochtools.com/db/ko/items/UAwRmBYHZKA)(Unsated Rage) 50%입니다. 일반 모르디타스가 있는 얼어붙은 피의 서클은 모르디타스의 분노 처치 4,000을 쌓아야 열리고, 피나클은 일반 모르디타스가 떨구는 Demigod's Ascendance로 입장하니, 시즌 기믹을 꾸준히 돌리는 게 곧 보스 파밍 준비예요.
 
-엔드게임 정점 보스 아베로스도 수치가 명확합니다. 영문명은 Aberroth이고 현재 공식 한국어 표기는 아베로스입니다. 초기 한글화에서는 아플로스라는 오역 표기가 쓰여서 옛 커뮤니티 글에는 그 이름도 남아 있어요. 산산조각 난 길의 망각의 제단에서 선구자의 눈으로 소환합니다. Threshold of Eternity는 100% 확정이고 무의 전조(Null Portent) 47.62%, 에키드라실의 씨앗(Seed of Ekkidrasil) 38.1%, 니힐리스(Nihilis) 14.29% 순서로 귀해져요. 확정 드랍 Threshold of Eternity로는 우버 아베로스에 도전할 수 있고, 거기서는 불멸의 죔쇠(Immortal Vise) 80%와 부서진 세계(Shattered Worlds) 20%가 걸려 있습니다. 선구자 전용템 전부를 아베로스도 떨굴 수 있다는 점은 의외로 덜 알려진 사실이에요.
+엔드게임 정점 보스 아베로스도 수치가 명확합니다. 영문명은 Aberroth이고 현재 공식 한국어 표기는 아베로스입니다. 초기 한글화에서는 아플로스라는 오역 표기가 쓰여서 옛 커뮤니티 글에는 그 이름도 남아 있어요. 산산조각 난 길의 망각의 제단에서 선구자의 눈으로 소환합니다. Threshold of Eternity는 100% 확정이고 [무의 전조](https://www.lastepochtools.com/db/ko/items/UAzBsGYFYA4g)(Null Portent) 47.62%, [에키드라실의 씨앗](https://www.lastepochtools.com/db/ko/items/UAzBsGYFYHYg)(Seed of Ekkidrasil) 38.1%, [니힐리스](https://www.lastepochtools.com/db/ko/items/UAwRgTAzArBQ)(Nihilis) 14.29% 순서로 귀해져요. 확정 드랍 Threshold of Eternity로는 우버 아베로스에 도전할 수 있고, 거기서는 [불멸의 죔쇠](https://www.lastepochtools.com/db/ko/items/UAwRgTALCCsQ)(Immortal Vise) 80%와 [부서진 세계](https://www.lastepochtools.com/db/ko/items/UAwNgTALAjAzEA)(Shattered Worlds) 20%가 걸려 있습니다. 선구자 전용템 전부를 아베로스도 떨굴 수 있다는 점은 의외로 덜 알려진 사실이에요.
 
 ## 목표 아이템별로 어디를 돌아야 하나요?
 
