@@ -1,0 +1,639 @@
+{
+  "file": "last-epoch-boss-drops.md",
+  "checked_at": "2026-10-12T12:13:23",
+  "as_of": "2026년 10월 (시즌 5 기준)",
+  "language": "Korean",
+  "counts": {
+    "supported": 24,
+    "contradicted": 0,
+    "outdated": 0,
+    "overstated": 1,
+    "unverifiable": 5
+  },
+  "blocking": 0,
+  "seconds": 155.1,
+  "cost": {
+    "model": "claude-opus-5-5",
+    "api_calls": 11,
+    "input_tokens": 598683,
+    "output_tokens": 27400,
+    "web_searches": 36,
+    "web_fetches": 12,
+    "estimated_usd": 3.303
+  },
+  "results": [
+    {
+      "line": 10,
+      "group": "Timeline boss drop mechanics",
+      "claim": "In Last Epoch, each timeline boss guarantees one of two paired unique drops on every kill, while other boss-exclusive uniques drop more often with higher corruption and item rarity.",
+      "quote": "타임라인 보스는 전용템 중 2종 가운데 1개를 매번 확정으로 떨구고, 나머지 희귀템은 부패도·아이템 희귀도가 높을수록 잘 나옵니다.",
+      "kind": "policy",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll에 따르면 타임라인 보스는 전용 일반 드랍 2종 중 정확히 1개를 매번 떨구고, 희귀 드랍은 아이템 희귀도로 확률이 오릅니다. 보스 루트 치트시트도 부패도가 높을수록 드랍률이 오른다고 적고 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/unique-and-set-item-farming",
+          "quote": "They're guaranteed to drop one, and only one of these every time."
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Higher Corruption improves the drop rate, except for drops with a 50% chance"
+        }
+      ]
+    },
+    {
+      "line": 16,
+      "group": "Timeline boss drop mechanics",
+      "claim": "In Last Epoch, the guaranteed paired boss drop is not affected by item rarity or corruption; only the rare boss drops are.",
+      "quote": "이 확정 짝은 아이템 희귀도의 영향을 받지 않고 희귀 드랍만 영향을 받는다고 해요.",
+      "kind": "policy",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "공식 포럼 답글에서 확정 50/50 짝은 아이템 희귀도의 영향을 받지 않는다고 설명합니다. Maxroll도 확정 드랍은 매번 나오고, 희귀도로 확률이 오르는 건 희귀 드랍뿐이라고 정리하고 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://forum.lastepoch.com/t/trying-to-farm-boss-uniques/46361",
+          "quote": "The 2H Mace and Relic are unaffected, since they are a 50/50 guaranteed drop"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/unique-and-set-item-farming",
+          "quote": "Rare: There's a small chance the boss will drop this on each kill... Drop chance can be improved with Item Rarity."
+        }
+      ]
+    },
+    {
+      "line": 16,
+      "group": "Timeline boss drop mechanics",
+      "claim": "According to a user citing Last Epoch developers on the official forum, blessings do not change the chance of an item being unique but only increase the number of items dropped.",
+      "quote": "\"축복은 유니크가 될 확률 자체를 바꾸지 않고, 떨어지는 장비의 수를 늘려줄 뿐\"",
+      "kind": "attribution",
+      "volatile": true,
+      "verdict": "overstated",
+      "severity": "low",
+      "correct_value": "포럼 유저 Llama8은 '아뮬렛 드랍률' 같은 특정 부위 축복을 예로 들어, 해당 부위가 더 많이 떨어지고 유니크가 될 확률은 그대로라고 했을 뿐 개발자를 인용하지 않았습니다. '개발자 확인' 언급은 다른 유저(washa3)가 '확실하진 않지만(I'm pretty sure)'이라는 단서를 달고 한 말이고, 그것도 '이런 축복은 유니크에 아예 적용되지 않는다'는 Heavy의 다른 주장에 대한 것이었습니다.",
+      "explanation": "인용한 내용은 2021년 포럼 스레드의 일반 유저 답글이고, 모든 축복이 아니라 특정 부위 드랍률 축복에 한정된 얘기입니다. 개발자 확인 언급도 '확실하진 않다'는 단서가 붙은 데다 다른 주장을 가리키고 있어서, '개발자 확인'이라는 출처 표기는 실제보다 강하게 쓴 것입니다.",
+      "fix": "공식 포럼의 한 유저 설명으로는(2021년 기준, 개발자 공식 확인은 아님) \"아뮬렛 드랍률 같은 축복은 유니크가 될 확률 자체를 바꾸지 않고, 해당 부위가 떨어지는 수를 늘려줄 뿐\"이라고 해요.",
+      "evidence": [
+        {
+          "url": "https://forum.lastepoch.com/t/trying-to-farm-boss-uniques/46361",
+          "quote": "The amulet drop rate blessing, for example, just causes more amulets to drop therefore since the % chance for a unique doesn't change"
+        },
+        {
+          "url": "https://forum.lastepoch.com/t/trying-to-farm-boss-uniques/46361",
+          "quote": "What Heavy said is correct, and has been confirmed by the dev's I'm pretty sure."
+        }
+      ]
+    },
+    {
+      "line": 18,
+      "group": "Empowered Monolith unlock",
+      "claim": "According to the Last Epoch official support page, Empowered Monoliths unlock on a first character after completing three level-90 timelines, and on alt characters after completing one.",
+      "quote": "공식 지원 페이지 기준으로 첫 캐릭터는 레벨 90 타임라인 셋을, 부캐릭터는 하나만 정복하면 열립니다",
+      "kind": "policy",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Last Epoch 공식 지원 페이지(2026년 2월 갱신)에 따르면 첫 캐릭터는 레벨 90 타임라인 세 개를 정복해야 하고, 부캐릭터는 레벨 90 일반 타임라인 하나만 정복하면 강화 모놀리스가 열립니다. 부캐릭터 조건이 완화된 이유는 첫 하빈저 처치로 강화 타임라인이 해금되기 때문이라고 페이지에 함께 적혀 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://support.lastepoch.com/hc/en-us/articles/46363316626715-How-do-I-unlock-Empowered-Monoliths",
+          "quote": "1st Character - Conquers the three required Level 90 Timelines, unlocks Empowered Monoliths."
+        },
+        {
+          "url": "https://support.lastepoch.com/hc/en-us/articles/46363316626715-How-do-I-unlock-Empowered-Monoliths",
+          "quote": "Alt Character - Conquers one Level 90 Normal Timeline, Empowered Monoliths unlock"
+        }
+      ]
+    },
+    {
+      "line": 18,
+      "group": "Timeline boss drop mechanics",
+      "claim": "Many rare boss-exclusive uniques in Last Epoch drop only in Empowered Monoliths.",
+      "quote": "희귀 전용템 상당수는 강화 모노리스에서만 나옵니다.",
+      "kind": "policy",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 보스 루트 치트시트에 보스 전용 아이템 중 다수가 강화 모노리스에서만 나온다고 나와 있고, 파밍 가이드에도 'Rare Empowered Only' 분류가 따로 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Many of them can only drop in Empowered Monolith."
+        }
+      ]
+    },
+    {
+      "line": 26,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, the Abomination (Fall of the Outcasts) guarantees Woven Flesh or Ribbons of Blood, with rare drops Flayer's Pride and Strands of Souls.",
+      "quote": "| 추방자의 몰락 | 어보미네이션 | Woven Flesh / Ribbons of Blood | Flayer's Pride, Strands of Souls |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 보스 루트 테이블에 따르면 어보미네이션은 Woven Flesh와 Ribbons of Blood 중 하나를 반드시 드랍하고, 추가 드랍으로 Flayer's Pride와 Strands of Souls가 있습니다. 포스트 내용과 같습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Abomination - Always drops either Woven Flesh or Ribbons of Blood - Flayer's Pride - Strands of Souls"
+        }
+      ]
+    },
+    {
+      "line": 27,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, Argentus (The Stolen Lance) guarantees Fragments or Shard of the Shattered Lance, with rare drops Throne of Ambition and Wings of Argentus.",
+      "quote": "| 훔쳐진 창 | 신 사냥꾼 아르헨투스 | Fragments of the Shattered Lance / Shard of the Shattered Lance | Throne of Ambition, Wings of Argentus |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 기준으로 아르헨투스는 Fragments of the Shattered Lance와 Shard of the Shattered Lance 중 하나를 확정 드랍하고, Throne of Ambition과 Wings of Argentus도 드랍합니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Always drops either Fragments of the Shattered Lance or Shard of the Shattered Lance - Throne of Ambition - Wings of Argentus"
+        }
+      ]
+    },
+    {
+      "line": 28,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, Lagon's... the Black Sun boss Rahyeh guarantees Atrophy or Dark Shroud of Cinders, with rare drops Eternal Eclipse and The Confluence of Fate.",
+      "quote": "| 흑태양 | 검은 태양 라예 | Atrophy / Dark Shroud of Cinders | Eternal Eclipse, The Confluence of Fate |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 기준으로 라예는 Atrophy와 Dark Shroud of Cinders 중 하나를 확정 드랍하고, Eternal Eclipse와 The Confluence of Fate도 드랍합니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Rahyeh - Always drops either Atrophy or Dark Shroud of Cinders - Eternal Eclipse - The Confluence of Fate"
+        }
+      ]
+    },
+    {
+      "line": 29,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, Formosus (Blood, Frost, and Death) guarantees Last Steps of the Living or Frozen Eyes of Formosus, with rare drops Frostbite Shackles, Eulogy of Blood, Lich's Scorn.",
+      "quote": "| 피, 서리, 그리고 죽음 | 망령 포르모수스 | Last Steps of the Living / Frozen Eyes of Formosus | Frostbite Shackles, Eulogy of Blood, Lich's Scorn |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 기준으로 포르모수스는 Last Steps of the Living과 Frozen Eyes of Formosus 중 하나를 확정 드랍하고, Frostbite Shackles, Eulogy of Blood, Lich's Scorn도 드랍합니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Formosus - Always drops either Last Steps of the Living or Frozen Eyes of Formosus - Frostbite Shackles - Eulogy of Blood - Lich's Scorn"
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, Lagon (Ending the Storm) guarantees Alluvion or Coral Aegis, with rare drops Stormcarved Testament and Eye of Storms.",
+      "quote": "| 폭풍의 종말 | 폭풍의 신 라곤 | Alluvion / Coral Aegis | Stormcarved Testament, Eye of Storms |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 기준으로 라곤은 Alluvion과 Coral Aegis 중 하나를 확정 드랍하고, Stormcarved Testament와 Eye of Storms도 드랍합니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Lagon - Always drops either Alluvion or Coral Aegis - Stormcarved Testament - Eye of Storms"
+        }
+      ]
+    },
+    {
+      "line": 31,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, the Husk of Harton (Fall of the Empire) guarantees Bulwark or Trident of the Last Abyss, with rare drops Nightbringer and Anchor of Oblivion.",
+      "quote": "| 제국의 몰락 | 하튼의 껍데기 | Bulwark of the Last Abyss / Trident of the Last Abyss | Nightbringer, Anchor of Oblivion |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Icy Veins 보스 가이드에 따르면 하튼의 껍데기는 Bulwark/Trident of the Last Abyss 중 하나(50%씩, 상호 배타)를 떨어뜨리고, 희귀 드랍으로 Nightbringer와 Anchor of Oblivion(강화 모놀리스 전용)이 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://www.icy-veins.com/last-epoch/hartons-husk-boss-guide-for-last-epoch",
+          "quote": "Bulwark of the Last Abyss and Trident of the Last Abyss are both common unique drops with a 50% chance each."
+        }
+      ]
+    },
+    {
+      "line": 32,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, the Emperor of Corpses (Reign of Dragons) guarantees Dragonflame Edict or Symbol of Demise, with rare drops Twisted Heart of Uhkeiros and Horns of Uhkeiros.",
+      "quote": "| 드래곤의 통치 | 시체의 황제 | Dragonflame Edict / Symbol of Demise | Twisted Heart of Uhkeiros, Horns of Uhkeiros |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "검색 도구 사용 한도 때문에 시체의 황제 드랍 테이블을 확인할 수 있는 출처를 찾지 못했습니다. 확정도, 반박도 할 수 없습니다.",
+      "fix": "",
+      "evidence": []
+    },
+    {
+      "line": 33,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, the Husk of Elder Gaspar (The Last Ruin) guarantees Gaspar's Acuity or Gaspar's Will, with rare drops Gaspar's Insight and Sacrificial Embrace.",
+      "quote": "| 마지막 폐허 | 가스파르 장로의 껍데기 | Gaspar's Acuity / Gaspar's Will | Gaspar's Insight, Sacrificial Embrace |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "검색 도구 사용 한도 때문에 가스파르 장로의 껍데기 드랍 목록을 신뢰할 만한 출처에서 확인하지 못했습니다.",
+      "fix": "",
+      "evidence": []
+    },
+    {
+      "line": 34,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, Heorot (The Age of Winter) guarantees Call of the Tundra or Reign of Winter, with rare drops Yulia's Path and Faith of the Frozen.",
+      "quote": "| 겨울의 시대 | 헤오롯 | Call of the Tundra / Reign of Winter | Yulia's Path, Faith of the Frozen |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "검색 도구 사용 한도 때문에 헤오롯의 고유 아이템 드랍 목록을 확인하지 못했습니다.",
+      "fix": "",
+      "evidence": []
+    },
+    {
+      "line": 35,
+      "group": "Timeline boss drop table",
+      "claim": "In Last Epoch, the Volcanic Shaman (Spirits of Fire) guarantees Bhuldar's Wrath or Herkir's Vessel, with rare drops Logi's Hunger and Trinity of Flames.",
+      "quote": "| 화염의 정령 | 화산 주술사 | Bhuldar's Wrath / Herkir's Vessel | Logi's Hunger, Trinity of Flames |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "검색 도구 사용 한도 때문에 화산 주술사의 드랍 목록을 신뢰할 만한 출처에서 확인하지 못했습니다.",
+      "fix": "",
+      "evidence": []
+    },
+    {
+      "line": 37,
+      "group": "Timeline boss drop table",
+      "claim": "The Last Epoch glove unique Ravenous Void is a world drop but drops at a higher rate from Empowered Gaspar and is affected by item rarity.",
+      "quote": "장갑 유니크 Ravenous Void는 원래 월드 드랍이지만 강화 가스파르가 더 높은 확률로 떨구고 아이템 희귀도의 영향도 받습니다.",
+      "kind": "other",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 파밍 가이드에 따르면 Ravenous Void는 예외적인 아이템으로, 엘더 가스파르의 껍질(강화 타임라인 보스)에게서 드랍되거나 무작위 월드 드랍으로도 나옵니다. 월드 드랍 확률은 극히 낮지만 아이템 희귀도가 충분히 높으면 가스파르에게서 최대 4%까지 오릅니다. 포럼 글도 가스파르와 일반 에코에서 모두 나온다는 점을 확인해 줍니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/unique-and-set-item-farming",
+          "quote": "Ravenous Void: This is an exception that can drop from The Husk of Elder Gaspar or as a random world drop."
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/unique-and-set-item-farming",
+          "quote": "with high enough Item Rarity they can have up to a 4% chance to drop off of Gaspar."
+        },
+        {
+          "url": "https://forum.lastepoch.com/t/ravenous-void-gloves-where-to-farm/43850",
+          "quote": "it does have chance to drop from gaspar (the last ruin) but it is extremely rare but it can also drop from normal echoes"
+        }
+      ]
+    },
+    {
+      "line": 47,
+      "group": "Harbinger drops",
+      "claim": "In Last Epoch, Harbinger exclusive drops by timeline are: Aberroth's Command, Phase Point, World Splitter, Celestial Doom, Black Blade of Chaos, Wall of Nothing, Event Horizon, The Inevitable, Bane of Winter, Flames of Midnight.",
+      "quote": "| 모독의 선구자 | Aberroth's Command | 추방자의 몰락 |",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 보스 전리품 표에 나온 선구자별 전용 드랍이 글과 같습니다. 추방자의 몰락=모독의 선구자(Aberroth's Command), 훔친 창=Phase Point, 검은 태양=World Splitter, 피·서리·죽음=Celestial Doom, 폭풍의 종식=Black Blade of Chaos, 제국의 몰락=Wall of Nothing, 용의 지배=Event Horizon, 겨울의 시대=Bane of Winter입니다. 나머지 둘(The Inevitable, Flames of Midnight)도 선구자 드랍 목록에 들어 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Fall of the Outcasts **Harbinger of Defilement** - Aberroth's Command ... Stolen Lance **Harbinger of Pride** - Phase Point"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/monolith/aberroth-boss-guide",
+          "quote": "Aberroth's Command - Bane of Winter - Black Blade of Chaos - Celestial Doom - Event Horizon - Flames of Midnight - Phase Point - The Inevitable - World Splitter - Wall of Nothing"
+        }
+      ]
+    },
+    {
+      "line": 58,
+      "group": "Harbinger drops",
+      "claim": "All ten Last Epoch Harbingers drop common loot including Harbinger Eyes, which are used to summon Aberroth.",
+      "quote": "열 명 전부 선구자의 눈과 바늘, 시간의 초석 같은 공통 전리품도 떨굽니다. 선구자의 눈은 뒤에 나올 아베로스 소환 재료라서",
+      "kind": "other",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll에 따르면 모든 선구자는 공통으로 Harbinger Eye, Harbinger's Needle, The Fading Brink, Temporal Keystone을 떨굽니다. 선구자의 눈은 아베로스 소환 재료로 쓰입니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "all Harbingers can drop the following items: - Harbinger Eye - Harbinger's Needle - The Fading Brink - Temporal Keystone"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/harbinger-of-chaos-boss-guide",
+          "quote": "Harbinger Eye: Used to summon the Pinnacle Boss **Aberroth**."
+        }
+      ]
+    },
+    {
+      "line": 66,
+      "group": "Shade of Orobyss drops",
+      "claim": "In Last Epoch, the Shade of Orobyss drops Siphon of Anguish and Stymied Fate at any corruption, Apathy's Maw at 50+, Shattered Chains at 120+, and Omnis at 200+ corruption.",
+      "quote": "| Apathy's Maw | 50 이상 |",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 보스 루트 테이블과 위키 모두 시판 오브 앵귀시·스타이미드 페이트는 부패도와 관계없이, Apathy's Maw는 50 이상, Shattered Chains는 120 이상, Omnis는 200 이상에서 드랍된다고 적고 있습니다. 참고로 Maxroll은 Stymied Fate에 그림자 레벨 60 이상, Apathy's Maw에 레벨 65 이상 조건도 함께 표기합니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "The following items can drop at any Corruption: Siphon of Anguish, Stymied Fate"
+        },
+        {
+          "url": "https://lastepoch.fandom.com/wiki/The_Shade_of_Orobyss",
+          "quote": "Apathy's Maw (50+ corruption). Shattered Chains (120+ corruption). Omnis (200+ corruption)."
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/unique-and-set-item-farming",
+          "quote": "Omnis is a very rare drop that can only be found in Empowered with at least 200 Corruption."
+        }
+      ]
+    },
+    {
+      "line": 71,
+      "group": "Shade of Orobyss drops",
+      "claim": "Shade of Orobyss drop chances increase with corruption and distance from the Echo Web center, and killing it in the Nexus of Oblivion applies a higher chance regardless of distance.",
+      "quote": "에코 웹 중심에서 멀리 떨어진 그림자일수록 올라갑니다. 망각의 합류점에서 잡으면 거리와 무관하게 더 높은 확률이 적용되고요.",
+      "kind": "policy",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll에 따르면 드랍 확률은 부패도가 높을수록, 웹 중심에서 멀어질수록 올라갑니다. 또 망각의 합류점(Confluence of Oblivion)에서는 드랍 확률이 더 높고 거리의 영향을 받지 않습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Drop chance increases with Corruption and distance from the center of the web. Drops in Confluence of Oblivion are not affected by distance."
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "You can also find it in Confluence of Oblivion, where its items have a higher drop chance."
+        }
+      ]
+    },
+    {
+      "line": 75,
+      "group": "Dungeon boss uniques",
+      "claim": "In Last Epoch, Chronomancer Julra (Temporal Sanctum) drops Julra's Stardial, Somnia, Julra's Obsession, and Vessel of Strife.",
+      "quote": "시간의 성소의 크로노맨서 율라는 Julra's Stardial, Somnia, Julra's Obsession, Vessel of Strife를 떨굽니다.",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "여러 공략 사이트에서 시간의 성소 보스 크로노맨서 율라가 Julra's Stardial(1티어 이상), Somnia(2티어 이상), Julra's Obsession(3티어 이상), Vessel of Strife(4티어)를 떨군다고 확인됩니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://www.icy-veins.com/last-epoch/temporal-sanctum-guide",
+          "quote": "Tier 1+: Julra's Stardial (Unique Ring) ... Tier 4+: Vessel of Strife (Unique Relic)"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/dungeons/temporal-sanctum-dungeon-guide",
+          "quote": "Vessel of Strife only drops from tier 4."
+        }
+      ]
+    },
+    {
+      "line": 75,
+      "group": "Dungeon boss uniques",
+      "claim": "In Last Epoch, Cremorus (Soulfire Bastion) drops Ashes of Mortality, Lich's Envy, Immolator's Oblation, and Pyre of Affliction, and the Lightless Arbor boss drops Peak, Foot, Face, and Core of the Mountain.",
+      "quote": "소울파이어 바스티온의 크레모루스에게서는 Ashes of Mortality, Lich's Envy, Immolator's Oblation, Pyre of Affliction이 나와요.",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "크레모루스의 전용 드랍은 Ashes of Mortality, Lich's Envy, Immolator's Oblation, Pyre of Affliction이 맞습니다. 빛 없는 수목원 보스(The Mountain Beneath)의 전용 드랍도 Peak/Foot/Face/Core of the Mountain으로 확인됩니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/dungeons/soulfire-bastion-dungeon-guide",
+          "quote": "Ashes of Mortality drops from tier 1 and higher... Pyre of Affliction only drops from tier 4."
+        },
+        {
+          "url": "https://onlyfarms.gg/guides/dungeons-overview-for-last-epoch-2025-updated-guide/",
+          "quote": "1 | Peak of the Mountain (Helmet) | 2 | Foot of the Mountain ... 4 | Core of the Mountain"
+        }
+      ]
+    },
+    {
+      "line": 77,
+      "group": "Dungeon boss uniques",
+      "claim": "In Last Epoch, taking the Warden echo node on the Weaver passive tree makes dungeon-exclusive monsters appear in the Monolith.",
+      "quote": "직조공 패시브의 와든 에코 노드를 찍으면 던전 전용 몬스터가 모노리스에도 출현하니",
+      "kind": "policy",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll과 시즌 5 기준 자료 모두 직조공 트리의 Warden's Echo 노드를 찍으면 모노리스 에코에 던전 적이 추가된다고 설명합니다. 이렇게 등장한 희귀 적은 던전 보스 고유 아이템을 드랍할 수 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/weaver-tree-strategies",
+          "quote": "Warden's Echo, which also adds dangerous dungeon enemies to your Echoes."
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/unique-and-set-item-farming",
+          "quote": "Warden's Echo gives echoes the chance to spawn rare enemies that drop dungeon boss Uniques."
+        }
+      ]
+    },
+    {
+      "line": 83,
+      "group": "Season 5 Morditas",
+      "claim": "In Last Epoch Season 5, Morditas drops Frostborn Solitude 80%, Heorot's Repose 20%, Withstand the Elements 50%, and guarantees Demigod's Ascendance.",
+      "quote": "Frostborn Solitude 80%, Heorot's Repose 20%, Withstand the Elements 50%에 소환 재료인 Demigod's Ascendance를 확정으로 떨궈요.",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 보스 루트 표에 일반 모르디타스(얼어붙은 피의 원) 드랍이 Frostborn Solitude 80%, Heorot's Repose 20%, Withstand the Elements 50%, Demigod's Ascendance 100%로 나와 있어요. 표의 수치와 정확히 일치합니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Frostborn Solitude 80% - Heorot's Repose 20% - Withstand the Elements 50% - Demigod's Ascendance 100%"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/news/season-5-patch-notes",
+          "quote": "Slaying Morditas rewards you with a Demigod's Ascendance Woven Echo."
+        }
+      ]
+    },
+    {
+      "line": 83,
+      "group": "Season 5 Morditas",
+      "claim": "In Last Epoch Season 5, Pinnacle Morditas drops Vestige of Imprisonment 80%, Morditas' Vengeance 20%, Unsated Rage 50%.",
+      "quote": "피나클 모르디타스는 Vestige of Imprisonment 80%, Morditas' Vengeance 20%, Unsated Rage 50%입니다.",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 표에 피나클 모르디타스 드랍이 Morditas' Vengeance 20%, Vestige of Imprisonment 80%, Unsated Rage 50%로 나와 있어요.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Morditas' Vengeance 20% - Vestige of Imprisonment 80% - Unsated Rage 50%"
+        }
+      ]
+    },
+    {
+      "line": 83,
+      "group": "Season 5 Morditas",
+      "claim": "In Last Epoch Season 5, the Frozen Blood Circle with normal Morditas unlocks after accumulating 4,000 Wrath of Morditas kills.",
+      "quote": "모르디타스의 분노 처치 4,000을 쌓아야 열리고",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 자료에 따르면 Circle of Frozen Blood는 모르디타스의 분노(Rage of Morditas) 처치를 4,000 쌓아야 열려요.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/rage-of-morditas",
+          "quote": "Circle of Frozen Blood, unlocks after 4,000 Rage of Morditas Kills."
+        }
+      ]
+    },
+    {
+      "line": 83,
+      "group": "Season 5 Morditas",
+      "claim": "Last Epoch Season 5 is titled 'Wrath of the Frost God' (서리화신의 분노) featuring Morditas.",
+      "quote": "시즌 5 서리화신의 분노의 주인공 모르디타스는",
+      "kind": "name",
+      "volatile": false,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "시즌 5의 한국어 공식 명칭은 '서리화신의 분노'(영문 Rage of the Frostborn)이고 모르디타스가 주인공이에요. 본문의 한국어 표기는 정확합니다. 요약에 쓰인 영문 'Wrath of the Frost God'은 공식 영문명이 아니지만 본문에는 들어가 있지 않아요.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://www.gamemeca.com/en/view.php?gid=1781286",
+          "quote": "시즌 5 '서리화신의 분노(Rage of the Frostborn)' 업데이트를 진행했다."
+        },
+        {
+          "url": "https://lastepoch.com/rage-of-the-frostborn/",
+          "quote": "Join us in Eterra for Season 5: Rage of the Frostborn. Morditas, the fallen son of Heorot, has returned"
+        }
+      ]
+    },
+    {
+      "line": 85,
+      "group": "Aberroth drops",
+      "claim": "In Last Epoch, Aberroth (summoned at the Altar of Oblivion in the Shattered Road using Harbinger Eyes) guarantees Threshold of Eternity and drops Null Portent 47.62%, Seed of Ekkidrasil 38.1%, Nihilis 14.29%.",
+      "quote": "Threshold of Eternity는 100% 확정이고 Null Portent 47.62%, Seed of Ekkidrasil 38.1%, Nihilis 14.29% 순서로 귀해져요.",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 보스 루트 테이블에 Aberroth는 Shattered Road의 Altar of Oblivion에서 Harbinger Eye로 소환하고, Threshold of Eternity 100%, Null Portent 47.62%, Seed of Ekkidrasil 38.1%, Nihilis 14.29%로 나와 있어 내용이 일치해요.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Fight Aberroth by using a Harbinger Eye at the Altar of Oblivion in Shattered Road. ... Nihilis 14.29% / Seed of Ekkidrasil 38.1% / Null Portent 47.62% / Threshold of Eternity 100%"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/monolith/aberroth-boss-guide",
+          "quote": "Threshold of Eternity Woven Echo, which is a guaranteed drop from regular Aberroth."
+        }
+      ]
+    },
+    {
+      "line": 85,
+      "group": "Aberroth drops",
+      "claim": "In Last Epoch, Uber Aberroth (accessed via Threshold of Eternity) drops Immortal Vise 80% and Shattered Worlds 20%, and Aberroth can drop all Harbinger exclusive uniques.",
+      "quote": "Immortal Vise 80%와 Shattered Worlds 20%가 걸려 있습니다. 선구자 전용템 전부를 아베로스도 떨굴 수 있다는",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll에 Uber Aberroth 드랍은 Immortal Vise 80%, Shattered Worlds 20%로 나와 있고, Aberroth는 선구자(Harbinger) 아이템을 전부 떨굴 수 있다고 적혀 있어요.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+          "quote": "Aberroth has its own boss-specific drops, and it can also drop any item from the Harbingers. ... Immortal Vise 80% / Shattered Worlds 20%"
+        }
+      ]
+    },
+    {
+      "line": 85,
+      "group": "Aberroth drops",
+      "claim": "The official Korean name of Last Epoch's Aberroth is 아베로스, while early localization used the mistranslation 아플로스.",
+      "quote": "현재 공식 한국어 표기는 아베로스입니다. 초기 한글화에서는 아플로스라는 오역 표기가 쓰여서",
+      "kind": "name",
+      "volatile": false,
+      "verdict": "unverifiable",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "현재 공식 한국어 표기가 '아베로스'인지, 초기 한글화에서 '아플로스'라는 오역이 쓰였는지 확인해 줄 공식 자료나 믿을 만한 자료를 찾지 못했어요. 검색 도구 사용 한도에 걸려 인벤 기사도 직접 열어 보지 못했어요.",
+      "fix": "",
+      "evidence": []
+    }
+  ]
+}

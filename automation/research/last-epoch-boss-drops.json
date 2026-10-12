@@ -1,0 +1,151 @@
+{
+  "type": "guide",
+  "keyword_filter": {
+    "keyword": "라스트에폭 보스 드랍",
+    "competition": {
+      "method": "allintitle/serp-scan",
+      "evidence": "allintitle 검색 시 제목 정확 일치 글 0건. 1페이지가 나무위키·디시 FAQ·유튜브 공략뿐이고 보스별 드랍을 정리한 개인 블로그가 없음 — 전문 정리글 공백 확인",
+      "pass": true
+    },
+    "demand": {
+      "method": "serp/community",
+      "evidence": "디시 라에폭 초보 FAQ 조회 62,688회에 '빌드템 어디서 먹는지 모르겠다' 항목이 17번으로 존재, 보스 공략 유튜브 다수, 연관 검색어에 라스트에폭 유니크 파밍 노출 — 수요 근거 충분",
+      "pass": true
+    },
+    "intent": {
+      "method": "serp-scan",
+      "evidence": "상위 결과가 위키·커뮤니티 정보글·해외 가이드(정보성)로만 구성. 쇼핑탭·공식 사이트 독점 없음 — 블로그 정보글 적합",
+      "pass": true
+    }
+  },
+  "serp": [
+    {
+      "url": "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+      "opened": true,
+      "note": "데이터 기둥. 2026-10-01 갱신, 타임라인 10종·선구자·오로비스·던전·아플로스·모르디타스 드랍 전체와 확률. 영어라서 한국 독자 접근성 낮음"
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/resources/unique-and-set-item-farming",
+      "opened": true,
+      "note": "파밍 구조(보스 전용 vs 월드드랍, 부패도, 아이템 희귀도). 구체 확률 없고 Item Rarity 정의 안 함"
+    },
+    {
+      "url": "https://www.aoeah.com/news/3188--last-epoch-monolith-timeline-rewards-boss-drops--target-farming-guide",
+      "opened": true,
+      "note": "타임라인별 에코 보상 부위만 나열, 보스 이름·전용 드랍명 전무. 2024-03 작성으로 낡음. 상업 사이트 편향"
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/trying-to-farm-boss-uniques/46361",
+      "opened": true,
+      "note": "확정 50/50은 아이템 희귀도 무관·희귀 드랍만 영향, 축복은 유니크 확률 자체를 안 바꿈(개발 확인). 에코웹·부패도 실전 수치"
+    },
+    {
+      "url": "https://gall.dcinside.com/mgallery/board/view/?id=lastepoch&no=36269",
+      "opened": true,
+      "note": "한국어 용어 정본(선구자·아플로스·오염도·뜨개질 에코·운명의 링). 툴즈 번역 어긋남(불의 정령 vs 화염의 정령) 언급. 드랍표는 없음"
+    },
+    {
+      "url": "https://www.lastepochtools.com/db/items/unique",
+      "opened": true,
+      "note": "유니크 486종 DB, 아이템별 드랍처 역검색 가능. 표 형태 보스별 묶음은 없음 — 역검색 도구로 외부링크 채택"
+    },
+    {
+      "url": "https://reim.kr/last-epoch/starter-guides/monolith",
+      "opened": true,
+      "note": "한국어 타임라인·보스·선구자 표기 정본. 보스 전용 드랍템 목록은 없음(에코 보상 부위만)"
+    },
+    {
+      "url": "https://www.inven.co.kr/webzine/news/?news=318941&site=lastepoch",
+      "opened": true,
+      "note": "시즌5 서리화신의 분노 2026-10-02 오픈, 모르디타스·피나클 모르디타스·모르디타스의 분노 기믹 공식 한국어 표기"
+    },
+    {
+      "url": "https://skycoach.gg/blog/last-epoch/articles/last-epoch-best-unique-farming-ways-and-list",
+      "opened": false,
+      "note": "403 차단"
+    },
+    {
+      "url": "https://www.u4gm.com/last-epoch/how-to-farm-3lp-items-in-last-epoch",
+      "opened": false,
+      "note": "403 차단"
+    },
+    {
+      "url": "https://namu.wiki/w/라스트 에포크",
+      "opened": false,
+      "note": "클라우드플레어 보안 확인에 막힘(우회 안 함)"
+    },
+    {
+      "url": "https://thewiki.kr/w/라스트 에포크",
+      "opened": false,
+      "note": "403 차단"
+    }
+  ],
+  "factcheck": [
+    {
+      "claim": "시즌5 '서리화신의 분노'는 2026-10-02(KST) 오픈, 신규 엔드게임 보스 모르디타스·피나클 모르디타스 추가",
+      "sources": [
+        "https://www.inven.co.kr/webzine/news/?news=318941&site=lastepoch",
+        "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet (2026-10-01 체인지로그에 Morditas 드랍 추가)"
+      ]
+    },
+    {
+      "claim": "타임라인 보스는 전용템 2종 중 1개를 매번 확정 드랍하며 이 짝은 아이템 희귀도 영향을 받지 않고, 희귀 전용 드랍만 영향을 받음",
+      "sources": [
+        "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+        "https://forum.lastepoch.com/t/trying-to-farm-boss-uniques/46361 (개발 확인 코멘트)"
+      ]
+    },
+    {
+      "claim": "오로비스의 그림자 드랍: Siphon of Anguish·Stymied Fate 상시, Apathy's Maw 부패도 50+, Shattered Chains 120+, Omnis 200+, 확률은 부패도·웹 중심 거리로 상승",
+      "sources": [
+        "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+        "https://www.aoeah.com/news/3188--last-epoch-monolith-timeline-rewards-boss-drops--target-farming-guide"
+      ]
+    },
+    {
+      "claim": "아베로스 드랍률 Threshold of Eternity 100%, Null Portent 47.62%, Seed of Ekkidrasil 38.1%, Nihilis 14.29%. 우버 아베로스는 Immortal Vise 80%·Shattered Worlds 20%",
+      "sources": [
+        "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+        "https://www.lastepochtools.com/db/items/unique (Aberroth's Command 등 해당 아이템 실재 확인)"
+      ]
+    },
+    {
+      "claim": "희귀 보스 전용템 상당수는 강화 모노리스에서만 드랍",
+      "sources": [
+        "https://maxroll.gg/last-epoch/resources/boss-loot-table-cheat-sheet",
+        "https://maxroll.gg/last-epoch/resources/unique-and-set-item-farming"
+      ]
+    }
+  ],
+  "variables": {
+    "keyword": "라스트에폭 보스 드랍",
+    "headline_finding": "한국어 상위 노출 자료 중 타임라인 보스 10종의 전용 드랍을 전부 표로 묶은 글이 없음 — 본 글이 확정/희귀 구분 포함 최초 정리",
+    "timeline_count": "타임라인 10종·선구자 10종·전용 유니크 약 40종 수록",
+    "aberroth_rates": "아베로스 확정 100%·47.62%·38.1%·14.29% 공개 확률 수록",
+    "corruption_gates": "오로비스 드랍 부패도 컷 50·120·200 3단계",
+    "season5_date": "시즌5 서리화신의 분노 2026-10-02 오픈, 모르디타스 입장 조건 처치 4,000"
+  },
+  "structure": "비교선택",
+  "gaps": [
+    {
+      "gap": "한국어 자료 어디에도 타임라인 보스 10종의 전용 드랍 전체 표가 없음(레임은 보상 부위만, aoeah는 보스명조차 없음)",
+      "covered_in": "타임라인 보스별 전용 드랍 한눈에 보는 표"
+    },
+    {
+      "gap": "확정 50/50 드랍과 희귀 드랍의 구분, 아이템 희귀도가 어느 쪽에만 적용되는지 상위 글 전부 미설명",
+      "covered_in": "보스 전용 드랍은 어떻게 정해져 있나요?"
+    },
+    {
+      "gap": "시즌5 신규 보스 모르디타스·우버 아베로스의 공개 드랍 확률을 정리한 한국어 글 부재",
+      "covered_in": "시즌 5 신규 보스 드랍 — 모르디타스와 아베로스"
+    },
+    {
+      "gap": "선구자 10종의 전용 드랍을 타임라인과 짝지어 보여주는 자료 부재",
+      "covered_in": "선구자가 떨구는 전용 아이템은 뭔가요?"
+    }
+  ],
+  "score_history": [
+    91
+  ],
+  "hermes_score": 91
+}
