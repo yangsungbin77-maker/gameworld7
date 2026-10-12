@@ -1,0 +1,163 @@
+{
+  "type": "guide",
+  "keyword_filter": {
+    "keyword": "라스트에폭 시즌5 빌드 추천",
+    "competition": {
+      "method": "serp-scan",
+      "evidence": "한국어 1페이지가 유튜브 적응 가이드·팟벤 옛 티어 글·레임 스타터 모음(근거 없는 개인 추천)·툴즈 빌드 목록뿐. 티어 근거를 교차 분석한 한국어 정리글 0건",
+      "pass": true
+    },
+    "demand": {
+      "method": "serp/community/season",
+      "evidence": "시즌5 오픈(10/2) 직후 열흘, 레임 스타터 모음·유튜브 적응 가이드 등 시즌 초반 빌드 수요 콘텐츠 다수, 해외는 티어표 5개 이상 동시 경쟁 — 시즌 초반 수요 피크",
+      "pass": true
+    },
+    "intent": {
+      "method": "serp-scan",
+      "evidence": "상위 결과가 전부 빌드 정보·티어 가이드(정보성). 쇼핑탭·공식 사이트 독점 없음 — 블로그 정보글 적합",
+      "pass": true
+    }
+  },
+  "serp": [
+    {
+      "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+      "opened": true,
+      "note": "2026-10-09 갱신, 파밍 S 15·A 21·B 18·C 8, 기준=속도·광역·고부패도 속도 유지. 데이터 기둥"
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+      "opened": true,
+      "note": "우버 아베로스 처치 시간 기준, S 16. 방어 줄이고 피해 올리면 한 단계 위 가능 명시"
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+      "opened": true,
+      "note": "피해·방어·속도·장비요구·조작 5요소, S 16, 기준 미달 빌드는 목록에서 제외(=수록 빌드는 전부 엔드게임 가능)"
+    },
+    {
+      "url": "https://reim.kr/guides/last-epoch/라스트-에포크-시즌-5-스타터-모음",
+      "opened": true,
+      "note": "한국어 유일 시즌5 정리. 근거 없는 개인 예상 위주, 파밍/보스 구분 없음. 국내 통용 표기(일소의 맹공·출정·정전기 오브·폭풍까마귀) 확보"
+    },
+    {
+      "url": "https://afleurdenet.com/last-epoch-season-5-starter-builds-tier-list-best-meta-builds-for-rage-of-the-frostborn/",
+      "opened": true,
+      "note": "스타터 S: Dreamslash BD·Ballista·Warpath·Tornado, A: Flame Reave(고유템 불필요·와드)·Skeleton·Radiant Lance. 근거 데이터 없음"
+    },
+    {
+      "url": "https://www.u4n.com/news/last-epoch-season-5-class-tier-list-best-masteries-ranked-from-s-to-c.html",
+      "opened": true,
+      "note": "직업 단위 티어(Marksman C 등), 골드 판매 상업 편향·테스트 데이터 없음"
+    },
+    {
+      "url": "https://last-epoch.wiki/builds/builds/",
+      "opened": true,
+      "note": "Top3 빌드만, 수치·출처 없음, 패치 버전 미기재"
+    },
+    {
+      "url": "https://timesaver.gg/blog/last-epoch-void-knight-build-season-5",
+      "opened": true,
+      "note": "Warpath VK 입문 최적, 필수 고유템 없음, 최대 마나 약 1,200 필요"
+    },
+    {
+      "url": "https://www.aoeah.com/news/4860--last-epoch-season-5-tier-list--best-builds--classes",
+      "opened": false,
+      "note": "검색 결과상 Season 15 오기 등 부정확 지적됨, 미열람"
+    },
+    {
+      "url": "https://www.inven.co.kr/board/party/6176/364",
+      "opened": false,
+      "note": "구 시즌 팟벤 티어 글, 미열람"
+    }
+  ],
+  "factcheck": [
+    {
+      "claim": "맥스롤 파밍·보스·엔드게임 티어표 모두 2026-10-09 갱신, 세 표 모두 S티어인 빌드는 9개(Flay Mana·Rip Blood·Stygian Coal 리치, Shield Throw Time Rot·Erasing Strike 공허기사, Ballista 매사냥꾼, Shadow Cascade 검무가, Static Orb 원소술사, Flame Reave 주문검사)",
+      "sources": [
+        "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+        "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+        "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list"
+      ]
+    },
+    {
+      "claim": "보스 티어표는 우버 아베로스 처치 시간 기준, 엔드게임 표는 기준 미달 빌드를 목록에서 제외",
+      "sources": [
+        "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+        "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list"
+      ]
+    },
+    {
+      "claim": "Warpath 공허기사는 필수 고유템 없이 시작 가능, 최대 마나 약 1,200 필요",
+      "sources": [
+        "https://timesaver.gg/blog/last-epoch-void-knight-build-season-5",
+        "https://afleurdenet.com/last-epoch-season-5-starter-builds-tier-list-best-meta-builds-for-rage-of-the-frostborn/"
+      ]
+    },
+    {
+      "claim": "광휘의 기병창 성기사는 맥스롤 세 표 모두 A티어, 꿈 베기 검무가는 10/9 기준 빌드 티어표 미수록",
+      "sources": [
+        "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+        "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list"
+      ]
+    },
+    {
+      "claim": "직업 한글명: 툴즈 한국어 플래너 표기 공허기사·검무가·매사냥꾼·리치·강령술사·룬 마스터·야수 조련사·명사수·워록·대장간지기·소서러·마검사·파수병·팔라딘, 국내 커뮤니티 통용 표기 원소술사·주문검사·파수꾼·성기사(병기 안내)",
+      "sources": [
+        "https://www.lastepochtools.com/planner/ko/",
+        "https://reim.kr/guides/last-epoch/라스트-에포크-시즌-5-스타터-모음"
+      ]
+    }
+  ],
+  "variables": {
+    "keyword": "라스트에폭 시즌5 빌드 추천",
+    "headline_finding": "맥스롤 3개 티어표 교차 시 세 곳 모두 S티어 빌드는 9개, 원시술사만 교집합에서 빠짐",
+    "mastery_count": "S티어 칸 집계 리치 10·공허기사 9·검무가 5, 성기사·대장간지기·드루이드 0",
+    "farm_only": "파밍 S 15개 중 6개는 보스·엔드게임에서 한 단계 하락",
+    "boss_only": "보스 S 16개 중 7개는 세 표 교집합 밖, 강령술사 2종은 파밍 B인데 엔드게임 S",
+    "data_date": "맥스롤 2026-10-09 갱신본, 프리패치 10/1·1주차 10/5 반영"
+  },
+  "structure": "결론먼저",
+  "gaps": [
+    {
+      "gap": "상위 어떤 글도 맥스롤 파밍·보스·엔드게임 3개 표를 교차해 '세 곳 모두 S' 빌드를 뽑지 않음",
+      "covered_in": "세 티어표 모두 S티어인 빌드 9개 한눈에 보기"
+    },
+    {
+      "gap": "직업별 S티어 칸 수를 집계해 강세·약세 직업을 수치로 보여준 자료 부재",
+      "covered_in": "직업별로 보면 어디가 강하고 어디가 약한가요?"
+    },
+    {
+      "gap": "보스 S인데 파밍 B인 빌드(강령술사 하수인 등)를 따로 묶어 목적별로 고르게 한 글 부재",
+      "covered_in": "보스만큼은 확실히 잡는 빌드는?"
+    },
+    {
+      "gap": "상업 사이트 티어표의 오기·근거 부재를 짚고 티어표 읽는 법을 알려준 한국어 글 부재",
+      "covered_in": "티어표를 볼 때 꼭 알아야 할 함정은?"
+    }
+  ],
+  "score_history": [
+    82,
+    96
+  ],
+  "hermes_score": 96,
+  "factcheck_overrides": [
+    {
+      "lines": "L8,L29,L31,L36",
+      "checker_said": "세 표 교집합은 9개가 아니다(7개/4개 등 자기모순)",
+      "primary_source": "2026-10-12 브라우저로 맥스롤 3개 티어표 원문 S티어 목록 직접 확인 — Ballista(ZHP)·Static Orb·Shadow Cascade·Erasing Strike·Flame Reave 포함 9개 모두 세 표 S. 심판도 독립 재계산으로 9개 확인",
+      "verdict": "검사기 오판, 원문 유지"
+    },
+    {
+      "lines": "L84",
+      "checker_said": "타임세이버에 1,200 마나 수치 없음",
+      "primary_source": "timesaver 원문 'The Warpath guide recommends a minimum of approximately 1,200 mana to sustain continuous Warrior's Fury channeling' 확인",
+      "verdict": "검사기 오판, 출처 표현만 정밀화"
+    },
+    {
+      "lines": "L18",
+      "checker_said": "10/1은 프리패치가 아니라 정식 출시, 10/8 1.5.2 패치 존재",
+      "primary_source": "툴즈 플래너 게임 버전 1.5.2 표시로 교차 확인",
+      "verdict": "반영 수정"
+    }
+  ]
+}

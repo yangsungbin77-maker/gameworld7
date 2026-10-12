@@ -1,0 +1,691 @@
+{
+  "file": "last-epoch-season5-build-tier.md",
+  "checked_at": "2026-10-12T14:38:49",
+  "as_of": "2026-10-09",
+  "language": "Korean",
+  "counts": {
+    "supported": 17,
+    "contradicted": 6,
+    "outdated": 0,
+    "overstated": 0,
+    "unverifiable": 7
+  },
+  "blocking": 6,
+  "seconds": 210.5,
+  "cost": {
+    "model": "claude-opus-5-5",
+    "api_calls": 11,
+    "input_tokens": 870424,
+    "output_tokens": 34229,
+    "web_searches": 37,
+    "web_fetches": 40,
+    "estimated_usd": 4.536
+  },
+  "results": [
+    {
+      "line": 8,
+      "group": "Maxroll tier list overview",
+      "claim": "In Maxroll's Last Epoch Season 5 tier lists, 9 builds are rated S tier in all three lists (farming, bossing, endgame), 3 of which are Lich builds.",
+      "quote": "파밍·보스·엔드게임 티어표 세 곳에서 모두 S티어를 받은 빌드 9개 중에서 고르는 게 가장 안전합니다. 그 9개 안에 리치 빌드가 3개나 들어 있고",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "contradicted",
+      "severity": "medium",
+      "correct_value": "세 티어표 모두에서 S티어인 빌드는 7개(블러드 립 리치, 플레이 마나 리치, 스티지안 콜 리치, 실드 스로우 타임 롯 VK, 스태틱 오브 소서러, 섀도 캐스케이드 BD, 발리스타 팔코너)이며, 그중 리치 빌드는 3개입니다.",
+      "explanation": "맥스롤 시즌 5 파밍·보스·엔드게임 티어표의 S티어 목록을 교차해 보면 세 곳 모두에서 S티어인 빌드는 9개가 아니라 7개입니다. 토네이도 샤먼은 보스 티어표에서 A티어, 하베스트 플레이 리치는 보스·엔드게임에서 A티어입니다. 다만 리치 빌드가 3개라는 부분은 맞습니다.",
+      "fix": "파밍·보스·엔드게임 티어표 세 곳에서 모두 S티어를 받은 빌드 7개 중에서 고르는 게 가장 안전합니다. 그 7개 안에 리치 빌드가 3개나 들어 있고",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "S Tier: Tornado Shaman, Warpath Void Knight, Ballista Falconer (ZHP), Flay Mana Lich, Stygian Coal Lich, Harvest Flay Lich, Shield Throw Time Rot VK, Static Orb Sorcerer, Rip Blood Lich, Shadow Cascade BD, Bladestorm Bladedancer"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "A Tier Builds - Shuriken Marksman - Tornado Shaman ... Harvest Flay Lich"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "S Tier: Shadow Cascade BD, Static Orb Sorcerer, Rip Blood Lich, Flay Mana Lich, Shield Throw Time Rot VK, Stygian Coal Lich, ... Ballista Falconer (ZHP), Tornado Shaman ..."
+        }
+      ]
+    },
+    {
+      "line": 8,
+      "group": "Maxroll tier list overview",
+      "claim": "Maxroll updated its three Last Epoch tier lists on October 9, 2026.",
+      "quote": "맥스롤이 2026년 10월 9일에 갱신한 티어표 3종",
+      "kind": "date",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "맥스롤 엔드게임 티어표에 'Last Updated: October 9, 2026'이라고 표시되어 있고, 파밍·보스 티어표도 같은 시점에 갱신된 것으로 보입니다(검색 결과상 페이지 날짜가 같음).",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "Season 5 - Rage of the Frostborn Last Updated: October 9, 2026"
+        }
+      ]
+    },
+    {
+      "line": 10,
+      "group": "Season 5 basics",
+      "claim": "Last Epoch Season 5 is titled 'Wrath of the Frost Avatar' (서리화신의 분노).",
+      "quote": "시즌5 서리화신의 분노 기준",
+      "kind": "name",
+      "volatile": false,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "크래프톤 공식 보도자료에 시즌 5 한국어 명칭이 '서리화신의 분노(Rage of the Frostborn)'로 나옵니다. 영문 공식명은 'Rage of the Frostborn'이지만 본문의 한국어 표기는 정확합니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://www.krafton.com/news/press/%EB%9D%BC%EC%8A%A4%ED%8A%B8-%EC%97%90%ED%8F%AC%ED%81%AC-%EC%8B%9C%EC%A6%8C-5-%EC%84%9C%EB%A6%AC%ED%99%94%EC%8B%A0%EC%9D%98-%EB%B6%84%EB%85%B8-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/",
+          "quote": "라스트 에포크(Last Epoch)'의 시즌 5 '서리화신의 분노(Rage of the Frostborn)' 업데이트를 진행했다."
+        }
+      ]
+    },
+    {
+      "line": 16,
+      "group": "Maxroll tier list criteria",
+      "claim": "Maxroll's farming tier list evaluates speed, AoE clear, and maintaining speed at high corruption; the bossing list evaluates time to kill Uber Aberroth; the endgame list evaluates damage, defense, speed, gear requirements and difficulty.",
+      "quote": "파밍 표는 \"속도·광역 처리·높은 부패도에서의 속도 유지\"를, 보스 표는 \"우버 아베로스를 잡는 시간\"을, 엔드게임 표는 피해·방어·속도·장비 요구치·조작 난이도 다섯 가지를 봅니다",
+      "kind": "policy",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "현재 맥스롤 페이지 기준으로 파밍 표는 전체 속도·광역 처리·높은 부패도에서의 속도 유지를, 보스 표는 우버 아베로스 처치 시간을, 엔드게임 표는 피해·방어·속도·장비 요구치·플레이 난이도(Ease of Play)를 기준으로 삼는다고 적혀 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "Overall Speed, AoE Clear and staying fast at High Corruption"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "The builds are ranked based on the time to defeat Uber Aberroth with the Endgame Planner Setup."
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "such as Damage, Defense, Speed, Gear Requirements and Ease of Play"
+        }
+      ]
+    },
+    {
+      "line": 16,
+      "group": "Maxroll tier list criteria",
+      "claim": "All three Maxroll tier lists compare builds using the same gear setups from the Maxroll endgame planner.",
+      "quote": "셋 다 맥스롤 엔드게임 플래너의 같은 장비 세팅으로 비교한 결과",
+      "kind": "policy",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "티어표 세 개 모두 각 빌드의 엔드게임 플래너 세팅을 기준으로 비교한다고 밝히고 있습니다. 다만 정확히 말하면 모든 빌드가 하나의 세팅을 공유하는 게 아니라 빌드마다 자기 플래너 세팅을 쓴다는 뜻입니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "Builds are compared based on their Endgame Planner Setup."
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "Builds are compared based on their Endgame Planner Setup."
+        }
+      ]
+    },
+    {
+      "line": 18,
+      "group": "Season 5 basics",
+      "claim": "The Last Epoch Season 5 pre-patch was on October 1 and a week-1 update on October 5, 2026.",
+      "quote": "시즌5 프리패치(10월 1일)와 1주차 갱신(10월 5일)",
+      "kind": "date",
+      "volatile": false,
+      "verdict": "contradicted",
+      "severity": "medium",
+      "correct_value": "10월 1일은 '프리패치'가 아니라 시즌 5(1.5 패치)의 정식 출시일입니다. 이후 10월 2~3일에 패치 1.5.1과 핫픽스 1.5.0.1·1.5.1.1, 10월 5일에 핫픽스 1.5.1.2, 10월 8일에 패치 1.5.2가 나왔습니다.",
+      "explanation": "여러 매체와 Maxroll 모두 10월 1일을 시즌 5 정식 출시일로 보고 있고, 이날을 프리패치라고 부른 곳은 없습니다. 10월 5일에 핫픽스 1.5.1.2가 나온 것은 맞지만, 글의 기준일(10월 9일)보다 앞선 10월 8일에 패치 1.5.2가 이미 나왔으므로 가장 최근 갱신으로 보기도 어렵습니다.",
+      "fix": "시즌5 출시(10월 1일, 1.5 패치) 이후 1.5.1 패치(10월 2~3일), 핫픽스 1.5.1.2(10월 5일), 1.5.2 패치(10월 8일)까지 반영",
+      "evidence": [
+        {
+          "url": "https://massivelyop.com/2026/10/01/last-epoch-brings-new-random-encounters-a-new-boss-fight-and-new-class-skills-in-todays-season-5-release/",
+          "quote": "Season 5: Rage of the Frostborn is officially live"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch",
+          "quote": "Patch 1.5.2 Notes by visiongl October 8, 2026 ... Hotfix 1.5.1.2 by visiongl October 5, 2026"
+        }
+      ]
+    },
+    {
+      "line": 22,
+      "group": "Korean naming",
+      "claim": "The Korean version of Last Epoch Tools labels Sorcerer as 소서러, Spellblade as 마검사, Sentinel as 파수병 and Paladin as 팔라딘.",
+      "quote": "라스트 에포크 툴즈 한국어판은 원소술사를 소서러, 주문검사를 마검사, 파수꾼을 파수병, 성기사를 팔라딘으로 적으니",
+      "kind": "name",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Last Epoch Tools 한국어 플래너 페이지는 접근이 막혀 있었고, 글쓴이가 참고한 reim.kr 가이드에서도 해당 클래스명(소서러·마검사·파수병·팔라딘)을 찾지 못했습니다. 이 사이트가 실제로 이 표기를 쓰는지 어느 쪽으로도 확인할 수 없었습니다.",
+      "fix": "",
+      "evidence": []
+    },
+    {
+      "line": 26,
+      "group": "Triple S-tier builds",
+      "claim": "Flay Mana Lich, Rip Blood Lich and Stygian Coal Lich are S tier in Maxroll's farming, bossing and endgame lists.",
+      "quote": "Flay Mana 리치 | 리치 (수행사제) | S | S | S",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 시즌 5 스피드 파밍·보스·엔드게임 티어 리스트(2026년 10월 9일 업데이트) 세 곳 모두 S 티어 첫 그룹에 Flay Mana, Rip Blood, Stygian Coal 리치가 들어 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "S Tier Builds ... Rip Blood Lich ... Flay Mana Lich ... Stygian Coal Lich"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "S Tier Builds - Tornado Shaman ... Flay Mana Lich - Stygian Coal Lich ... Rip Blood Lich"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "S Tier Builds ... Rip Blood Lich ... Flay Mana Lich ... Stygian Coal Lich"
+        }
+      ]
+    },
+    {
+      "line": 29,
+      "group": "Triple S-tier builds",
+      "claim": "Shield Throw Time Rot Void Knight and Erasing Strike Void Knight are S tier in all three Maxroll lists.",
+      "quote": "Shield Throw Time Rot 공허기사 | 공허기사 (파수꾼) | S | S | S",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "contradicted",
+      "severity": "medium",
+      "correct_value": "Shield Throw Time Rot 공허기사는 세 목록 모두 S 티어지만, Erasing Strike 공허기사는 세 목록 어디에서도 S 티어 최상위 그룹에 들지 못했습니다(파밍·엔드게임은 하위 그룹, 보스는 가장 아래 그룹).",
+      "explanation": "Maxroll 목록을 보면 세 곳 모두 S 티어인 공허기사 빌드는 Shield Throw Time Rot 하나뿐입니다. Erasing Strike는 S 티어 첫 그룹에 들어가 있지 않습니다.",
+      "fix": "공허기사 중에서는 Shield Throw Time Rot만 Maxroll 세 목록 모두에서 S 티어였어요.",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "Shield Throw Time Rot VK ... Stygian Coal Lich ... Flame Reave Spellblade / Lightning Blast Runemaster ... Erasing Strike Void Knight (second group)"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "Rive Void Knight Open Guide - Erasing Strike Void Knight Open Guide (lowest group)"
+        }
+      ]
+    },
+    {
+      "line": 31,
+      "group": "Triple S-tier builds",
+      "claim": "Ballista (ZHP) Falconer, Shadow Cascade Bladedancer, Static Orb Sorcerer and Flame Reave Spellblade are S tier in all three Maxroll lists.",
+      "quote": "Ballista (ZHP) 매사냥꾼 | 매사냥꾼 (도적) | S | S | S",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "contradicted",
+      "severity": "medium",
+      "correct_value": "네 빌드 모두 세 목록 전부에서 S 티어인 건 아닙니다. Ballista는 파밍에서만 S, Shadow Cascade는 엔드게임에서만 S, Static Orb는 파밍·엔드게임에서 S(보스 제외), Flame Reave는 보스·엔드게임에서 S(파밍 제외)입니다.",
+      "explanation": "Maxroll 시즌 5 목록을 보면 이 네 빌드는 최소 한 목록에서 S 티어 첫 그룹 밖에 있습니다. 그래서 '세 목록 모두 S'라는 주장은 틀렸습니다.",
+      "fix": "Ballista (ZHP) 매사냥꾼, Shadow Cascade 칼춤꾼, Static Orb 소서러, Flame Reave 주문검사는 일부 목록에서만 S 티어였고, 세 목록 모두 S는 아니었어요.",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "S Tier Builds - Blood Spectre Necromancer ... Shatter Strike Spellblade / Shadow Cascade BD ... Static Orb Sorcerer (next group)"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "Shadow Cascade BD - Bladestorm Bladedancer / Erasing Strike ... Flame Reave Spellblade (lower groups)"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "Lightning Blast Runemaster - Ballista Falconer (ZHP) (second group, not first S group)"
+        }
+      ]
+    },
+    {
+      "line": 36,
+      "group": "Triple S-tier builds",
+      "claim": "Primalist is the only base class with no build rated S in all three Maxroll Season 5 lists.",
+      "quote": "기본 직업 다섯 가지 중 원시술사만 이 목록에 없는 게 눈에 띄었어요",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "contradicted",
+      "severity": "medium",
+      "correct_value": "세 목록 모두 S 티어인 빌드는 Flay Mana·Rip Blood·Stygian Coal 리치(수행사제)와 Shield Throw Time Rot 공허기사(파수꾼)뿐입니다. 그래서 원시술사뿐 아니라 마법사와 도적도 이 목록에 없습니다.",
+      "explanation": "세 목록 모두 S 티어인 빌드는 수행사제와 파수꾼 계열에만 있습니다. 원시술사 외에 마법사와 도적도 해당 빌드가 없으므로 '원시술사만 없다'는 말은 틀렸습니다.",
+      "fix": "기본 직업 다섯 가지 중 수행사제와 파수꾼만 이 목록에 있고, 원시술사·마법사·도적은 없다는 게 눈에 띄었어요.",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "S Tier Builds - Tornado Shaman - Warpath Void Knight - Ballista Falconer (ZHP) - Flay Mana Lich"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "S Tier Builds - Blood Spectre Necromancer - Skeleton Necromancer - Rip Blood Lich - Flay Mana Lich"
+        }
+      ]
+    },
+    {
+      "line": 44,
+      "group": "Farming tier list",
+      "claim": "Maxroll's Season 5 farming tier list has 15 S-tier builds, while the bossing and endgame lists have 16 each.",
+      "quote": "S티어는 15개(보스·엔드게임은 각 16개)",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Maxroll 스피드 파밍 리스트(2026-10-09 갱신)에서는 S티어 빌드 15개가 확인되고, 엔드게임 리스트에서도 S티어 16개가 확인됩니다. 하지만 보스 리스트는 검색 결과에 A티어만 나와서 S티어가 16개인지 확인하지 못했습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "S Tier Builds - Tornado Shaman ... Flame Reave Spellblade (15 builds listed)"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "S Tier Builds - Shadow Cascade BD ... Skeleton Necromancer (16 builds listed)"
+        }
+      ]
+    },
+    {
+      "line": 48,
+      "group": "Farming tier list",
+      "claim": "Tornado Shaman and Warpath Void Knight are S in Maxroll's farming and endgame lists and A in bossing.",
+      "quote": "Tornado 주술사 | S | A | S",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "Tornado Shaman과 Warpath Void Knight는 파밍·엔드게임 리스트에서 S티어이고, 보스 리스트에서는 A티어입니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "A Tier Builds - Shuriken Marksman - Tornado Shaman ... Warpath Void Knight"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "S Tier Builds - Tornado Shaman - Warpath Void Knight"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "Tornado Shaman ... Warpath Void Knight (S Tier)"
+        }
+      ]
+    },
+    {
+      "line": 50,
+      "group": "Farming tier list",
+      "claim": "Harvest Flay Lich, Bladestorm Bladedancer, Shadow Rend Bladedancer and Shuriken Marksman are S in farming and A in bossing and endgame on Maxroll.",
+      "quote": "Harvest Flay 리치 | S | A | A",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "네 빌드 모두 파밍 리스트에서는 S티어이고, 보스와 엔드게임 리스트에서는 A티어로 확인됩니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "Bladestorm Bladedancer, Harvest Flay Lich, Shadow Rend Bladedancer (A Tier)"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "A Tier Builds - Fire Aura Spellblade - Bladestorm Bladedancer ... Shuriken Marksman - Shadow Rend Bladedancer"
+        }
+      ]
+    },
+    {
+      "line": 53,
+      "group": "Farming tier list",
+      "claim": "Shuriken Marksman is the only Marksman build with an S-tier rating on Maxroll's Season 5 lists.",
+      "quote": "명사수 빌드 중 유일한 S티어",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "S티어에 오른 명사수(Marksman) 빌드는 파밍 리스트의 Shuriken Marksman 하나뿐입니다. Ballista는 Falconer 마스터리 빌드라서 명사수에 포함되지 않습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "Ballista Falconer (ZHP) ... Shuriken Marksman"
+        }
+      ]
+    },
+    {
+      "line": 63,
+      "group": "Bossing tier list",
+      "claim": "Blood Spectre Necromancer, Skeleton Necromancer and Storm Crows Beastmaster are S in bossing and endgame and B in farming on Maxroll.",
+      "quote": "Blood Spectre 강령술사 | S | B | S",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "medium",
+      "correct_value": "",
+      "explanation": "Maxroll 시즌 5 보스 티어 리스트가 존재하고 Storm Crows 비스트마스터 등이 실려 있는 것은 확인됐지만, 가져온 페이지가 오래된 캐시 버전이라 빌드별 등급(S/B/S)은 확인하지 못했습니다. 파밍·엔드게임 티어 리스트도 마찬가지로 시즌 5 데이터를 볼 수 없었습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "Maxroll's Last Epoch Bossing Tier List ranks builds based on how long it takes to defeat Uber Aberroth in Season 5."
+        }
+      ]
+    },
+    {
+      "line": 66,
+      "group": "Bossing tier list",
+      "claim": "Shatter Strike Spellblade is S bossing/B farming/A endgame, and Profane Veil Warlock is S bossing/B farming/B endgame on Maxroll.",
+      "quote": "Profane Veil 워록 | S | B | B",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "medium",
+      "correct_value": "",
+      "explanation": "Maxroll 시즌 5 보스 티어 리스트에 Shatter Strike 스펠블레이드가 올라 있다는 것까지는 확인했지만, 구체적인 등급과 Profane Veil 워록의 등급은 확인할 수 없었습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "Shatter Strike Spellblade. Open Guide. Shadow Cascade BD. Open Guide. Storm Crows Beastmaster."
+        }
+      ]
+    },
+    {
+      "line": 68,
+      "group": "Bossing tier list",
+      "claim": "Lightning Blast Runemaster is S in bossing and endgame and A in farming; Rive Void Knight is S in bossing and A in farming and endgame on Maxroll.",
+      "quote": "Lightning Blast 룬 마스터 | S | A | S",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "medium",
+      "correct_value": "",
+      "explanation": "Maxroll 시즌 5 티어 리스트에서 Lightning Blast 룬 마스터와 Rive 보이드 나이트가 받은 등급을 확인할 수 없었습니다. 접근 가능했던 Maxroll 페이지는 모두 예전 시즌의 캐시 버전이었습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "Speed Farming Tier List Patch 1.1 Last Updated: October 5, 2024"
+        }
+      ]
+    },
+    {
+      "line": 75,
+      "group": "Beginner builds",
+      "claim": "Maxroll's S-tier Ballista Falconer build is a ZHP setup that does not invest in armor, resistances or health.",
+      "quote": "맥스롤 S티어 버전은 방어구·저항·체력에 투자하지 않는 ZHP 세팅이었어요",
+      "kind": "other",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "맥스롤 티어 리스트에 'Ballista Falconer (ZHP)'가 올라 있습니다. 맥스롤 가이드도 이 빌드를 전통적인 방어 스탯에 투자하지 않는 ZHP(Zero Hit Points) 세팅이라고 설명하고 있어 주장과 맞습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/build-guides/ballista-falconer-guide",
+          "quote": "This build is a ZHP (Zero Hit Points) setup, meaning it does not invest in traditional ..."
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "Ballista Falconer (ZHP). Open Guide."
+        }
+      ]
+    },
+    {
+      "line": 79,
+      "group": "Beginner builds",
+      "claim": "Warpath Void Knight requires no mandatory unique items in Season 5.",
+      "quote": "필수 고유템 없음",
+      "kind": "other",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "맥스롤 Warpath 공허기사 가이드에 따르면 이 빌드는 장비 없이도 돌아가고, 좋은 고유템은 대부분 보스에서 노려서 파밍할 수 있습니다. 필수 고유템이 없다는 주장과 맞습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+          "quote": "It's also SSF friendly with no gear required to run the build"
+        }
+      ]
+    },
+    {
+      "line": 84,
+      "group": "Beginner builds",
+      "claim": "The Timesaver Season 5 Warpath Void Knight guide says about 1,200 max mana is needed to sustain channeling (the table states 12 million, which conflicts).",
+      "quote": "Warpath 공허기사의 마나 기준 1,200은 타임세이버 시즌5 가이드에 나온 수치",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "contradicted",
+      "severity": "medium",
+      "correct_value": "타임세이버 시즌5 공허기사 가이드에는 1,200이라는 마나 기준이 없습니다. 최대 마나가 가장 중요한 스탯이고, 활성화된 Void Essence가 있으면 Void Well이 4초마다 최대 마나의 30%를 회복한다는 설명만 있습니다.",
+      "explanation": "인용된 타임세이버 가이드를 확인해 보니 1,200(또는 1,200만)이라는 마나 수치는 나오지 않습니다. 출처를 잘못 붙인 것이고, 표에 적힌 1,200만도 근거가 없습니다.",
+      "fix": "타임세이버 시즌5 가이드는 Warpath 공허기사의 마나 기준을 구체적인 숫자로 제시하지 않고, 최대 마나를 최우선 스탯으로 꼽으며 Void Well(활성 Void Essence가 있으면 4초마다 최대 마나 30% 회복)로 마나를 유지한다고 설명해요.",
+      "evidence": [
+        {
+          "url": "https://timesaver.gg/blog/last-epoch-void-knight-build-season-5",
+          "quote": "Maximum Mana is the most important stat — more mana means Void Well returns more mana per proc"
+        }
+      ]
+    },
+    {
+      "line": 81,
+      "group": "Beginner builds",
+      "claim": "According to starter guides, Flame Reave Spellblade needs no mandatory uniques and gains ward from fire damage.",
+      "quote": "스타터 가이드에 따르면 필수 고유템이 없고, 화염 피해로 와드(보호막)가 차올라 방어가 단단함",
+      "kind": "attribution",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "맥스롤 가이드는 이 빌드에 고유템이 필요 없다고 하고, afleurdenet 시즌5 스타터 가이드는 스펠블레이드 패시브가 화염 피해를 와드로 바꿔 준다고 설명합니다. 두 내용 모두 주장과 맞습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+          "quote": "While this setup doesn't require any Unique to function"
+        },
+        {
+          "url": "https://afleurdenet.com/last-epoch-season-5-starter-builds-tier-list-best-meta-builds-for-rage-of-the-frostborn/",
+          "quote": "the Spellblade passives turn your fire damage into big chunks of Ward with every hit"
+        }
+      ]
+    },
+    {
+      "line": 84,
+      "group": "Season 5 new skills",
+      "claim": "Dreamslash (Bladedancer) and Radiant Lance (Paladin) are new skills in Last Epoch Season 5.",
+      "quote": "시즌5 신규 스킬인 꿈 베기(Dreamslash) 검무가와 광휘의 기병창(Radiant Lance) 성기사",
+      "kind": "name",
+      "volatile": false,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "공식 시즌5(Rage of the Frostborn) 패치노트와 개발사 포럼 공지에서 성기사 신규 스킬은 광휘의 기병창(Radiant Lance), 검무가 신규 스킬은 꿈 베기(Dreamslash)라고 확인됩니다. 같은 시즌에 주술사 신규 스킬 Summon Tide Elemental도 함께 추가됐습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://lastepoch.com/1-5/patchnotes/",
+          "quote": "Season 5: Rage of the Frostborn - Patch Notes ## Bladedancer: Dreamslash - Unlock by spending 10 points in the Bladedancer passive tree."
+        },
+        {
+          "url": "https://forum.lastepoch.com/t/new-skills-coming-to-last-epoch-october-1/81764",
+          "quote": "These skills are Radiant Lance for Paladin, Summon Tide Elemental ..."
+        }
+      ]
+    },
+    {
+      "line": 84,
+      "group": "Season 5 new skills",
+      "claim": "Radiant Lance Paladin is rated A in all three Maxroll lists, and Dreamslash Bladedancer was not listed on Maxroll's build tier lists as of October 9.",
+      "quote": "광휘의 기병창 성기사는 맥스롤 기준 파밍·보스·엔드게임 모두 A",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "medium",
+      "correct_value": "맥스롤 세 티어리스트 모두 10월 9일 시즌5 1주차 업데이트에서 'Ignite Radiant Lance Paladin'이 추가된 것은 확인됩니다. 다만 각 리스트에서 몇 등급인지와 꿈 베기 빌드가 빠졌는지는 확인하지 못했습니다.",
+      "explanation": "맥스롤 파밍·보스·엔드게임 티어리스트 세 곳 모두 10월 9일 업데이트로 점화(Ignite) 광휘의 기병창 성기사를 추가했다는 점은 확인됩니다. 하지만 가져온 페이지가 옛 캐시본이라 실제 등급(A인지)은 확인하지 못했습니다. 꿈 베기 검무가가 목록에 없다는 부분도 직접 검증하지 못했습니다.",
+      "fix": "광휘의 기병창(점화) 성기사는 10월 9일 맥스롤 파밍·보스·엔드게임 티어리스트에 새로 올라갔다(등급은 각 리스트에서 직접 확인 권장).",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "Updated for Season 5, week 1. Added: Stygian Coal Lich, Ignite Radiant Lance Paladin, Swipe Beastmaster, Abyssal Echoes Void Knight."
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "Updated for Season 5, Week 1. Added: Stygian Coal Lich, Ignite Radiant Lance Paladin..."
+        }
+      ]
+    },
+    {
+      "line": 88,
+      "group": "Class S-tier counts",
+      "claim": "Across Maxroll's three Season 5 tier lists, Lich occupies 10 S-tier slots (4/3/3) and Void Knight 9 (3/3/3).",
+      "quote": "리치가 10칸, 공허기사가 9칸",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "10월 9일 갱신된 Maxroll 세 표의 S티어를 세어 보면 리치는 스피드 파밍 4, 보스 3, 엔드게임 3으로 10칸이고, 공허기사는 표마다 3칸씩 9칸입니다. 4/3/3이라는 분포도 맞습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "S Tier: Flay Mana Lich, Stygian Coal Lich, Harvest Flay Lich, Rip Blood Lich ... Warpath VK, Shield Throw Time Rot VK, Erasing Strike VK"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "S Tier: Rip Blood Lich, Flay Mana Lich, Stygian Coal Lich, Shield Throw Time Rot VK ... Rive Void Knight, Erasing Strike Void Knight"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "S Tier: Rip Blood Lich, Flay Mana Lich, Shield Throw Time Rot VK, Stygian Coal Lich ... Erasing Strike VK ... Warpath VK"
+        }
+      ]
+    },
+    {
+      "line": 94,
+      "group": "Class S-tier counts",
+      "claim": "S-tier slot counts: Bladedancer 5, Spellblade 4, Necromancer 4, Falconer 3, Sorcerer 3, Beastmaster 3, Shaman 2, Runemaster 2, Marksman 1, Warlock 1.",
+      "quote": "검무가 | 3 | 1 | 1 | 5",
+      "kind": "number",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "세 표의 S티어 목록(15·16·16칸)을 마스터리별로 집계한 결과 검무가 5칸(3/1/1), 주문검 4칸, 강령술사 4칸, 매사냥꾼·마법사·야수지배자 각 3칸, 주술사·룬마스터 각 2칸, 명사수·흑마법사 각 1칸으로 글과 일치합니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "Shadow Cascade BD, Bladestorm Bladedancer ... Shadow Rend Bladedancer, Flame Reave Spellblade"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "Blood Spectre Necromancer, Skeleton Necromancer ... Profane Veil Warlock, Ballista Falconer (ZHP)"
+        }
+      ]
+    },
+    {
+      "line": 106,
+      "group": "Class S-tier counts",
+      "claim": "Paladin, Forge Guard and Druid have no S-tier builds in any of Maxroll's three Season 5 lists.",
+      "quote": "성기사, 대장간지기, 드루이드는 세 표 어디에도 S티어 빌드가 없었습니다",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "세 표의 S티어 어디에도 성기사, 대장간지기, 드루이드 빌드는 없습니다. 이 세 마스터리의 빌드(Radiant Lance Paladin, Shatter Totem Werebear 등)는 A티어 이하에만 올라 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "A Tier Builds - Fire Aura Spellblade ... Radiant Lance Paladin ... Shatter Totem Werebear"
+        }
+      ]
+    },
+    {
+      "line": 106,
+      "group": "Class S-tier counts",
+      "claim": "Frostbite Swarmblade Druid is C tier in all three Maxroll lists while Shatter Totem Werebear is A in all three.",
+      "quote": "Frostbite Swarmblade는 세 표 모두 C지만 Shatter Totem Werebear는 세 표 모두 A예요",
+      "kind": "ranking",
+      "volatile": true,
+      "verdict": "unverifiable",
+      "severity": "low",
+      "correct_value": "Shatter Totem Werebear가 세 표 모두 A티어라는 점은 확인됩니다. Frostbite Swarmblade는 세 표 모두 하위 티어 목록에 있지만, 세 표 모두 C인지는 확인하지 못했습니다.",
+      "explanation": "Shatter Totem Werebear는 스피드 파밍, 보스, 엔드게임 표 모두 A티어 목록에 있어 이 부분은 맞습니다. Frostbite Swarmblade는 엔드게임 표에서 맨 마지막 구간(C로 추정)에 있지만, 스피드 파밍·보스 표에서 C티어인지 확인할 수 있는 자료는 찾지 못했습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "A Tier Builds ... Bear Beastmaster, Shatter Totem Werebear, Warpath Void Knight"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list",
+          "quote": "A Tier Builds ... Anurok Frogs Beastmaster, Shatter Totem Werebear"
+        },
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "Skeleton Mage Necromancer, Frostbite Swarmblade Druid, Shield Rush Forge Guard | Changelog"
+        }
+      ]
+    },
+    {
+      "line": 110,
+      "group": "Maxroll tier list criteria",
+      "claim": "Maxroll's bossing tier list notes that trading defense for damage can yield performance one tier higher.",
+      "quote": "맥스롤도 보스 티어표 설명에서 방어를 줄이고 피해를 올리면 한 단계 위 티어 성능이 나올 수 있다고 적어 두었어요",
+      "kind": "attribution",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "보스 티어표에 방어를 희생하고 피해를 올리면 한 티어 올라갈 수 있다는 문구가 지금도 그대로 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+          "quote": "If you sacrifice Defense for Damage, they might go up a Tier."
+        }
+      ]
+    },
+    {
+      "line": 126,
+      "group": "Maxroll tier list criteria",
+      "claim": "Maxroll's endgame tier list archives builds that fail to meet its own standards rather than listing them.",
+      "quote": "맥스롤 엔드게임 티어표는 자체 기준에 못 미치는 빌드를 목록에서 보관 처리하기 때문에",
+      "kind": "policy",
+      "volatile": true,
+      "verdict": "supported",
+      "severity": "low",
+      "correct_value": "",
+      "explanation": "엔드게임 티어표에 자체 기준을 더 이상 충족하지 못하는 빌드는 보관(archived) 처리된다고 적혀 있습니다.",
+      "fix": "",
+      "evidence": [
+        {
+          "url": "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+          "quote": "Once a build no longer meets our standards, it gets archived."
+        }
+      ]
+    }
+  ]
+}
