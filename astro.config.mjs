@@ -3,11 +3,24 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://gameworld7.com',
 	integrations: [mdx(), sitemap()],
+	markdown: {
+		rehypePlugins: [
+			[
+				rehypeExternalLinks,
+				{
+					target: '_blank',
+					rel: ['noopener', 'noreferrer'],
+					test: (el) => !String(el.properties?.href ?? '').includes('gameworld7.com'),
+				},
+			],
+		],
+	},
 	fonts: [
 		{
 			provider: fontProviders.local(),
