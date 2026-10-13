@@ -103,7 +103,7 @@ const faq = [
 				</ol>
 				<h2>자주 묻는 질문</h2>
 				{faq.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
-				<p>원하는 고유 아이템이 어느 보스에게서 나오는지는 <a href="/d4-boss-drops/">디아블로4 보스 드랍 테이블</a>에서 찾을 수 있어요.</p>
+				<p>원하는 고유 아이템이 어느 보스에게서 나오는지는 <a href="/d4-boss-drops/">디아블로4 보스 드랍 테이블</a>에서, 룬으로 만드는 아이템은 <a href="/d4-runewords/">룬워드 제작서</a>에서 찾을 수 있어요.</p>
 				<p class="dp-legal">게임월드7이 만든 팬 도구이며 Blizzard Entertainment와 관련이 없습니다. Diablo는 Blizzard Entertainment의 상표입니다. 스킬·아이템 이름은 게임의 공개 표기를 따랐습니다.</p>
 			</section>
 		</main>
@@ -267,8 +267,12 @@ const faq = [
 	const HOTKEYS = ['좌클릭', '우클릭', '1', '2', '3', '4'];
 	const SLOTS: [string, string][] = [['minor1', '부가 ①'], ['minor2', '부가 ②'], ['form', '형상'], ['major', '기술 변화형']];
 	const TYPE_KO: Record<string, string> = { active: '액티브', passive: '패시브', key_passive: '핵심 패시브', ultimate: '궁극기' };
-	let meta: Meta, cls: Cls | null = null, DROPS: Record<string, string[]> = {};
-	const dropHint = (name: string) => { const b = DROPS[name.trim()]; return b?.length ? `🎯 <a href="/d4-boss-drops/?item=${encodeURIComponent(name.trim())}">${b.map(esc).join(', ')}</a>에서 나와요` : ''; };
+	let meta: Meta, cls: Cls | null = null, DROPS: Record<string, string[]> = {}, RUNEWORDS: Record<string, string> = {};
+	const dropHint = (name: string) => {
+		const n = name.trim(), b = DROPS[n], rw = RUNEWORDS[n];
+		if (rw) return `🔮 룬워드 · <a href="/d4-runewords/?q=${encodeURIComponent(n)}">${esc(rw)}</a>`;
+		return b?.length ? `🎯 <a href="/d4-boss-drops/?item=${encodeURIComponent(n)}">${b.map(esc).join(', ')}</a>에서 나와요` : '';
+	};
 	const cache: Record<string, Cls> = {};
 	const blank = (c: string): State => ({ v: 1, c, t: '', s: {}, u: {}, b: ['', '', '', '', '', ''], m: [], g: {}, p: [], n: '' });
 	let st: State = blank('');
@@ -348,11 +352,12 @@ const faq = [
 		if (!cls) return;
 		const slots = [...meta.gear, ...cls.weapons];
 		$('gear').innerHTML = slots.map((sl) => { const [it, asp] = st.g[sl] || ['', '']; return `<div class="dp-g"><label>${esc(sl)}</label><input class="${it && isUniq(it) ? 'uniq' : ''}" data-g="${esc(sl)}" data-k="0" list="uniqList" maxlength="60" placeholder="아이템 이름" value="${esc(it)}" aria-label="${esc(sl)} 아이템"><small class="dp-drop" data-hint="${esc(sl)}">${it ? dropHint(it) : ''}</small><input data-g="${esc(sl)}" data-k="1" maxlength="80" placeholder="위상 · 핵심 옵션" value="${esc(asp)}" aria-label="${esc(sl)} 위상"></div>`; }).join('');
-		$('uniqList').innerHTML = [...cls.uniques, ...meta.generic_uniques].map((u) => `<option value="${esc(nm(u))}">${u.ko ? esc(u.en) : ''}</option>`).join('');
+		$('uniqList').innerHTML = [...cls.uniques, ...meta.generic_uniques].map((u) => `<option value="${esc(nm(u))}">${u.ko ? esc(u.en) : ''}</option>`).join('')
+			+ Object.entries(RUNEWORDS).filter(([k]) => /[가-힣]/.test(k)).map(([k, v]) => `<option value="${esc(k)}">룬워드 · ${esc(v)}</option>`).join('');
 		const boards = meta.paragon_boards || 5;
 		$('paragon').innerHTML = Array.from({ length: boards }, (_, i) => `<input data-p="${i}" maxlength="60" placeholder="${i === 0 ? '시작 판' : i + 1 + '번째 판'} · 문양" value="${esc(st.p[i] || '')}" aria-label="정복자 ${i + 1}번째 판">`).join('');
 	}
-	const isUniq = (name: string) => !!cls && [...cls.uniques, ...meta.generic_uniques].some((u) => nm(u) === name);
+	const isUniq = (name: string) => !!cls && ([...cls.uniques, ...meta.generic_uniques].some((u) => nm(u) === name) || !!RUNEWORDS[name.trim()]);
 
 	function renderAll() {
 		renderClasses(); renderTree(); renderSide(); renderGear();
@@ -474,6 +479,7 @@ const faq = [
 	(async () => {
 		meta = await (await fetch('/data/d4/meta.json')).json();
 		fetch('/data/d4/drops.json').then((r) => (r.ok ? r.json() : {})).then((d) => { DROPS = d; if (cls) renderGear(); }).catch(() => {});
+		fetch('/data/d4/runewords.json').then((r) => (r.ok ? r.json() : {})).then((d) => { RUNEWORDS = d; if (cls) renderGear(); }).catch(() => {});
 		renderSaved();
 		if (await fromHash()) return;
 		let d: State | null = null; try { d = JSON.parse(lsGet('draft') || 'null'); } catch {}

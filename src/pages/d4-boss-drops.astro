@@ -132,6 +132,7 @@ const faq = [
 			<section class="bd-doc">
 				{rules.length > 0 && (<><h2>알아 둘 규칙</h2><ul>{rules.map((r) => <li>{r}</li>)}</ul></>)}
 				<p>원하는 아이템을 찾았으면 <a href="/d4-build-planner/">디아블로4 빌드 플래너</a>에서 장비 칸에 넣고 빌드를 완성해 보세요.</p>
+				<p>룬으로 만드는 아이템은 <a href="/d4-runewords/">디아블로4 룬워드 제작서</a>에 정리했어요.</p>
 				<h2>자주 묻는 질문</h2>
 				{faq.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
 				<p class="bd-legal">게임월드7이 만든 팬 자료이며 Blizzard Entertainment와 관련이 없습니다. 아이템·보스 이름은 게임의 한국어 공식 표기를 따랐습니다. 시즌 {data.season} · {data.updated} 기준.</p>
