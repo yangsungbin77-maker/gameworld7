@@ -3,6 +3,9 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import data from '../data/le-blessings.json';
+import LeSprite from '../components/le/LeSprite.astro';
+import LeHero from '../components/le/LeHero.astro';
+const CAT_IC: Record<string, string> = { 공격: 'le-atk', 방어: 'le-def', 유틸: 'le-util', 하수인: 'le-minion', 파밍: 'le-farm' };
 
 type Bless = { id: string; en: string; ko: string | null; grand_ko: string | null; stat: string; stat_grand: string; cat: string; tl: string; builds: string[] };
 type TL = { id: string; en: string; ko: string | null; boss_en: string | null; boss_ko: string | null; level: number | null; blessings: Bless[] };
@@ -39,12 +42,15 @@ const faq = [
 	</head>
 	<body class="le-body">
 		<Header />
+		<LeSprite />
 		<main class="lb">
-			<section class="lb-hero">
-				<span class="lb-eyebrow">LAST EPOCH · 시즌 {data.season} · 모노리스 축복</span>
-				<h1>축복 정리</h1>
-				<p class="lb-lead">시간선(타임라인) {timelines.length}곳의 축복 {total}종과 빌드 {builds.length}개의 추천 축복. 빌드를 고르면 어느 보스에서 무엇을 골라야 하는지 바로 보여 드려요.</p>
-			</section>
+			<LeHero eyebrow={`LAST EPOCH · 시즌 ${data.season} · 모노리스 축복`} title="축복 정리" lead={`시간선(타임라인) ${timelines.length}곳의 축복 ${total}종과 빌드 ${builds.length}개의 추천 축복. 빌드를 고르면 어느 보스에서 무엇을 골라야 하는지 바로 보여 드려요.`} motif="bless">
+				<ul class="lb-keys">
+					<li><svg class="ic" aria-hidden="true"><use href="#le-boss" /></svg>시간선 보스를 잡고 3개 중 1개 고르기</li>
+					<li><svg class="ic" aria-hidden="true"><use href="#le-time" /></svg>같은 보스를 다시 잡으면 교체</li>
+					<li><svg class="ic" aria-hidden="true"><use href="#le-bless" /></svg>능력치 축복은 5곳, 레벨 100에서 상급</li>
+				</ul>
+			</LeHero>
 
 
 			<section class="lb-pick" aria-label="빌드별 추천 축복">
@@ -61,7 +67,8 @@ const faq = [
 							{b.picks.map((p) => {
 								const hit = p.ref ? blessIndex[p.ref] : null;
 								return (
-									<li>
+									<li class={`k-${hit?.cat || ''}`}>
+										<svg class="lb-slot-ic" aria-hidden="true"><use href={`#${CAT_IC[hit?.cat || ''] || 'le-bless'}`} /></svg>
 										<span class="lb-tl">{hit ? hit.tlName : '—'}</span>
 										<b>{p.ko || p.en}</b>
 										{hit && <span class="lb-stat">{p.grand ? hit.stat_grand || hit.stat : hit.stat}</span>}
@@ -76,8 +83,8 @@ const faq = [
 			</section>
 
 			{rules.length > 0 && (
-				<details class="lb-rules" open>
-					<summary><h2>축복 얻는 법 · 바꾸는 법</h2></summary>
+				<details class="lb-rules">
+					<summary><h2>축복 얻는 법 · 바꾸는 법 <small>자세히 펼치기 ▾</small></h2></summary>
 					<ul>{rules.map((r) => <li>{r}</li>)}</ul>
 				</details>
 			)}
@@ -86,7 +93,7 @@ const faq = [
 				<input id="q" type="search" placeholder="축복·능력치로 찾기 (예: 저항, 하수인, 치명타)" aria-label="축복이나 능력치로 찾기" />
 				<div class="lb-chips" id="cats" role="group" aria-label="종류 거르기">
 					<button type="button" class="on" data-cat="" aria-pressed="true">전체</button>
-					{cats.map((c) => <button type="button" data-cat={c} aria-pressed="false">{c}</button>)}
+					{cats.map((c) => <button type="button" data-cat={c} aria-pressed="false"><svg class="ic" aria-hidden="true"><use href={`#${CAT_IC[c] || 'le-bless'}`} /></svg>{c}</button>)}
 				</div>
 				<p class="lb-count" id="count" aria-live="polite"></p>
 			</div>
@@ -94,13 +101,13 @@ const faq = [
 			{timelines.map((t) => (
 				<section class="lb-tlsec" data-tl={t.id}>
 					<header>
-						<h2>{nm(t)}</h2>
+						<h2><svg class="ic" aria-hidden="true"><use href="#le-boss" /></svg>{nm(t)}</h2>
 						<p>{t.ko ? t.en : ''}{t.boss_ko || t.boss_en ? ` · 보스 ${t.boss_ko || t.boss_en}` : ''}{t.level ? ` · 레벨 ${t.level}` : ''}</p>
 					</header>
 					<ul class="lb-list">
 						{t.blessings.map((b) => (
 							<li data-b={b.id} data-cat={b.cat} data-n={[b.ko, b.grand_ko, b.en, b.stat, b.stat_grand, b.cat].join(' ').toLowerCase()} data-builds={b.builds.join(' ')}>
-								<div class="lb-name"><b>{nm(b)}</b><em class={`c-${b.cat}`}>{b.cat}</em></div>
+								<div class="lb-name"><svg class={`lb-ic c-${b.cat}`} aria-hidden="true"><use href={`#${CAT_IC[b.cat] || 'le-bless'}`} /></svg><b>{nm(b)}</b><em class={`c-${b.cat}`}>{b.cat}</em></div>
 								<p class="lb-v"><span>일반</span>{b.stat || '—'}</p>
 								{b.stat_grand && <p class="lb-v g"><span>상급</span>{b.stat_grand}</p>}
 								{b.builds.length > 0 && <p class="lb-used">추천 빌드 {b.builds.length} · {b.builds.slice(0, 4).map((id) => bname[id]).join(', ')}{b.builds.length > 4 ? ' …' : ''}</p>}
@@ -132,6 +139,23 @@ const faq = [
 	}
 	.lb { width: var(--maxw); max-width: calc(100% - 2rem); margin: 0 auto; padding: 1.5rem 0 3rem; }
 	.lb h1, .lb-tlsec h2, .lb-pick h2 { font-family: 'Gowun Batang', serif; }
+	.ic { width: 1.1em; height: 1.1em; flex: none; vertical-align: -0.18em; }
+	.lb-keys { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 6px; }
+	.lb-keys li { display: flex; gap: 8px; align-items: center; font-size: 0.9rem; color: var(--l-text); }
+	.lb-keys .ic { color: var(--l-amber-hi); width: 18px; height: 18px; }
+	@media (max-width: 640px) { .lb-keys { justify-items: center; } }
+	.lb-rules summary small { font-family: Pretendard, system-ui, sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--l-muted); margin-left: 8px; }
+	.lb-rec li { position: relative; padding-left: 58px !important; min-height: 64px; }
+	.lb-slot-ic { position: absolute; left: 12px; top: 12px; width: 36px; height: 36px; padding: 7px; border-radius: 12px; color: var(--l-amber-hi); background: radial-gradient(circle, rgba(233, 169, 75, 0.25), rgba(233, 169, 75, 0.05)); border: 1px solid rgba(233, 169, 75, 0.45); }
+	.lb-rec li.k-방어 .lb-slot-ic { color: #9fd0ff; border-color: rgba(111, 182, 255, 0.5); background: radial-gradient(circle, rgba(111, 182, 255, 0.22), rgba(111, 182, 255, 0.04)); }
+	.lb-rec li.k-공격 .lb-slot-ic { color: #ffb19c; border-color: rgba(255, 138, 107, 0.5); background: radial-gradient(circle, rgba(255, 138, 107, 0.22), rgba(255, 138, 107, 0.04)); }
+	.lb-chips button { display: inline-flex; gap: 5px; align-items: center; }
+	.lb-tlsec header h2 { display: flex; gap: 8px; align-items: center; }
+	.lb-tlsec header h2 .ic { color: var(--l-amber); width: 22px; height: 22px; }
+	.lb-ic { width: 20px; height: 20px; flex: none; color: var(--l-util); margin-right: 2px; }
+	.lb-ic.c-공격 { color: var(--l-atk); } .lb-ic.c-방어 { color: var(--l-def); } .lb-ic.c-파밍 { color: #d7c27a; } .lb-ic.c-하수인 { color: #c7a8ff; }
+	.lb-name { justify-content: flex-start !important; }
+	.lb-name em { margin-left: auto; }
 	.lb-hero { text-align: center; padding: 1.4rem 0 0.6rem; }
 	.lb-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; color: var(--l-teal); }
 	.lb-hero h1 { font-size: clamp(2rem, 6vw, 3.1rem); margin: 0.4rem 0; color: #fff3dc; text-shadow: 0 0 26px rgba(233, 169, 75, 0.35); }

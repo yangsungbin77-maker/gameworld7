@@ -1,0 +1,61 @@
+---
+// 라스트에폭 페이지 머리 그림: 시간의 균열(시계 고리 + 모래시계). 직접 그린 SVG, 무료·가벼움.
+interface Props { eyebrow: string; title: string; lead: string; motif?: 'time' | 'bless' | 'monolith' | 'affix' }
+const { eyebrow, title, lead, motif = 'time' } = Astro.props;
+const ticks = Array.from({ length: 60 }, (_, i) => i);
+const glyph = { time: 'le-time', bless: 'le-bless', monolith: 'le-time', affix: 'le-util' }[motif];
+---
+<section class="lh">
+	<div class="lh-art" aria-hidden="true">
+		<svg viewBox="0 0 320 320" class="lh-svg">
+			<defs>
+				<radialGradient id="lhGlow" cx="50%" cy="50%" r="50%">
+					<stop offset="0%" stop-color="#ffc874" stop-opacity="0.55" />
+					<stop offset="45%" stop-color="#e9a94b" stop-opacity="0.18" />
+					<stop offset="100%" stop-color="#0a0e1a" stop-opacity="0" />
+				</radialGradient>
+				<linearGradient id="lhRing" x1="0" y1="0" x2="1" y2="1">
+					<stop offset="0%" stop-color="#5ec8c2" />
+					<stop offset="100%" stop-color="#e9a94b" />
+				</linearGradient>
+			</defs>
+			<circle cx="160" cy="160" r="150" fill="url(#lhGlow)" />
+			<g class="lh-ring lh-r1">
+				<circle cx="160" cy="160" r="128" fill="none" stroke="url(#lhRing)" stroke-width="1.2" stroke-dasharray="2 6" opacity="0.7" />
+				{ticks.map((i) => (<line x1="160" y1={i % 5 === 0 ? 40 : 34} x2="160" y2="30" stroke="#e9a94b" stroke-width={i % 5 === 0 ? 2 : 1} opacity={i % 5 === 0 ? 0.9 : 0.4} transform={`rotate(${i * 6} 160 160)`} />))}
+			</g>
+			<g class="lh-ring lh-r2">
+				<circle cx="160" cy="160" r="98" fill="none" stroke="#5ec8c2" stroke-width="1" opacity="0.45" />
+				{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (<circle cx="160" cy="62" r={i === 0 ? 5 : 3} fill={i === 0 ? '#ffc874' : '#5ec8c2'} opacity={i === 0 ? 1 : 0.6} transform={`rotate(${i * 36} 160 160)`} />))}
+			</g>
+			<circle cx="160" cy="160" r="66" fill="#0d1424" stroke="#e9a94b" stroke-width="1.5" />
+			<path d="M160 104 L174 156 L160 216 L146 156 Z" fill="#e9a94b" opacity="0.14" />
+			<g transform="translate(124 124) scale(3)" color="#ffc874"><use href={`#${glyph}`} width="24" height="24" /></g>
+		</svg>
+	</div>
+	<div class="lh-text">
+		<span class="lh-eyebrow">{eyebrow}</span>
+		<h1>{title}</h1>
+		<p>{lead}</p>
+		<slot />
+	</div>
+</section>
+
+<style is:global>
+	.lh { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; padding: 1.4rem 0 0.6rem; }
+	.lh-art { width: 220px; aspect-ratio: 1; }
+	.lh-svg { width: 100%; height: 100%; overflow: visible; }
+	.lh-ring { transform-origin: 160px 160px; }
+	.lh-r1 { animation: lhSpin 120s linear infinite; }
+	.lh-r2 { animation: lhSpin 60s linear infinite reverse; }
+	@keyframes lhSpin { to { transform: rotate(360deg); } }
+	@media (prefers-reduced-motion: reduce) { .lh-r1, .lh-r2 { animation: none; } }
+	.lh-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; color: var(--l-teal, #5ec8c2); }
+	.lh h1 { font-family: 'Gowun Batang', serif; font-size: clamp(2rem, 5.5vw, 3.1rem); margin: 0.3rem 0 0.4rem; color: #fff3dc; text-shadow: 0 0 26px rgba(233, 169, 75, 0.35); line-height: 1.15; }
+	.lh p { color: var(--l-muted, #93a0bb); margin: 0; line-height: 1.7; max-width: 34em; }
+	@media (max-width: 640px) {
+		.lh { grid-template-columns: 1fr; text-align: center; gap: 6px; padding-top: 0.6rem; }
+		.lh-art { width: 150px; margin: 0 auto; }
+		.lh p { margin: 0 auto; }
+	}
+</style>

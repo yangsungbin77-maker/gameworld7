@@ -4,6 +4,16 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import data from '../data/le-builds.json';
 import bless from '../data/le-blessings.json';
+import LeSprite from '../components/le/LeSprite.astro';
+import LeHero from '../components/le/LeHero.astro';
+const CAT_IC: Record<string, string> = { 공격: 'le-atk', 방어: 'le-def', 유틸: 'le-util' };
+// 단계별 공격·방어·유틸 비중(1순위 3점, 2순위 2점, 3순위 1점)
+function balance(st: { affixes: { cat: string; prio: number }[] }): [string, number][] {
+	const w: Record<string, number> = { 공격: 0, 방어: 0, 유틸: 0 };
+	st.affixes.forEach((a) => (w[a.cat] = (w[a.cat] || 0) + (4 - a.prio)));
+	const tot = Object.values(w).reduce((x, y) => x + y, 0) || 1;
+	return Object.entries(w).filter(([, v]) => v).map(([k, v]) => [k, Math.round((v / tot) * 100)]);
+}
 const BLESS = Object.fromEntries((bless.builds as { id: string; picks: { ko: string | null; en: string }[] }[]).map((b) => [b.id, b.picks]));
 
 type Affix = { en: string; ko: string | null; cat: string; prio: number; slots: string[] };
@@ -42,18 +52,15 @@ const faq = [
 	</head>
 	<body class="le-body">
 		<Header />
+		<LeSprite />
 		<main class="le">
-			<section class="le-hero">
-				<span class="le-eyebrow">LAST EPOCH · 시즌 {data.season} · 옵션 우선순위</span>
-				<h1>빌드 옵션 찾기</h1>
-				<p class="le-lead">직업 → 마스터리 → 빌드 → 레벨 단계를 고르면, 장비에서 어떤 옵션부터 챙겨야 하는지 순서대로 보여 드려요.</p>
-			</section>
+			<LeHero eyebrow={`LAST EPOCH · 시즌 ${data.season} · 옵션 우선순위`} title="빌드 옵션 찾기" lead="직업 → 마스터리 → 빌드 → 레벨 단계를 고르면, 장비에서 어떤 옵션부터 챙겨야 하는지 순서대로 보여 드려요." motif="affix" />
 
 			<section class="le-pick" aria-label="빌드 고르기">
 				<div class="le-step">
 					<span class="le-n">1</span><h2>기본 직업</h2>
 					<div class="le-row" id="cls" role="group" aria-label="기본 직업">
-						{classes.map((c) => <button type="button" data-cls={c.id} aria-pressed={c.id === first.cls}>{c.ko}</button>)}
+						{classes.map((c) => <button type="button" class="le-clsbtn" data-cls={c.id} aria-pressed={c.id === first.cls}><svg class="ic" aria-hidden="true"><use href={`#le-${c.id}`} /></svg>{c.ko}</button>)}
 					</div>
 				</div>
 				<div class="le-step">
@@ -87,10 +94,12 @@ const faq = [
 			{builds.map((b) => (
 				<article class="le-card" id={`b-${b.id}`} data-card={b.id} hidden={b.id !== first.id}>
 					<header class="le-card-head">
+						<svg class="le-emblem" aria-hidden="true"><use href={`#le-${b.cls}`} /></svg>
 						<div>
 							<p class="le-path">{classes.find((c) => c.id === b.cls)?.ko} › {mk[b.mastery]}</p>
 							<h2>{nm(b)}{b.low && <span class="le-low">검증 중</span>}</h2>
-							<p class="le-sub">{b.skills.map((s) => (s.ko ? `${s.ko}(${s.en})` : s.en)).join(' · ')}{b.damage && ` — ${b.damage}`}</p>
+							<div class="le-skills">{b.skills.slice(0, 6).map((s) => <span title={s.en}>{s.ko || s.en}</span>)}</div>
+							{b.damage && <details class="le-desc"><summary>이 빌드는 어떻게 싸우나</summary><p>{b.damage}</p></details>}
 						</div>
 						{b.tier && (
 							<dl class="le-tiers" aria-label="맥스롤 시즌5 티어">
@@ -107,6 +116,15 @@ const faq = [
 							<section class="le-stage" data-stage={sid} hidden={sid !== 'endgame'}>
 								{st ? (
 									<>
+										{(() => {
+											const bal = balance(st);
+											return (
+												<div class="le-bal" aria-label="옵션 비중">
+													<div class="le-bal-bar">{bal.map(([k, v]) => <i class={`b-${k}`} style={`width:${v}%`} title={`${k} ${v}%`}></i>)}</div>
+													<div class="le-bal-key">{bal.map(([k, v]) => <span class={`k-${k}`}><svg class="ic" aria-hidden="true"><use href={`#${CAT_IC[k]}`} /></svg>{k} {v}%</span>)}</div>
+												</div>
+											);
+										})()}
 										{[1, 2, 3].map((p) => {
 											const list = st.affixes.filter((a) => a.prio === p);
 											return list.length > 0 && (
@@ -115,6 +133,7 @@ const faq = [
 													<ul>
 														{list.map((a) => (
 															<li class={`c-${a.cat}`}>
+																<svg class="ic" aria-hidden="true"><use href={`#${CAT_IC[a.cat] || 'le-util'}`} /></svg>
 																<b>{nm(a)}</b>
 																{a.ko && <small>{a.en}</small>}
 																<em>{a.cat}{a.slots.length ? ` · ${a.slots.join(', ')}` : ''}</em>
@@ -173,6 +192,27 @@ const faq = [
 	}
 	.le { width: var(--maxw); max-width: calc(100% - 2rem); margin: 0 auto; padding: 1.5rem 0 3rem; }
 	.le h1, .le-card h2 { font-family: 'Gowun Batang', serif; }
+	.ic { width: 1.1em; height: 1.1em; flex: none; vertical-align: -0.18em; }
+	.le-clsbtn { align-items: center !important; }
+	.le-clsbtn .ic { width: 18px; height: 18px; color: var(--l-teal); }
+	.le-clsbtn[aria-pressed='true'] .ic { color: var(--l-amber-hi); }
+	.le-emblem { width: 56px; height: 56px; flex: none; color: var(--l-amber-hi); background: radial-gradient(circle, rgba(233, 169, 75, 0.22), transparent 70%); border: 1px solid rgba(233, 169, 75, 0.4); border-radius: 16px; padding: 10px; }
+	.le-card-head > div:nth-child(2) { flex: 1; min-width: 0; }
+	.le-skills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+	.le-skills span { font-size: 0.78rem; padding: 3px 9px; border-radius: 999px; background: rgba(94, 200, 194, 0.1); border: 1px solid rgba(94, 200, 194, 0.3); color: #bfe9e6; }
+	.le-desc { margin-top: 8px; font-size: 0.84rem; }
+	.le-desc summary { cursor: pointer; color: var(--l-teal); font-size: 0.8rem; }
+	.le-desc p { color: var(--l-muted); line-height: 1.6; margin: 6px 0 0; }
+	.le-bal { margin: 0 0 14px; }
+	.le-bal-bar { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: var(--l-panel-2); }
+	.le-bal-bar i { display: block; height: 100%; }
+	.b-공격 { background: var(--l-atk); } .b-방어 { background: var(--l-def); } .b-유틸 { background: var(--l-util); }
+	.le-bal-key { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; font-size: 0.78rem; color: var(--l-muted); }
+	.le-bal-key span { display: inline-flex; gap: 4px; align-items: center; }
+	.k-공격 .ic { color: var(--l-atk); } .k-방어 .ic { color: var(--l-def); } .k-유틸 .ic { color: var(--l-util); }
+	.le-prio li { display: grid; grid-template-columns: auto 1fr; column-gap: 9px; align-items: start; }
+	.le-prio li > .ic { grid-row: span 3; width: 22px; height: 22px; margin-top: 1px; color: var(--l-util); }
+	.le-prio li.c-공격 > .ic { color: var(--l-atk); } .le-prio li.c-방어 > .ic { color: var(--l-def); }
 	.le-hero { text-align: center; padding: 1.4rem 0 0.6rem; }
 	.le-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; color: var(--l-teal); }
 	.le-hero h1 { font-size: clamp(2rem, 6vw, 3.1rem); margin: 0.4rem 0; color: #fff3dc; text-shadow: 0 0 26px rgba(233, 169, 75, 0.35); }
@@ -203,7 +243,7 @@ const faq = [
 	.le-sub { margin: 4px 0 0; font-size: 0.84rem; color: var(--l-muted); }
 	.le-tiers { display: flex; gap: 6px; margin: 0; }
 	.le-tiers div { text-align: center; background: var(--l-panel-2); border-radius: 10px; padding: 6px 10px; min-width: 3.2em; white-space: nowrap; }
-	.le-card-head > div:first-child { min-width: 0; flex: 1; }
+	.le-card-head > div:first-of-type { min-width: 0; flex: 1; }
 	.le-tiers dt { font-size: 0.66rem; color: var(--l-muted); }
 	.le-tiers dd { margin: 0; font-weight: 900; font-size: 1.15rem; font-family: ui-monospace, Consolas, monospace; }
 	.t-S { color: var(--l-amber-hi); } .t-A { color: var(--l-teal); } .t-B { color: #9fb2d8; } .t-C { color: #7d879c; }
