@@ -1,0 +1,226 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import data from '../data/le-blessings.json';
+
+type Bless = { id: string; en: string; ko: string | null; grand_ko: string | null; stat: string; stat_grand: string; cat: string; tl: string; builds: string[] };
+type TL = { id: string; en: string; ko: string | null; boss_en: string | null; boss_ko: string | null; level: number | null; blessings: Bless[] };
+type Pick = { ref: string | null; en: string; ko: string | null; grand: boolean; note: string | null };
+type B = { id: string; en: string; ko: string | null; cls: string; mastery: string; picks: Pick[] };
+const timelines = data.timelines as TL[];
+const builds = (data.builds as B[]).filter((b) => b.picks.length);
+const rules = data.rules as string[];
+const MAS: Record<string, string> = { beastmaster: '야수 조련사', shaman: '주술사', druid: '드루이드', sorcerer: '원소술사', spellblade: '주문검사', runemaster: '룬 마스터', voidknight: '공허기사', forgeguard: '대장간지기', paladin: '성기사', necromancer: '강령술사', lich: '리치', warlock: '워록', bladedancer: '검무가', marksman: '명사수', falconer: '매사냥꾼' };
+const nm = (x: { ko: string | null; en: string }) => x.ko || x.en;
+const bname = Object.fromEntries((data.builds as B[]).map((b) => [b.id, nm(b)]));
+const total = timelines.reduce((n, t) => n + t.blessings.length, 0);
+const cats = [...new Set(timelines.flatMap((t) => t.blessings.map((b) => b.cat)))];
+const byMastery = Object.entries(MAS).map(([m, ko]) => [ko, builds.filter((b) => b.mastery === m)] as const).filter(([, l]) => l.length);
+const blessIndex = Object.fromEntries(timelines.flatMap((t) => t.blessings.map((b) => [b.id, { ...b, tlName: nm(t) }])));
+
+const title = `라스트에폭 축복 정리 — 시즌${data.season} 타임라인별 축복 종류·추천·바꾸는 법 | 게임월드7`;
+const description = `라스트에폭 시즌 ${data.season} 모노리스 타임라인 ${timelines.length}곳의 축복 ${total}종을 한국어로 정리했습니다. 일반·상급 축복 수치, 얻는 법과 교체(바꾸는 법), 빌드 ${builds.length}개의 추천 축복을 한 번에 확인하세요.`;
+const faq = [
+	{ q: '축복은 어떻게 얻나요?', a: rules[0] || '모노리스에서 타임라인의 메아리 보스를 잡으면 축복 후보 중 하나를 고릅니다.' },
+	{ q: '축복을 바꾸려면 어떻게 하나요?', a: rules.find((r) => /바꾸|교체|변경/.test(r)) || '같은 타임라인의 보스를 다시 잡고 새 축복을 고르면 그 타임라인 칸의 축복이 바뀝니다.' },
+	{ q: '내 빌드에는 어떤 축복이 좋아요?', a: '위 "빌드별 추천 축복"에서 빌드를 고르면, 공략의 장비 세팅에 들어간 축복을 타임라인별로 보여 주고 아래 전체 목록에서도 표시해 줍니다.' },
+];
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={title} description={description} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap" rel="stylesheet" />
+		<script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })} />
+	</head>
+	<body class="le-body">
+		<Header />
+		<main class="lb">
+			<section class="lb-hero">
+				<span class="lb-eyebrow">LAST EPOCH · 시즌 {data.season} · 모노리스 축복</span>
+				<h1>축복 정리</h1>
+				<p class="lb-lead">시간선(타임라인) {timelines.length}곳의 축복 {total}종과 빌드 {builds.length}개의 추천 축복. 빌드를 고르면 어느 보스에서 무엇을 골라야 하는지 바로 보여 드려요.</p>
+			</section>
+
+
+			<section class="lb-pick" aria-label="빌드별 추천 축복">
+				<h2>빌드별 추천 축복</h2>
+				<label class="lb-select"><span>빌드 고르기</span>
+					<select id="build">
+						<option value="">— 빌드를 고르세요 —</option>
+						{byMastery.map(([mko, list]) => <optgroup label={mko}>{list.map((b) => <option value={b.id}>{nm(b)}</option>)}</optgroup>)}
+					</select>
+				</label>
+				{builds.map((b) => (
+					<div class="lb-rec" data-rec={b.id} hidden>
+						<ol>
+							{b.picks.map((p) => {
+								const hit = p.ref ? blessIndex[p.ref] : null;
+								return (
+									<li>
+										<span class="lb-tl">{hit ? hit.tlName : '—'}</span>
+										<b>{p.ko || p.en}</b>
+										{hit && <span class="lb-stat">{p.grand ? hit.stat_grand || hit.stat : hit.stat}</span>}
+										{p.note && <small>💡 {p.note}</small>}
+									</li>
+								);
+							})}
+						</ol>
+						<p class="lb-more">이 빌드의 장비 옵션 우선순위는 <a href={`/last-epoch-build-affixes/?build=${b.id}&stage=endgame`}>빌드별 중요 옵션</a>에서 볼 수 있어요.</p>
+					</div>
+				))}
+			</section>
+
+			{rules.length > 0 && (
+				<details class="lb-rules" open>
+					<summary><h2>축복 얻는 법 · 바꾸는 법</h2></summary>
+					<ul>{rules.map((r) => <li>{r}</li>)}</ul>
+				</details>
+			)}
+
+			<div class="lb-tools" role="search">
+				<input id="q" type="search" placeholder="축복·능력치로 찾기 (예: 저항, 하수인, 치명타)" aria-label="축복이나 능력치로 찾기" />
+				<div class="lb-chips" id="cats" role="group" aria-label="종류 거르기">
+					<button type="button" class="on" data-cat="" aria-pressed="true">전체</button>
+					{cats.map((c) => <button type="button" data-cat={c} aria-pressed="false">{c}</button>)}
+				</div>
+				<p class="lb-count" id="count" aria-live="polite"></p>
+			</div>
+
+			{timelines.map((t) => (
+				<section class="lb-tlsec" data-tl={t.id}>
+					<header>
+						<h2>{nm(t)}</h2>
+						<p>{t.ko ? t.en : ''}{t.boss_ko || t.boss_en ? ` · 보스 ${t.boss_ko || t.boss_en}` : ''}{t.level ? ` · 레벨 ${t.level}` : ''}</p>
+					</header>
+					<ul class="lb-list">
+						{t.blessings.map((b) => (
+							<li data-b={b.id} data-cat={b.cat} data-n={[b.ko, b.grand_ko, b.en, b.stat, b.stat_grand, b.cat].join(' ').toLowerCase()} data-builds={b.builds.join(' ')}>
+								<div class="lb-name"><b>{nm(b)}</b><em class={`c-${b.cat}`}>{b.cat}</em></div>
+								<p class="lb-v"><span>일반</span>{b.stat || '—'}</p>
+								{b.stat_grand && <p class="lb-v g"><span>상급</span>{b.stat_grand}</p>}
+								{b.builds.length > 0 && <p class="lb-used">추천 빌드 {b.builds.length} · {b.builds.slice(0, 4).map((id) => bname[id]).join(', ')}{b.builds.length > 4 ? ' …' : ''}</p>}
+							</li>
+						))}
+					</ul>
+				</section>
+			))}
+			<p class="lb-none" id="none" hidden>조건에 맞는 축복이 없어요.</p>
+
+			<section class="lb-doc">
+				<p>빌드 순위는 <a href="/last-epoch-season5-build-tier/">시즌5 빌드 추천 티어</a>, 장비 옵션은 <a href="/last-epoch-build-affixes/">빌드별 중요 옵션</a>, 보스 아이템은 <a href="/last-epoch-boss-drops/">보스 드랍템 총정리</a>에 있어요.</p>
+				<h2>자주 묻는 질문</h2>
+				{faq.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+				<p class="lb-legal">게임월드7이 만든 팬 자료이며 Eleventh Hour Games와 관련이 없습니다. 축복 이름과 수치는 라스트 에포크 툴즈 한국어(게임 공식 번역) 표기를 따랐고, 추천 축복은 맥스롤 시즌 {data.season} 빌드 가이드의 장비 세팅 기준입니다. 패치 {data.patch} · {data.updated} 기준.</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	.le-body {
+		--l-bg: #0a0e1a; --l-panel: #111829; --l-panel-2: #172036; --l-line: #26324d;
+		--l-amber: #e9a94b; --l-amber-hi: #ffc874; --l-teal: #5ec8c2; --l-text: #e6e9f2; --l-muted: #93a0bb;
+		--l-atk: #ff8a6b; --l-def: #6fb6ff; --l-util: #b8a1ff;
+		background: radial-gradient(900px 420px at 85% -80px, rgba(94, 200, 194, 0.16), transparent 70%), radial-gradient(900px 420px at 10% -120px, rgba(233, 169, 75, 0.14), transparent 70%), var(--l-bg);
+		color: var(--l-text);
+	}
+	.lb { width: var(--maxw); max-width: calc(100% - 2rem); margin: 0 auto; padding: 1.5rem 0 3rem; }
+	.lb h1, .lb-tlsec h2, .lb-pick h2 { font-family: 'Gowun Batang', serif; }
+	.lb-hero { text-align: center; padding: 1.4rem 0 0.6rem; }
+	.lb-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; color: var(--l-teal); }
+	.lb-hero h1 { font-size: clamp(2rem, 6vw, 3.1rem); margin: 0.4rem 0; color: #fff3dc; text-shadow: 0 0 26px rgba(233, 169, 75, 0.35); }
+	.lb-lead { color: var(--l-muted); max-width: 36em; margin: 0 auto; line-height: 1.7; }
+
+	.lb-rules, .lb-pick { background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 18px; padding: 16px 18px; margin-top: 16px; }
+	.lb-rules summary { cursor: pointer; list-style: none; }
+	.lb-rules summary::-webkit-details-marker { display: none; }
+	.lb-rules h2, .lb-pick h2 { font-size: 1.2rem; color: #fff3dc; margin: 0; }
+	.lb-rules ul { margin: 10px 0 0; padding-left: 1.2em; line-height: 1.75; color: var(--l-text); font-size: 0.93rem; }
+	.lb-select { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; font-size: 0.84rem; color: var(--l-muted); }
+	.lb-select select { background: var(--l-panel-2); color: var(--l-text); border: 1px solid var(--l-amber); border-radius: 12px; padding: 12px; font: inherit; font-size: 1rem; }
+	.lb-rec[hidden] { display: none; }
+	.lb-rec ol { list-style: none; padding: 0; margin: 14px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px; counter-reset: s; }
+	.lb-rec li { background: var(--l-panel-2); border-radius: 12px; padding: 12px; border: 1px solid rgba(233, 169, 75, 0.35); }
+	.lb-tl { display: block; font-size: 0.72rem; color: var(--l-teal); }
+	.lb-rec li b { display: block; font-size: 1.02rem; color: var(--l-amber-hi); margin: 2px 0 4px; }
+	.lb-stat { display: block; font-size: 0.84rem; color: var(--l-text); line-height: 1.5; }
+	.lb-rec li small { display: block; font-size: 0.76rem; color: var(--l-muted); margin-top: 6px; }
+	.lb-more { font-size: 0.84rem; color: var(--l-muted); margin: 10px 0 0; }
+	.lb-more a, .lb-doc a { color: var(--l-amber-hi); }
+
+	.lb-tools { position: sticky; top: 64px; z-index: 20; background: rgba(10, 14, 26, 0.92); backdrop-filter: blur(8px); padding: 12px 0 8px; margin-top: 18px; border-bottom: 1px solid var(--l-line); }
+	.lb-tools input { width: 100%; background: var(--l-panel); border: 1px solid var(--l-line); color: var(--l-text); border-radius: 12px; padding: 12px 14px; font: inherit; font-size: 1rem; }
+	.lb-chips { display: flex; gap: 6px; margin-top: 8px; overflow-x: auto; }
+	.lb-chips button { flex: none; font: inherit; font-size: 0.84rem; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--l-line); background: var(--l-panel); color: var(--l-muted); cursor: pointer; }
+	.lb-chips button.on { background: var(--l-amber); color: #1a1206; border-color: var(--l-amber); font-weight: 800; }
+	.lb-chips button:focus-visible, .lb-tools input:focus-visible, .lb-select select:focus-visible { outline: 2px solid var(--l-teal); outline-offset: 2px; }
+	.lb-count { font-size: 0.8rem; color: var(--l-muted); margin: 6px 0 0; min-height: 1.2em; }
+
+	.lb-tlsec { margin-top: 22px; }
+	.lb-tlsec[hidden] { display: none; }
+	.lb-tlsec header h2 { margin: 0; font-size: 1.3rem; color: #fff3dc; }
+	.lb-tlsec header p { margin: 2px 0 10px; font-size: 0.8rem; color: var(--l-muted); }
+	.lb-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px; }
+	.lb-list li { background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 12px; padding: 12px; }
+	.lb-list li[hidden] { display: none; }
+	.lb-list li.rec { border-color: var(--l-amber); box-shadow: 0 0 0 1px var(--l-amber) inset, 0 6px 20px rgba(233, 169, 75, 0.12); }
+	.lb-name { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+	.lb-name b { font-size: 1rem; }
+	.lb-name em { font-style: normal; font-size: 0.7rem; padding: 1px 7px; border-radius: 999px; background: var(--l-panel-2); color: var(--l-util); flex: none; }
+	.lb-name em.c-공격 { color: var(--l-atk); } .lb-name em.c-방어 { color: var(--l-def); }
+	.lb-v { margin: 6px 0 0; font-size: 0.86rem; line-height: 1.5; color: var(--l-text); }
+	.lb-v span { font-size: 0.68rem; color: var(--l-muted); margin-right: 6px; }
+	.lb-v.g { color: var(--l-amber-hi); }
+	.lb-v.g span { color: var(--l-amber); }
+	.lb-used { margin: 8px 0 0; font-size: 0.74rem; color: var(--l-teal); }
+	.lb-none { color: var(--l-muted); text-align: center; padding: 20px; }
+
+	.lb-doc { margin-top: 36px; border-top: 1px solid var(--l-line); padding-top: 20px; line-height: 1.75; }
+	.lb-doc h2 { font-size: 1.25rem; color: #fff3dc; margin: 0 0 6px; }
+	.lb-doc details { border-bottom: 1px solid var(--l-line); padding: 8px 0; }
+	.lb-doc summary { cursor: pointer; font-weight: 700; }
+	.lb-doc p { color: var(--l-muted); }
+	.lb-legal { font-size: 0.78rem; margin-top: 18px; }
+	@media (max-width: 420px) { .lb-list, .lb-rec ol { grid-template-columns: 1fr; } .lb-tools { top: 56px; } }
+</style>
+
+<script>
+	const q = document.getElementById('q') as HTMLInputElement;
+	const sel = document.getElementById('build') as HTMLSelectElement;
+	let cat = '';
+	function apply() {
+		const t = q.value.trim().toLowerCase(), b = sel.value;
+		let shown = 0;
+		document.querySelectorAll<HTMLElement>('[data-tl]').forEach((sec) => {
+			let n = 0;
+			sec.querySelectorAll<HTMLElement>('li[data-b]').forEach((li) => {
+				const ok = (!t || li.dataset.n!.includes(t)) && (!cat || li.dataset.cat === cat);
+				li.hidden = !ok; if (ok) n++;
+				li.classList.toggle('rec', !!b && li.dataset.builds!.split(' ').includes(b));
+			});
+			sec.hidden = n === 0; shown += n;
+		});
+		document.querySelectorAll<HTMLElement>('[data-rec]').forEach((r) => (r.hidden = r.dataset.rec !== b));
+		document.getElementById('none')!.hidden = shown > 0;
+		document.getElementById('count')!.textContent = t || cat ? `축복 ${shown}개` : '';
+		const u = new URL(location.href); b ? u.searchParams.set('build', b) : u.searchParams.delete('build'); history.replaceState(null, '', u);
+		try { localStorage.setItem('gw7:le:build', b); } catch {}
+	}
+	q.addEventListener('input', apply);
+	sel.addEventListener('change', apply);
+	document.getElementById('cats')!.addEventListener('click', (e) => {
+		const btn = (e.target as HTMLElement).closest('button'); if (!btn) return;
+		cat = btn.dataset.cat || '';
+		document.querySelectorAll('#cats button').forEach((x) => { x.classList.toggle('on', x === btn); x.setAttribute('aria-pressed', String(x === btn)); });
+		apply();
+	});
+	const want = new URLSearchParams(location.search).get('build') || (() => { try { return localStorage.getItem('gw7:le:build'); } catch { return null; } })();
+	if (want && [...sel.options].some((o) => o.value === want)) sel.value = want;
+	apply();
+</script>

@@ -1,0 +1,2705 @@
+{
+ "updated": "2026-10",
+ "season": 5,
+ "patch": "1.5.x",
+ "rules": [
+  "축복은 운명의 모노리스(시간의 끝에서 입장)에서 얻는 영구 보너스예요. 모노리스 안에서만이 아니라 게임 전체에 적용돼요.",
+  "얻는 법: 한 시간선(타임라인)에서 메아리를 돌아 안정성을 채우고, 퀘스트 메아리를 끝까지 깨서 마지막 보스를 잡으면 축복 3개가 나오고 그중 1개를 골라요.",
+  "칸 수: 시간선마다 축복 칸이 1개씩, 모두 10칸이에요. 그중 능력치를 올려 주는 곳은 검은 태양·폭풍 잠재우기·용들의 지배·겨울의 시대·불의 혼령 5곳이고, 나머지 5곳(추방자들의 몰락·도둑맞은 창·피, 서리 그리고 죽음·제국의 몰락·마지막 파멸)은 아이템·골드·경험치 드롭률 축복만 나와요. 그래서 빌드 추천은 늘 5개예요.",
+  "일반 vs 상급: 일반 시간선(레벨 62~90)에서는 일반 축복이, 강화된 시간선(레벨 100, 타락 100부터 시작)에서는 이름 앞에 '상급'이 붙은 축복이 나와요. 상급은 수치가 대략 1.5~2배예요. 강화된 시간선은 레벨 90 시간선과 용들의 지배 같은 가장 어려운 시간선을 깨면 열려요.",
+  "강화된 시간선을 깨면 선택지가 3개가 아니라 4개 나오고, 타락 200부터는 5번째 선택지가 하나 더 열려요. 원하는 축복을 빨리 뽑으려면 타락 200 이상에서 도는 게 유리해요.",
+  "바꾸는 법: 같은 시간선 보스를 다시 잡으면 새 선택지가 나와요. 지금 축복을 그대로 둘 수도 있고, 새 것을 고르면 그 시간선 칸의 축복이 교체돼요. 다른 시간선 칸에는 영향이 없어요.",
+  "수치 다시 굴리기: 축복 수치만 따로 다시 굴리는 재화나 아이템은 없어요. 같은 축복이 다시 나올 때 더 높은 수치로 골라 바꾸는 식이에요(범위 안에서 무작위).",
+  "덤: 강화된 시간선 보스를 잡으면 '오로비스의 눈길'이 1중첩 쌓여요. 오로비스의 그늘을 잡을 때 1중첩당 타락이 12 더 오르고, 한 번에 최대 4중첩을 써요. 파티에서는 축복을 고를 기회를 받은 사람마다 1개씩 받아요.",
+  "시즌 5(1.5.0~1.5.2) 변화: lastepochtools 패치 변경 기록과 1.5.2 데이터 기준으로 축복 목록·수치가 바뀐 건 확인되지 않았어요. 시즌 5 신규 요소(모르디타스의 분노 조우, 혈정 메아리 등)는 축복과는 따로 돌아가요.",
+  "축복은 캐릭터마다 따로라서, 시즌 캐릭터를 새로 키우면 다시 모아야 해요. 레벨링 중에는 일반 축복으로 먼저 채우고, 강화된 시간선이 열리면 상급으로 하나씩 갈아끼우는 순서가 일반적이에요."
+ ],
+ "timelines": [
+  {
+   "id": "fall-of-the-outcasts",
+   "en": "Fall of the Outcasts",
+   "ko": "추방자들의 몰락",
+   "boss_en": "Abomination",
+   "boss_ko": "흉물",
+   "level": 62,
+   "blessings": [
+    {
+     "id": "pride-of-rebellion",
+     "en": "Pride of Rebellion",
+     "ko": "반란의 자긍심",
+     "grand_ko": "상급 반란의 자긍심",
+     "stat": "(30% 에서 50%) 웅장한 신상 드롭률 증가",
+     "stat_grand": "(51% 에서 100%) 웅장한 신상 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    },
+    {
+     "id": "sight-of-the-outcasts",
+     "en": "Sight of the Outcasts",
+     "ko": "추방자의 시야",
+     "grand_ko": "상급 추방자의 시야",
+     "stat": "(30% 에서 50%) 큰 신상 드롭률 증가",
+     "stat_grand": "(51% 에서 100%) 큰 신상 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    },
+    {
+     "id": "curse-of-flesh",
+     "en": "Curse of Flesh",
+     "ko": "살점의 저주",
+     "grand_ko": "상급 살점의 저주",
+     "stat": "(30% 에서 50%) 거대한 신상 드롭률 증가",
+     "stat_grand": "(51% 에서 100%) 거대한 신상 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    },
+    {
+     "id": "favor-of-souls",
+     "en": "Favor of Souls",
+     "ko": "영혼의 호의",
+     "grand_ko": "상급 영혼의 호의",
+     "stat": "(30% 에서 50%) 화려한 신상 드롭률 증가",
+     "stat_grand": "(51% 에서 100%) 화려한 신상 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    },
+    {
+     "id": "mark-of-agony",
+     "en": "Mark of Agony",
+     "ko": "격통의 표식",
+     "grand_ko": "상급 격통의 표식",
+     "stat": "(30% 에서 50%) 장식된 신상 드롭률 증가",
+     "stat_grand": "(51% 에서 100%) 장식된 신상 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    },
+    {
+     "id": "memory-of-the-living",
+     "en": "Memory of the Living",
+     "ko": "산 자의 기억",
+     "grand_ko": "상급 산 자의 기억",
+     "stat": "(10% 에서 15%) 문양 드롭률 증가",
+     "stat_grand": "(16% 에서 25%) 문양 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    },
+    {
+     "id": "sign-of-torment",
+     "en": "Sign of Torment",
+     "ko": "고통의 징후",
+     "grand_ko": "상급 고통의 징후",
+     "stat": "(10% 에서 15%) 룬 드롭률 증가",
+     "stat_grand": "(16% 에서 25%) 룬 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    },
+    {
+     "id": "winds-of-fortune",
+     "en": "Winds of Fortune",
+     "ko": "행운의 바람",
+     "grand_ko": "상급 행운의 바람",
+     "stat": "(10% 에서 15%) 고유 아이템 드롭률 증가",
+     "stat_grand": "(16% 에서 22%) 고유 아이템 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    },
+    {
+     "id": "strength-of-mind",
+     "en": "Strength of Mind",
+     "ko": "정신의 힘",
+     "grand_ko": "상급 정신의 힘",
+     "stat": "(4% 에서 6%) 경험치 증가",
+     "stat_grand": "(7% 에서 10%) 경험치 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    },
+    {
+     "id": "scales-of-greed",
+     "en": "Scales of Greed",
+     "ko": "탐욕의 비늘",
+     "grand_ko": "상급 탐욕의 비늘",
+     "stat": "(25% 에서 40%) 골드 드롭률 증가",
+     "stat_grand": "(45% 에서 70%) 골드 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-outcasts",
+     "builds": []
+    }
+   ]
+  },
+  {
+   "id": "the-stolen-lance",
+   "en": "The Stolen Lance",
+   "ko": "도둑맞은 창",
+   "boss_en": "God Hunter Argentus",
+   "boss_ko": "신 사냥꾼 아르겐투스",
+   "level": 66,
+   "blessings": [
+    {
+     "id": "arrogance-of-argentus",
+     "en": "Arrogance of Argentus",
+     "ko": "아르겐투스의 오만",
+     "grand_ko": "상급 아르겐투스의 오만",
+     "stat": "(10% 에서 20%) 투구 드롭률 증가",
+     "stat_grand": "(22% 에서 50%) 투구 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "embrace-of-ice",
+     "en": "Embrace of Ice",
+     "ko": "얼음의 포옹",
+     "grand_ko": "상급 얼음의 포옹",
+     "stat": "(10% 에서 20%) 갑옷 드롭률 증가",
+     "stat_grand": "(22% 에서 50%) 갑옷 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "grip-of-the-lance",
+     "en": "Grip of the Lance",
+     "ko": "창의 손아귀",
+     "grand_ko": "상급 창의 손아귀",
+     "stat": "(15% 에서 30%) 장갑 드롭률 증가",
+     "stat_grand": "(35% 에서 75%) 장갑 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "right-of-conquest",
+     "en": "Right of Conquest",
+     "ko": "정복의 권리",
+     "grand_ko": "상급 정복의 권리",
+     "stat": "(15% 에서 30%) 장화 드롭률 증가",
+     "stat_grand": "(35% 에서 75%) 장화 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "reach-of-flame",
+     "en": "Reach of Flame",
+     "ko": "불꽃의 손길",
+     "grand_ko": "상급 불꽃의 손길",
+     "stat": "(15% 에서 30%) 보조 장비 촉매 드롭률 증가",
+     "stat_grand": "(35% 에서 75%) 보조 장비 촉매 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "binds-of-sanctuary",
+     "en": "Binds of Sanctuary",
+     "ko": "성역의 결속",
+     "grand_ko": "상급 성역의 결속",
+     "stat": "(15% 에서 30%) 방패 드롭률 증가",
+     "stat_grand": "(35% 에서 75%) 방패 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "slumber-of-morditas",
+     "en": "Slumber of Morditas",
+     "ko": "모르디타스의 졸음",
+     "grand_ko": "상급 모르디타스의 졸음",
+     "stat": "(12% 에서 25%) 유물 드롭률 증가",
+     "stat_grand": "(30% 에서 60%) 유물 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "talon-of-grandeur",
+     "en": "Talon of Grandeur",
+     "ko": "장엄함의 발톱",
+     "grand_ko": "상급 장엄함의 발톱",
+     "stat": "(15% 에서 30%) 반지 드롭률 증가",
+     "stat_grand": "(35% 에서 75%) 반지 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "vision-of-the-aurora",
+     "en": "Vision of the Aurora",
+     "ko": "오로라의 환영",
+     "grand_ko": "상급 오로라의 환영",
+     "stat": "(15% 에서 30%) 목걸이 드롭률 증가",
+     "stat_grand": "(35% 에서 75%) 목걸이 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "might-of-the-siege",
+     "en": "Might of the Siege",
+     "ko": "공성의 위세",
+     "grand_ko": "상급 공성의 위세",
+     "stat": "(15% 에서 30%) 허리띠 드롭률 증가",
+     "stat_grand": "(35% 에서 75%) 허리띠 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    },
+    {
+     "id": "apex-of-fortune",
+     "en": "Apex of Fortune",
+     "ko": "행운의 정점",
+     "grand_ko": "상급 행운의 정점",
+     "stat": "(15% 에서 30%) 화살통 드롭률 증가",
+     "stat_grand": "(41% 에서 60%) 화살통 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-stolen-lance",
+     "builds": []
+    }
+   ]
+  },
+  {
+   "id": "the-black-sun",
+   "en": "The Black Sun",
+   "ko": "검은 태양",
+   "boss_en": "Rahyeh, The Black Sun",
+   "boss_ko": "검은 태양 라예",
+   "level": 70,
+   "blessings": [
+    {
+     "id": "memory-of-light",
+     "en": "Memory of Light",
+     "ko": "빛의 기억",
+     "grand_ko": "상급 빛의 기억",
+     "stat": "+(30 에서 42) 생명력",
+     "stat_grand": "+(45 에서 70) 생명력",
+     "cat": "방어",
+     "tl": "the-black-sun",
+     "builds": [
+      "storm-crows-beastmaster",
+      "blood-spectre-necromancer"
+     ]
+    },
+    {
+     "id": "echo-of-solarum",
+     "en": "Echo of Solarum",
+     "ko": "솔라룸의 메아리",
+     "grand_ko": "상급 솔라룸의 메아리",
+     "stat": "+(25% 에서 40%) 공허 저항",
+     "stat_grand": "+(55% 에서 75%) 공허 저항",
+     "cat": "방어",
+     "tl": "the-black-sun",
+     "builds": [
+      "totem-shaman",
+      "tornado-shaman",
+      "shatter-strike-spellblade",
+      "flame-reave-spellblade",
+      "skeleton-necromancer",
+      "rip-blood-lich",
+      "stygian-coal-lich",
+      "profane-veil-warlock",
+      "shuriken-marksman"
+     ]
+    },
+    {
+     "id": "shadow-of-the-eclipse",
+     "en": "Shadow of the Eclipse",
+     "ko": "일식의 그림자",
+     "grand_ko": "상급 일식의 그림자",
+     "stat": "+(60 에서 100) 회피율",
+     "stat_grand": "+(101 에서 200) 회피율",
+     "cat": "방어",
+     "tl": "the-black-sun",
+     "builds": []
+    },
+    {
+     "id": "wrath-of-rahyeh",
+     "en": "Wrath of Rahyeh",
+     "ko": "라예의 진노",
+     "grand_ko": "상급 라예의 진노",
+     "stat": "(1.2% 에서 2%)의 투척 피해를 체력으로 흡수함",
+     "stat_grand": "(2.2% 에서 3.5%)의 투척 피해를 체력으로 흡수함",
+     "cat": "방어",
+     "tl": "the-black-sun",
+     "builds": []
+    },
+    {
+     "id": "whisper-of-orobyss",
+     "en": "Whisper of Orobyss",
+     "ko": "오로비스의 속삭임",
+     "grand_ko": "상급 오로비스의 속삭임",
+     "stat": "(40% 에서 60%) 공허 속성 피해 증가",
+     "stat_grand": "(65% 에서 100%) 공허 속성 피해 증가",
+     "cat": "공격",
+     "tl": "the-black-sun",
+     "builds": [
+      "shield-throw-time-rot-void-knight"
+     ]
+    },
+    {
+     "id": "flames-of-the-black-sun",
+     "en": "Flames of the Black Sun",
+     "ko": "검은 태양의 불길",
+     "grand_ko": "상급 검은 태양의 불길",
+     "stat": "+(40% 에서 60%) 타격시 점화 적용 확률",
+     "stat_grand": "+(65% 에서 100%) 타격시 점화 적용 확률",
+     "cat": "공격",
+     "tl": "the-black-sun",
+     "builds": []
+    },
+    {
+     "id": "hunger-of-the-void",
+     "en": "Hunger of the Void",
+     "ko": "공허의 굶주림",
+     "grand_ko": "상급 공허의 굶주림",
+     "stat": "(1.2% 에서 2%)의 주문 피해를 체력으로 흡수함",
+     "stat_grand": "(2.2% 에서 3.5%)의 주문 피해를 체력으로 흡수함",
+     "cat": "방어",
+     "tl": "the-black-sun",
+     "builds": [
+      "radiant-lance-paladin"
+     ]
+    },
+    {
+     "id": "strength-of-the-mountain",
+     "en": "Strength of the Mountain",
+     "ko": "산의 힘",
+     "grand_ko": "상급 산의 힘",
+     "stat": "(10 에서 14) 차단시 체력 획득",
+     "stat_grand": "(15 에서 22) 차단시 체력 획득",
+     "cat": "방어",
+     "tl": "the-black-sun",
+     "builds": []
+    },
+    {
+     "id": "winds-of-oblivion",
+     "en": "Winds of Oblivion",
+     "ko": "망각의 바람",
+     "grand_ko": "상급 망각의 바람",
+     "stat": "(30% 에서 50%) 치명타 확률 증가",
+     "stat_grand": "(51% 에서 80%) 치명타 확률 증가",
+     "cat": "공격",
+     "tl": "the-black-sun",
+     "builds": [
+      "rive-void-knight",
+      "flay-mana-lich"
+     ]
+    },
+    {
+     "id": "depths-of-infinity",
+     "en": "Depths of Infinity",
+     "ko": "무한의 나락",
+     "grand_ko": "상급 무한의 나락",
+     "stat": "+(10% 에서 20%) 타격시 공허 저항 분쇄 적용 확률",
+     "stat_grand": "+(25% 에서 50%) 타격시 공허 저항 분쇄 적용 확률",
+     "cat": "공격",
+     "tl": "the-black-sun",
+     "builds": [
+      "warpath-void-knight"
+     ]
+    },
+    {
+     "id": "greed-of-darkness",
+     "en": "Greed of Darkness",
+     "ko": "어둠의 탐욕",
+     "grand_ko": "상급 어둠의 탐욕",
+     "stat": "(6 에서 10) 처치시 와드 획득 / +(60 에서 100) 보호막 감쇠 기준치",
+     "stat_grand": "(12 에서 18) 처치시 와드 획득 / +(120 에서 200) 보호막 감쇠 기준치",
+     "cat": "방어",
+     "tl": "the-black-sun",
+     "builds": [
+      "shadow-cascade-bladedancer"
+     ]
+    },
+    {
+     "id": "emptiness-of-ash",
+     "en": "Emptiness of Ash",
+     "ko": "재의 공허함",
+     "grand_ko": "상급 재의 공허함",
+     "stat": "+(20% 에서 26%) 치명타 배수",
+     "stat_grand": "+(27% 에서 40%) 치명타 배수",
+     "cat": "공격",
+     "tl": "the-black-sun",
+     "builds": [
+      "shatter-totem-werebear-druid",
+      "static-orb-sorcerer",
+      "lightning-blast-runemaster",
+      "erasing-strike-void-knight",
+      "multistrike-forge-guard",
+      "harvest-flay-lich",
+      "bladestorm-bladedancer",
+      "shadow-rend-bladedancer",
+      "dreamslash-bladedancer",
+      "ballista-falconer"
+     ]
+    },
+    {
+     "id": "thirst-of-the-sun",
+     "en": "Thirst of the Sun",
+     "ko": "태양의 갈증",
+     "grand_ko": "상급 태양의 갈증",
+     "stat": "(20% 에서 30%) 흡수율 증가",
+     "stat_grand": "(35% 에서 50%) 흡수율 증가",
+     "cat": "방어",
+     "tl": "the-black-sun",
+     "builds": []
+    }
+   ]
+  },
+  {
+   "id": "blood-frost-and-death",
+   "en": "Blood, Frost, and Death",
+   "ko": "피, 서리 그리고 죽음",
+   "boss_en": "Formosus the Undying",
+   "boss_ko": "죽지 않는 자 포르모수스",
+   "level": 74,
+   "blessings": [
+    {
+     "id": "cruelty-of-formosus",
+     "en": "Cruelty of Formosus",
+     "ko": "포르모수스의 잔학성",
+     "grand_ko": "상급 포르모수스의 잔학성",
+     "stat": "(30% 에서 45%) 마법봉 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 마법봉 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "savior-of-the-north",
+     "en": "Savior of the North",
+     "ko": "북방의 구원자",
+     "grand_ko": "상급 북방의 구원자",
+     "stat": "(30% 에서 45%) 홀 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 홀 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "chill-of-death",
+     "en": "Chill of Death",
+     "ko": "죽음의 냉각",
+     "grand_ko": "상급 죽음의 냉각",
+     "stat": "(30% 에서 45%) 양손 지팡이 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 양손 지팡이 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "enmity-of-the-clans",
+     "en": "Enmity of the Clans",
+     "ko": "혈족의 적대감",
+     "grand_ko": "상급 혈족의 적대감",
+     "stat": "(30% 에서 45%) 한손 검 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 한손 검 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "ambition-of-the-empire",
+     "en": "Ambition of the Empire",
+     "ko": "제국의 야망",
+     "grand_ko": "상급 제국의 야망",
+     "stat": "(30% 에서 45%) 양손 검 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 양손 검 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "scars-of-blood",
+     "en": "Scars of Blood",
+     "ko": "피의 흉터",
+     "grand_ko": "상급 피의 흉터",
+     "stat": "(30% 에서 45%) 한손 도끼 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 한손 도끼 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "favor-of-the-wengari",
+     "en": "Favor of the Wengari",
+     "ko": "웬가리의 호의",
+     "grand_ko": "상급 웬가리의 호의",
+     "stat": "(30% 에서 45%) 양손 도끼 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 양손 도끼 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "resolve-of-frost",
+     "en": "Resolve of Frost",
+     "ko": "서리의 결의",
+     "grand_ko": "상급 서리의 결의",
+     "stat": "(30% 에서 45%) 한손 철퇴 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 한손 철퇴 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "shards-of-unity",
+     "en": "Shards of Unity",
+     "ko": "합일의 조각",
+     "grand_ko": "상급 합일의 조각",
+     "stat": "(30% 에서 45%) 양손 철퇴 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 양손 철퇴 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "remorse-of-heorot",
+     "en": "Remorse of Heorot",
+     "ko": "헤오롯의 회한",
+     "grand_ko": "상급 헤오롯의 회한",
+     "stat": "(30% 에서 45%) 양손 창 드롭률 증가",
+     "stat_grand": "(50% 에서 90%) 양손 창 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "vigilance-of-the-damned",
+     "en": "Vigilance of the Damned",
+     "ko": "영벌 받은 자의 경계",
+     "grand_ko": "상급 영벌 받은 자의 경계",
+     "stat": "(30% 에서 45%) 활 드롭률 증가",
+     "stat_grand": "(50% 에서 75%) 활 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    },
+    {
+     "id": "subtlety-of-slaughter",
+     "en": "Subtlety of Slaughter",
+     "ko": "학살의 교묘함",
+     "grand_ko": "상급 학살의 교묘함",
+     "stat": "(30% 에서 45%) 단검 드롭률 증가",
+     "stat_grand": "(50% 에서 75%) 단검 드롭률 증가",
+     "cat": "파밍",
+     "tl": "blood-frost-and-death",
+     "builds": []
+    }
+   ]
+  },
+  {
+   "id": "ending-the-storm",
+   "en": "Ending the Storm",
+   "ko": "폭풍 잠재우기",
+   "boss_en": "Lagon, God of Storms",
+   "boss_ko": "폭풍의 신 라곤",
+   "level": 78,
+   "blessings": [
+    {
+     "id": "bastion-of-divinity",
+     "en": "Bastion of Divinity",
+     "ko": "신성의 보루",
+     "grand_ko": "상급 신성의 보루",
+     "stat": "+(25% 에서 40%) 번개 저항",
+     "stat_grand": "+(55% 에서 75%) 번개 저항",
+     "cat": "방어",
+     "tl": "ending-the-storm",
+     "builds": [
+      "shield-throw-time-rot-void-knight",
+      "rip-blood-lich"
+     ]
+    },
+    {
+     "id": "light-of-the-moon",
+     "en": "Light of the Moon",
+     "ko": "달빛",
+     "grand_ko": "상급 달빛",
+     "stat": "+(30 에서 50) 마나",
+     "stat_grand": "+(60 에서 90) 마나",
+     "cat": "유틸",
+     "tl": "ending-the-storm",
+     "builds": [
+      "flame-reave-spellblade",
+      "warpath-void-knight",
+      "erasing-strike-void-knight",
+      "multistrike-forge-guard",
+      "radiant-lance-paladin",
+      "harvest-flay-lich",
+      "flay-mana-lich",
+      "stygian-coal-lich",
+      "profane-veil-warlock",
+      "bladestorm-bladedancer",
+      "shadow-rend-bladedancer",
+      "shadow-cascade-bladedancer"
+     ]
+    },
+    {
+     "id": "rhythm-of-the-tide",
+     "en": "Rhythm of the Tide",
+     "ko": "물결의 리듬",
+     "grand_ko": "상급 물결의 리듬",
+     "stat": "(60% 에서 100%) 생명력 재생 증가 / +(6 에서 10) 생명력 재생",
+     "stat_grand": "(120% 에서 200%) 생명력 재생 증가 / +(12 에서 20) 생명력 재생",
+     "cat": "방어",
+     "tl": "ending-the-storm",
+     "builds": [
+      "blood-spectre-necromancer",
+      "skeleton-necromancer"
+     ]
+    },
+    {
+     "id": "chaos-of-lagon",
+     "en": "Chaos of Lagon",
+     "ko": "라곤의 혼돈",
+     "grand_ko": "상급 라곤의 혼돈",
+     "stat": "(40% 에서 60%) 번개 속성 피해 증가",
+     "stat_grand": "(65% 에서 100%) 번개 속성 피해 증가",
+     "cat": "공격",
+     "tl": "ending-the-storm",
+     "builds": []
+    },
+    {
+     "id": "might-of-the-sea-titan",
+     "en": "Might of the Sea Titan",
+     "ko": "바다 타이탄의 위세",
+     "grand_ko": "상급 바다 타이탄의 위세",
+     "stat": "(40% 에서 60%) 냉기 피해 증가",
+     "stat_grand": "(65% 에서 100%) 냉기 피해 증가",
+     "cat": "공격",
+     "tl": "ending-the-storm",
+     "builds": [
+      "shatter-totem-werebear-druid",
+      "ballista-falconer"
+     ]
+    },
+    {
+     "id": "resonance-of-the-sea",
+     "en": "Resonance of the Sea",
+     "ko": "바다의 공명",
+     "grand_ko": "상급 바다의 공명",
+     "stat": "+(17 에서 25) 초당 보호막",
+     "stat_grand": "+(30 에서 42) 초당 보호막",
+     "cat": "방어",
+     "tl": "ending-the-storm",
+     "builds": [
+      "dreamslash-bladedancer"
+     ]
+    },
+    {
+     "id": "mysteries-of-the-deep",
+     "en": "Mysteries of the Deep",
+     "ko": "심해의 수수께끼",
+     "grand_ko": "상급 심해의 수수께끼",
+     "stat": "+(10% 에서 20%) 타격시 번개 저항 분쇄 적용 확률",
+     "stat_grand": "+(25% 에서 50%) 타격시 번개 저항 분쇄 적용 확률",
+     "cat": "공격",
+     "tl": "ending-the-storm",
+     "builds": [
+      "storm-crows-beastmaster",
+      "tornado-shaman",
+      "static-orb-sorcerer",
+      "shatter-strike-spellblade",
+      "lightning-blast-runemaster"
+     ]
+    },
+    {
+     "id": "cruelty-of-the-meruna",
+     "en": "Cruelty of the Meruna",
+     "ko": "메루나의 잔학성",
+     "grand_ko": "상급 메루나의 잔학성",
+     "stat": "+(40% 에서 60%) 타격시 감전 적용 확률",
+     "stat_grand": "+(65% 에서 100%) 타격시 감전 적용 확률",
+     "cat": "공격",
+     "tl": "ending-the-storm",
+     "builds": [
+      "totem-shaman"
+     ]
+    },
+    {
+     "id": "weight-of-the-abyss",
+     "en": "Weight of the Abyss",
+     "ko": "심연의 무게",
+     "grand_ko": "상급 심연의 무게",
+     "stat": "+(100% 에서 180%) 동결 평점 배율",
+     "stat_grand": "+(200% 에서 300%) 동결 평점 배율",
+     "cat": "유틸",
+     "tl": "ending-the-storm",
+     "builds": []
+    },
+    {
+     "id": "crash-of-the-waves",
+     "en": "Crash of the Waves",
+     "ko": "부서지는 파도",
+     "grand_ko": "상급 부서지는 파도",
+     "stat": "(50% 에서 90%) 기절 확률 증가",
+     "stat_grand": "(100% 에서 160%) 기절 확률 증가",
+     "cat": "유틸",
+     "tl": "ending-the-storm",
+     "builds": [
+      "rive-void-knight",
+      "shuriken-marksman"
+     ]
+    },
+    {
+     "id": "trance-of-the-sirens",
+     "en": "Trance of the Sirens",
+     "ko": "세이렌의 무아지경",
+     "grand_ko": "상급 세이렌의 무아지경",
+     "stat": "(10% 에서 14%) 감전 지속 시간 증가",
+     "stat_grand": "(15% 에서 22%) 감전 지속 시간 증가",
+     "cat": "공격",
+     "tl": "ending-the-storm",
+     "builds": []
+    },
+    {
+     "id": "intellect-of-liath",
+     "en": "Intellect of Liath",
+     "ko": "라이아스의 지능",
+     "grand_ko": "상급 라이아스의 지능",
+     "stat": "(15% 에서 25%) 적중당할 시 보호막 30 획득 확률",
+     "stat_grand": "(30% 에서 50%) 적중당할 시 보호막 30 획득 확률",
+     "cat": "방어",
+     "tl": "ending-the-storm",
+     "builds": []
+    },
+    {
+     "id": "grace-of-water",
+     "en": "Grace of Water",
+     "ko": "물의 은총",
+     "grand_ko": "상급 물의 은총",
+     "stat": "(40 에서 70) 물약 사용 시 보호막 획득 / +(80 에서 140) 보호막 감쇠 기준치",
+     "stat_grand": "(80 에서 130) 물약 사용 시 보호막 획득 / +(160 에서 260) 보호막 감쇠 기준치",
+     "cat": "방어",
+     "tl": "ending-the-storm",
+     "builds": []
+    }
+   ]
+  },
+  {
+   "id": "fall-of-the-empire",
+   "en": "Fall of the Empire",
+   "ko": "제국의 몰락",
+   "boss_en": "Harton's Husk",
+   "boss_ko": "하튼의 껍데기",
+   "level": 82,
+   "blessings": [
+    {
+     "id": "hope-of-the-beginning",
+     "en": "Hope of the Beginning",
+     "ko": "시작의 희망",
+     "grand_ko": "상급 시작의 희망",
+     "stat": "(7% 에서 14%) 접두사 조각 드롭률 증가",
+     "stat_grand": "(15% 에서 25%) 접두사 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-empire",
+     "builds": []
+    },
+    {
+     "id": "safety-of-the-labyrinth",
+     "en": "Safety of the Labyrinth",
+     "ko": "미궁의 안전",
+     "grand_ko": "상급 미궁의 안전",
+     "stat": "(10% 에서 20%) 목걸이 조각 드롭률 증가",
+     "stat_grand": "(22% 에서 35%) 목걸이 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-empire",
+     "builds": []
+    },
+    {
+     "id": "remnants-of-the-living",
+     "en": "Remnants of the Living",
+     "ko": "산 자의 유해",
+     "grand_ko": "상급 산 자의 유해",
+     "stat": "(20% 에서 30%) 반지 조각 드롭률 증가",
+     "stat_grand": "(33% 에서 50%) 반지 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-empire",
+     "builds": []
+    },
+    {
+     "id": "visions-of-death",
+     "en": "Visions of Death",
+     "ko": "죽음의 환영",
+     "grand_ko": "상급 죽음의 환영",
+     "stat": "(25% 에서 35%) 양손 창 조각 드롭률 증가",
+     "stat_grand": "(40% 에서 60%) 양손 창 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-empire",
+     "builds": []
+    },
+    {
+     "id": "inevitability-of-the-void",
+     "en": "Inevitability of the Void",
+     "ko": "공허의 필연성",
+     "grand_ko": "상급 공허의 필연성",
+     "stat": "(16% 에서 26%) 양손 지팡이 조각 드롭률 증가",
+     "stat_grand": "(30% 에서 45%) 양손 지팡이 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-empire",
+     "builds": []
+    },
+    {
+     "id": "rot-of-the-world",
+     "en": "Rot of the World",
+     "ko": "세계의 부패",
+     "grand_ko": "상급 세계의 부패",
+     "stat": "(25% 에서 35%) 마법봉 조각 드롭률 증가",
+     "stat_grand": "(40% 에서 60%) 마법봉 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-empire",
+     "builds": []
+    },
+    {
+     "id": "boon-of-the-scarab",
+     "en": "Boon of the Scarab",
+     "ko": "풍뎅이의 선물",
+     "grand_ko": "상급 풍뎅이의 선물",
+     "stat": "(25% 에서 35%) 활 조각 드롭률 증가",
+     "stat_grand": "(40% 에서 60%) 활 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-empire",
+     "builds": []
+    },
+    {
+     "id": "shadows-of-infinity",
+     "en": "Shadows of Infinity",
+     "ko": "무한의 그림자",
+     "grand_ko": "상급 무한의 그림자",
+     "stat": "(10% 에서 20%) 유물 조각 드롭률 증가",
+     "stat_grand": "(22% 에서 35%) 유물 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-empire",
+     "builds": []
+    },
+    {
+     "id": "despair-of-the-empire",
+     "en": "Despair of the Empire",
+     "ko": "제국의 절망",
+     "grand_ko": "상급 제국의 절망",
+     "stat": "(25% 에서 40%) 상태이상 조각 드롭률 증가",
+     "stat_grand": "(45% 에서 70%) 상태이상 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "fall-of-the-empire",
+     "builds": []
+    }
+   ]
+  },
+  {
+   "id": "reign-of-dragons",
+   "en": "Reign of Dragons",
+   "ko": "용들의 지배",
+   "boss_en": "Emperor of Corpses",
+   "boss_ko": "시체의 황제",
+   "level": 85,
+   "blessings": [
+    {
+     "id": "resolve-of-humanity",
+     "en": "Resolve of Humanity",
+     "ko": "인류의 결의",
+     "grand_ko": "상급 인류의 결의",
+     "stat": "+(7% 에서 12%) 모든 저항",
+     "stat_grand": "+(13% 에서 20%) 모든 저항",
+     "cat": "방어",
+     "tl": "reign-of-dragons",
+     "builds": [
+      "storm-crows-beastmaster",
+      "tornado-shaman",
+      "shatter-totem-werebear-druid",
+      "shatter-strike-spellblade",
+      "flame-reave-spellblade",
+      "lightning-blast-runemaster",
+      "rive-void-knight",
+      "warpath-void-knight",
+      "erasing-strike-void-knight",
+      "multistrike-forge-guard",
+      "radiant-lance-paladin",
+      "blood-spectre-necromancer",
+      "skeleton-necromancer",
+      "harvest-flay-lich",
+      "bladestorm-bladedancer",
+      "shadow-rend-bladedancer",
+      "shadow-cascade-bladedancer",
+      "dreamslash-bladedancer",
+      "shuriken-marksman"
+     ]
+    },
+    {
+     "id": "survival-of-might",
+     "en": "Survival of Might",
+     "ko": "힘의 생존",
+     "grand_ko": "상급 힘의 생존",
+     "stat": "+(30% 에서 45%) 치명타 방지 / +(30 에서 50) 회피율",
+     "stat_grand": "+(50% 에서 70%) 치명타 방지 / +(51 에서 90) 회피율",
+     "cat": "방어",
+     "tl": "reign-of-dragons",
+     "builds": [
+      "totem-shaman",
+      "static-orb-sorcerer",
+      "flay-mana-lich",
+      "rip-blood-lich",
+      "stygian-coal-lich",
+      "profane-veil-warlock",
+      "ballista-falconer"
+     ]
+    },
+    {
+     "id": "dream-of-eterra",
+     "en": "Dream of Eterra",
+     "ko": "에테라의 꿈",
+     "grand_ko": "상급 에테라의 꿈",
+     "stat": "+(25% 에서 40%) 괴사 저항",
+     "stat_grand": "+(45% 에서 75%) 괴사 저항",
+     "cat": "방어",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "binds-of-nature",
+     "en": "Binds of Nature",
+     "ko": "자연의 결속",
+     "grand_ko": "상급 자연의 결속",
+     "stat": "(40% 에서 60%) 독 속성 피해 증가",
+     "stat_grand": "(65% 에서 100%) 독 속성 피해 증가",
+     "cat": "공격",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "despair-of-flesh",
+     "en": "Despair of Flesh",
+     "ko": "살점의 절망",
+     "grand_ko": "상급 살점의 절망",
+     "stat": "(40% 에서 60%) 괴사 속성 피해 증가",
+     "stat_grand": "(65% 에서 100%) 괴사 속성 피해 증가",
+     "cat": "공격",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "cruelty-of-strength",
+     "en": "Cruelty of Strength",
+     "ko": "힘의 잔학성",
+     "grand_ko": "상급 힘의 잔학성",
+     "stat": "(40% 에서 60%) 물리 속성 피해 증가",
+     "stat_grand": "(65% 에서 100%) 물리 속성 피해 증가",
+     "cat": "공격",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "hemmorage-of-marrow",
+     "en": "Hemmorage of Marrow",
+     "ko": "골수의 출혈",
+     "grand_ko": "상급 골수의 출혈",
+     "stat": "+(40% 에서 60%) 타격시 출혈 적용 확률",
+     "stat_grand": "+(65% 에서 100%) 타격시 출혈 적용 확률",
+     "cat": "공격",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "taste-of-venom",
+     "en": "Taste of Venom",
+     "ko": "맹독의 맛",
+     "grand_ko": "상급 맹독의 맛",
+     "stat": "+(40% 에서 60%) 타격시 중독 적용 확률",
+     "stat_grand": "+(65% 에서 100%) 타격시 중독 적용 확률",
+     "cat": "공격",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "hunger-of-dragons",
+     "en": "Hunger of Dragons",
+     "ko": "용의 굶주림",
+     "grand_ko": "상급 용의 굶주림",
+     "stat": "(2% 에서 4%)의 근접 피해를 체력으로 흡수함",
+     "stat_grand": "(4.5% 에서 7%)의 근접 피해를 체력으로 흡수함",
+     "cat": "방어",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "virtue-of-command",
+     "en": "Virtue of Command",
+     "ko": "지휘의 미덕",
+     "grand_ko": "상급 지휘의 미덕",
+     "stat": "+(8% 에서 15%) 하수인 모든 저항",
+     "stat_grand": "+(16% 에서 25%) 하수인 모든 저항",
+     "cat": "하수인",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "persistance-of-will",
+     "en": "Persistance of Will",
+     "ko": "의지의 끈기",
+     "grand_ko": "상급 의지의 끈기",
+     "stat": "+(25% 에서 40%) 중독 저항",
+     "stat_grand": "+(55% 에서 75%) 중독 저항",
+     "cat": "방어",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "guile-of-wyrms",
+     "en": "Guile of Wyrms",
+     "ko": "토룡의 간계",
+     "grand_ko": "상급 토룡의 간계",
+     "stat": "+(60% 에서 90%) 타격시 중독 저항 분쇄 적용 확률",
+     "stat_grand": "+(100% 에서 150%) 타격시 중독 저항 분쇄 적용 확률",
+     "cat": "공격",
+     "tl": "reign-of-dragons",
+     "builds": []
+    },
+    {
+     "id": "allure-of-apathy",
+     "en": "Allure of Apathy",
+     "ko": "무관심의 유혹",
+     "grand_ko": "상급 무관심의 유혹",
+     "stat": "+(40% 에서 60%) 타격시 감속 적용 확률",
+     "stat_grand": "+(65% 에서 100%) 타격시 감속 적용 확률",
+     "cat": "유틸",
+     "tl": "reign-of-dragons",
+     "builds": [
+      "shield-throw-time-rot-void-knight"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-last-ruin",
+   "en": "The Last Ruin",
+   "ko": "마지막 파멸",
+   "boss_en": "The Husk of Elder Gaspar",
+   "boss_ko": "장로 가스파르의 껍데기",
+   "level": 90,
+   "blessings": [
+    {
+     "id": "temple-of-the-mind",
+     "en": "Temple of the Mind",
+     "ko": "정신의 사원",
+     "grand_ko": "상급 정신의 사원",
+     "stat": "(12% 에서 20%) 투구 조각 드롭률 증가",
+     "stat_grand": "(22% 에서 35%) 투구 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-last-ruin",
+     "builds": []
+    },
+    {
+     "id": "bastion-of-the-heart",
+     "en": "Bastion of the Heart",
+     "ko": "심장의 보루",
+     "grand_ko": "상급 심장의 보루",
+     "stat": "(12% 에서 20%) 갑옷 조각 드롭률 증가",
+     "stat_grand": "(22% 에서 35%) 갑옷 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-last-ruin",
+     "builds": []
+    },
+    {
+     "id": "binding-of-ruin",
+     "en": "Binding of Ruin",
+     "ko": "파멸의 결속",
+     "grand_ko": "상급 파멸의 결속",
+     "stat": "(20% 에서 30%) 허리띠 조각 드롭률 증가",
+     "stat_grand": "(32% 에서 50%) 허리띠 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-last-ruin",
+     "builds": []
+    },
+    {
+     "id": "refuge-of-despair",
+     "en": "Refuge of Despair",
+     "ko": "절망의 피난처",
+     "grand_ko": "상급 절망의 피난처",
+     "stat": "(20% 에서 30%) 방패 조각 드롭률 증가",
+     "stat_grand": "(32% 에서 50%) 방패 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-last-ruin",
+     "builds": []
+    },
+    {
+     "id": "comfort-of-the-end",
+     "en": "Comfort of the End",
+     "ko": "종말의 위안",
+     "grand_ko": "상급 종말의 위안",
+     "stat": "(12% 에서 20%) 접미사 조각 드롭률 증가",
+     "stat_grand": "(22% 에서 35%) 접미사 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-last-ruin",
+     "builds": []
+    },
+    {
+     "id": "memory-of-masters",
+     "en": "Memory of Masters",
+     "ko": "대가의 기억",
+     "grand_ko": "상급 대가의 기억",
+     "stat": "(10% 에서 18%) 직업별 조각 드롭률 증가",
+     "stat_grand": "(20% 에서 30%) 직업별 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-last-ruin",
+     "builds": []
+    },
+    {
+     "id": "grasp-of-hope",
+     "en": "Grasp of Hope",
+     "ko": "희망의 손아귀",
+     "grand_ko": "상급 희망의 손아귀",
+     "stat": "(20% 에서 30%) 장갑 조각 드롭률 증가",
+     "stat_grand": "(32% 에서 50%) 장갑 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-last-ruin",
+     "builds": []
+    },
+    {
+     "id": "remnants-of-the-elders",
+     "en": "Remnants of the Elders",
+     "ko": "장로의 유해",
+     "grand_ko": "상급 장로의 유해",
+     "stat": "(20% 에서 30%) 보조 장비 촉매 조각 드롭률 증가",
+     "stat_grand": "(32% 에서 50%) 보조 장비 촉매 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-last-ruin",
+     "builds": []
+    },
+    {
+     "id": "knowledge-of-skill",
+     "en": "Knowledge of Skill",
+     "ko": "기술의 지식",
+     "grand_ko": "상급 기술의 지식",
+     "stat": "(12% 에서 20%) 스킬 조각 드롭률 증가",
+     "stat_grand": "(22% 에서 35%) 스킬 조각 드롭률 증가",
+     "cat": "파밍",
+     "tl": "the-last-ruin",
+     "builds": []
+    }
+   ]
+  },
+  {
+   "id": "the-age-of-winter",
+   "en": "The Age of Winter",
+   "ko": "겨울의 시대",
+   "boss_en": "Heorot",
+   "boss_ko": "헤오롯",
+   "level": 90,
+   "blessings": [
+    {
+     "id": "resolve-of-grael",
+     "en": "Resolve of Grael",
+     "ko": "그라엘의 결의",
+     "grand_ko": "상급 그라엘의 결의",
+     "stat": "+(25% 에서 40%) 물리 저항",
+     "stat_grand": "+(55% 에서 75%) 물리 저항",
+     "cat": "방어",
+     "tl": "the-age-of-winter",
+     "builds": [
+      "flame-reave-spellblade",
+      "harvest-flay-lich",
+      "stygian-coal-lich",
+      "shuriken-marksman"
+     ]
+    },
+    {
+     "id": "protection-of-heorot",
+     "en": "Protection of Heorot",
+     "ko": "헤오롯의 가호",
+     "grand_ko": "상급 헤오롯의 가호",
+     "stat": "+(25% 에서 40%) 냉기 저항",
+     "stat_grand": "+(55% 에서 75%) 냉기 저항",
+     "cat": "방어",
+     "tl": "the-age-of-winter",
+     "builds": []
+    },
+    {
+     "id": "vigor-of-jormun",
+     "en": "Vigor of Jormun",
+     "ko": "요르문의 원기",
+     "grand_ko": "상급 요르문의 원기",
+     "stat": "+(40 에서 70) 근성 기준치",
+     "stat_grand": "+(80 에서 150) 근성 기준치",
+     "cat": "방어",
+     "tl": "the-age-of-winter",
+     "builds": [
+      "storm-crows-beastmaster",
+      "warpath-void-knight",
+      "shield-throw-time-rot-void-knight"
+     ]
+    },
+    {
+     "id": "maw-of-artor",
+     "en": "Maw of Artor",
+     "ko": "알토의 아가리",
+     "grand_ko": "상급 알토의 아가리",
+     "stat": "+(40% 에서 60%) 타격시 동상 적용 확률",
+     "stat_grand": "+(65% 에서 100%) 타격시 동상 적용 확률",
+     "cat": "공격",
+     "tl": "the-age-of-winter",
+     "builds": []
+    },
+    {
+     "id": "winds-of-frost",
+     "en": "Winds of Frost",
+     "ko": "서리의 바람",
+     "grand_ko": "상급 서리의 바람",
+     "stat": "+(30% 에서 50%) 냉각 중첩 하나당 동결 평점",
+     "stat_grand": "+(55% 에서 80%) 냉각 중첩 하나당 동결 평점",
+     "cat": "유틸",
+     "tl": "the-age-of-winter",
+     "builds": []
+    },
+    {
+     "id": "rage-of-winter",
+     "en": "Rage of Winter",
+     "ko": "겨울의 격노",
+     "grand_ko": "상급 겨울의 격노",
+     "stat": "+(10% 에서 20%) 타격시 냉기 저항 분쇄 적용 확률",
+     "stat_grand": "+(25% 에서 50%) 타격시 냉기 저항 분쇄 적용 확률",
+     "cat": "공격",
+     "tl": "the-age-of-winter",
+     "builds": [
+      "shatter-totem-werebear-druid"
+     ]
+    },
+    {
+     "id": "fury-of-the-north",
+     "en": "Fury of the North",
+     "ko": "북방의 분노",
+     "grand_ko": "상급 북방의 분노",
+     "stat": "+(10% 에서 20%) 타격시 물리 저항 분쇄 적용 확률",
+     "stat_grand": "+(25% 에서 50%) 타격시 물리 저항 분쇄 적용 확률",
+     "cat": "공격",
+     "tl": "the-age-of-winter",
+     "builds": [
+      "multistrike-forge-guard",
+      "rip-blood-lich",
+      "profane-veil-warlock",
+      "ballista-falconer"
+     ]
+    },
+    {
+     "id": "heart-of-ice",
+     "en": "Heart of Ice",
+     "ko": "얼음의 심장",
+     "grand_ko": "상급 얼음의 심장",
+     "stat": "+(20% 에서 35%) 타격시 냉각 적용 확률",
+     "stat_grand": "+(40% 에서 60%) 타격시 냉각 적용 확률",
+     "cat": "유틸",
+     "tl": "the-age-of-winter",
+     "builds": []
+    },
+    {
+     "id": "bones-of-eternity",
+     "en": "Bones of Eternity",
+     "ko": "영원의 뼈",
+     "grand_ko": "상급 영원의 뼈",
+     "stat": "+(3% 에서 4%) 막기 확률 / +(100 에서 140) 막기 효율",
+     "stat_grand": "+(5% 에서 8%) 막기 확률 / +(180 에서 240) 막기 효율",
+     "cat": "방어",
+     "tl": "the-age-of-winter",
+     "builds": []
+    },
+    {
+     "id": "bulwark-of-the-tundra",
+     "en": "Bulwark of the Tundra",
+     "ko": "툰드라의 방벽",
+     "grand_ko": "상급 툰드라의 방벽",
+     "stat": "(12% 에서 24%) 방어도 증가",
+     "stat_grand": "(25% 에서 55%) 방어도 증가",
+     "cat": "방어",
+     "tl": "the-age-of-winter",
+     "builds": [
+      "totem-shaman",
+      "tornado-shaman",
+      "static-orb-sorcerer",
+      "shatter-strike-spellblade",
+      "lightning-blast-runemaster",
+      "rive-void-knight",
+      "erasing-strike-void-knight",
+      "radiant-lance-paladin",
+      "blood-spectre-necromancer",
+      "skeleton-necromancer",
+      "flay-mana-lich",
+      "bladestorm-bladedancer",
+      "shadow-rend-bladedancer",
+      "shadow-cascade-bladedancer",
+      "dreamslash-bladedancer"
+     ]
+    },
+    {
+     "id": "defiance-of-yulia",
+     "en": "Defiance of Yulia",
+     "ko": "율리아의 반항",
+     "grand_ko": "상급 율리아의 반항",
+     "stat": "+(5 에서 10) 채널링 하는 동안냉기 주문 피해",
+     "stat_grand": "+(11 에서 20) 채널링 하는 동안냉기 주문 피해",
+     "cat": "공격",
+     "tl": "the-age-of-winter",
+     "builds": []
+    }
+   ]
+  },
+  {
+   "id": "spirits-of-fire",
+   "en": "Spirits of Fire",
+   "ko": "불의 혼령",
+   "boss_en": "Volcanic Shaman",
+   "boss_ko": "화산의 주술사",
+   "level": 90,
+   "blessings": [
+    {
+     "id": "heart-of-the-caldera",
+     "en": "Heart of the Caldera",
+     "ko": "칼데라의 심장",
+     "grand_ko": "상급 칼데라의 심장",
+     "stat": "+(25% 에서 40%) 화염 저항",
+     "stat_grand": "+(55% 에서 75%) 화염 저항",
+     "cat": "방어",
+     "tl": "spirits-of-fire",
+     "builds": []
+    },
+    {
+     "id": "body-of-obsidian",
+     "en": "Body of Obsidian",
+     "ko": "흑요석 육신",
+     "grand_ko": "상급 흑요석 육신",
+     "stat": "+(120 에서 180) 방어도",
+     "stat_grand": "+(200 에서 320) 방어도",
+     "cat": "방어",
+     "tl": "spirits-of-fire",
+     "builds": [
+      "storm-crows-beastmaster",
+      "totem-shaman",
+      "tornado-shaman",
+      "shatter-totem-werebear-druid",
+      "static-orb-sorcerer",
+      "shatter-strike-spellblade",
+      "flame-reave-spellblade",
+      "lightning-blast-runemaster",
+      "rive-void-knight",
+      "shield-throw-time-rot-void-knight",
+      "erasing-strike-void-knight",
+      "multistrike-forge-guard",
+      "radiant-lance-paladin",
+      "flay-mana-lich",
+      "rip-blood-lich",
+      "profane-veil-warlock",
+      "bladestorm-bladedancer",
+      "shadow-rend-bladedancer",
+      "shadow-cascade-bladedancer",
+      "dreamslash-bladedancer",
+      "shuriken-marksman"
+     ]
+    },
+    {
+     "id": "curse-of-sulphur",
+     "en": "Curse of Sulphur",
+     "ko": "유황의 저주",
+     "grand_ko": "상급 유황의 저주",
+     "stat": "+(20% 에서 35%) 타격시 허약 적용 확률",
+     "stat_grand": "+(40% 에서 60%) 타격시 허약 적용 확률",
+     "cat": "유틸",
+     "tl": "spirits-of-fire",
+     "builds": []
+    },
+    {
+     "id": "embers-of-immortality",
+     "en": "Embers of Immortality",
+     "ko": "불멸성의 잉걸불",
+     "grand_ko": "상급 불멸성의 잉걸불",
+     "stat": "+(10% 에서 14%) 근성",
+     "stat_grand": "+(18% 에서 30%) 근성",
+     "cat": "방어",
+     "tl": "spirits-of-fire",
+     "builds": [
+      "harvest-flay-lich"
+     ]
+    },
+    {
+     "id": "swiftness-of-logi",
+     "en": "Swiftness of Logi",
+     "ko": "로기의 순발력",
+     "grand_ko": "상급 로기의 순발력",
+     "stat": "(15% 에서 35%) 회피율 증가",
+     "stat_grand": "(40% 에서 70%) 회피율 증가",
+     "cat": "방어",
+     "tl": "spirits-of-fire",
+     "builds": []
+    },
+    {
+     "id": "breath-of-cinders",
+     "en": "Breath of Cinders",
+     "ko": "잿불의 숨결",
+     "grand_ko": "상급 잿불의 숨결",
+     "stat": "+(10% 에서 20%) 타격시 화염 저항 분쇄 적용 확률",
+     "stat_grand": "+(25% 에서 50%) 타격시 화염 저항 분쇄 적용 확률",
+     "cat": "공격",
+     "tl": "spirits-of-fire",
+     "builds": []
+    },
+    {
+     "id": "promise-of-death",
+     "en": "Promise of Death",
+     "ko": "죽음의 약속",
+     "grand_ko": "상급 죽음의 약속",
+     "stat": "+(10% 에서 20%) 타격시 괴사 저항 분쇄 적용 확률",
+     "stat_grand": "+(25% 에서 50%) 타격시 괴사 저항 분쇄 적용 확률",
+     "cat": "공격",
+     "tl": "spirits-of-fire",
+     "builds": [
+      "stygian-coal-lich"
+     ]
+    },
+    {
+     "id": "spirit-of-command",
+     "en": "Spirit of Command",
+     "ko": "지휘의 혼령",
+     "grand_ko": "상급 지휘의 혼령",
+     "stat": "(40% 에서 60%) 하수인 피해 증가",
+     "stat_grand": "(65% 에서 100%) 하수인 피해 증가",
+     "cat": "하수인",
+     "tl": "spirits-of-fire",
+     "builds": [
+      "blood-spectre-necromancer",
+      "skeleton-necromancer",
+      "ballista-falconer"
+     ]
+    },
+    {
+     "id": "might-of-bhuldar",
+     "en": "Might of Bhuldar",
+     "ko": "불다르의 위세",
+     "grand_ko": "상급 불다르의 위세",
+     "stat": "(20% 에서 30%) 기절 지속 시간 증가",
+     "stat_grand": "(32% 에서 50%) 기절 지속 시간 증가",
+     "cat": "유틸",
+     "tl": "spirits-of-fire",
+     "builds": []
+    },
+    {
+     "id": "flames-of-calamity",
+     "en": "Flames of Calamity",
+     "ko": "재앙의 불꽃",
+     "grand_ko": "상급 재앙의 불꽃",
+     "stat": "(40% 에서 60%) 화염 피해 증가",
+     "stat_grand": "(65% 에서 100%) 화염 피해 증가",
+     "cat": "공격",
+     "tl": "spirits-of-fire",
+     "builds": []
+    },
+    {
+     "id": "patience-of-herkir",
+     "en": "Patience of Herkir",
+     "ko": "헤르키르의 인내",
+     "grand_ko": "상급 헤르키르의 인내",
+     "stat": "+(200 에서 350) 채널링 하는 동안방어도",
+     "stat_grand": "+(400 에서 650) 채널링 하는 동안방어도",
+     "cat": "방어",
+     "tl": "spirits-of-fire",
+     "builds": [
+      "warpath-void-knight"
+     ]
+    }
+   ]
+  }
+ ],
+ "builds": [
+  {
+   "id": "storm-crows-beastmaster",
+   "en": "Storm Crows Beastmaster",
+   "ko": "Storm Crows(폭풍 까마귀) 야수 조련사",
+   "cls": "primalist",
+   "mastery": "beastmaster",
+   "picks": [
+    {
+     "ref": "memory-of-light",
+     "en": "Grand Memory of Light",
+     "ko": "상급 빛의 기억",
+     "grand": true,
+     "note": "입문 단계에선 상급 솔라룸의 메아리(Grand Echo of Solarum)"
+    },
+    {
+     "ref": "mysteries-of-the-deep",
+     "en": "Grand Mysteries of the Deep",
+     "ko": "상급 심해의 수수께끼",
+     "grand": true,
+     "note": "입문 단계에선 상급 물결의 리듬(Grand Rhythm of the Tide)"
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "vigor-of-jormun",
+     "en": "Grand Vigor of Jormun",
+     "ko": "상급 요르문의 원기",
+     "grand": true,
+     "note": "입문 단계에선 상급 그라엘의 결의(Grand Resolve of Grael)"
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": "입문 단계에선 상급 불멸성의 잉걸불(Grand Embers of Immortality)"
+    }
+   ]
+  },
+  {
+   "id": "totem-shaman",
+   "en": "Totem Shaman",
+   "ko": "토템 주술사(스프리건 형상)",
+   "cls": "primalist",
+   "mastery": "shaman",
+   "picks": [
+    {
+     "ref": "echo-of-solarum",
+     "en": "Grand Echo of Solarum",
+     "ko": "상급 솔라룸의 메아리",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "cruelty-of-the-meruna",
+     "en": "Grand Cruelty of the Meruna",
+     "ko": "상급 메루나의 잔학성",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "survival-of-might",
+     "en": "Grand Survival of Might",
+     "ko": "상급 힘의 생존",
+     "grand": true,
+     "note": "죽음의 무도 변형은 상급 의지의 끈기(Grand Persistance of Will)"
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "tornado-shaman",
+   "en": "Tornado Shaman",
+   "ko": "Tornado(토네이도) 주술사",
+   "cls": "primalist",
+   "mastery": "shaman",
+   "picks": [
+    {
+     "ref": "echo-of-solarum",
+     "en": "Grand Echo of Solarum",
+     "ko": "상급 솔라룸의 메아리",
+     "grand": true,
+     "note": "입문·탱커 변형 단계에선 상급 재의 공허함(Grand Emptiness of Ash)"
+    },
+    {
+     "ref": "mysteries-of-the-deep",
+     "en": "Grand Mysteries of the Deep",
+     "ko": "상급 심해의 수수께끼",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "shatter-totem-werebear-druid",
+   "en": "Shatter Totem Werebear Druid",
+   "ko": "Shatter Totem(토템 파쇄) 곰인간 드루이드",
+   "cls": "primalist",
+   "mastery": "druid",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": "입문 단계에선 상급 솔라룸의 메아리(Grand Echo of Solarum)"
+    },
+    {
+     "ref": "might-of-the-sea-titan",
+     "en": "Grand Might of the Sea Titan",
+     "ko": "상급 바다 타이탄의 위세",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": "입문 단계에선 상급 힘의 생존(Grand Survival of Might)"
+    },
+    {
+     "ref": "rage-of-winter",
+     "en": "Grand Rage of Winter",
+     "ko": "상급 겨울의 격노",
+     "grand": true,
+     "note": "Brutality 변형(엔드게임)·Brutality 변형(최종) 단계에선 상급 툰드라의 방벽(Grand Bulwark of the Tundra)"
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "static-orb-sorcerer",
+   "en": "Static Orb Sorcerer",
+   "ko": "Static Orb(정전기 보주) 원소술사",
+   "cls": "mage",
+   "mastery": "sorcerer",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "mysteries-of-the-deep",
+     "en": "Grand Mysteries of the Deep",
+     "ko": "상급 심해의 수수께끼",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "survival-of-might",
+     "en": "Grand Survival of Might",
+     "ko": "상급 힘의 생존",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "shatter-strike-spellblade",
+   "en": "Shatter Strike Spellblade",
+   "ko": "Shatter Strike(격파 타격) 주문검사",
+   "cls": "mage",
+   "mastery": "spellblade",
+   "picks": [
+    {
+     "ref": "echo-of-solarum",
+     "en": "Grand Echo of Solarum",
+     "ko": "상급 솔라룸의 메아리",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "mysteries-of-the-deep",
+     "en": "Grand Mysteries of the Deep",
+     "ko": "상급 심해의 수수께끼",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "flame-reave-spellblade",
+   "en": "Flame Reave Spellblade",
+   "ko": "Flame Reave(불꽃 가르기) 주문검사",
+   "cls": "mage",
+   "mastery": "spellblade",
+   "picks": [
+    {
+     "ref": "echo-of-solarum",
+     "en": "Grand Echo of Solarum",
+     "ko": "상급 솔라룸의 메아리",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-grael",
+     "en": "Grand Resolve of Grael",
+     "ko": "상급 그라엘의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "lightning-blast-runemaster",
+   "en": "Lightning Blast Runemaster",
+   "ko": "Lightning Blast(번개 파동) 룬 마스터",
+   "cls": "mage",
+   "mastery": "runemaster",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": "입문 단계에선 상급 솔라룸의 메아리(Grand Echo of Solarum)"
+    },
+    {
+     "ref": "mysteries-of-the-deep",
+     "en": "Grand Mysteries of the Deep",
+     "ko": "상급 심해의 수수께끼",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "rive-void-knight",
+   "en": "Rive Void Knight",
+   "ko": "찢기 공허기사",
+   "cls": "sentinel",
+   "mastery": "voidknight",
+   "picks": [
+    {
+     "ref": "winds-of-oblivion",
+     "en": "Grand Winds of Oblivion",
+     "ko": "상급 망각의 바람",
+     "grand": true,
+     "note": "광란 중첩 변형(최종)·광란 중첩 변형(에이돌론 없음) 단계에선 상급 재의 공허함(Grand Emptiness of Ash)"
+    },
+    {
+     "ref": "crash-of-the-waves",
+     "en": "Grand Crash of the Waves",
+     "ko": "상급 부서지는 파도",
+     "grand": true,
+     "note": "광란 중첩 변형(최종)·광란 중첩 변형(에이돌론 없음) 단계에선 상급 신성의 보루(Grand Bastion of Divinity)"
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": "광란 중첩 변형(최종)·광란 중첩 변형(에이돌론 없음) 단계에선 상급 헤오롯의 가호(Grand Protection of Heorot)"
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": "광란 중첩 변형(최종)·광란 중첩 변형(에이돌론 없음) 단계에선 상급 불멸성의 잉걸불(Grand Embers of Immortality)"
+    }
+   ]
+  },
+  {
+   "id": "warpath-void-knight",
+   "en": "Warpath Void Knight",
+   "ko": "전쟁의 길 공허기사",
+   "cls": "sentinel",
+   "mastery": "voidknight",
+   "picks": [
+    {
+     "ref": "depths-of-infinity",
+     "en": "Grand Depths of Infinity",
+     "ko": "상급 무한의 나락",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "vigor-of-jormun",
+     "en": "Grand Vigor of Jormun",
+     "ko": "상급 요르문의 원기",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "patience-of-herkir",
+     "en": "Grand Patience of Herkir",
+     "ko": "상급 헤르키르의 인내",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "shield-throw-time-rot-void-knight",
+   "en": "Shield Throw Time Rot Void Knight",
+   "ko": "방패 투척 시간 부패 공허기사",
+   "cls": "sentinel",
+   "mastery": "voidknight",
+   "picks": [
+    {
+     "ref": "whisper-of-orobyss",
+     "en": "Grand Whisper of Orobyss",
+     "ko": "상급 오로비스의 속삭임",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bastion-of-divinity",
+     "en": "Grand Bastion of Divinity",
+     "ko": "상급 신성의 보루",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "allure-of-apathy",
+     "en": "Grand Allure of Apathy",
+     "ko": "상급 무관심의 유혹",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "vigor-of-jormun",
+     "en": "Grand Vigor of Jormun",
+     "ko": "상급 요르문의 원기",
+     "grand": true,
+     "note": "막기 변형(엔드게임)·막기 변형(최종) 단계에선 상급 영원의 뼈(Grand Bones of Eternity)"
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "erasing-strike-void-knight",
+   "en": "Erasing Strike Void Knight",
+   "ko": "소멸의 타격 공허기사",
+   "cls": "sentinel",
+   "mastery": "voidknight",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": "최종 투자 단계에선 상급 불멸성의 잉걸불(Grand Embers of Immortality)"
+    }
+   ]
+  },
+  {
+   "id": "multistrike-forge-guard",
+   "en": "Multistrike Forge Guard",
+   "ko": "다중 공격 대장간지기",
+   "cls": "sentinel",
+   "mastery": "forgeguard",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": "입문 단계에선 상급 망각의 바람(Grand Winds of Oblivion)"
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "fury-of-the-north",
+     "en": "Grand Fury of the North",
+     "ko": "상급 북방의 분노",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": "입문 단계에선 상급 불멸성의 잉걸불(Grand Embers of Immortality)"
+    }
+   ]
+  },
+  {
+   "id": "radiant-lance-paladin",
+   "en": "Radiant Lance Paladin",
+   "ko": "광휘의 기병창 성기사",
+   "cls": "sentinel",
+   "mastery": "paladin",
+   "picks": [
+    {
+     "ref": "hunger-of-the-void",
+     "en": "Grand Hunger of the Void",
+     "ko": "상급 공허의 굶주림",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "blood-spectre-necromancer",
+   "en": "Blood Spectre Necromancer",
+   "ko": "피 악령 강령술사",
+   "cls": "acolyte",
+   "mastery": "necromancer",
+   "picks": [
+    {
+     "ref": "memory-of-light",
+     "en": "Grand Memory of Light",
+     "ko": "상급 빛의 기억",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "rhythm-of-the-tide",
+     "en": "Grand Rhythm of the Tide",
+     "ko": "상급 물결의 리듬",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "spirit-of-command",
+     "en": "Grand Spirit of Command",
+     "ko": "상급 지휘의 혼령",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "skeleton-necromancer",
+   "en": "Skeleton Necromancer",
+   "ko": "해골 강령술사",
+   "cls": "acolyte",
+   "mastery": "necromancer",
+   "picks": [
+    {
+     "ref": "echo-of-solarum",
+     "en": "Grand Echo of Solarum",
+     "ko": "상급 솔라룸의 메아리",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "rhythm-of-the-tide",
+     "en": "Grand Rhythm of the Tide",
+     "ko": "상급 물결의 리듬",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "spirit-of-command",
+     "en": "Grand Spirit of Command",
+     "ko": "상급 지휘의 혼령",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "harvest-flay-lich",
+   "en": "Harvest Flay Lich",
+   "ko": "수확 박피 리치",
+   "cls": "acolyte",
+   "mastery": "lich",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-grael",
+     "en": "Grand Resolve of Grael",
+     "ko": "상급 그라엘의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "embers-of-immortality",
+     "en": "Grand Embers of Immortality",
+     "ko": "상급 불멸성의 잉걸불",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "flay-mana-lich",
+   "en": "Flay Mana Lich",
+   "ko": "박피 마나 리치",
+   "cls": "acolyte",
+   "mastery": "lich",
+   "picks": [
+    {
+     "ref": "winds-of-oblivion",
+     "en": "Grand Winds of Oblivion",
+     "ko": "상급 망각의 바람",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "survival-of-might",
+     "en": "Grand Survival of Might",
+     "ko": "상급 힘의 생존",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "rip-blood-lich",
+   "en": "Rip Blood Lich",
+   "ko": "피 찢기 리치",
+   "cls": "acolyte",
+   "mastery": "lich",
+   "picks": [
+    {
+     "ref": "echo-of-solarum",
+     "en": "Grand Echo of Solarum",
+     "ko": "상급 솔라룸의 메아리",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bastion-of-divinity",
+     "en": "Grand Bastion of Divinity",
+     "ko": "상급 신성의 보루",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "survival-of-might",
+     "en": "Grand Survival of Might",
+     "ko": "상급 힘의 생존",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "fury-of-the-north",
+     "en": "Grand Fury of the North",
+     "ko": "상급 북방의 분노",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "stygian-coal-lich",
+   "en": "Stygian Coal Lich",
+   "ko": "명계의 석탄 리치",
+   "cls": "acolyte",
+   "mastery": "lich",
+   "picks": [
+    {
+     "ref": "echo-of-solarum",
+     "en": "Grand Echo of Solarum",
+     "ko": "상급 솔라룸의 메아리",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "survival-of-might",
+     "en": "Grand Survival of Might",
+     "ko": "상급 힘의 생존",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-grael",
+     "en": "Grand Resolve of Grael",
+     "ko": "상급 그라엘의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "promise-of-death",
+     "en": "Grand Promise of Death",
+     "ko": "상급 죽음의 약속",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "profane-veil-warlock",
+   "en": "Profane Veil Warlock",
+   "ko": "불경한 베일 워록",
+   "cls": "acolyte",
+   "mastery": "warlock",
+   "picks": [
+    {
+     "ref": "echo-of-solarum",
+     "en": "Grand Echo of Solarum",
+     "ko": "상급 솔라룸의 메아리",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "survival-of-might",
+     "en": "Grand Survival of Might",
+     "ko": "상급 힘의 생존",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "fury-of-the-north",
+     "en": "Grand Fury of the North",
+     "ko": "상급 북방의 분노",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "bladestorm-bladedancer",
+   "en": "Bladestorm Bladedancer",
+   "ko": "칼날 폭풍 검무가",
+   "cls": "rogue",
+   "mastery": "bladedancer",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "shadow-rend-bladedancer",
+   "en": "Shadow Rend Bladedancer",
+   "ko": "그림자 분열 검무가",
+   "cls": "rogue",
+   "mastery": "bladedancer",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "shadow-cascade-bladedancer",
+   "en": "Shadow Cascade Bladedancer",
+   "ko": "그림자 폭포 검무가",
+   "cls": "rogue",
+   "mastery": "bladedancer",
+   "picks": [
+    {
+     "ref": "greed-of-darkness",
+     "en": "Grand Greed of Darkness",
+     "ko": "상급 어둠의 탐욕",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "light-of-the-moon",
+     "en": "Grand Light of the Moon",
+     "ko": "상급 달빛",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "dreamslash-bladedancer",
+   "en": "Dreamslash Bladedancer",
+   "ko": "꿈 베기 검무가",
+   "cls": "rogue",
+   "mastery": "bladedancer",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": "입문·중반 단계에선 상급 솔라룸의 메아리(Grand Echo of Solarum)"
+    },
+    {
+     "ref": "resonance-of-the-sea",
+     "en": "Grand Resonance of the Sea",
+     "ko": "상급 바다의 공명",
+     "grand": true,
+     "note": "입문·중반 단계에선 상급 신성의 보루(Grand Bastion of Divinity)"
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "bulwark-of-the-tundra",
+     "en": "Grand Bulwark of the Tundra",
+     "ko": "상급 툰드라의 방벽",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "shuriken-marksman",
+   "en": "Shuriken Marksman",
+   "ko": "수리검 명사수",
+   "cls": "rogue",
+   "mastery": "marksman",
+   "picks": [
+    {
+     "ref": "echo-of-solarum",
+     "en": "Grand Echo of Solarum",
+     "ko": "상급 솔라룸의 메아리",
+     "grand": true,
+     "note": "최종 투자 단계에선 상급 재의 공허함(Grand Emptiness of Ash)"
+    },
+    {
+     "ref": "crash-of-the-waves",
+     "en": "Grand Crash of the Waves",
+     "ko": "상급 부서지는 파도",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-humanity",
+     "en": "Grand Resolve of Humanity",
+     "ko": "상급 인류의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "resolve-of-grael",
+     "en": "Grand Resolve of Grael",
+     "ko": "상급 그라엘의 결의",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "body-of-obsidian",
+     "en": "Grand Body of Obsidian",
+     "ko": "상급 흑요석 육신",
+     "grand": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "id": "ballista-falconer",
+   "en": "Ballista (ZHP) Falconer",
+   "ko": "발리스타(ZHP) 매사냥꾼",
+   "cls": "rogue",
+   "mastery": "falconer",
+   "picks": [
+    {
+     "ref": "emptiness-of-ash",
+     "en": "Grand Emptiness of Ash",
+     "ko": "상급 재의 공허함",
+     "grand": true,
+     "note": "가이드 본문: 상급 솔라룸의 메아리(공허 저항)로 바꿔도 됨. 우버 아베로스용·하드코어 플래너도 이쪽을 고름"
+    },
+    {
+     "ref": "might-of-the-sea-titan",
+     "en": "Grand Might of the Sea Titan",
+     "ko": "상급 바다 타이탄의 위세",
+     "grand": true,
+     "note": "하드코어(엔드게임)·하드코어(최종) 단계에선 상급 신성의 보루(Grand Bastion of Divinity)"
+    },
+    {
+     "ref": "survival-of-might",
+     "en": "Grand Survival of Might",
+     "ko": "상급 힘의 생존",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "fury-of-the-north",
+     "en": "Grand Fury of the North",
+     "ko": "상급 북방의 분노",
+     "grand": true,
+     "note": null
+    },
+    {
+     "ref": "spirit-of-command",
+     "en": "Grand Spirit of Command",
+     "ko": "상급 지휘의 혼령",
+     "grand": true,
+     "note": "하드코어(엔드게임)·하드코어(최종) 단계에선 상급 흑요석 육신(Grand Body of Obsidian)"
+    }
+   ]
+  }
+ ]
+}

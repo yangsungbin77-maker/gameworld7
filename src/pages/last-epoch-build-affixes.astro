@@ -3,6 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import data from '../data/le-builds.json';
+import bless from '../data/le-blessings.json';
+const BLESS = Object.fromEntries((bless.builds as { id: string; picks: { ko: string | null; en: string }[] }[]).map((b) => [b.id, b.picks]));
 
 type Affix = { en: string; ko: string | null; cat: string; prio: number; slots: string[] };
 type Stage = { affixes: Affix[]; notes: string } | null;
@@ -135,6 +137,7 @@ const faq = [
 						{b.defense.length > 0 && <section><h3>🛡️ 방어 목표</h3><ul>{b.defense.map((d) => <li>{d}</li>)}</ul></section>}
 						{b.idols.length > 0 && <section><h3>🗿 우상 옵션</h3><ul>{b.idols.map((i) => <li>{nm(i)}{i.ko && <small> {i.en}</small>}</li>)}</ul></section>}
 						{b.uniques.length > 0 && <section><h3>💠 핵심 고유·세트</h3><ul>{b.uniques.map((u) => <li>{u.core && <span class="le-core">필수</span>}{nm(u)}{u.slot && <small> · {u.slot}</small>}</li>)}</ul></section>}
+						{BLESS[b.id]?.length > 0 && <section><h3>🙏 추천 축복</h3><ul>{BLESS[b.id].map((p) => <li>{p.ko || p.en}</li>)}</ul><p class="le-blink"><a href={`/last-epoch-blessings/?build=${b.id}`}>어느 보스에서 고르는지 보기 →</a></p></section>}
 						{b.exalted.length > 0 && <section><h3>✨ 승격(Exalted) 목표</h3><ul>{b.exalted.map((e) => <li>{e}</li>)}</ul></section>}
 					</div>
 					<p class="le-how">우선순위 1·2·3은 공략의 단계별 장비 세팅(플래너)에 그 옵션이 얼마나 자주 들어가는지와 공략 설명을 함께 보고 정리했어요. "최종 세팅"은 공략의 완성형 장비 기준이에요.</p>
@@ -229,6 +232,8 @@ const faq = [
 	.le-extra h3 { font-size: 0.86rem; margin: 0 0 6px; color: var(--l-amber); }
 	.le-extra ul { margin: 0; padding-left: 1.1em; font-size: 0.86rem; line-height: 1.6; }
 	.le-extra small { color: var(--l-muted); font-size: 0.74rem; }
+	.le-blink { margin: 6px 0 0; font-size: 0.8rem; }
+	.le-blink a { color: var(--l-teal); }
 	.le-core { font-size: 0.66rem; font-weight: 800; background: var(--l-amber); color: #1a1206; border-radius: 999px; padding: 1px 6px; margin-right: 5px; }
 	.le-how { font-size: 0.76rem; color: var(--l-muted); margin: 12px 0 0; line-height: 1.6; }
 	.le-src { margin-top: 12px; font-size: 0.76rem; color: var(--l-muted); }
