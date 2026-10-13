@@ -1,0 +1,3814 @@
+{
+ "updated": "2026-10",
+ "season": 5,
+ "patch": "1.5.x",
+ "season_name": {
+  "en": "Rage of the Frostborn",
+  "ko": "서리화신의 분노"
+ },
+ "data_notes_ko": "affix_ko의 'Added Spell Damage (+Spell Damage)'·'Increased Spell Damage'는 공식 복합 접사명(추가 주문 피해 및 주문 피해 증가)을 나눈 것. 한글 접사·고유·스킬명은 lastepochtools.com 한국어 로케일(게임 공식 번역, 데이터 버전 1.5.2)에서 ID로 대조. 접사 우선순위는 맥스롤 S5 빌드 가이드 문구 + 플래너(장착 장비 실데이터)로 정리했고 가이드 자체엔 순위 숫자가 없음. 'high_corruption'은 맥스롤 'Aspirational'(타락 완성품) 플래너 기준. 사이트용 전문화 한글명(원소술사·주문검사)과 게임 공식명(소서러·마검사)이 다름 → mastery_ko_official에 공식명.",
+ "common_ko": [
+  "시즌 5 이름: Rage of the Frostborn(서리화신의 분노), 패치 1.5.x(라스트에포크툴즈 데이터 버전 1.5.2), 2026-10-01 시작.",
+  "저항 상한은 75%. 75%를 넘긴 만큼은 피해를 더 줄여주진 않지만, 감전·저항 감소 같은 '저항 깎기'에 대한 완충이 됨.",
+  "적은 지역 레벨 1당 관통 1%(최대 75%)를 가짐. 지역 레벨 75 이상(모놀리스 본게임)에서 저항이 75% 미만이면 사실상 음수 저항이라 더 아프게 맞음 → 엔드게임 진입 전에 7종 저항(화염·냉기·번개·물리·공허·괴사·중독) 모두 75% 맞추기.",
+  "근성(Endurance): 생명력이 근성 기준치 아래일 때 받는 피해 감소. 최대 60%, 기준치는 상한 없음. 기본 20%·최대 생명력의 20%. 보호막에는 적용 안 됨.",
+  "방어도: 타격만 줄여줌(지속 피해엔 무효), 비물리 피해엔 70% 효율, 최대 85%. 지역 레벨이 높을수록 같은 방어도의 효과가 줄어듦.",
+  "치명타 방지: 적의 치명타를 일반 타격으로 바꿀 확률. 엔드게임 빌드들이 투구·허리띠의 '치명타 방지 및 추가 회피율' 접사나 신상으로 확보.",
+  "보호막(Ward): 생명력 위의 보호막, 계속 줄어듦. 보호막 유지력(지능 1당 2%)으로 감소를 늦추고, 보호막 감쇠 기준치 아래로는 안 줄어듦.",
+  "접사 등급: 1~7등급. 제작(조각)으로는 5등급까지만. 6·7등급은 드랍될 때부터 붙어 있어야 함 = 숭고(보라색) 아이템. 접두사 2개+접미사 2개가 최대.",
+  "태고(Primordial) 아이템: 8등급 접사 또는 태고 고유. 한 번에 하나만 착용 가능(가이드의 '태고 고유'=뒤얽힌 전설·도살자의 왕관·선조 무리의 뼈 등).",
+  "봉인 접사: 접사 4개짜리 숭고 아이템에 1등급 접사를 봉인하는 건 확정(맥스롤). 세트 '재련' 접사(빌라트리아·리치·요르문·마지막 곰 등)를 일반 장비에 얹을 때 활용.",
+  "전설 잠재력(LP): 고유 아이템(LP 1~4) + 숭고 아이템(봉인 안 된 접사 정확히 4개)을 영원의 보관함(시간의 성소 던전)에서 합치면 LP 수만큼 숭고 접사가 고유로 옮겨짐. 2단계 이상 던전에선 1개를 확정 지정 가능.",
+  "LP는 드랍 지역 레벨에 크게, 타락에 약간 영향. 강한 고유일수록 LP가 잘 안 붙음. 타락한 아이템은 전설 제작 불가.",
+  "엮는 자의 의지(Weaver's Will): 일부 고유에 붙는 수치. 착용하고 사냥·경험치를 얻으면 1등급 접사가 생기거나 등급이 오름(최대 7). 28이면 결국 7등급 접사 4개짜리 전설이 됨.",
+  "아이템 타락(룬 사용): 결과가 무작위, 좋은 접사가 붙을 수도 있음. 타락하면 더는 제작 불가 + 제련 잠재력·LP·엮는 자의 의지 모두 사라짐 → 완성 후 마지막에. 맥스롤 'Aspirational' 플래너는 타락 접사가 붙은 완성품 기준.",
+  "모놀리스 타락(Corruption): 일반 시간선 0~50, 강화된 시간선은 100부터 상한 없음. 올릴수록 적 체력·피해와 아이템 희귀도·경험치가 같이 오름 → 타락이 높을수록 방어(저항 상한·치명타 방지·체력·보호막) 부족이 바로 드러남.",
+  "신상(Idol): 소지품 오른쪽 전용 칸, 퀘스트로 최대 20칸까지 확장. 크기 1x1~2x2·1x4·4x1, 클수록 수치↑. 대부분 기본 직업 전용, 접두사1+접미사1로 드랍되고 제작 불가.",
+  "신상 제단(Idol Altar): 장착하면 신상 칸 모양이 바뀌고 '굴절된 칸'에 넣은 신상 효과가 강화됨(징조의 창에서 획득). S5 맥스롤 플래너 대부분이 피라미드형 제단 + 굴절 칸 효과 접사 사용.",
+  "공식 한글 용어: Exalted=숭고, Legendary Potential=전설 잠재력, Weaver's Will=엮는 자의 의지, Idol=신상, Corruption=타락, Endurance=근성, Ward=보호막, Primordial=태고."
+ ],
+ "affix_ko": {
+  "Increased Health": "생명력 증가",
+  "Added Health": "추가 생명력",
+  "Hybrid Health": "복합 생명력",
+  "Endurance": "근성",
+  "Endurance Threshold": "근성 기준치",
+  "Critical Strike Multiplier": "치명타 배율",
+  "Critical Strike Chance": "치명타 확률",
+  "Spell Critical Strike Chance": "주문 치명타 확률",
+  "Melee Critical Strike Chance": "근접 치명타 확률",
+  "Critical Strike Avoidance": "치명타 방지",
+  "Reduced Bonus Damage Taken from Critical Strikes": "치명타로 받는 보너스 피해 감소",
+  "Ward Retention": "보호막 유지력",
+  "Ward per Second": "초당 보호막",
+  "All Resistances": "모든 저항",
+  "Elemental Resistance": "원소 저항",
+  "Fire Resistance": "화염 저항",
+  "Cold Resistance": "냉기 저항",
+  "Lightning Resistance": "번개 저항",
+  "Physical Resistance": "물리 저항",
+  "Void Resistance": "공허 저항",
+  "Necrotic Resistance": "괴사 저항",
+  "Poison Resistance": "중독 저항",
+  "Cast Speed": "시전 속도",
+  "Melee Attack Speed": "근접 공격 속도",
+  "Movement Speed": "이동 속도",
+  "Spell Damage": "주문 피해",
+  "Increased Cooldown Recovery Speed": "재사용 대기시간 회복 속도 증가",
+  "Strength": "힘",
+  "Intelligence": "지능",
+  "Dexterity": "민첩",
+  "Attunement": "조화력",
+  "Vitality": "활력",
+  "All Attributes": "모든 능력치",
+  "Mana": "마나",
+  "Mana Regeneration": "마나 재생",
+  "Armor": "방어도",
+  "Increased Armor": "방어도 증가",
+  "Added Armor": "추가 방어도",
+  "Added Dodge Rating": "추가 회피율",
+  "Increased Dodge Rating": "회피율 증가",
+  "Block Chance": "막기 확률",
+  "Block Effectiveness": "막기 효율",
+  "Stun Avoidance": "기절 방지",
+  "Increased Stun Chance": "기절 유발 확률 증가",
+  "Chance to Shred Armor on Hit": "적중 시 방어도 분쇄 확률",
+  "Chance to apply Frailty on Hit": "적중 시 허약 적용 확률",
+  "Fire Damage": "화염 피해",
+  "Cold Damage": "냉기 피해",
+  "Lightning Damage": "번개 피해",
+  "Physical Damage": "물리 피해",
+  "Void Damage": "공허 피해",
+  "Necrotic Damage": "괴사 피해",
+  "Poison Damage": "중독 피해",
+  "Elemental Damage": "원소 피해",
+  "Damage Over Time": "지속 피해",
+  "Melee Damage": "근접 피해",
+  "Minion Damage": "하수인 피해",
+  "Minion Health": "하수인 생명력",
+  "Melee Fire Damage": "근접 화염 피해",
+  "Melee Lightning Damage": "근접 번개 피해",
+  "Melee Physical Damage": "근접 물리 피해",
+  "Fire Penetration": "화염 관통",
+  "Cold Penetration": "냉기 관통",
+  "Lightning Penetration": "번개 관통",
+  "Physical Penetration": "물리 관통",
+  "Void Penetration": "공허 관통",
+  "Melee Damage Leeched as Health": "근접 피해를 생명력으로 흡수",
+  "Health Regeneration": "생명력 재생",
+  "Health On Kill": "처치 시 생명력 획득",
+  "Ward and Ailment Cleansing on Potion Use": "물약 사용 시 보호막 및 상태 이상 정화",
+  "Ward Per Second and Ward Decay Threshold": "초당 보호막 및 보호막 감쇠 기준치",
+  "Critical Strike Avoidance and Added Dodge Rating": "치명타 방지 및 추가 회피율",
+  "Armor and Reduced Bonus Damage from Crits": "방어도, 치명타로 받는 보너스 피해 감소",
+  "Endurance and Endurance Threshold": "근성 및 근성 기준치",
+  "Added Spell Damage and Increased Spell Damage": "추가 주문 피해 및 주문 피해 증가",
+  "Ward Decay Threshold": "보호막 감쇠 기준치",
+  "Dodge Rating": "회피율",
+  "Added Spell Damage (+Spell Damage)": "추가 주문 피해",
+  "Increased Spell Damage": "주문 피해 증가",
+  "Level of Static Orb": "정전기 보주 레벨",
+  "Level of Lightning Blast": "번개 파동 레벨"
+ },
+ "builds": [
+  {
+   "id": "static-orb-sorcerer",
+   "en": "Static Orb Sorcerer",
+   "ko": "Static Orb(정전기 보주) 원소술사",
+   "class": "mage",
+   "mastery": "sorcerer",
+   "mastery_ko_official": "소서러",
+   "tier_maxroll": {
+    "endgame": "S",
+    "bossing": "S"
+   },
+   "skills": [
+    {
+     "en": "Static Orb",
+     "ko": "정전기 보주",
+     "main": true
+    },
+    {
+     "en": "Flame Rush",
+     "ko": "불꽃 돌진"
+    },
+    {
+     "en": "Focus",
+     "ko": "초점"
+    },
+    {
+     "en": "Arcane Ascendance",
+     "ko": "비전 초월"
+    },
+    {
+     "en": "Flame Ward",
+     "ko": "불꽃 보호막"
+    }
+   ],
+   "damage_ko": "번개 주문(정전기 보주 폭발). 최대 마나를 쌓아 Manacharged 노드와 Lost Knowledge 효과를 키우고, 지능으로 빌라트리아 세트 보너스의 추가 주문 피해를 받는 '마나·지능 스택' 빌드. 태그: 번개·주문·투사체·범위.",
+   "stages": {
+    "leveling": {
+     "affixes": [
+      {
+       "en": "Added Health",
+       "ko": "추가 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "모든 방어구 접미사"
+       ]
+      },
+      {
+       "en": "Physical Resistance",
+       "ko": "물리 저항",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷",
+        "투구",
+        "장화",
+        "유물"
+       ]
+      },
+      {
+       "en": "Intelligence",
+       "ko": "지능",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷",
+        "반지",
+        "유물",
+        "장화"
+       ]
+      },
+      {
+       "en": "Ward Per Second and Ward Decay Threshold",
+       "ko": "초당 보호막 및 보호막 감쇠 기준치",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Ward per Second",
+       "ko": "초당 보호막",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "투구",
+        "갑옷",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Increased Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Mana Regeneration",
+       "ko": "마나 재생",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "유물"
+       ]
+      }
+     ],
+     "notes_ko": "맥스롤에는 정전기 보주 전용 레벨링이 없음. 가이드가 80레벨까지 마법사 공용 레벨링(화염 오라 주문검사, S5판)을 쓰라고 안내. 생명력·물리 저항으로 버티고, 지능과 초당 보호막으로 화력과 방어를 같이 챙김. 은반지(이동 속도)·재사용 대기시간 감소도 챙기기. 80레벨 이후 고유 장비가 모이면 마나·지능 스택으로 갈아탐."
+    },
+    "endgame": {
+     "affixes": [
+      {
+       "en": "Added Mana",
+       "ko": "마나",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷",
+        "보조 장비",
+        "장갑",
+        "목걸이",
+        "유물"
+       ],
+       "note_ko": "마나 스택이 곧 화력과 보호막. 거의 모든 칸에 7등급 마나"
+      },
+      {
+       "en": "Intelligence",
+       "ko": "지능",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "장갑",
+        "반지",
+        "반지"
+       ],
+       "note_ko": "추가 주문 피해 대부분이 지능에서 나옴(빌라트리아 세트 + Calculated Destruction)"
+      },
+      {
+       "en": "Level of Static Orb",
+       "ko": "정전기 보주 레벨",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Vilatria's Storm Crown Reforged",
+       "ko": "재련된 빌라트리아의 폭풍 왕관",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ],
+       "note_ko": "숭고 투구의 봉인 접사로 세트 효과 확보(뒤얽힌 전설로 세트 완성)"
+      },
+      {
+       "en": "Mana and Mana Spent Gained as Ward",
+       "ko": "마나, 소모한 마나를 보호막으로 획득",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "무기"
+       ],
+       "note_ko": "미친 연금술사의 국자 전설 접사. 쓴 마나를 보호막으로"
+      },
+      {
+       "en": "Critical Strike Avoidance and Added Dodge Rating",
+       "ko": "치명타 방지 및 추가 회피율",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Lich's Envy Reforged",
+       "ko": "재련된 리치의 시기심",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ],
+       "note_ko": "숭고 장갑 봉인 접사, 뒤얽힌 전설 효과 강화"
+      },
+      {
+       "en": "Mana and Mana Regen",
+       "ko": "마나, 마나 재생",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Ward per Second",
+       "ko": "초당 보호막",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Increased Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ],
+       "note_ko": "찰나의 안식에 7등급 숭고 이동 속도"
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Armor Shred Chance",
+       "ko": "적중 시 방어도 분쇄 확률",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ]
+      },
+      {
+       "en": "Increased Stun Chance",
+       "ko": "기절 유발 확률 증가",
+       "cat": "유틸",
+       "prio": 3,
+       "slots_ko": [
+        "장갑"
+       ]
+      },
+      {
+       "en": "Effect of Prefixes for Idols in Refracted Slots",
+       "ko": "굴절된 칸에 놓인 신상의 접두사 효과",
+       "cat": "유틸",
+       "prio": 3,
+       "slots_ko": [
+        "신상 제단"
+       ]
+      },
+      {
+       "en": "Mana per Idol in a Refracted Slot",
+       "ko": "굴절된 칸의 신상 하나당 마나",
+       "cat": "공격",
+       "prio": 3,
+       "slots_ko": [
+        "신상 제단"
+       ]
+      }
+     ],
+     "notes_ko": "기준=맥스롤 'Endgame Gear' 플래너(9/30). 마나→지능→정전기 보주 레벨 순. 고유 장비에 전설 접사(대부분 7등급)를 이식해 마나·지능을 몰아줌. 맵핑용은 무기를 마찰전기로 바꾸고 Orbital Fulmination 노드 사용."
+    },
+    "high_corruption": {
+     "affixes": [
+      {
+       "en": "Increased Spell Damage",
+       "ko": "주문 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "반지"
+       ]
+      },
+      {
+       "en": "Added Critical Strike Multiplier",
+       "ko": "치명타 배율",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "보조 장비",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Increased Lightning Damage",
+       "ko": "번개 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Lightning Penetration and Minion Lightning Penetration",
+       "ko": "번개 관통 및 하수인 번개 관통",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Experimental Ward Gained on Traversal",
+       "ko": "실험적 기동 스킬 사용 시 보호막 획득",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Added Intelligence and Ward Per Second",
+       "ko": "추가 지능, 초당 보호막",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "반지",
+        "유물"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Level of All Skills and Added Mana",
+       "ko": "모든 스킬 레벨, 추가 마나",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "목걸이"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Increased Attack and Cast Speed",
+       "ko": "공격 및 시전 속도 증가",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ],
+       "note_ko": "타락 접사"
+      }
+     ],
+     "notes_ko": "맥스롤 'Aspirational Gear'(타락 아이템 장착) 플래너 기준으로 정리. 가이드 본문에 고타락 전용 지침은 없음. 위 엔드게임 접사에 더해 두 번째 전설 접사(6등급)와 타락 접사를 얹는 단계."
+    }
+   },
+   "defense_ko": [
+    "가이드에 저항·체력 수치 목표는 명시 없음(플래너는 신상으로 공허·냉기 저항 보충)",
+    "주 방어=보호막: Lost Knowledge 패시브 + 소모 마나 보호막 전환(국자) + 찰나의 안식",
+    "아틀라리아의 붉은 반지: 능력치 요구치 180 달성 시 피해 감소. 그 전엔 오세아레온·줄라의 성반으로 대체",
+    "투구 '치명타 방지 및 추가 회피율'로 치명타 방지 확보",
+    "불꽃 보호막은 보스의 큰 예고 공격에 맞춰 사용, Sphere of Protection 패시브"
+   ],
+   "idols": [
+    {
+     "en": "Mana",
+     "ko": "마나",
+     "idol_type": "Grand Glass Idol",
+     "idol_type_ko": "웅장한 유리 신상"
+    },
+    {
+     "en": "Mana And Armor",
+     "ko": "마나 및 방어도",
+     "idol_type": "Grand Glass Idol",
+     "idol_type_ko": "웅장한 유리 신상"
+    },
+    {
+     "en": "Increased Lightning Damage while you have Lightning Aegis",
+     "ko": "번개 비호를 보유한 동안 번개 피해 증가",
+     "idol_type": "Large Arcane Omen Idol",
+     "idol_type_ko": "큰 비전의 징조 신상"
+    },
+    {
+     "en": "Increased Lightning Damage (Doubled If You Have Over 300 Max Mana)",
+     "ko": "번개 피해 증가(최대 마나가 300을 초과할 때 두 배)",
+     "idol_type": "Large Arcane Omen Idol",
+     "idol_type_ko": "큰 비전의 징조 신상"
+    },
+    {
+     "en": "Increased Stun Chance",
+     "ko": "기절 유발 확률 증가",
+     "idol_type": "Small Eterran Idol",
+     "idol_type_ko": "작은 에테라 신상"
+    },
+    {
+     "en": "Void Resistance",
+     "ko": "공허 저항",
+     "idol_type": "Small Eterran Idol",
+     "idol_type_ko": "작은 에테라 신상"
+    },
+    {
+     "en": "Increased Stun Chance and Added Stun Avoidance",
+     "ko": "기절 유발 확률 증가, 추가 기절 방지",
+     "idol_type": "Small Weaver Idol",
+     "idol_type_ko": "작은 엮는 자 신상"
+    },
+    {
+     "en": "Void Resistance and Minion Void Resistance",
+     "ko": "공허 저항 및 하수인 공허 저항",
+     "idol_type": "Small Weaver Idol",
+     "idol_type_ko": "작은 엮는 자 신상"
+    },
+    {
+     "en": "Cold Resistance",
+     "ko": "냉기 저항",
+     "idol_type": "Minor Lagonian Idol",
+     "idol_type_ko": "가벼운 라곤 신상"
+    }
+   ],
+   "uniques": [
+    {
+     "en": "Legends Entwined",
+     "ko": "뒤얽힌 전설",
+     "slot_ko": "반지",
+     "role": "optional",
+     "note_ko": "빌라트리아 폭풍 왕관·리치의 시기심 재련 세트를 완성. 추가 주문 피해의 핵심(사실상 필수급)"
+    },
+    {
+     "en": "Mad Alchemist's Ladle",
+     "ko": "미친 연금술사의 국자",
+     "slot_ko": "무기",
+     "role": "optional",
+     "note_ko": "추가 피해 배율. 맵핑 변형은 마찰전기"
+    },
+    {
+     "en": "Triboelectra",
+     "ko": "마찰전기",
+     "slot_ko": "무기",
+     "role": "optional",
+     "note_ko": "맵핑(속도) 변형용 무기"
+    },
+    {
+     "en": "Unstable Core",
+     "ko": "불안정한 핵",
+     "slot_ko": "갑옷",
+     "role": "optional",
+     "note_ko": "전설 잠재력 있으면 숭고 마나 이식"
+    },
+    {
+     "en": "Scales of Eterra",
+     "ko": "에테라의 저울",
+     "slot_ko": "보조 장비",
+     "role": "optional",
+     "note_ko": "화염·냉기 주입형을 능력치용으로"
+    },
+    {
+     "en": "Orian's Descent",
+     "ko": "오리앤의 강림",
+     "slot_ko": "허리띠",
+     "role": "optional",
+     "note_ko": "지능 대량"
+    },
+    {
+     "en": "Transient Rest",
+     "ko": "찰나의 안식",
+     "slot_ko": "장화",
+     "role": "optional",
+     "note_ko": "보호막 생성. 7등급 숭고 이동 속도 전설 권장"
+    },
+    {
+     "en": "Red Ring of Atlaria",
+     "ko": "아틀라리아의 붉은 반지",
+     "slot_ko": "반지",
+     "role": "optional",
+     "note_ko": "능력치 180 달성 시 피해 감소"
+    },
+    {
+     "en": "Nihilis",
+     "ko": "니힐리스",
+     "slot_ko": "목걸이",
+     "role": "optional",
+     "note_ko": "공격형. 방어형 대안=만물·오리앤의 눈"
+    },
+    {
+     "en": "Twisted Heart of Uhkeiros",
+     "ko": "우케이로스의 뒤틀린 심장",
+     "slot_ko": "유물",
+     "role": "optional",
+     "note_ko": "부서진 세계 얻기 전 능력치용"
+    },
+    {
+     "en": "Shattered Worlds",
+     "ko": "부서진 세계",
+     "slot_ko": "유물",
+     "role": "optional",
+     "note_ko": "우버 아베로스 드랍"
+    },
+    {
+     "en": "Julra's Stardial",
+     "ko": "줄라의 성반",
+     "slot_ko": "반지",
+     "role": "optional",
+     "note_ko": "보스용 변형, 버프 타이밍에 딜 집중"
+    }
+   ],
+   "exalted_ko": [
+    "투구: 숭고(7등급 마나·정전기 보주 레벨) + 빌라트리아 폭풍 왕관 재련 봉인 접사",
+    "장갑: 숭고(7등급 마나·지능) + 리치의 시기심 재련 봉인 접사",
+    "불안정한 핵: 전설 잠재력 있는 것에 숭고 '마나' 이식",
+    "찰나의 안식: 7등급 숭고 이동 속도 전설",
+    "고유 장비 대부분에 7등급 마나 또는 지능 전설 접사"
+   ],
+   "sources": [
+    "https://maxroll.gg/last-epoch/build-guides/static-orb-sorcerer-guide",
+    "https://maxroll.gg/last-epoch/planner/csbexj0h",
+    "https://maxroll.gg/last-epoch/build-guides/spellblade-leveling-guide",
+    "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+    "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+    "https://www.lastepochtools.com/db/ko/prefixes"
+   ],
+   "guide_updated": "2026-09-28",
+   "confidence_ko": "중상. 맥스롤 S5 가이드+플래너(9/30) 실데이터 기반. 우선순위 숫자는 플래너 장착 빈도·가이드 문구로 정리한 것(가이드 자체엔 순위표 없음). 레벨링은 공용 마법사 가이드라 빌드 전용 아님."
+  },
+  {
+   "id": "flame-reave-spellblade",
+   "en": "Flame Reave Spellblade",
+   "ko": "Flame Reave(불꽃 가르기) 주문검사",
+   "class": "mage",
+   "mastery": "spellblade",
+   "mastery_ko_official": "마검사",
+   "tier_maxroll": {
+    "endgame": "S",
+    "bossing": "S"
+   },
+   "skills": [
+    {
+     "en": "Flame Reave",
+     "ko": "불꽃 가르기",
+     "main": true
+    },
+    {
+     "en": "Firebrand",
+     "ko": "불의 낙인"
+    },
+    {
+     "en": "Enchant Weapon",
+     "ko": "무기 마법부여"
+    },
+    {
+     "en": "Flame Rush",
+     "ko": "불꽃 돌진"
+    },
+    {
+     "en": "Flame Ward",
+     "ko": "불꽃 보호막"
+    }
+   ],
+   "damage_ko": "화염 근접 공격(지팡이). 불의 낙인으로 Incineration·Blade Weaver 중첩을 쌓고 불꽃 가르기로 터뜨림. 치명타는 지능+민첩(Prodigy·Defender of Welryn)으로 확보. 태그: 화염·근접·공격·범위.",
+   "stages": {
+    "leveling": {
+     "affixes": [
+      {
+       "en": "Intelligence",
+       "ko": "지능",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷",
+        "반지",
+        "유물",
+        "장화"
+       ],
+       "note_ko": "화염 오라에 추가·증가 피해 둘 다 줌"
+      },
+      {
+       "en": "Ward Per Second and Ward Decay Threshold",
+       "ko": "초당 보호막 및 보호막 감쇠 기준치",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Ward per Second",
+       "ko": "초당 보호막",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Elemental Damage Over Time",
+       "ko": "원소 지속 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Fire Resistance",
+       "ko": "화염 저항",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "반지"
+       ],
+       "note_ko": "Incinerating Aura로 화염 저항이 화염 오라 피해를 올림"
+      },
+      {
+       "en": "Added Health",
+       "ko": "추가 생명력",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "모든 방어구 접미사"
+       ]
+      },
+      {
+       "en": "Physical Resistance",
+       "ko": "물리 저항",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠",
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ],
+       "note_ko": "순간이동으로 불꽃 보호막 가속을 갱신하려면 필요"
+      }
+     ],
+     "notes_ko": "맥스롤 S5 마법사 레벨링(화염 오라 주문검사)과 같은 계열. 38레벨에 불의 낙인+무기 마법부여로 전환. 54레벨 장식 홀+화려한 초점, 63레벨 은빛 홀. 허리띠엔 '물약 사용 시 보호막 및 상태 이상 정화'."
+    },
+    "endgame": {
+     "affixes": [
+      {
+       "en": "Dexterity",
+       "ko": "민첩",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "반지",
+        "반지"
+       ]
+      },
+      {
+       "en": "Level of Flame Reave",
+       "ko": "불꽃 가르기 레벨",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷"
+       ],
+       "note_ko": "타이탄 심장에 7등급 전설"
+      },
+      {
+       "en": "Added Melee Fire Damage",
+       "ko": "근접 화염 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기"
+       ],
+       "note_ko": "재스퍼의 타는 듯한 자긍심 전 단계는 근접 화염 피해 높은 무기"
+      },
+      {
+       "en": "Increased Melee Attack Speed",
+       "ko": "근접 공격 속도",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "장갑"
+       ],
+       "note_ko": "불꽃 가르기 전에 중첩을 꽉 채울 만큼"
+      },
+      {
+       "en": "Added Health",
+       "ko": "추가 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Hybrid Health",
+       "ko": "복합 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "장갑",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Increased Health",
+       "ko": "생명력 증가",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Critical Strike Avoidance and Added Dodge Rating",
+       "ko": "치명타 방지 및 추가 회피율",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지"
+       ]
+      },
+      {
+       "en": "Added Critical Strike Multiplier",
+       "ko": "치명타 배율",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "유물",
+        "무기"
+       ]
+      },
+      {
+       "en": "Armor Shred Chance",
+       "ko": "적중 시 방어도 분쇄 확률",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "목걸이",
+        "장갑"
+       ]
+      },
+      {
+       "en": "Fire Penetration",
+       "ko": "화염 관통",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Intelligence",
+       "ko": "지능",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "투구"
+       ]
+      },
+      {
+       "en": "Increased Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Endurance",
+       "ko": "근성",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "유물"
+       ],
+       "note_ko": "시작 장비 단계"
+      },
+      {
+       "en": "Elemental Resistance",
+       "ko": "원소 저항",
+       "cat": "방어",
+       "prio": 3,
+       "slots_ko": [
+        "반지"
+       ],
+       "note_ko": "시작 장비 단계, 저항 보충"
+      }
+     ],
+     "notes_ko": "기준=맥스롤 'Endgame Gear'(9/30) + 'Starting Gear'. 고유 장비 없이도 굴러가는 시즌 스타터. 민첩·불꽃 가르기 레벨·근접 화염 피해·공격 속도가 딜 핵심, 생명력 3종(추가·복합·증가)으로 체력 확보. 불꽃 가르기 마나 비용 10 이상 유지(Blade Weaver)."
+    },
+    "high_corruption": {
+     "affixes": [
+      {
+       "en": "Fire Penetration and Minion Fire Penetration",
+       "ko": "화염 관통 및 하수인 화염 관통",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Intelligence",
+       "ko": "지능",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "반지",
+        "투구"
+       ]
+      },
+      {
+       "en": "Added Critical Strike Multiplier and Increased Critical Strike Chance per Dexterity",
+       "ko": "추가 치명타 배율, 민첩 1당 치명타 확률 증가",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "반지"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Level of All Skills and Added Mana",
+       "ko": "모든 스킬 레벨, 추가 마나",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷",
+        "목걸이"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Maximum Health gained as Endurance Threshold and Endurance",
+       "ko": "근성 기준치로 획득하는 최대 생명력 비율, 근성",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Increased Attack and Cast Speed",
+       "ko": "공격 및 시전 속도 증가",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Maximum Omen Idols Equipped",
+       "ko": "최대 장착한 징조 신상 수",
+       "cat": "유틸",
+       "prio": 3,
+       "slots_ko": [
+        "신상 제단"
+       ]
+      }
+     ],
+     "notes_ko": "맥스롤 'Aspirational Gear'(타락 장비) 기준. 장갑은 우버 아베로스의 불멸의 죔쇠, 유물은 부서진 세계로 교체. '마나 비용 1당 근접 피해' 타락을 쓰면 마나 비용 +10 태양의 관을 찾기."
+    }
+   },
+   "defense_ko": [
+    "가이드에 저항 수치 목표 명시 없음(플래너는 신상·반지로 원소·중독 저항 보충)",
+    "Arcane Shielding·Resonating Aegis 패시브로 생존력, Sphere of Protection은 거의 필수",
+    "불꽃 보호막은 맞기 전에 미리, 충전 1개는 비상용으로 남김",
+    "신상의 초당 보호막·보호막 감쇠 기준치로 보호막 층 추가"
+   ],
+   "idols": [
+    {
+     "en": "Melee Elemental Damage",
+     "ko": "근접 원소 피해",
+     "idol_type": "Heretical Ornate Glass Idol",
+     "idol_type_ko": "이단의 정교한 유리 신상"
+    },
+    {
+     "en": "Ward Per Second",
+     "ko": "초당 보호막",
+     "idol_type": "Heretical Ornate Glass Idol",
+     "idol_type_ko": "이단의 정교한 유리 신상"
+    },
+    {
+     "en": "Ward decay threshold and Ward per second",
+     "ko": "보호막 감쇠 기준치 및 초당 보호막",
+     "idol_type": "Heretical Ornate Glass Idol",
+     "idol_type_ko": "이단의 정교한 유리 신상"
+    },
+    {
+     "en": "Melee Damage and Spell Damage",
+     "ko": "근접 피해 및 주문 피해",
+     "idol_type": "Heretical Ornate Glass Idol",
+     "idol_type_ko": "이단의 정교한 유리 신상"
+    },
+    {
+     "en": "Ward Retention",
+     "ko": "보호막 유지력",
+     "idol_type": "Heretical Adorned Arcane Idol",
+     "idol_type_ko": "이단의 장식된 비전의 신상"
+    },
+    {
+     "en": "Increased damage over time and Endurance",
+     "ko": "지속 피해 증가 및 근성",
+     "idol_type": "Heretical Adorned Arcane Idol",
+     "idol_type_ko": "이단의 장식된 비전의 신상"
+    },
+    {
+     "en": "Increased Stun Chance and Added Stun Avoidance",
+     "ko": "기절 유발 확률 증가, 추가 기절 방지",
+     "idol_type": "Small Weaver Idol",
+     "idol_type_ko": "작은 엮는 자 신상"
+    },
+    {
+     "en": "Poison Resistance and Minion Poison Resistance",
+     "ko": "중독 저항 및 하수인 중독 저항",
+     "idol_type": "Small Weaver Idol",
+     "idol_type_ko": "작은 엮는 자 신상"
+    },
+    {
+     "en": "Chance to Cast Fire Aura on Critical Strike (up to 3 times per second)",
+     "ko": "치명타 시 화염 오라 시전 확률(초당 최대 3회)",
+     "idol_type": "Adorned Arcane Idol",
+     "idol_type_ko": "장식된 비전의 신상"
+    },
+    {
+     "en": "Health on Kill and Increased Health",
+     "ko": "처치 시 생명력 획득, 생명력 증가",
+     "idol_type": "Stout Weaver Idol",
+     "idol_type_ko": "견고한 엮는 자 신상"
+    },
+    {
+     "en": "Armor and Increased Armor",
+     "ko": "방어도, 방어도 증가",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "Added Health and Reduced Mana",
+     "ko": null,
+     "corruption": true
+    }
+   ],
+   "uniques": [
+    {
+     "en": "Sunwreath",
+     "ko": "태양의 관",
+     "slot_ko": "반지",
+     "role": "optional",
+     "note_ko": "불꽃 가르기를 부채꼴→거대한 원형으로 바꿈. 빌드 체감 핵심(가이드는 '고유 없이도 작동'이라 명시)"
+    },
+    {
+     "en": "Jasper's Searing Pride",
+     "ko": "재스퍼의 타는 듯한 자긍심",
+     "slot_ko": "무기",
+     "role": "optional"
+    },
+    {
+     "en": "Siphon of Anguish",
+     "ko": "고뇌의 흡인",
+     "slot_ko": "반지",
+     "role": "optional",
+     "note_ko": "Doom으로 딜 상승"
+    },
+    {
+     "en": "Boneclamor Barbute",
+     "ko": "뼈울림 투구",
+     "slot_ko": "투구",
+     "role": "optional",
+     "note_ko": "민첩+지능"
+    },
+    {
+     "en": "Army of Skin",
+     "ko": "살갗의 군대",
+     "slot_ko": "장화",
+     "role": "optional"
+    },
+    {
+     "en": "Truesight Glass",
+     "ko": "진실의 망원경",
+     "slot_ko": "목걸이",
+     "role": "optional",
+     "note_ko": "Chaos Flare와 시너지로 큰 딜 상승"
+    },
+    {
+     "en": "Titan Heart",
+     "ko": "타이탄 심장",
+     "slot_ko": "갑옷",
+     "role": "optional",
+     "note_ko": "대안=아르겐투스의 날개"
+    },
+    {
+     "en": "Falcon Fists",
+     "ko": "매의 주먹",
+     "slot_ko": "장갑",
+     "role": "optional",
+     "note_ko": "→ 불멸의 죔쇠(우버 아베로스)로 교체"
+    },
+    {
+     "en": "Immortal Vise",
+     "ko": "불멸의 죔쇠",
+     "slot_ko": "장갑",
+     "role": "optional"
+    },
+    {
+     "en": "Brewmaster's Buckle",
+     "ko": "양조사의 버클",
+     "slot_ko": "허리띠",
+     "role": "optional"
+    },
+    {
+     "en": "Twisted Heart of Uhkeiros",
+     "ko": "우케이로스의 뒤틀린 심장",
+     "slot_ko": "유물",
+     "role": "optional",
+     "note_ko": "→ 부서진 세계로 교체"
+    },
+    {
+     "en": "Throne of Ambition",
+     "ko": "야망의 왕좌",
+     "slot_ko": "신상",
+     "role": "optional"
+    }
+   ],
+   "exalted_ko": [
+    "타이탄 심장 7등급 불꽃 가르기 레벨, 재스퍼 7등급 근접 화염 피해",
+    "뼈울림 투구·반지 2개 7등급 민첩, 매의 주먹 7등급 근접 공격 속도",
+    "진실의 망원경 7등급 방어도 분쇄, 살갗의 군대 7등급 이동 속도, 양조사의 버클 7등급 생명력 증가"
+   ],
+   "sources": [
+    "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+    "https://maxroll.gg/last-epoch/planner/cg2j4d0n",
+    "https://maxroll.gg/last-epoch/build-guides/spellblade-leveling-guide",
+    "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+    "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+    "https://www.lastepochtools.com/db/ko/prefixes"
+   ],
+   "guide_updated": "2026-09-28",
+   "confidence_ko": "중상. 맥스롤 S5 가이드+플래너 기반, 시작·엔드·고타락 3단계 플래너가 있어 단계 구분이 비교적 명확. 레벨링은 공용 마법사 가이드(같은 화염 주문검사 계열이라 연관성 높음)."
+  },
+  {
+   "id": "shatter-strike-spellblade",
+   "en": "Shatter Strike Spellblade",
+   "ko": "Shatter Strike(격파 타격) 주문검사",
+   "class": "mage",
+   "mastery": "spellblade",
+   "mastery_ko_official": "마검사",
+   "tier_maxroll": {
+    "endgame": "A",
+    "bossing": "S"
+   },
+   "skills": [
+    {
+     "en": "Shatter Strike",
+     "ko": "격파 타격",
+     "main": true
+    },
+    {
+     "en": "Mana Strike",
+     "ko": "마나 타격"
+    },
+    {
+     "en": "Enchant Weapon",
+     "ko": "무기 마법부여"
+    },
+    {
+     "en": "Teleport",
+     "ko": "순간이동"
+    },
+    {
+     "en": "Flame Ward",
+     "ko": "불꽃 보호막"
+    }
+   ],
+   "damage_ko": "번개 근접 공격(쌍수 한손 무기). Whiteout 노드로 원형 반복 타격, 마나 타격으로 마나 회복. 디오타엔의 피투성이 펜촉은 자신에게 걸린 출혈 중첩당 관통을 줌. 태그: 번개·근접·공격.",
+   "stages": {
+    "leveling": {
+     "affixes": [
+      {
+       "en": "Dexterity",
+       "ko": "민첩",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷",
+        "장갑",
+        "반지",
+        "유물",
+        "장화"
+       ]
+      },
+      {
+       "en": "Increased Melee Attack Speed",
+       "ko": "근접 공격 속도",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기",
+        "보조 장비",
+        "장갑"
+       ]
+      },
+      {
+       "en": "Added Melee Crit Chance",
+       "ko": "근접 치명타 확률",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기",
+        "보조 장비"
+       ],
+       "note_ko": "양손 한손검 모두에"
+      },
+      {
+       "en": "Ward Per Second and Ward Decay Threshold",
+       "ko": "초당 보호막 및 보호막 감쇠 기준치",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Hybrid Health",
+       "ko": "복합 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "장갑",
+        "허리띠",
+        "장화"
+       ]
+      },
+      {
+       "en": "Ward per Second",
+       "ko": "초당 보호막",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "갑옷",
+        "투구"
+       ]
+      },
+      {
+       "en": "Mana Regeneration",
+       "ko": "마나 재생",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화",
+        "허리띠"
+       ]
+      }
+     ],
+     "notes_ko": "맥스롤 S5 '격파 타격 레벨링' 전용 가이드 있음. 초반 화염구→빙하, 20레벨 격파 타격 습득 후 Gemini(쌍수) 찍으면 전환. 처음엔 초당 보호막, 이후 생명력·물리 저항 상한. 수정검(Crystal Sword)이 최고 베이스, 은반지로 이동 속도."
+    },
+    "endgame": {
+     "affixes": [
+      {
+       "en": "Dexterity",
+       "ko": "민첩",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "장갑",
+        "반지",
+        "반지",
+        "유물",
+        "장화"
+       ]
+      },
+      {
+       "en": "Added Melee Lightning Damage",
+       "ko": "근접 번개 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Level of Shatter Strike",
+       "ko": "격파 타격 레벨",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Jormun's Feast Reforged",
+       "ko": "재련된 요르문의 향연",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "보조 장비"
+       ],
+       "note_ko": "숭고 한손검 봉인 접사"
+      },
+      {
+       "en": "Increased Melee Attack Speed",
+       "ko": "근접 공격 속도",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "장갑",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Increased Health",
+       "ko": "생명력 증가",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Hybrid Health",
+       "ko": "복합 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "장갑"
+       ]
+      },
+      {
+       "en": "Added Critical Strike Multiplier",
+       "ko": "치명타 배율",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Armor Shred Chance",
+       "ko": "적중 시 방어도 분쇄 확률",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Increased Lightning Damage",
+       "ko": "번개 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Intelligence",
+       "ko": "지능",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "반지"
+       ]
+      },
+      {
+       "en": "Jormun's Thirst Reforged",
+       "ko": "재련된 요르문의 갈증",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ],
+       "note_ko": "허리띠 봉인 접사, 요르문 세트 효과"
+      },
+      {
+       "en": "Ward and Ailment Cleansing on Potion Use",
+       "ko": "물약 사용 시 보호막 및 상태 이상 정화",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Increased Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 3,
+       "slots_ko": [
+        "허리띠"
+       ]
+      }
+     ],
+     "notes_ko": "기준=맥스롤 'Endgame Gear'(9/28). 민첩이 압도적 1순위(치명타 확률도 지능+민첩). 쌍수 무기 둘 다 근접 번개 피해. 요르문 갈증 세트 효과는 숭고 무기+요르문의 향연 재련 봉인으로 확보."
+    },
+    "high_corruption": {
+     "affixes": [
+      {
+       "en": "Lightning Penetration and Minion Lightning Penetration",
+       "ko": "번개 관통 및 하수인 번개 관통",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Lightning Penetration",
+       "ko": "번개 관통",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Intelligence",
+       "ko": "지능",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "투구",
+        "반지",
+        "반지",
+        "유물"
+       ]
+      },
+      {
+       "en": "Added Critical Strike Multiplier and Increased Critical Strike Chance per Dexterity",
+       "ko": "추가 치명타 배율, 민첩 1당 치명타 확률 증가",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Increased Melee Damage and Damage for Melee Attacks per 1 Mana Cost",
+       "ko": "근접 피해 증가, 마나 비용 1당 근접 공격 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기",
+        "보조 장비"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Level of All Skills and Added Mana",
+       "ko": "모든 스킬 레벨, 추가 마나",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷",
+        "목걸이"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Maximum Health gained as Endurance Threshold and Endurance",
+       "ko": "근성 기준치로 획득하는 최대 생명력 비율, 근성",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ],
+       "note_ko": "타락 접사"
+      }
+     ],
+     "notes_ko": "맥스롤 'Aspirational Gear' 기준. 무기를 아트로포스의 가위, 장갑을 불멸의 죔쇠로. 한서리 장화는 딜 극대화 대신 매우 잘 죽음(가이드 경고)."
+    }
+   },
+   "defense_ko": [
+    "가이드: 딜은 좋지만 튼튼해지려면 장비 투자가 필요",
+    "Arcane Shielding·Resonating Aegis 패시브, Warden 패시브로 보호막 유지, Sphere of Protection",
+    "순간이동 시전으로 방어 버프 유지·갱신, 불꽃 보호막 충전 1개 비상용",
+    "무의 전조(갑옷)가 큰 피해 감소. 대안=불안정한 핵·정전기 껍데기·산의 핵"
+   ],
+   "idols": [
+    {
+     "en": "Mana",
+     "ko": "마나",
+     "idol_type": "Minor Lagonian Idol",
+     "idol_type_ko": "가벼운 라곤 신상"
+    },
+    {
+     "en": "Health",
+     "ko": "생명력",
+     "idol_type": "Minor Lagonian Idol",
+     "idol_type_ko": "가벼운 라곤 신상"
+    },
+    {
+     "en": "Increased Lightning Damage (Doubled If You Have Over 300 Max Mana)",
+     "ko": "번개 피해 증가(최대 마나가 300을 초과할 때 두 배)",
+     "idol_type": "Heretical Grand Glass Idol",
+     "idol_type_ko": "이단의 웅장한 유리 신상"
+    },
+    {
+     "en": "Ward decay threshold and Ward per second",
+     "ko": "보호막 감쇠 기준치 및 초당 보호막",
+     "idol_type": "Heretical Grand Glass Idol",
+     "idol_type_ko": "이단의 웅장한 유리 신상"
+    },
+    {
+     "en": "Melee Elemental Damage",
+     "ko": "근접 원소 피해",
+     "idol_type": "Heretical Ornate Glass Idol",
+     "idol_type_ko": "이단의 정교한 유리 신상"
+    },
+    {
+     "en": "Mana And Armor",
+     "ko": "마나 및 방어도",
+     "idol_type": "Heretical Ornate Glass Idol",
+     "idol_type_ko": "이단의 정교한 유리 신상"
+    },
+    {
+     "en": "Increased damage over time and Endurance",
+     "ko": "지속 피해 증가 및 근성",
+     "idol_type": "Heretical Ornate Glass Idol",
+     "idol_type_ko": "이단의 정교한 유리 신상"
+    },
+    {
+     "en": "Mana and Increased Mana Regen",
+     "ko": "마나, 마나 재생 증가",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "Health and Mana",
+     "ko": "생명력 및 마나",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "Added Health and Reduced Mana",
+     "ko": null,
+     "corruption": true
+    }
+   ],
+   "uniques": [
+    {
+     "en": "Diothaen's Bloody Nib",
+     "ko": "디오타엔의 피투성이 펜촉",
+     "slot_ko": "유물",
+     "role": "optional",
+     "note_ko": "자신의 출혈 중첩당 관통. 딜 대폭 상승(가이드는 '고유 없이 작동'이라 명시). 얻기 전엔 우케이로스의 뒤틀린 심장"
+    },
+    {
+     "en": "Velocyn's Jaw",
+     "ko": "벨로신의 턱",
+     "slot_ko": "무기",
+     "role": "optional",
+     "note_ko": "진실의 망원경으로 바꾸면 린의 눈으로 교체"
+    },
+    {
+     "en": "Jormun's Feast",
+     "ko": "요르문의 향연",
+     "slot_ko": "보조 장비",
+     "role": "optional",
+     "set": true,
+     "note_ko": "재련 봉인 접사로 요르문 세트 효과"
+    },
+    {
+     "en": "Siphon of Anguish",
+     "ko": "고뇌의 흡인",
+     "slot_ko": "반지",
+     "role": "optional"
+    },
+    {
+     "en": "Boneclamor Barbute",
+     "ko": "뼈울림 투구",
+     "slot_ko": "투구",
+     "role": "optional"
+    },
+    {
+     "en": "Army of Skin",
+     "ko": "살갗의 군대",
+     "slot_ko": "장화",
+     "role": "optional"
+    },
+    {
+     "en": "Falcon Fists",
+     "ko": "매의 주먹",
+     "slot_ko": "장갑",
+     "role": "optional",
+     "note_ko": "→ 불멸의 죔쇠로 교체"
+    },
+    {
+     "en": "Omnis",
+     "ko": "만물",
+     "slot_ko": "목걸이",
+     "role": "optional",
+     "note_ko": "니힐리스도 좋음, 치명타 확률 초과 시 진실의 망원경"
+    },
+    {
+     "en": "Null Portent",
+     "ko": "무의 전조",
+     "slot_ko": "갑옷",
+     "role": "optional"
+    },
+    {
+     "en": "Red Ring of Atlaria",
+     "ko": "아틀라리아의 붉은 반지",
+     "slot_ko": "반지",
+     "role": "optional"
+    },
+    {
+     "en": "Scissor of Atropos",
+     "ko": "아트로포스의 가위",
+     "slot_ko": "무기",
+     "role": "optional",
+     "note_ko": "Aspirational 무기"
+    },
+    {
+     "en": "Mourningfrost",
+     "ko": "한서리",
+     "slot_ko": "장화",
+     "role": "optional",
+     "note_ko": "극딜·저체력 선택지"
+    }
+   ],
+   "exalted_ko": [
+    "보조 한손검: 숭고(근접 공격 속도·근접 번개 피해 T7·방어도 분쇄) + 요르문의 향연 재련 봉인",
+    "허리띠: 숭고(생명력 증가 T7·번개 피해) + 요르문의 갈증 재련 봉인",
+    "무의 전조 7등급 격파 타격 레벨, 고유 장비 대부분 7등급 민첩",
+    "봉인: 접사 4개 숭고 아이템엔 1등급 접사 봉인이 확정(세트 접사 제작에 활용)"
+   ],
+   "sources": [
+    "https://maxroll.gg/last-epoch/build-guides/shatter-strike-spellblade-guide",
+    "https://maxroll.gg/last-epoch/planner/j6i0l0i4",
+    "https://maxroll.gg/last-epoch/build-guides/shatter-strike-leveling-guide",
+    "https://maxroll.gg/last-epoch/planner/gh3b90il",
+    "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+    "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+    "https://www.lastepochtools.com/db/ko/prefixes"
+   ],
+   "guide_updated": "2026-09-28",
+   "confidence_ko": "중상. 엔드게임·레벨링 모두 맥스롤 S5 전용 가이드+플래너. 봉인 접사 관련 문구는 룬마스터·드루이드 가이드 공통 설명을 참고."
+  },
+  {
+   "id": "lightning-blast-runemaster",
+   "en": "Lightning Blast Runemaster",
+   "ko": "Lightning Blast(번개 파동) 룬 마스터",
+   "class": "mage",
+   "mastery": "runemaster",
+   "mastery_ko_official": "룬 마스터",
+   "tier_maxroll": {
+    "endgame": "S",
+    "bossing": "S"
+   },
+   "skills": [
+    {
+     "en": "Lightning Blast",
+     "ko": "번개 파동",
+     "main": true
+    },
+    {
+     "en": "Runic Invocation",
+     "ko": "룬 기원"
+    },
+    {
+     "en": "Glacier",
+     "ko": "빙하"
+    },
+    {
+     "en": "Frost Wall",
+     "ko": "서리 벽"
+    },
+    {
+     "en": "Flame Ward",
+     "ko": "불꽃 보호막"
+    },
+    {
+     "en": "Spark Charge",
+     "ko": "전광 충전"
+    }
+   ],
+   "damage_ko": "번개 주문 + 전광 충전(Spark Charge) 폭발. 수수께끼의 파편 덕에 지능이 전광 충전의 추가 피해가 되고, 빌라트리아 세트 보너스도 지능을 피해로 바꿈. 룬 기원으로 레오윈의 서리방패(보호막) 시전. 태그: 번개·주문·상태이상(전광 충전).",
+   "stages": {
+    "leveling": {
+     "affixes": [
+      {
+       "en": "Added Health",
+       "ko": "추가 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "모든 방어구 접미사"
+       ]
+      },
+      {
+       "en": "Physical Resistance",
+       "ko": "물리 저항",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷",
+        "투구",
+        "장화",
+        "유물"
+       ]
+      },
+      {
+       "en": "Intelligence",
+       "ko": "지능",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷",
+        "반지",
+        "유물",
+        "장화"
+       ]
+      },
+      {
+       "en": "Ward Per Second and Ward Decay Threshold",
+       "ko": "초당 보호막 및 보호막 감쇠 기준치",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Ward per Second",
+       "ko": "초당 보호막",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "투구",
+        "갑옷",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Increased Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Mana Regeneration",
+       "ko": "마나 재생",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "유물"
+       ]
+      }
+     ],
+     "notes_ko": "빌드 가이드는 마법사 공용 레벨링을 안내(S5판=화염 오라 주문검사). 맥스롤 룬 마스터 전용 레벨링도 있으나 1.1 플래너 기반의 옛 자료(2026-03 갱신). 수수께끼의 파편을 얻으면 지능 스택으로 전환."
+    },
+    "endgame": {
+     "affixes": [
+      {
+       "en": "Intelligence",
+       "ko": "지능",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "장갑",
+        "투구",
+        "반지",
+        "반지",
+        "장화",
+        "유물",
+        "갑옷"
+       ],
+       "note_ko": "전광 충전 추가 피해 + 빌라트리아 세트"
+      },
+      {
+       "en": "Level of Lightning Blast",
+       "ko": "번개 파동 레벨",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Vilatria's Storm Crown Reforged",
+       "ko": "재련된 빌라트리아의 폭풍 왕관",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ],
+       "note_ko": "숭고 투구 봉인 접사"
+      },
+      {
+       "en": "Added Critical Strike Multiplier",
+       "ko": "치명타 배율",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Increased Cast Speed",
+       "ko": "시전 속도",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기",
+        "보조 장비",
+        "장갑"
+       ]
+      },
+      {
+       "en": "You have Incisive Rage",
+       "ko": "예리한 격노 보유",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지"
+       ],
+       "note_ko": "충족되지 않는 격노 변형 접사(추천). Runic Rage도 공격적 선택지"
+      },
+      {
+       "en": "Armor and Reduced Bonus Damage from Crits",
+       "ko": "방어도, 치명타로 받는 보너스 피해 감소",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Hybrid Health",
+       "ko": "복합 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "장갑"
+       ]
+      },
+      {
+       "en": "Lich's Envy Reforged",
+       "ko": "재련된 리치의 시기심",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ],
+       "note_ko": "숭고 장갑 봉인 접사"
+      },
+      {
+       "en": "Physical Resistance",
+       "ko": "물리 저항",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Void Resistance",
+       "ko": "공허 저항",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ]
+      },
+      {
+       "en": "Cold Resistance",
+       "ko": "냉기 저항",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Experimental Mana on Potion Use",
+       "ko": "실험적 물약 사용 시 마나 획득",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ],
+       "note_ko": "국자·오리앤의 강림과 함께 물약으로 마나 보충"
+      },
+      {
+       "en": "Increased Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ]
+      }
+     ],
+     "notes_ko": "기준=맥스롤 'Endgame' 플래너(10/8). 지능이 전부라고 봐도 됨(장비 7칸에 7등급 지능). 수수께끼의 파편은 전설 잠재력 없어도 사용. 미친 연금술사의 국자는 '주문 적중 시 방어도 분쇄 확률' 롤이 가장 중요. 4접사 숭고 아이템에 1등급 접사 봉인이 확정이니 세트 접사 제작에 활용."
+    },
+    "high_corruption": {
+     "affixes": [
+      {
+       "en": "Increased Spell Damage",
+       "ko": "주문 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "반지"
+       ]
+      },
+      {
+       "en": "Lightning Penetration and Minion Lightning Penetration",
+       "ko": "번개 관통 및 하수인 번개 관통",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Lightning Critical Strike Multiplier",
+       "ko": "번개 치명타 배율",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Added Intelligence and Ward Per Second",
+       "ko": "추가 지능, 초당 보호막",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "반지",
+        "반지",
+        "유물"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Added Intelligence and Ward Decay Threshold per Intelligence",
+       "ko": "추가 지능, 지능 1당 보호막 감쇠 기준치",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "보조 장비"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Level of All Skills and Added Mana",
+       "ko": "모든 스킬 레벨, 추가 마나",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Increased Cast Speed and Ward gain on direct Spell Cast",
+       "ko": "시전 속도 증가, 주문 직접 시전 시 보호막 획득",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Maximum Omen Idols Equipped",
+       "ko": "최대 장착한 징조 신상 수",
+       "cat": "유틸",
+       "prio": 3,
+       "slots_ko": [
+        "신상 제단"
+       ]
+      }
+     ],
+     "notes_ko": "맥스롤 'Aspirational' 플래너 기준. FAQ: 부서진 세계는 회복·생존을 크게 잃어 비추천(하드코어 아닌 보스 딜 올인일 때만)."
+    }
+   },
+   "defense_ko": [
+    "'초반부터 튼튼'이 장점. 주 방어=레오윈의 서리방패 + 우케이로스의 뒤틀린 심장 보호막",
+    "번개 파동 Lightning Attunement로 번개 비호(방어 버프)",
+    "산의 발: 모든 능력치·근성, 가만히 서 있으면 번개 파동 마나 비용 0까지",
+    "불꽃 보호막(냉기 전환) 충전 2개 중 1개는 비상용, 큰 피해 감소",
+    "허리띠 '방어도, 치명타로 받는 보너스 피해 감소' + 신상으로 화염 저항 보충"
+   ],
+   "idols": [
+    {
+     "en": "Increased Cast Speed while you have Lightning Aegis",
+     "ko": "번개 비호를 보유한 동안 시전 속도 증가",
+     "idol_type": "Heretical Large Arcane Idol",
+     "idol_type_ko": "이단의 큰 비전의 신상"
+    },
+    {
+     "en": "Shared Lightning Damage",
+     "ko": "공유 번개 피해",
+     "idol_type": "Heretical Large Arcane Idol",
+     "idol_type_ko": "이단의 큰 비전의 신상"
+    },
+    {
+     "en": "Melee Damage and Spell Damage",
+     "ko": "근접 피해 및 주문 피해",
+     "idol_type": "Heretical Large Arcane Idol",
+     "idol_type_ko": "이단의 큰 비전의 신상"
+    },
+    {
+     "en": "Increased Lightning Damage while you have Lightning Aegis",
+     "ko": "번개 비호를 보유한 동안 번개 피해 증가",
+     "idol_type": "Heretical Adorned Arcane Idol",
+     "idol_type_ko": "이단의 장식된 비전의 신상"
+    },
+    {
+     "en": "Increased Lightning Damage (Doubled If You Have Over 300 Max Mana)",
+     "ko": "번개 피해 증가(최대 마나가 300을 초과할 때 두 배)",
+     "idol_type": "Heretical Adorned Arcane Idol",
+     "idol_type_ko": "이단의 장식된 비전의 신상"
+    },
+    {
+     "en": "Haste Effect and Haste duration on Evade",
+     "ko": "가속 효과, 피할 시 가속 지속시간",
+     "idol_type": "Heretical Adorned Arcane Idol",
+     "idol_type_ko": "이단의 장식된 비전의 신상"
+    },
+    {
+     "en": "Reduced Bonus Damage Taken from Crits and Increased Critical Strike Chance",
+     "ko": "치명타로 받는 보너스 피해 감소 및 치명타 확률 증가",
+     "idol_type": "Small Weaver Idol",
+     "idol_type_ko": "작은 엮는 자 신상"
+    },
+    {
+     "en": "Increased Health Regeneration and Added Health",
+     "ko": "생명력 재생 증가, 추가 생명력",
+     "idol_type": "Small Weaver Idol",
+     "idol_type_ko": "작은 엮는 자 신상"
+    },
+    {
+     "en": "Lightning Penetration and Minion Lightning Penetration",
+     "ko": "번개 관통 및 하수인 번개 관통",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "Fire Resistance and Minion Fire Resistance",
+     "ko": "화염 저항 및 하수인 화염 저항",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "Armor",
+     "ko": "방어도",
+     "idol_type": "Minor Lagonian Idol",
+     "idol_type_ko": "가벼운 라곤 신상"
+    },
+    {
+     "en": "Fire Resistance",
+     "ko": "화염 저항",
+     "idol_type": "Minor Lagonian Idol",
+     "idol_type_ko": "가벼운 라곤 신상"
+    },
+    {
+     "en": "Slow chance converted to Armor Shred chance",
+     "ko": "감속 유발 확률 방어도 분쇄 확률로 전환",
+     "corruption": true
+    }
+   ],
+   "uniques": [
+    {
+     "en": "Fragment of the Enigma",
+     "ko": "수수께끼의 파편",
+     "slot_ko": "보조 장비",
+     "role": "build-enabling",
+     "note_ko": "가이드: 이 빌드는 반드시 필요. 지능→전광 충전 추가 피해"
+    },
+    {
+     "en": "Mad Alchemist's Ladle",
+     "ko": "미친 연금술사의 국자",
+     "slot_ko": "무기",
+     "role": "optional",
+     "note_ko": "추방된 마법사만 드랍. 전설 잠재력 없어도 사용"
+    },
+    {
+     "en": "Abandoned Eyes of the Weaver",
+     "ko": "엮는 자의 버려진 눈",
+     "slot_ko": "목걸이",
+     "role": "optional",
+     "set": true,
+     "note_ko": "치명타 확률 상한 + 스킬 레벨"
+    },
+    {
+     "en": "Twisted Heart of Uhkeiros",
+     "ko": "우케이로스의 뒤틀린 심장",
+     "slot_ko": "유물",
+     "role": "optional",
+     "note_ko": "보호막 대량. 최대한 빨리"
+    },
+    {
+     "en": "Unstable Core",
+     "ko": "불안정한 핵",
+     "slot_ko": "갑옷",
+     "role": "optional",
+     "note_ko": "스킬 레벨"
+    },
+    {
+     "en": "Orian's Descent",
+     "ko": "오리앤의 강림",
+     "slot_ko": "허리띠",
+     "role": "optional",
+     "note_ko": "구도자의 정상에서 파밍. 대안=전광 용사 접사 허리띠"
+    },
+    {
+     "en": "Foot of the Mountain",
+     "ko": "산의 발",
+     "slot_ko": "장화",
+     "role": "optional"
+    },
+    {
+     "en": "Legends Entwined",
+     "ko": "뒤얽힌 전설",
+     "slot_ko": "반지",
+     "role": "optional",
+     "note_ko": "태고 고유. 빌라트리아·리치의 시기심 세트 완성"
+    },
+    {
+     "en": "Unsated Rage",
+     "ko": "충족되지 않는 격노",
+     "slot_ko": "반지",
+     "role": "optional",
+     "note_ko": "예리한 격노 변형 추천"
+    },
+    {
+     "en": "Ferebor's Persistence",
+     "ko": "페레보르의 집념",
+     "slot_ko": "반지",
+     "role": "optional",
+     "set": true,
+     "note_ko": "대안: 재련 페레보르 세트 반지"
+    }
+   ],
+   "exalted_ko": [
+    "투구: 숭고(번개 파동 레벨 T7·지능) + 빌라트리아 폭풍 왕관 재련 봉인",
+    "장갑: 숭고(지능 T7·시전 속도) + 리치의 시기심 재련 봉인",
+    "국자·파편: 7등급 치명타 배율 전설, 나머지 고유는 7등급 지능"
+   ],
+   "sources": [
+    "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+    "https://maxroll.gg/last-epoch/planner/fr66z80q",
+    "https://maxroll.gg/last-epoch/build-guides/spellblade-leveling-guide",
+    "https://maxroll.gg/last-epoch/build-guides/runemaster-leveling-guide",
+    "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+    "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+    "https://www.lastepochtools.com/db/ko/prefixes"
+   ],
+   "guide_updated": "2026-10-08",
+   "confidence_ko": "상. 맥스롤 S5 가이드(10/8 갱신)에 장비 설명·FAQ가 자세함. 레벨링만 공용 가이드라 중간."
+  },
+  {
+   "id": "tornado-shaman",
+   "en": "Tornado Shaman",
+   "ko": "Tornado(토네이도) 주술사",
+   "class": "primalist",
+   "mastery": "shaman",
+   "mastery_ko_official": "주술사",
+   "tier_maxroll": {
+    "endgame": "S",
+    "bossing": "A"
+   },
+   "skills": [
+    {
+     "en": "Tornado",
+     "ko": "토네이도",
+     "main": true
+    },
+    {
+     "en": "Storm Bolt",
+     "ko": "폭풍 볼트"
+    },
+    {
+     "en": "Summon Tide Elemental",
+     "ko": "물결 정령 소환"
+    },
+    {
+     "en": "Warcry",
+     "ko": "전장의 함성"
+    },
+    {
+     "en": "Maelstrom",
+     "ko": "광풍"
+    },
+    {
+     "en": "Fury Leap",
+     "ko": "분노의 도약"
+    }
+   ],
+   "damage_ko": "번개 주문. 토네이도가 폭풍 볼트를 쏟아내고(폭풍 몰이 트리로 강화) 폭풍 볼트의 추가 피해가 조화력에 비례. 물결 정령(번개 전환)이 토네이도 재시전·버프. 태그: 번개·주문·범위.",
+   "stages": {
+    "leveling": {
+     "affixes": [
+      {
+       "en": "Added Health",
+       "ko": "추가 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "모든 방어구 접미사"
+       ]
+      },
+      {
+       "en": "Physical Resistance",
+       "ko": "물리 저항",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷",
+        "투구",
+        "장화"
+       ]
+      },
+      {
+       "en": "Increased Minion Damage",
+       "ko": "하수인 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Attunement",
+       "ko": "조화력",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Ward Per Second and Ward Decay Threshold",
+       "ko": "초당 보호막 및 보호막 감쇠 기준치",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "장화",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Mana Regeneration",
+       "ko": "마나 재생",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Elemental Resistance",
+       "ko": "원소 저항",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "갑옷",
+        "목걸이",
+        "허리띠"
+       ]
+      }
+     ],
+     "notes_ko": "빌드 가이드는 원시술사 공용 레벨링을 안내(S5판=폭풍 토템 소환 빌드). 토템 하수인 피해·조화력으로 레벨업 후 80레벨에서 토네이도로 전환. 생명력 재생·생명력·물리 저항 상한이 방어 기본. 66레벨 뿔 지팡이에 하수인 근접 및 주문 피해."
+    },
+    "endgame": {
+     "affixes": [
+      {
+       "en": "Attunement",
+       "ko": "조화력",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "장갑",
+        "반지",
+        "반지",
+        "투구",
+        "유물",
+        "갑옷"
+       ],
+       "note_ko": "폭풍 볼트 추가 피해가 조화력 비례"
+      },
+      {
+       "en": "Added Critical Strike Multiplier",
+       "ko": "치명타 배율",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기",
+        "보조 장비",
+        "목걸이"
+       ],
+       "note_ko": "마나가 모자라면 이 자리를 마나 재생으로"
+      },
+      {
+       "en": "Increased Cast Speed per 5% Overcapped Cold Resistance (up to 200% Overcapped Cold Resistance)",
+       "ko": "제한초과 냉기 저항 5%당 시전 속도 증가(최대 제한초과 냉기 저항 200%까지)",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "장갑"
+       ],
+       "note_ko": "원소 감내 장갑 최우선 롤(냉기 저항 초과 최대 200%)"
+      },
+      {
+       "en": "You have Incisive Rage",
+       "ko": "예리한 격노 보유",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지"
+       ],
+       "note_ko": "충족되지 않는 격노: 예리한 격노 필수"
+      },
+      {
+       "en": "Hybrid Health",
+       "ko": "복합 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "장갑",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Critical Strike Avoidance and Added Dodge Rating",
+       "ko": "치명타 방지 및 추가 회피율",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed per 8% Overcapped Cold Resistance (up to 200% Overcapped Cold Resistance)",
+       "ko": "제한초과 냉기 저항 8%당 재사용 대기시간 회복 속도 증가(최대 제한초과 냉기 저항 200%까지)",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ]
+      },
+      {
+       "en": "You have Runic Rage",
+       "ko": "룬의 격노 보유",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "반지"
+       ],
+       "note_ko": "룬의 격노(맵핑은 회복·폭발 격노로 교체 가능)"
+      },
+      {
+       "en": "Spark Champion's",
+       "ko": "전광 용사",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ],
+       "note_ko": "거미줄 비단 허리띠 봉인. 정예(Champion) 처치·예언으로 파밍"
+      },
+      {
+       "en": "Increased Lightning Damage",
+       "ko": "번개 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Lightning Penetration and Minion Lightning Penetration",
+       "ko": "번개 관통 및 하수인 번개 관통",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Mana Regeneration",
+       "ko": "마나 재생",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Increased Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Increased Spell Damage",
+       "ko": "주문 피해",
+       "cat": "공격",
+       "prio": 3,
+       "slots_ko": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Experimental Haste Effect",
+       "ko": "실험적 가속 효과",
+       "cat": "유틸",
+       "prio": 3,
+       "slots_ko": [
+        "장화"
+       ]
+      }
+     ],
+     "notes_ko": "기준=맥스롤 'Endgame' 플래너(10/12). 조화력 스택이 핵심. '적중 시 가시 토템 소환 확률' 신상이 필수(웅장한 원시 징조 신상 또는 이단의 정교한 헤오롯 신상). 산의 발은 전설 잠재력 없어도 착용(가만히 서서 마나 절약)."
+    },
+    "high_corruption": {
+     "affixes": [
+      {
+       "en": "Increased Cast Speed",
+       "ko": "시전 속도",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "장갑",
+        "무기"
+       ]
+      },
+      {
+       "en": "Level of Tornado",
+       "ko": "토네이도 레벨",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Increased Health",
+       "ko": "생명력 증가",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "투구",
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Added Attunement and Increased Mana Regen",
+       "ko": "추가 조화력, 마나 재생 증가",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "반지",
+        "투구",
+        "유물"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Added Critical Strike Multiplier and Added Critical Strike Multiplier against Frozen Enemies",
+       "ko": "추가 치명타 배율, 동결 상태의 적에 대한 추가 치명타 배율",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "보조 장비",
+        "무기"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Level of All Skills and Added Mana",
+       "ko": "모든 스킬 레벨, 추가 마나",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "목걸이"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Increased Attack and Cast Speed",
+       "ko": "공격 및 시전 속도 증가",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Maximum Omen Idols Equipped",
+       "ko": "최대 장착한 징조 신상 수",
+       "cat": "유틸",
+       "prio": 3,
+       "slots_ko": [
+        "신상 제단"
+       ]
+      }
+     ],
+     "notes_ko": "맥스롤 'Aspirational' 플래너 기준. 더 버티려면 'Tank Variant'(스프리건 소환+아틀라리아의 붉은 반지 2개+양조사의 버클)."
+    }
+   },
+   "defense_ko": [
+    "가이드: '엄청난 탱킹'이 장점. 산의 발 조건 충족 시 회피율이 근성 기준치로 전환",
+    "Ursine Strength·Boar Heart 패시브의 피해 감소, Protective Circle로 신상 덕에 저항 무료 확보",
+    "전장의 함성 Juggernaut로 1초 무적, 쿨마다 사용",
+    "원소 감내 효과를 위해 냉기 저항을 상한 넘게(최대 200%) 쌓으면 공격·쿨감 동시 이득",
+    "Tank Variant: 스프리건(치명타 방지·회피·치유 오라) + 아틀라리아의 붉은 반지로 저항·피해 감소"
+   ],
+   "idols": [
+    {
+     "en": "Chance on hit to summon a Thorn Totem (1 second cooldown)",
+     "ko": "적중 시 가시 토템 소환 확률(재사용 대기시간 1초)",
+     "idol_type": "Grand Primal Omen Idol",
+     "idol_type_ko": "웅장한 원시 징조 신상"
+    },
+    {
+     "en": "Increased Spell Damage if you have an active Totem",
+     "ko": "활성화된 토템이 있는 동안 주문 피해 증가",
+     "idol_type": "Grand Primal Omen Idol",
+     "idol_type_ko": "웅장한 원시 징조 신상"
+    },
+    {
+     "en": "Endurance Threshold and Increased Health",
+     "ko": "근성 기준치, 생명력 증가",
+     "idol_type": "Heretical Large Nomad Idol",
+     "idol_type_ko": "이단의 큰 유목민 신상"
+    },
+    {
+     "en": "Critical Strike Avoidance for You and Your Minions",
+     "ko": "당신과 당신의 하수인의 치명타 방지",
+     "idol_type": "Heretical Large Nomad Idol",
+     "idol_type_ko": "이단의 큰 유목민 신상"
+    },
+    {
+     "en": "Spell Damage For You And Your Minions",
+     "ko": "당신과 당신의 하수인의 주문 피해",
+     "idol_type": "Heretical Large Nomad Idol",
+     "idol_type_ko": "이단의 큰 유목민 신상"
+    },
+    {
+     "en": "Melee Damage and Spell Damage",
+     "ko": "근접 피해 및 주문 피해",
+     "idol_type": "Heretical Large Nomad Idol",
+     "idol_type_ko": "이단의 큰 유목민 신상"
+    },
+    {
+     "en": "Armor and Increased Armor",
+     "ko": "방어도, 방어도 증가",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "Health and Mana",
+     "ko": "생명력 및 마나",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "Dodge Rating and Increased Dodge Rating",
+     "ko": "회피율, 회피율 증가",
+     "idol_type": "Small Weaver Idol",
+     "idol_type_ko": "작은 엮는 자 신상"
+    }
+   ],
+   "uniques": [
+    {
+     "en": "Tempest Maw",
+     "ko": "돌풍의 아가리",
+     "slot_ko": "보조 장비",
+     "role": "optional",
+     "note_ko": "Tempest Weapon 노드와 시너지, 최선"
+    },
+    {
+     "en": "Mad Alchemist's Ladle",
+     "ko": "미친 연금술사의 국자",
+     "slot_ko": "무기",
+     "role": "optional",
+     "note_ko": "주문 적중 시 방어도 분쇄 롤이 가장 중요"
+    },
+    {
+     "en": "Foot of the Mountain",
+     "ko": "산의 발",
+     "slot_ko": "장화",
+     "role": "optional",
+     "note_ko": "마나 비용 크게 감소, 전설 잠재력 없어도 착용"
+    },
+    {
+     "en": "Eye of Storms",
+     "ko": "폭풍의 눈",
+     "slot_ko": "목걸이",
+     "role": "optional",
+     "note_ko": "광풍 스택과 시너지, 라곤에게서 드랍"
+    },
+    {
+     "en": "Twisted Heart of Uhkeiros",
+     "ko": "우케이로스의 뒤틀린 심장",
+     "slot_ko": "유물",
+     "role": "optional",
+     "note_ko": "토네이도 +1, 시체의 황제에게서 타겟 파밍"
+    },
+    {
+     "en": "The Butcher's Crown",
+     "ko": "도살자의 왕관",
+     "slot_ko": "투구",
+     "role": "optional",
+     "note_ko": "태고 고유, 딜 대폭 상승"
+    },
+    {
+     "en": "Withstand the Elements",
+     "ko": "원소 감내",
+     "slot_ko": "장갑",
+     "role": "optional",
+     "note_ko": "대안=심판의 손(전설 잠재력 2 이상)"
+    },
+    {
+     "en": "Unsated Rage",
+     "ko": "충족되지 않는 격노",
+     "slot_ko": "반지",
+     "role": "optional",
+     "note_ko": "예리한 격노 필수. 대안=아틀라리아의 붉은 반지"
+    },
+    {
+     "en": "Mantle of the Pale Ox",
+     "ko": "창백한 황소의 겉옷",
+     "slot_ko": "갑옷",
+     "role": "optional"
+    },
+    {
+     "en": "Shard of the Shattered Lance",
+     "ko": "부서진 창의 조각",
+     "slot_ko": "보조 장비",
+     "role": "optional",
+     "note_ko": "속도 파밍용(이속·피해 20% 배율)"
+    },
+    {
+     "en": "Razorfall",
+     "ko": "칼날 낙하",
+     "slot_ko": "장화",
+     "role": "optional",
+     "note_ko": "속도형 대안"
+    },
+    {
+     "en": "Last Steps of the Living",
+     "ko": "산 자의 마지막 걸음",
+     "slot_ko": "장화",
+     "role": "optional",
+     "note_ko": "속도형 대안, 신상에 냉각 면역 타락 필요"
+    }
+   ],
+   "exalted_ko": [
+    "허리띠: 숭고 거미줄 비단 허리띠 + 전광 용사 봉인 접사(치명타 방지·회피 T7)",
+    "원소 감내: 냉기 저항 초과당 시전 속도 T7 + 조화력 T7",
+    "고유 장비 대부분 7등급 조화력, 무기·보조·목걸이 7등급 치명타 배율"
+   ],
+   "sources": [
+    "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+    "https://maxroll.gg/last-epoch/planner/kj6jox0q",
+    "https://maxroll.gg/last-epoch/build-guides/shaman-leveling-guide",
+    "https://maxroll.gg/last-epoch/planner/3k9hk0gr",
+    "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+    "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+    "https://www.lastepochtools.com/db/ko/prefixes"
+   ],
+   "guide_updated": "2026-10-08",
+   "confidence_ko": "상(엔드게임). S5 신스킬 물결 정령이 들어간 최신 가이드(10/8, 플래너 10/12). 레벨링은 원시술사 공용(토템) 가이드라 토네이도 전용 아님."
+  },
+  {
+   "id": "storm-crows-beastmaster",
+   "en": "Storm Crows Beastmaster",
+   "ko": "Storm Crows(폭풍 까마귀) 야수 조련사",
+   "class": "primalist",
+   "mastery": "beastmaster",
+   "mastery_ko_official": "야수 조련사",
+   "tier_maxroll": {
+    "endgame": "S",
+    "bossing": "S"
+   },
+   "skills": [
+    {
+     "en": "Summon Storm Crows",
+     "ko": "폭풍 까마귀 소환",
+     "main": true
+    },
+    {
+     "en": "Crowstorm",
+     "ko": "까마귀 폭풍",
+     "main": true
+    },
+    {
+     "en": "Tempest Strike",
+     "ko": "돌풍 타격"
+    },
+    {
+     "en": "Swipe",
+     "ko": "휘둘러치기"
+    },
+    {
+     "en": "Warcry",
+     "ko": "전장의 함성"
+    },
+    {
+     "en": "Fury Leap",
+     "ko": "분노의 도약"
+    }
+   ],
+   "damage_ko": "하수인 번개 피해. 돌풍 타격으로 Gladiator of Lagon을 쌓아 까마귀에게 추가 피해를 주고 까마귀 폭풍(휘둘러치기로도 발동)으로 폭딜. 힘 스택 + 해답의 가로날도끼로 지능 50 확보(Scheme of the Architect). 태그: 하수인·번개·주문.",
+   "stages": {
+    "leveling": {
+     "affixes": [
+      {
+       "en": "Added Health",
+       "ko": "추가 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "모든 방어구 접미사"
+       ]
+      },
+      {
+       "en": "Physical Resistance",
+       "ko": "물리 저항",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷",
+        "투구",
+        "장화"
+       ]
+      },
+      {
+       "en": "Increased Minion Damage",
+       "ko": "하수인 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Attunement",
+       "ko": "조화력",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Ward Per Second and Ward Decay Threshold",
+       "ko": "초당 보호막 및 보호막 감쇠 기준치",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "장화",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Mana Regeneration",
+       "ko": "마나 재생",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Elemental Resistance",
+       "ko": "원소 저항",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "갑옷",
+        "목걸이",
+        "허리띠"
+       ]
+      }
+     ],
+     "notes_ko": "빌드 가이드는 원시술사 공용 레벨링 안내(S5판, 토템). 맥스롤 야수 조련사 레벨링(1.4판, 2026-05)은 10~22레벨에 폭풍 까마귀+돌풍 타격을 쓰고 이후 곰 소환으로 감. 하수인 피해·힘·생명력·물리 저항을 기본으로."
+    },
+    "endgame": {
+     "affixes": [
+      {
+       "en": "Strength",
+       "ko": "힘",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "반지",
+        "유물"
+       ],
+       "note_ko": "힘 스택 빌드"
+      },
+      {
+       "en": "Level of Summon Storm Crow",
+       "ko": "폭풍 까마귀 소환 레벨",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷"
+       ],
+       "note_ko": "레벨 +1마다 까마귀 피해 크게 상승"
+      },
+      {
+       "en": "Minion Critical Strike Multiplier",
+       "ko": "하수인 치명타 배율",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Minion Melee and Spell Damage",
+       "ko": "하수인 근접 및 주문 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Minion Health",
+       "ko": "하수인 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Hybrid Health",
+       "ko": "복합 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "장갑"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 1,
+       "slots_ko": [
+        "허리띠",
+        "장화"
+       ],
+       "note_ko": "쿨다운 기반 플레이"
+      },
+      {
+       "en": "Minion Area and Damage",
+       "ko": "하수인 범위 및 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Increased Lightning Damage",
+       "ko": "번개 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "무기",
+        "반지",
+        "반지"
+       ]
+      },
+      {
+       "en": "Increased Health",
+       "ko": "생명력 증가",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Increased Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Added Block Chance",
+       "ko": "막기 확률",
+       "cat": "방어",
+       "prio": 3,
+       "slots_ko": [
+        "보조 장비"
+       ],
+       "note_ko": "시작 장비(방패) 단계"
+      },
+      {
+       "en": "All Resistances",
+       "ko": "모든 저항",
+       "cat": "방어",
+       "prio": 3,
+       "slots_ko": [
+        "보조 장비"
+       ],
+       "note_ko": "시작 장비(방패) 단계"
+      }
+     ],
+     "notes_ko": "기준=맥스롤 'Endgame' 플래너(9/28). 거의 전 부위가 까마귀 레벨 공급원. 허깨비의 손아귀는 하수인 스킬·하수인 치명타 확률 고롤. 만물은 물리·공허·중독 저항 고롤로 저항 상한."
+    },
+    "high_corruption": {
+     "affixes": [
+      {
+       "en": "Lightning Penetration and Minion Lightning Penetration",
+       "ko": "번개 관통 및 하수인 번개 관통",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Shared Lightning Damage",
+       "ko": "공유 번개 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Added Health and Added Health Regeneration",
+       "ko": "추가 생명력 및 추가 생명력 재생",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "반지"
+       ]
+      },
+      {
+       "en": "Experimental Armor applies to Damage over Time",
+       "ko": "실험적 지속 피해에 적용되는 방어도 비율",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "장갑"
+       ]
+      },
+      {
+       "en": "Added Strength and Added Armor",
+       "ko": "추가 힘, 추가 방어도",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "반지",
+        "유물"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Cannot be Stunned and Increased Evade Cooldown Duration",
+       "ko": "기절 면역, 피하기 재사용 대기시간 증가",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "갑옷"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Level of All Skills and Added Mana",
+       "ko": "모든 스킬 레벨, 추가 마나",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "목걸이"
+       ],
+       "note_ko": "타락 접사"
+      }
+     ],
+     "notes_ko": "맥스롤 'Aspirational' 기준 + FAQ: 고타락에서 까마귀가 죽으면 'A'키로 위치 조정, 하수인 생명력·하수인 회피·하수인 생명력 재생·하수인 흡수에 더 투자."
+    }
+   },
+   "defense_ko": [
+    "가이드: '엄청난 탱킹, 마나 걱정 없음'. 생존 핵심=선조 무리의 뼈(태고 고유)",
+    "양조사의 버클: 방어도 베이스+근성, 물약 사용 시 근성 기준치(중첩) = 비상 버튼",
+    "산의 발: 근성 제공, 만물로 물리·공허·중독 저항 상한",
+    "Ursine Strength·Porcine Constitution·Cornered Beast 패시브 피해 감소, Primal Aspects로 멧돼지의 위상 강화",
+    "분노의 도약 중 무적(Heorot's Protection)"
+   ],
+   "idols": [
+    {
+     "en": "Lightning Penetration and Minion Lightning Penetration",
+     "ko": "번개 관통 및 하수인 번개 관통",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "Shared Lightning Damage",
+     "ko": "공유 번개 피해",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "Armor",
+     "ko": "방어도",
+     "idol_type": "Minor Lagonian Idol",
+     "idol_type_ko": "가벼운 라곤 신상"
+    },
+    {
+     "en": "Endurance Threshold and Increased Health",
+     "ko": "근성 기준치, 생명력 증가",
+     "idol_type": "Heretical Large Nomad Idol",
+     "idol_type_ko": "이단의 큰 유목민 신상"
+    },
+    {
+     "en": "Critical Strike Avoidance for You and Your Minions",
+     "ko": "당신과 당신의 하수인의 치명타 방지",
+     "idol_type": "Large Primal Omen Idol",
+     "idol_type_ko": "큰 원시 징조 신상"
+    },
+    {
+     "en": "Armor and Increased Armor",
+     "ko": "방어도, 방어도 증가",
+     "idol_type": "Minor Weaver Idol",
+     "idol_type_ko": "가벼운 엮는 자 신상"
+    },
+    {
+     "en": "All Resistances for you and your Minions",
+     "ko": "당신과 당신의 하수인들의 모든 저항",
+     "corruption": true
+    }
+   ],
+   "uniques": [
+    {
+     "en": "Bones of the Ancestral Pack",
+     "ko": "선조 무리의 뼈",
+     "slot_ko": "보조 장비",
+     "role": "optional",
+     "note_ko": "태고 고유. 공격·방어 모두, 빌드 탱킹·회복의 중심"
+    },
+    {
+     "en": "Cleaver Solution",
+     "ko": "해답의 가로날도끼",
+     "slot_ko": "무기",
+     "role": "optional",
+     "note_ko": "힘 스택으로 지능 확보 → Scheme of the Architect(지능 50)"
+    },
+    {
+     "en": "Ravens' Rise",
+     "ko": "까마귀의 비상",
+     "slot_ko": "장갑",
+     "role": "optional",
+     "note_ko": "까마귀 레벨. 더 튼튼한 대안=불멸의 죔쇠"
+    },
+    {
+     "en": "Phantom Grip",
+     "ko": "허깨비의 손아귀",
+     "slot_ko": "반지",
+     "role": "optional"
+    },
+    {
+     "en": "Ribbons of Blood",
+     "ko": "피의 띠",
+     "slot_ko": "반지",
+     "role": "optional"
+    },
+    {
+     "en": "Foot of the Mountain",
+     "ko": "산의 발",
+     "slot_ko": "장화",
+     "role": "optional",
+     "note_ko": "근성 + 힘·조화력"
+    },
+    {
+     "en": "Brewmaster's Buckle",
+     "ko": "양조사의 버클",
+     "slot_ko": "허리띠",
+     "role": "optional"
+    },
+    {
+     "en": "Twisted Heart of Uhkeiros",
+     "ko": "우케이로스의 뒤틀린 심장",
+     "slot_ko": "유물",
+     "role": "optional",
+     "note_ko": "생명력·힘 고롤. Aspirational=부서진 세계"
+    },
+    {
+     "en": "Omnis",
+     "ko": "만물",
+     "slot_ko": "목걸이",
+     "role": "optional",
+     "note_ko": "+레벨, 저항 상한"
+    },
+    {
+     "en": "Mantle of the Pale Ox",
+     "ko": "창백한 황소의 겉옷",
+     "slot_ko": "갑옷",
+     "role": "optional"
+    },
+    {
+     "en": "Artor's Legacy",
+     "ko": "알토의 유산",
+     "slot_ko": "투구",
+     "role": "optional"
+    }
+   ],
+   "exalted_ko": [
+    "고유 장비 대부분 7등급 힘, 갑옷 7등급 폭풍 까마귀 레벨, 투구 7등급 하수인 치명타 배율",
+    "만물 7등급 하수인 범위 및 피해, 선조 무리의 뼈 7등급 하수인 생명력"
+   ],
+   "sources": [
+    "https://maxroll.gg/last-epoch/build-guides/storm-crows-beastmaster-guide",
+    "https://maxroll.gg/last-epoch/planner/sj6jp40q",
+    "https://maxroll.gg/last-epoch/build-guides/shaman-leveling-guide",
+    "https://maxroll.gg/last-epoch/build-guides/beastmaster-leveling-guide",
+    "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+    "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+    "https://www.lastepochtools.com/db/ko/prefixes"
+   ],
+   "guide_updated": "2026-09-28",
+   "confidence_ko": "중상(엔드게임). 레벨링은 공용·구버전 자료 혼합이라 중하."
+  },
+  {
+   "id": "shatter-totem-werebear-druid",
+   "en": "Shatter Totem Werebear Druid",
+   "ko": "Shatter Totem(토템 파쇄) 곰인간 드루이드",
+   "class": "primalist",
+   "mastery": "druid",
+   "mastery_ko_official": "드루이드",
+   "tier_maxroll": {
+    "endgame": "A",
+    "bossing": "A"
+   },
+   "skills": [
+    {
+     "en": "Werebear Form",
+     "ko": "곰인간 형상"
+    },
+    {
+     "en": "Maul",
+     "ko": "후려갈기기",
+     "main": true
+    },
+    {
+     "en": "Summon Thorn Totem",
+     "ko": "가시 토템 소환",
+     "main": true
+    },
+    {
+     "en": "Upheaval",
+     "ko": "격동"
+    },
+    {
+     "en": "Warcry",
+     "ko": "전장의 함성"
+    },
+    {
+     "en": "Roar",
+     "ko": "포효"
+    },
+    {
+     "en": "Rampage",
+     "ko": "난동"
+    },
+    {
+     "en": "Fury Leap",
+     "ko": "분노의 도약"
+    }
+   ],
+   "damage_ko": "곰인간 후려갈기기가 라우프의 길로 가시 토템을 소환하고 토템을 파쇄해 큰 범위 주문 피해. 격동은 냉기로 전환(야망의 왕좌). 힘이 Wisened Claws·팔라루스의 거룩한 빛을 통해 추가 주문 피해로. 마나 대신 분노 사용. 태그: 냉기·주문·범위·변신.",
+   "stages": {
+    "leveling": {
+     "affixes": [
+      {
+       "en": "Added Health",
+       "ko": "추가 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "모든 방어구 접미사"
+       ]
+      },
+      {
+       "en": "Physical Resistance",
+       "ko": "물리 저항",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷",
+        "투구",
+        "장화"
+       ]
+      },
+      {
+       "en": "Increased Minion Damage",
+       "ko": "하수인 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Attunement",
+       "ko": "조화력",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Ward Per Second and Ward Decay Threshold",
+       "ko": "초당 보호막 및 보호막 감쇠 기준치",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "장화",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Mana Regeneration",
+       "ko": "마나 재생",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Elemental Resistance",
+       "ko": "원소 저항",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "갑옷",
+        "목걸이",
+        "허리띠"
+       ]
+      }
+     ],
+     "notes_ko": "빌드 가이드는 원시술사 공용 레벨링 안내(S5판, 토템). 맥스롤 드루이드 레벨링(1.3판, 2026-03)은 35레벨부터 곰인간+토네이도. 라우프의 길을 얻고 80레벨이 되면 힘·재사용 대기시간 감소 스택으로 전환."
+    },
+    "endgame": {
+     "affixes": [
+      {
+       "en": "Strength",
+       "ko": "힘",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷",
+        "장갑",
+        "반지",
+        "반지",
+        "유물"
+       ],
+       "note_ko": "Wisened Claws·팔라루스 때문에 모든 부위에 힘"
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 1,
+       "slots_ko": [
+        "허리띠",
+        "장화"
+       ],
+       "note_ko": "후려갈기기·전장의 함성 쿨 감소 = 딜+무적 시간"
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed while Transformed",
+       "ko": "변신한 동안 재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Level of Upheaval",
+       "ko": "격동 레벨",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Added Critical Strike Multiplier",
+       "ko": "치명타 배율",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기",
+        "보조 장비",
+        "유물"
+       ]
+      },
+      {
+       "en": "Increased Health",
+       "ko": "생명력 증가",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Critical Strike Avoidance and Added Dodge Rating",
+       "ko": "치명타 방지 및 추가 회피율",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ]
+      },
+      {
+       "en": "The Last Bear's Scorn Reforged",
+       "ko": "재련된 마지막 곰의 경멸",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "갑옷"
+       ],
+       "note_ko": "갑옷 봉인 접사(마지막 곰 세트)"
+      },
+      {
+       "en": "The Last Bear's Lament Reforged",
+       "ko": "재련된 마지막 곰의 애가",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "투구"
+       ],
+       "note_ko": "투구 봉인 접사(마지막 곰 세트)"
+      },
+      {
+       "en": "Increased Cold Damage",
+       "ko": "냉기 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Increased Spell Damage",
+       "ko": "주문 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Jormun's Thirst Reforged",
+       "ko": "재련된 요르문의 갈증",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ],
+       "note_ko": "허리띠 봉인 접사"
+      },
+      {
+       "en": "Added Health",
+       "ko": "추가 생명력",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Hybrid Health",
+       "ko": "복합 생명력",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Increased Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 2,
+       "slots_ko": [
+        "장화"
+       ]
+      }
+     ],
+     "notes_ko": "기준=맥스롤 'Endgame' 플래너(9/28). 힘·재사용 대기시간 회복 속도 스택. 국자는 방어도 분쇄·감속 확률 고롤 + 신상의 '감속 확률을 방어도 분쇄로 전환' 타락으로 방어도 분쇄 대부분 해결. 국자·팔라루스는 2 전설 잠재력 타락품을 노릴 것. 허리띠 '실험적 물약 사용 시 기동 스킬 재사용 대기시간 회복'은 필수 아님(인간형으로 돌아와 분노의 도약 연타 이동 테크)."
+    },
+    "high_corruption": {
+     "affixes": [
+      {
+       "en": "Cold Penetration and Minion Cold Penetration",
+       "ko": "냉기 관통 및 하수인 냉기 관통",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "무기",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Added Health and Added Health Regeneration",
+       "ko": "추가 생명력 및 추가 생명력 재생",
+       "cat": "방어",
+       "prio": 3,
+       "slots_ko": [
+        "유물"
+       ]
+      },
+      {
+       "en": "Added Strength and Added Armor",
+       "ko": "추가 힘, 추가 방어도",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "투구",
+        "반지",
+        "반지",
+        "유물"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Added Critical Strike Multiplier and Added Critical Strike Multiplier against Frozen Enemies",
+       "ko": "추가 치명타 배율, 동결 상태의 적에 대한 추가 치명타 배율",
+       "cat": "공격",
+       "prio": 1,
+       "slots_ko": [
+        "무기",
+        "보조 장비"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Cannot be Stunned and Increased Evade Cooldown Duration",
+       "ko": "기절 면역, 피하기 재사용 대기시간 증가",
+       "cat": "방어",
+       "prio": 2,
+       "slots_ko": [
+        "갑옷"
+       ],
+       "note_ko": "타락 접사"
+      },
+      {
+       "en": "Damage Leeched as Health and Increased Health Leech",
+       "ko": "생명력으로 흡수하는 피해 비율, 생명력 흡수 증가",
+       "cat": "방어",
+       "prio": 1,
+       "slots_ko": [
+        "장갑"
+       ],
+       "note_ko": "Brutality 변형 장갑 필수 타락"
+      },
+      {
+       "en": "Level of All Skills and Added Mana",
+       "ko": "모든 스킬 레벨, 추가 마나",
+       "cat": "공격",
+       "prio": 2,
+       "slots_ko": [
+        "목걸이"
+       ],
+       "note_ko": "타락 접사"
+      }
+     ],
+     "notes_ko": "맥스롤 'Aspirational'·'Endgame Brutality' 기준. Brutality 변형=엑술리스로 딜↑·탱킹↓(흡수 100% 감소 → 장갑 흡수 타락 필수, 갑각화된 제단+Bulwark of the Tundra로 방어도 보충)."
+    }
+   },
+   "defense_ko": [
+    "Ursine Strength·Impervious·Boar Heart 패시브 피해 감소, 난동·피하기로 Boar Heart 유지",
+    "후려갈기기·전장의 함성의 무적 시간이 핵심 방어(쿨감 스택 이유)",
+    "변신 해제 시 드루이드 70% 피해 감소 활용",
+    "라우프의 길: 물리 저항 고롤·전설 잠재력 다수·힘 타락 이상적",
+    "아틀라리아의 붉은 반지로 저항·피해 감소, 불멸의 죔쇠(높은 근성 기준치와 시너지, 치명타 확률은 랩터 투구로 보충)"
+   ],
+   "idols": [
+    {
+     "en": "Increased Stun Chance and Added Stun Avoidance",
+     "ko": "기절 유발 확률 증가, 추가 기절 방지",
+     "idol_type": "Small Weaver Idol",
+     "idol_type_ko": "작은 엮는 자 신상"
+    },
+    {
+     "en": "Void Resistance and Minion Void Resistance",
+     "ko": "공허 저항 및 하수인 공허 저항",
+     "idol_type": "Small Weaver Idol",
+     "idol_type_ko": "작은 엮는 자 신상"
+    },
+    {
+     "en": "Physical Resistance",
+     "ko": "물리 저항",
+     "idol_type": "Small Eterran Idol",
+     "idol_type_ko": "작은 에테라 신상"
+    },
+    {
+     "en": "Increased Stun Chance",
+     "ko": "기절 유발 확률 증가",
+     "idol_type": "Small Eterran Idol",
+     "idol_type_ko": "작은 에테라 신상"
+    },
+    {
+     "en": "Vitality",
+     "ko": "활력",
+     "idol_type": "Humble Eterran Idol",
+     "idol_type_ko": "소박한 에테라 신상"
+    },
+    {
+     "en": "Void Resistance",
+     "ko": "공허 저항",
+     "idol_type": "Humble Eterran Idol",
+     "idol_type_ko": "소박한 에테라 신상"
+    },
+    {
+     "en": "Endurance Threshold and Increased Health",
+     "ko": "근성 기준치, 생명력 증가",
+     "idol_type": "Heretical Large Nomad Idol",
+     "idol_type_ko": "이단의 큰 유목민 신상"
+    },
+    {
+     "en": "Critical Strike Avoidance for You and Your Minions",
+     "ko": "당신과 당신의 하수인의 치명타 방지",
+     "idol_type": "Heretical Large Nomad Idol",
+     "idol_type_ko": "이단의 큰 유목민 신상"
+    },
+    {
+     "en": "Elemental Resistance While Transformed",
+     "ko": "변신한 동안 원소 저항",
+     "idol_type": "Heretical Large Nomad Idol",
+     "idol_type_ko": "이단의 큰 유목민 신상"
+    },
+    {
+     "en": "Melee Damage and Spell Damage",
+     "ko": "근접 피해 및 주문 피해",
+     "idol_type": "Heretical Large Nomad Idol",
+     "idol_type_ko": "이단의 큰 유목민 신상"
+    },
+    {
+     "en": "Vitality and Added Health Regen",
+     "ko": "활력 및 추가 생명력 재생",
+     "idol_type": "Humble Weaver Idol",
+     "idol_type_ko": "소박한 엮는 자 신상"
+    },
+    {
+     "en": "Added Spell Damage and Increased Spell Damage",
+     "ko": "추가 주문 피해 및 주문 피해 증가",
+     "idol_type": "Humble Weaver Idol",
+     "idol_type_ko": "소박한 엮는 자 신상"
+    },
+    {
+     "en": "Slow chance converted to Armor Shred chance",
+     "ko": "감속 유발 확률 방어도 분쇄 확률로 전환",
+     "corruption": true
+    },
+    {
+     "en": "All Resistances for you and your Minions",
+     "ko": "당신과 당신의 하수인들의 모든 저항",
+     "corruption": true
+    }
+   ],
+   "uniques": [
+    {
+     "en": "Laup's Path",
+     "ko": "라우프의 길",
+     "slot_ko": "유물",
+     "role": "build-enabling",
+     "note_ko": "가이드: 이 빌드는 반드시 필요(후려갈기기→가시 토템). 전설 잠재력 없어도 사용"
+    },
+    {
+     "en": "Palarus's Sacred Light",
+     "ko": "팔라루스의 거룩한 빛",
+     "slot_ko": "보조 장비",
+     "role": "optional",
+     "note_ko": "힘→추가 주문 피해. 2 전설 잠재력 타락품 목표"
+    },
+    {
+     "en": "Mad Alchemist's Ladle",
+     "ko": "미친 연금술사의 국자",
+     "slot_ko": "무기",
+     "role": "optional",
+     "note_ko": "방어도 분쇄·감속 확률 고롤"
+    },
+    {
+     "en": "Grasp of the Blood Mage",
+     "ko": "혈마법사의 손아귀",
+     "slot_ko": "장갑",
+     "role": "optional",
+     "note_ko": "치명타 확률 상한·탱킹·쿨감·흡수"
+    },
+    {
+     "en": "Legends Entwined",
+     "ko": "뒤얽힌 전설",
+     "slot_ko": "반지",
+     "role": "optional",
+     "note_ko": "태고 고유. 마지막 곰·엮는 자 세트 완성 + 요르문 2세트"
+    },
+    {
+     "en": "Flight of Quetzeri",
+     "ko": "케체리의 비행",
+     "slot_ko": "장화",
+     "role": "optional",
+     "note_ko": "재사용 대기시간 회복 고롤"
+    },
+    {
+     "en": "Red Ring of Atlaria",
+     "ko": "아틀라리아의 붉은 반지",
+     "slot_ko": "반지",
+     "role": "optional"
+    },
+    {
+     "en": "Throne of Ambition",
+     "ko": "야망의 왕좌",
+     "slot_ko": "신상",
+     "role": "optional",
+     "note_ko": "접사 고정이라 타락을 노림"
+    },
+    {
+     "en": "Immortal Vise",
+     "ko": "불멸의 죔쇠",
+     "slot_ko": "장갑",
+     "role": "optional"
+    },
+    {
+     "en": "Abandoned Eyes of the Weaver",
+     "ko": "엮는 자의 버려진 눈",
+     "slot_ko": "목걸이",
+     "role": "optional",
+     "set": true
+    },
+    {
+     "en": "Brewmaster's Buckle",
+     "ko": "양조사의 버클",
+     "slot_ko": "허리띠",
+     "role": "optional",
+     "note_ko": "물약 최대치 대안"
+    },
+    {
+     "en": "Exulis",
+     "ko": "엑술리스",
+     "slot_ko": "목걸이",
+     "role": "optional",
+     "note_ko": "Brutality 변형 전용"
+    },
+    {
+     "en": "Cleaver Solution",
+     "ko": "해답의 가로날도끼",
+     "slot_ko": "보조 장비",
+     "role": "optional",
+     "note_ko": "Brutality 변형에서 팔라루스 대안"
+    }
+   ],
+   "exalted_ko": [
+    "투구: 숭고(변신 중 쿨감 T7) + 마지막 곰의 애가 재련 봉인",
+    "갑옷: 숭고(격동 레벨 T7) + 마지막 곰의 경멸 재련 봉인",
+    "허리띠: 숭고(쿨감 T7) + 요르문의 갈증 재련 봉인",
+    "4접사 숭고 아이템은 1등급 접사 봉인 확정 → 세트 접사 제작"
+   ],
+   "sources": [
+    "https://maxroll.gg/last-epoch/build-guides/shatter-totem-werebear-druid-guide",
+    "https://maxroll.gg/last-epoch/planner/nn6jp80q",
+    "https://maxroll.gg/last-epoch/build-guides/shaman-leveling-guide",
+    "https://maxroll.gg/last-epoch/build-guides/druid-leveling-guide",
+    "https://maxroll.gg/last-epoch/tierlists/corruption-tier-list",
+    "https://maxroll.gg/last-epoch/tierlists/bossing-tier-list",
+    "https://www.lastepochtools.com/db/ko/prefixes"
+   ],
+   "guide_updated": "2026-09-28",
+   "confidence_ko": "중상(엔드게임). 'Maul'은 공식 한글 '후려갈기기'. 레벨링은 공용·구버전 자료라 중하."
+  }
+ ]
+}

@@ -113,7 +113,7 @@ S티어 칸을 가장 많이 차지한 직업은 리치와 공허기사입니다
 
 <div class="cg-box cg-warn"><span class="cg-title">⚠️ 패치 주의</span><p>시즌 초반에는 밸런스 패치가 잦습니다. 이 글은 2026년 10월 9일 맥스롤 갱신본 기준이니, 큰 투자 전에는 원본 티어표 날짜를 한 번 더 확인하세요.</p></div>
 
-각 빌드의 스킬트리와 장비 세팅은 [맥스롤 시즌5 스피드 파밍 티어표](https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list)에서 빌드 이름을 누르면 바로 이어집니다.
+고른 빌드에서 장비 옵션을 무엇부터 챙길지는 [라스트에폭 빌드별 중요 옵션](/last-epoch-build-affixes/)에서 레벨링·엔드게임·최종 세팅 단계별로 볼 수 있어요. 각 빌드의 스킬트리와 장비 세팅은 [맥스롤 시즌5 스피드 파밍 티어표](https://maxroll.gg/last-epoch/tierlists/speed-farming-tier-list)에서 빌드 이름을 누르면 바로 이어집니다.
 
 ## 자주 묻는 질문
 

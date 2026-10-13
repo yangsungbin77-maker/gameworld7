@@ -1,0 +1,278 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import data from '../data/le-builds.json';
+
+type Affix = { en: string; ko: string | null; cat: string; prio: number; slots: string[] };
+type Stage = { affixes: Affix[]; notes: string } | null;
+type Build = { id: string; en: string; ko: string | null; cls: string; mastery: string; skills: { en: string; ko: string | null }[]; damage: string; tier: { farm: string; boss: string; end: string } | null; stages: Record<string, Stage>; defense: string[]; idols: { en: string; ko: string | null }[]; uniques: { en: string; ko: string | null; slot: string; core: boolean }[]; exalted: string[]; sources: string[]; updated: string; note: string; low?: boolean };
+const builds = data.builds as Build[];
+const classes = data.classes as { id: string; ko: string; masteries: { id: string; ko: string }[] }[];
+const common = (data.common || []) as string[];
+const STAGES: [string, string, string][] = [
+	['leveling', '레벨링', '캠페인 1~75레벨'],
+	['endgame', '엔드게임', '모노리스·부패도 초중반'],
+	['high_corruption', '최종 세팅', '고부패·완성 장비 기준'],
+];
+const PRIO = ['', '꼭 챙길 옵션', '있으면 확 좋아지는 옵션', '여유 되면'];
+const mk = Object.fromEntries(classes.flatMap((c) => c.masteries.map((m) => [m.id, m.ko])));
+const nm = (x: { ko: string | null; en: string }) => x.ko || x.en;
+const first = builds[0];
+
+const title = `라스트에폭 빌드별 중요 옵션 — 시즌${data.season} 직업·빌드·레벨 단계별 옵션 우선순위 | 게임월드7`;
+const description = `라스트에폭 시즌 ${data.season} 빌드 ${builds.length}개의 장비 옵션 우선순위를 레벨링·엔드게임·고부패 단계별로 정리했습니다. 직업과 마스터리, 빌드를 고르면 꼭 챙길 옵션과 방어 목표, 우상 옵션, 핵심 고유템을 바로 보여 줍니다.`;
+const faq = [
+	{ q: '옵션 우선순위는 어디서 가져왔나요?', a: '각 빌드의 시즌 5 공략(맥스롤 빌드 가이드 중심, 다른 공략과 교차 확인)에 나온 옵션 우선순위를 단계별로 정리했습니다. 빌드마다 출처와 공략 갱신일을 아래에 적어 두었어요.' },
+	{ q: '레벨링 때와 엔드게임 때 옵션이 왜 달라요?', a: '레벨링 중에는 스킬이 아직 완성되지 않아 피해량과 이동 속도처럼 바로 체감되는 옵션이 중요하고, 엔드게임에서는 부패도가 오를수록 저항·체력·인내 같은 방어 옵션을 먼저 채워야 죽지 않습니다. 그래서 단계마다 순서가 바뀝니다.' },
+	{ q: '저항은 얼마나 맞춰야 하나요?', a: '라스트에폭은 저항이 75%에서 막힙니다. 엔드게임에서는 모든 원소·공허·필멸 저항을 75%까지 맞추는 것이 기본이고, 빌드마다 추가 방어 목표가 아래 "방어 목표"에 있습니다.' },
+];
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={title} description={description} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap" rel="stylesheet" />
+		<script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })} />
+	</head>
+	<body class="le-body">
+		<Header />
+		<main class="le">
+			<section class="le-hero">
+				<span class="le-eyebrow">LAST EPOCH · 시즌 {data.season} · 옵션 우선순위</span>
+				<h1>빌드 옵션 찾기</h1>
+				<p class="le-lead">직업 → 마스터리 → 빌드 → 레벨 단계를 고르면, 장비에서 어떤 옵션부터 챙겨야 하는지 순서대로 보여 드려요.</p>
+			</section>
+
+			<section class="le-pick" aria-label="빌드 고르기">
+				<div class="le-step">
+					<span class="le-n">1</span><h2>기본 직업</h2>
+					<div class="le-row" id="cls" role="group" aria-label="기본 직업">
+						{classes.map((c) => <button type="button" data-cls={c.id} aria-pressed={c.id === first.cls}>{c.ko}</button>)}
+					</div>
+				</div>
+				<div class="le-step">
+					<span class="le-n">2</span><h2>마스터리</h2>
+					<div class="le-row" id="mas" role="group" aria-label="마스터리">
+						{classes.flatMap((c) => c.masteries.map((m) => {
+							const n = builds.filter((b) => b.mastery === m.id).length;
+							return <button type="button" data-mas={m.id} data-of={c.id} aria-pressed={m.id === first.mastery} hidden={c.id !== first.cls} disabled={!n}>{m.ko}<small>{n ? `빌드 ${n}` : '준비 중'}</small></button>;
+						}))}
+					</div>
+				</div>
+				<div class="le-step">
+					<span class="le-n">3</span><h2>빌드</h2>
+					<div class="le-row le-builds" id="bld" role="group" aria-label="빌드">
+						{builds.map((b) => (
+							<button type="button" data-bld={b.id} data-of={b.mastery} aria-pressed={b.id === first.id} hidden={b.mastery !== first.mastery}>
+								<b>{(b.ko || b.en).replace(new RegExp(`\s*${mk[b.mastery]}$`), '')}</b>
+								{b.tier ? <span class="le-tier" title="맥스롤 시즌5 티어 (파밍·보스·엔드게임)">{b.tier.farm}{b.tier.boss}{b.tier.end}</span> : <span class="le-tier new">신규</span>}
+							</button>
+						))}
+					</div>
+				</div>
+				<div class="le-step">
+					<span class="le-n">4</span><h2>레벨 단계</h2>
+					<div class="le-row le-stages" id="stg" role="tablist" aria-label="레벨 단계">
+						{STAGES.map(([id, ko, sub]) => <button type="button" role="tab" data-stg={id} aria-selected={id === 'endgame'}>{ko}<small>{sub}</small></button>)}
+					</div>
+				</div>
+			</section>
+
+			{builds.map((b) => (
+				<article class="le-card" id={`b-${b.id}`} data-card={b.id} hidden={b.id !== first.id}>
+					<header class="le-card-head">
+						<div>
+							<p class="le-path">{classes.find((c) => c.id === b.cls)?.ko} › {mk[b.mastery]}</p>
+							<h2>{nm(b)}{b.low && <span class="le-low">검증 중</span>}</h2>
+							<p class="le-sub">{b.skills.map((s) => (s.ko ? `${s.ko}(${s.en})` : s.en)).join(' · ')}{b.damage && ` — ${b.damage}`}</p>
+						</div>
+						{b.tier && (
+							<dl class="le-tiers" aria-label="맥스롤 시즌5 티어">
+								<div><dt>파밍</dt><dd class={`t-${b.tier.farm}`}>{b.tier.farm}</dd></div>
+								<div><dt>보스</dt><dd class={`t-${b.tier.boss}`}>{b.tier.boss === '-' ? '–' : b.tier.boss}</dd></div>
+								<div><dt>엔드</dt><dd class={`t-${b.tier.end}`}>{b.tier.end}</dd></div>
+							</dl>
+						)}
+					</header>
+
+					{STAGES.map(([sid, sko]) => {
+						const st = b.stages[sid];
+						return (
+							<section class="le-stage" data-stage={sid} hidden={sid !== 'endgame'}>
+								{st ? (
+									<>
+										{[1, 2, 3].map((p) => {
+											const list = st.affixes.filter((a) => a.prio === p);
+											return list.length > 0 && (
+												<div class={`le-prio p${p}`}>
+													<h3><span>{p}</span>{PRIO[p]}</h3>
+													<ul>
+														{list.map((a) => (
+															<li class={`c-${a.cat}`}>
+																<b>{nm(a)}</b>
+																{a.ko && <small>{a.en}</small>}
+																<em>{a.cat}{a.slots.length ? ` · ${a.slots.join(', ')}` : ''}</em>
+															</li>
+														))}
+													</ul>
+												</div>
+											);
+										})}
+										{st.notes && <p class="le-notes">💡 {st.notes}</p>}
+									</>
+								) : (
+									<p class="le-empty">{sid === 'high_corruption' ? '이 빌드는 최종 세팅 정리가 따로 없어요. "엔드게임" 순서를 그대로 쓰되, 방어 목표를 먼저 채우세요.' : `이 단계의 정리가 아직 없어요.`}</p>
+								)}
+							</section>
+						);
+					})}
+
+					<div class="le-extra">
+						{b.defense.length > 0 && <section><h3>🛡️ 방어 목표</h3><ul>{b.defense.map((d) => <li>{d}</li>)}</ul></section>}
+						{b.idols.length > 0 && <section><h3>🗿 우상 옵션</h3><ul>{b.idols.map((i) => <li>{nm(i)}{i.ko && <small> {i.en}</small>}</li>)}</ul></section>}
+						{b.uniques.length > 0 && <section><h3>💠 핵심 고유·세트</h3><ul>{b.uniques.map((u) => <li>{u.core && <span class="le-core">필수</span>}{nm(u)}{u.slot && <small> · {u.slot}</small>}</li>)}</ul></section>}
+						{b.exalted.length > 0 && <section><h3>✨ 승격(Exalted) 목표</h3><ul>{b.exalted.map((e) => <li>{e}</li>)}</ul></section>}
+					</div>
+					<p class="le-how">우선순위 1·2·3은 공략의 단계별 장비 세팅(플래너)에 그 옵션이 얼마나 자주 들어가는지와 공략 설명을 함께 보고 정리했어요. "최종 세팅"은 공략의 완성형 장비 기준이에요.</p>
+					<footer class="le-src">
+						{b.note && <p>{b.note}</p>}
+						<p>출처 {b.sources.map((s, i) => <a href={s} rel="nofollow noopener" target="_blank">[{i + 1}]</a>)}{b.updated && ` · 공략 갱신 ${b.updated}`}</p>
+					</footer>
+				</article>
+			))}
+
+			<section class="le-doc">
+				{common.length > 0 && (<><h2>모든 빌드에 공통인 기준</h2><ul>{common.map((c) => <li>{c}</li>)}</ul></>)}
+				<p>빌드 순위는 <a href="/last-epoch-season5-build-tier/">라스트에폭 시즌5 빌드 추천 티어 정리</a>, 보스 전용 아이템은 <a href="/last-epoch-boss-drops/">라스트에폭 보스 드랍템 총정리</a>에서 볼 수 있어요.</p>
+				<h2>자주 묻는 질문</h2>
+				{faq.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+				<p class="le-legal">게임월드7이 만든 팬 자료이며 Eleventh Hour Games와 관련이 없습니다. 옵션 이름은 라스트 에포크 툴즈 한국어 표기를 우선하고, 없으면 영문을 썼습니다. 시즌 {data.season} · 패치 {data.patch} · {data.updated} 기준.</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	.le-body {
+		--l-bg: #0a0e1a; --l-panel: #111829; --l-panel-2: #172036; --l-line: #26324d;
+		--l-amber: #e9a94b; --l-amber-hi: #ffc874; --l-teal: #5ec8c2; --l-text: #e6e9f2; --l-muted: #93a0bb;
+		--l-atk: #ff8a6b; --l-def: #6fb6ff; --l-util: #b8a1ff;
+		background:
+			radial-gradient(900px 420px at 85% -80px, rgba(94, 200, 194, 0.16), transparent 70%),
+			radial-gradient(900px 420px at 10% -120px, rgba(233, 169, 75, 0.14), transparent 70%),
+			var(--l-bg);
+		color: var(--l-text);
+	}
+	.le { width: var(--maxw); max-width: calc(100% - 2rem); margin: 0 auto; padding: 1.5rem 0 3rem; }
+	.le h1, .le-card h2 { font-family: 'Gowun Batang', serif; }
+	.le-hero { text-align: center; padding: 1.4rem 0 0.6rem; }
+	.le-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; color: var(--l-teal); }
+	.le-hero h1 { font-size: clamp(2rem, 6vw, 3.1rem); margin: 0.4rem 0; color: #fff3dc; text-shadow: 0 0 26px rgba(233, 169, 75, 0.35); }
+	.le-lead { color: var(--l-muted); max-width: 36em; margin: 0 auto; line-height: 1.7; }
+
+	.le-pick { display: grid; gap: 10px; margin-top: 18px; background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 18px; padding: 16px; }
+	.le-step { display: grid; grid-template-columns: auto 1fr; gap: 6px 10px; align-items: center; }
+	.le-step h2 { font-size: 0.86rem; color: var(--l-muted); margin: 0; font-weight: 700; letter-spacing: 0.04em; }
+	.le-n { width: 22px; height: 22px; border-radius: 50%; background: var(--l-panel-2); border: 1px solid var(--l-amber); color: var(--l-amber); font-size: 0.74rem; font-weight: 800; display: grid; place-items: center; grid-row: span 2; align-self: start; margin-top: 2px; }
+	.le-row { display: flex; flex-wrap: wrap; gap: 6px; }
+	.le-row button { font: inherit; text-align: left; font-size: 0.9rem; padding: 8px 13px; border-radius: 10px; border: 1px solid var(--l-line); background: var(--l-panel-2); color: var(--l-text); cursor: pointer; display: inline-flex; gap: 6px; align-items: baseline; }
+	.le-row button[hidden] { display: none; }
+	.le-row button small { font-size: 0.7rem; color: var(--l-muted); }
+	.le-row button:disabled { opacity: 0.4; cursor: not-allowed; }
+	.le-row button[aria-pressed='true'], .le-row button[aria-selected='true'] { border-color: var(--l-amber); background: linear-gradient(180deg, #3a2a12, #241a0c); color: var(--l-amber-hi); font-weight: 800; }
+	.le-row button[aria-pressed='true'] small, .le-row button[aria-selected='true'] small { color: #d8b88a; }
+	.le-row button:focus-visible { outline: 2px solid var(--l-teal); outline-offset: 2px; }
+	.le-tier { font-family: ui-monospace, Consolas, monospace; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--l-teal); }
+	.le-tier.new { color: var(--l-atk); }
+	.le-low { font-family: Pretendard, system-ui, sans-serif; font-size: 0.7rem; vertical-align: middle; margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: #3b2a12; color: var(--l-amber-hi); border: 1px dashed var(--l-amber); }
+	.le-stages button { flex-direction: column; align-items: flex-start; gap: 1px; }
+
+	.le-card { margin-top: 16px; background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 18px; padding: 18px; }
+	.le-card[hidden] { display: none; }
+	.le-card-head { display: flex; justify-content: space-between; gap: 14px; align-items: flex-start; border-bottom: 1px solid var(--l-line); padding-bottom: 12px; margin-bottom: 12px; }
+	.le-path { margin: 0; font-size: 0.78rem; color: var(--l-teal); }
+	.le-card h2 { margin: 2px 0 0; font-size: 1.6rem; color: #fff3dc; }
+	.le-sub { margin: 4px 0 0; font-size: 0.84rem; color: var(--l-muted); }
+	.le-tiers { display: flex; gap: 6px; margin: 0; }
+	.le-tiers div { text-align: center; background: var(--l-panel-2); border-radius: 10px; padding: 6px 10px; min-width: 3.2em; white-space: nowrap; }
+	.le-card-head > div:first-child { min-width: 0; flex: 1; }
+	.le-tiers dt { font-size: 0.66rem; color: var(--l-muted); }
+	.le-tiers dd { margin: 0; font-weight: 900; font-size: 1.15rem; font-family: ui-monospace, Consolas, monospace; }
+	.t-S { color: var(--l-amber-hi); } .t-A { color: var(--l-teal); } .t-B { color: #9fb2d8; } .t-C { color: #7d879c; }
+
+	.le-stage[hidden] { display: none; }
+	.le-prio { margin-bottom: 14px; }
+	.le-prio h3 { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; margin: 0 0 8px; color: var(--l-text); }
+	.le-prio h3 span { width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-size: 0.76rem; font-weight: 900; }
+	.le-prio.p1 h3 span { background: var(--l-amber); color: #1a1206; }
+	.le-prio.p2 h3 span { background: #3b4a6b; color: #fff; }
+	.le-prio.p3 h3 span { background: transparent; border: 1px solid var(--l-line); color: var(--l-muted); }
+	.le-prio ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px; }
+	.le-prio li { background: var(--l-panel-2); border-radius: 10px; padding: 9px 11px; border-left: 3px solid var(--l-util); }
+	.le-prio.p1 li { box-shadow: inset 0 0 0 1px rgba(233, 169, 75, 0.35); }
+	.le-prio li.c-공격 { border-left-color: var(--l-atk); }
+	.le-prio li.c-방어 { border-left-color: var(--l-def); }
+	.le-prio li b { display: block; font-size: 0.95rem; }
+	.le-prio li small { display: block; font-size: 0.72rem; color: var(--l-muted); }
+	.le-prio li em { display: block; font-style: normal; font-size: 0.72rem; margin-top: 3px; color: var(--l-muted); }
+	.le-prio li.c-공격 em { color: var(--l-atk); } .le-prio li.c-방어 em { color: var(--l-def); } .le-prio li.c-유틸 em { color: var(--l-util); }
+	.le-notes { background: rgba(94, 200, 194, 0.08); border: 1px solid rgba(94, 200, 194, 0.25); border-radius: 10px; padding: 10px 12px; font-size: 0.88rem; line-height: 1.6; color: var(--l-text); }
+	.le-empty { color: var(--l-muted); font-size: 0.9rem; background: var(--l-panel-2); border-radius: 10px; padding: 12px; }
+
+	.le-extra { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; margin-top: 6px; }
+	.le-extra section { background: var(--l-panel-2); border-radius: 12px; padding: 12px; }
+	.le-extra h3 { font-size: 0.86rem; margin: 0 0 6px; color: var(--l-amber); }
+	.le-extra ul { margin: 0; padding-left: 1.1em; font-size: 0.86rem; line-height: 1.6; }
+	.le-extra small { color: var(--l-muted); font-size: 0.74rem; }
+	.le-core { font-size: 0.66rem; font-weight: 800; background: var(--l-amber); color: #1a1206; border-radius: 999px; padding: 1px 6px; margin-right: 5px; }
+	.le-how { font-size: 0.76rem; color: var(--l-muted); margin: 12px 0 0; line-height: 1.6; }
+	.le-src { margin-top: 12px; font-size: 0.76rem; color: var(--l-muted); }
+	.le-src p { margin: 3px 0; }
+	.le-src a { color: var(--l-teal); margin-left: 4px; }
+
+	.le-doc { margin-top: 36px; border-top: 1px solid var(--l-line); padding-top: 20px; line-height: 1.75; }
+	.le-doc h2 { font-size: 1.25rem; color: #fff3dc; margin: 0 0 6px; }
+	.le-doc a { color: var(--l-amber-hi); }
+	.le-doc details { border-bottom: 1px solid var(--l-line); padding: 8px 0; }
+	.le-doc summary { cursor: pointer; font-weight: 700; }
+	.le-doc p, .le-doc li { color: var(--l-muted); }
+	.le-legal { font-size: 0.78rem; margin-top: 18px; }
+	@media (max-width: 520px) {
+		.le-card-head { flex-direction: column; }
+		.le-prio ul { grid-template-columns: 1fr; }
+		.le-step { grid-template-columns: 1fr; }
+		.le-n { display: none; }
+	}
+</style>
+
+<script>
+	const $$ = <T extends HTMLElement>(s: string) => [...document.querySelectorAll<T>(s)];
+	let cls = '', mas = '', bld = '', stg = 'endgame';
+	function show() {
+		$$('#cls button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cls === cls)));
+		$$('#mas button').forEach((b) => { b.hidden = b.dataset.of !== cls; b.setAttribute('aria-pressed', String(b.dataset.mas === mas)); });
+		$$('#bld button').forEach((b) => { b.hidden = b.dataset.of !== mas; b.setAttribute('aria-pressed', String(b.dataset.bld === bld)); });
+		$$('#stg button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.stg === stg)));
+		$$('[data-card]').forEach((c) => { c.hidden = c.dataset.card !== bld; });
+		$$(`[data-card="${bld}"] [data-stage]`).forEach((s) => { s.hidden = s.dataset.stage !== stg; });
+		const u = new URL(location.href); u.searchParams.set('build', bld); u.searchParams.set('stage', stg); history.replaceState(null, '', u);
+	}
+	const firstOf = (sel: string) => ($$(sel).find((b) => !(b as HTMLButtonElement).disabled) as HTMLElement | undefined);
+	function pickCls(c: string) { cls = c; const m = firstOf(`#mas button[data-of="${c}"]`); pickMas(m?.dataset.mas || ''); }
+	function pickMas(m: string) { mas = m; const b = firstOf(`#bld button[data-of="${m}"]`); bld = b?.dataset.bld || ''; show(); }
+	document.getElementById('cls')!.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('[data-cls]') as HTMLElement | null; if (b) pickCls(b.dataset.cls!); });
+	document.getElementById('mas')!.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('[data-mas]') as HTMLButtonElement | null; if (b && !b.disabled) pickMas(b.dataset.mas!); });
+	document.getElementById('bld')!.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('[data-bld]') as HTMLElement | null; if (b) { bld = b.dataset.bld!; show(); } });
+	document.getElementById('stg')!.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('[data-stg]') as HTMLElement | null; if (b) { stg = b.dataset.stg!; show(); } });
+	// 주소로 열기 (?build=…&stage=…)
+	const p = new URLSearchParams(location.search);
+	const want = p.get('build'), card = want && document.querySelector<HTMLElement>(`#bld [data-bld="${CSS.escape(want)}"]`);
+	if (['leveling', 'endgame', 'high_corruption'].includes(p.get('stage') || '')) stg = p.get('stage')!;
+	if (card) { bld = want!; mas = card.dataset.of!; cls = document.querySelector<HTMLElement>(`#mas [data-mas="${mas}"]`)!.dataset.of!; show(); }
+	else { const f = document.querySelector<HTMLElement>('#cls [aria-pressed="true"]'); pickCls(f?.dataset.cls || $$('#cls button')[0].dataset.cls!); }
+</script>

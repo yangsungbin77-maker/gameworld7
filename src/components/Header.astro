@@ -22,7 +22,10 @@ const MENUS = [
 		key: 'le',
 		label: '라스트에폭',
 		match: ['/last-epoch'],
-		items: posts.filter((p) => /^last-epoch/.test(p.id)).map((p) => ({ href: `/${p.id}/`, label: short(p.data.title, /^라스트\s?에폭\s*/), icon: '📄' })),
+		items: [
+			{ href: '/last-epoch-build-affixes/', label: '빌드별 중요 옵션', icon: '⏳' },
+			...posts.filter((p) => /^last-epoch/.test(p.id)).map((p) => ({ href: `/${p.id}/`, label: short(p.data.title, /^라스트\s?에폭\s*/), icon: '📄' })),
+		],
 	},
 ].filter((m) => m.items.length);
 const path = Astro.url.pathname;
