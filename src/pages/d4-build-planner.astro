@@ -103,6 +103,7 @@ const faq = [
 				</ol>
 				<h2>자주 묻는 질문</h2>
 				{faq.map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+				<p>원하는 고유 아이템이 어느 보스에게서 나오는지는 <a href="/d4-boss-drops/">디아블로4 보스 드랍 테이블</a>에서 찾을 수 있어요.</p>
 				<p class="dp-legal">게임월드7이 만든 팬 도구이며 Blizzard Entertainment와 관련이 없습니다. Diablo는 Blizzard Entertainment의 상표입니다. 스킬·아이템 이름은 게임의 공개 표기를 따랐습니다.</p>
 			</section>
 		</main>
@@ -215,6 +216,9 @@ const faq = [
 	.dp-g { background: var(--d-panel); border: 1px solid var(--d-line); border-radius: 12px; padding: 10px; display: grid; gap: 6px; }
 	.dp-g label { font-size: 0.78rem; color: var(--d-gold); letter-spacing: 0.06em; }
 	.dp-g input.uniq { border-color: #6b4a2a; color: #f0b56e; }
+	.dp-drop { font-size: 0.74rem; color: var(--d-muted); min-height: 0; }
+	.dp-drop:empty { display: none; }
+	.dp-drop a { color: var(--d-gold-hi); }
 	.dp-paragon { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin-top: 10px; }
 	.dp textarea { line-height: 1.6; }
 	.dp-doc { margin-top: 40px; border-top: 1px solid var(--d-line); padding-top: 20px; color: var(--d-text); line-height: 1.75; }
@@ -263,7 +267,8 @@ const faq = [
 	const HOTKEYS = ['좌클릭', '우클릭', '1', '2', '3', '4'];
 	const SLOTS: [string, string][] = [['minor1', '부가 ①'], ['minor2', '부가 ②'], ['form', '형상'], ['major', '기술 변화형']];
 	const TYPE_KO: Record<string, string> = { active: '액티브', passive: '패시브', key_passive: '핵심 패시브', ultimate: '궁극기' };
-	let meta: Meta, cls: Cls | null = null;
+	let meta: Meta, cls: Cls | null = null, DROPS: Record<string, string[]> = {};
+	const dropHint = (name: string) => { const b = DROPS[name.trim()]; return b?.length ? `🎯 <a href="/d4-boss-drops/?item=${encodeURIComponent(name.trim())}">${b.map(esc).join(', ')}</a>에서 나와요` : ''; };
 	const cache: Record<string, Cls> = {};
 	const blank = (c: string): State => ({ v: 1, c, t: '', s: {}, u: {}, b: ['', '', '', '', '', ''], m: [], g: {}, p: [], n: '' });
 	let st: State = blank('');
@@ -342,7 +347,7 @@ const faq = [
 	function renderGear() {
 		if (!cls) return;
 		const slots = [...meta.gear, ...cls.weapons];
-		$('gear').innerHTML = slots.map((sl) => { const [it, asp] = st.g[sl] || ['', '']; return `<div class="dp-g"><label>${esc(sl)}</label><input class="${it && isUniq(it) ? 'uniq' : ''}" data-g="${esc(sl)}" data-k="0" list="uniqList" maxlength="60" placeholder="아이템 이름" value="${esc(it)}" aria-label="${esc(sl)} 아이템"><input data-g="${esc(sl)}" data-k="1" maxlength="80" placeholder="위상 · 핵심 옵션" value="${esc(asp)}" aria-label="${esc(sl)} 위상"></div>`; }).join('');
+		$('gear').innerHTML = slots.map((sl) => { const [it, asp] = st.g[sl] || ['', '']; return `<div class="dp-g"><label>${esc(sl)}</label><input class="${it && isUniq(it) ? 'uniq' : ''}" data-g="${esc(sl)}" data-k="0" list="uniqList" maxlength="60" placeholder="아이템 이름" value="${esc(it)}" aria-label="${esc(sl)} 아이템"><small class="dp-drop" data-hint="${esc(sl)}">${it ? dropHint(it) : ''}</small><input data-g="${esc(sl)}" data-k="1" maxlength="80" placeholder="위상 · 핵심 옵션" value="${esc(asp)}" aria-label="${esc(sl)} 위상"></div>`; }).join('');
 		$('uniqList').innerHTML = [...cls.uniques, ...meta.generic_uniques].map((u) => `<option value="${esc(nm(u))}">${u.ko ? esc(u.en) : ''}</option>`).join('');
 		const boards = meta.paragon_boards || 5;
 		$('paragon').innerHTML = Array.from({ length: boards }, (_, i) => `<input data-p="${i}" maxlength="60" placeholder="${i === 0 ? '시작 판' : i + 1 + '번째 판'} · 문양" value="${esc(st.p[i] || '')}" aria-label="정복자 ${i + 1}번째 판">`).join('');
@@ -418,7 +423,7 @@ const faq = [
 	});
 	$('buildName').addEventListener('input', () => { st.t = ($('buildName') as HTMLInputElement).value; persistDraft(); });
 	$('notes').addEventListener('input', () => { st.n = ($('notes') as HTMLTextAreaElement).value; persistDraft(); });
-	$('gear').addEventListener('input', (e) => { const i = e.target as HTMLInputElement; const sl = i.dataset.g!; const cur = st.g[sl] || ['', '']; cur[Number(i.dataset.k)] = i.value; st.g[sl] = cur; if (!cur[0] && !cur[1]) delete st.g[sl]; if (i.dataset.k === '0') i.classList.toggle('uniq', isUniq(i.value)); persistDraft(); });
+	$('gear').addEventListener('input', (e) => { const i = e.target as HTMLInputElement; const sl = i.dataset.g!; const cur = st.g[sl] || ['', '']; cur[Number(i.dataset.k)] = i.value; st.g[sl] = cur; if (!cur[0] && !cur[1]) delete st.g[sl]; if (i.dataset.k === '0') { i.classList.toggle('uniq', isUniq(i.value)); const h = $('gear').querySelector(`[data-hint="${CSS.escape(sl)}"]`); if (h) h.innerHTML = dropHint(i.value); } persistDraft(); });
 	$('paragon').addEventListener('input', (e) => { const i = e.target as HTMLInputElement; st.p[Number(i.dataset.p)] = i.value; persistDraft(); });
 
 	// ── 저장·공유
@@ -468,6 +473,7 @@ const faq = [
 
 	(async () => {
 		meta = await (await fetch('/data/d4/meta.json')).json();
+		fetch('/data/d4/drops.json').then((r) => (r.ok ? r.json() : {})).then((d) => { DROPS = d; if (cls) renderGear(); }).catch(() => {});
 		renderSaved();
 		if (await fromHash()) return;
 		let d: State | null = null; try { d = JSON.parse(lsGet('draft') || 'null'); } catch {}

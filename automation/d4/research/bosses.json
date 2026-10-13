@@ -1,0 +1,2719 @@
+{
+ "updated": "2026-10",
+ "season": 15,
+ "patch": "3.2.x",
+ "game_data_build": "3.2.1.73552",
+ "rules_ko": [
+  "소굴 우두머리는 고행 I 이상에서 도전. 소환은 무료이고 열쇠는 처치 후 비축고(보물 상자)를 열 때만 쓰며, 파티원은 각자 열쇠가 있어야 보상을 받음",
+  "열쇠 사다리: 소굴 열쇠 → 입문자 5종(그리구아르·얼음 속의 야수·바르샨·지르·우리바르) → 상급 소굴 열쇠 → 상급 4종(두리엘·안다리엘·증오의 사도·도살자) → 벨리알 기습 → 고급 소굴 열쇠 → 벨리알",
+  "구 소환 재료(악의 심장·살아있는 강철·고통의 파편 등)는 연금술사에서 소굴 열쇠/상급 소굴 열쇠로 교환. 같은 이름의 우두머리 전리품은 호라드림의 함에서 해당 우두머리 고유로 변환하는 재료",
+  "비축고의 첫 번째 고유는 그 우두머리 전용 목록에서 확정. 추가 고유는 50% 확률로 전용 목록 또는 일반 고유 목록(가이드 기준)",
+  "파티원 1명이 늘 때마다 33% 확률로 전용 목록 고유 1개 추가(가이드 기준)",
+  "3.2.1: 모든 고유 아이템이 1레벨·모든 난이도에서 드랍 가능",
+  "3.2.1: 입문자·상급 소굴 우두머리와 벨리알 비축고가 주는 신화 고유는 그 우두머리 고유 목록 안에서만 나옴. 일반 무작위 전리품 덕에 목록 밖 신화도 낮은 확률로 가능",
+  "3.2.1: 상급 소굴 우두머리 신화 확률 소폭 상향, 입문자 소굴 우두머리 신화 확률을 상급과 같게 상향, 벨리알 신화 확률 소폭 상향, 무작위 출처 신화 확률 상향",
+  "3.2.1: 메피스토의 메아리 전리품 품질 상향 + 신화 1개 확정",
+  "각 우두머리의 \"전 직업\" 고유(예: 서슬판금·신 살해자 왕관·만용)는 다른 소굴 우두머리 일반 전리품으로도 나올 수 있음(아이시베인 일반 고유 목록)",
+  "상징적 신화(할리퀸 관모 등 13종)는 신화 품질로만 존재(3.2.1). 대장장이에 상징적 신화 전용 보관함이 추가됨",
+  "추방된 군주의 영물은 3.2.1부터 성기사·혼령사·악마술사에게 드랍되지 않고 착용 불가"
+ ],
+ "bosses": [
+  {
+   "id": "grigoire",
+   "en": "Grigoire, the Galvanic Saint",
+   "ko": "전류의 성자 그리구아르",
+   "location_ko": "메마른 평원 · 참회자의 전당",
+   "material": {
+    "en": "Lair Key",
+    "ko": "소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "고행 난이도 전쟁 계획의 열쇠 전리품, 지옥물결 고통받는 선물, 야외 우두머리·군단 이벤트, 속삭임의 나무 보관함, 쿠라스트 지하도시에서 얻음"
+   },
+   "trophy": {
+    "en": "Living Steel",
+    "ko": "살아있는 강철",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "입문자 소굴 우두머리. 고행 I 이상에서 도전 가능, 소환은 무료이고 열쇠는 처치 후 비축고를 열 때만 소모(파티원 각자 필요). 비축고에서 상급 소굴 열쇠가 나오고, 드물게 칠흑의 돌·거짓 선지자의 십자가(고행 X 이상)도 나옴",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "Paingorger's Gauntlets",
+     "ko": "고통탐식자의 팔목 장갑",
+     "slot_ko": "장갑",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Strike of Stormhorn",
+     "ko": "폭풍뿔의 공격",
+     "slot_ko": "중심점",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Oculus",
+     "ko": "망울",
+     "slot_ko": "마법봉",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "출처 불일치: 아이시베인은 그리구아르, 다른 가이드는 얼음 속의 야수로 표기"
+    },
+    {
+     "en": "Vision of the Firestorm",
+     "ko": "화염폭풍의 환영",
+     "slot_ko": "투구",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hunter's Zenith",
+     "ko": "사냥꾼의 정점",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Basilisk",
+     "ko": "바실리스크",
+     "slot_ko": "지팡이",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Will of Stone",
+     "ko": "돌의 의지",
+     "slot_ko": "투구",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Gohr's Devastating Grips",
+     "ko": "고르의 파멸적인 손 보호구",
+     "slot_ko": "장갑",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Might of Qual-Kehk",
+     "ko": "콸케크의 힘",
+     "slot_ko": "장갑",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Desperate March",
+     "ko": "필사적인 행군",
+     "slot_ko": "장화",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Maestro",
+     "ko": "거장",
+     "slot_ko": "단검",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Deathgrip",
+     "ko": "죽음의 손아귀",
+     "slot_ko": "장갑",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Mortacrux",
+     "ko": "죽음십자",
+     "slot_ko": "단검",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Peacemonger's Signet",
+     "ko": "평화주의자의 인장",
+     "slot_ko": "반지",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sunstained War-Crozier",
+     "ko": "태양바램 전쟁용 의식 지팡이",
+     "slot_ko": "육척봉",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Bastion of Sir Matthias",
+     "ko": "마티아스 경의 철벽",
+     "slot_ko": "방패",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sunbrand",
+     "ko": "태양의 낙인",
+     "slot_ko": "도리깨",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Cage of Madness",
+     "ko": "광기의 우리",
+     "slot_ko": "투구",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hands of the Worldbreaker",
+     "ko": "세계파괴자의 손",
+     "slot_ko": "장갑",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Seed of Horazon",
+     "ko": "호라존의 씨앗",
+     "slot_ko": "목걸이",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sire of Sin",
+     "ko": "죄악의 아비",
+     "slot_ko": "반지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "beast_in_the_ice",
+   "en": "The Beast in the Ice",
+   "ko": "얼음 속의 야수",
+   "location_ko": "조각난 봉우리 · 빙하의 틈새",
+   "material": {
+    "en": "Lair Key",
+    "ko": "소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "고행 난이도 전쟁 계획의 열쇠 전리품, 지옥물결 고통받는 선물, 야외 우두머리·군단 이벤트, 속삭임의 나무 보관함, 쿠라스트 지하도시에서 얻음"
+   },
+   "trophy": {
+    "en": "Distilled Fear",
+    "ko": "정제된 공포",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "입문자 소굴 우두머리. 고행 I 이상에서 도전 가능, 소환은 무료이고 열쇠는 처치 후 비축고를 열 때만 소모(파티원 각자 필요). 비축고에서 상급 소굴 열쇠가 나오고, 드물게 칠흑의 돌·거짓 선지자의 십자가(고행 X 이상)도 나옴",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "Signet of Pelghain",
+     "ko": "펠가인의 인장",
+     "slot_ko": "반지",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Gift of Frost",
+     "ko": "서리의 선물",
+     "slot_ko": "장화",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Starfall Coronet",
+     "ko": "별똥별의 관",
+     "slot_ko": "투구",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Vox Omnium",
+     "ko": "만인지성",
+     "slot_ko": "지팡이",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "출처 불일치: 얼음 속의 야수(아이시베인) / 바르샨의 메아리(다른 가이드 2곳)"
+    },
+    {
+     "en": "Accord of the Wilds",
+     "ko": "황야의 합의",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Airidah's Inexorable Will",
+     "ko": "아이리다의 거침없는 의지",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Malefic Crescent",
+     "ko": "사악한 초승달",
+     "slot_ko": "목걸이",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ring of the Ravenous",
+     "ko": "걸신들린 자의 반지",
+     "slot_ko": "반지",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Relentless Heart",
+     "ko": "가차없는 마음",
+     "slot_ko": "가슴 방어구",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Orphan Maker",
+     "ko": "고아를 만드는 자",
+     "slot_ko": "쇠뇌",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Saboteur's Signet",
+     "ko": "공작원의 인장",
+     "slot_ko": "반지",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Deathless Visage",
+     "ko": "죽음 없는 얼굴",
+     "slot_ko": "투구",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Howl from Below",
+     "ko": "아래에서 들려오는 울부짖음",
+     "slot_ko": "장갑",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Protection of the Prime",
+     "ko": "대악마의 수호",
+     "slot_ko": "바지",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Scorn of the Earth",
+     "ko": "대지 경멸",
+     "slot_ko": "장화",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Light's Rebuke",
+     "ko": "빛의 질책",
+     "slot_ko": "도리깨",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sanctis of Kethamar",
+     "ko": "케타마르의 성물",
+     "slot_ko": "목걸이",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hellhound's Sabatons",
+     "ko": "지옥사냥개의 발덮개",
+     "slot_ko": "장화",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Kabraxis' Will",
+     "ko": "카브락시스의 의지",
+     "slot_ko": "바지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Eightfold Idol",
+     "ko": "여덟 겹의 우상",
+     "slot_ko": "반지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "varshan",
+   "en": "Echo of Varshan",
+   "ko": "바르샨의 메아리",
+   "location_ko": "하웨자르 · 악의 굴길(속삭임의 나무 근처)",
+   "material": {
+    "en": "Lair Key",
+    "ko": "소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "고행 난이도 전쟁 계획의 열쇠 전리품, 지옥물결 고통받는 선물, 야외 우두머리·군단 이벤트, 속삭임의 나무 보관함, 쿠라스트 지하도시에서 얻음"
+   },
+   "trophy": {
+    "en": "Malignant Heart",
+    "ko": "악의 심장",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "입문자 소굴 우두머리. 고행 I 이상에서 도전 가능, 소환은 무료이고 열쇠는 처치 후 비축고를 열 때만 소모(파티원 각자 필요). 비축고에서 상급 소굴 열쇠가 나오고, 드물게 칠흑의 돌·거짓 선지자의 십자가(고행 X 이상)도 나옴",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "Shard of Verathiel",
+     "ko": "베라티엘의 파편",
+     "slot_ko": "도검",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true,
+     "equip_classes": [
+      "sorcerer",
+      "druid",
+      "barbarian",
+      "rogue",
+      "necromancer",
+      "paladin",
+      "warlock"
+     ]
+    },
+    {
+     "en": "Levin Grasp",
+     "ko": "전광의 손아귀",
+     "slot_ko": "장갑",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Onyx Soul",
+     "ko": "흑마노 영혼",
+     "slot_ko": "중심점",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Raiment of the Infinite",
+     "ko": "무한의 의복",
+     "slot_ko": "가슴 방어구",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "출처 불일치: 아이시베인만 바르샨으로 표기, 다른 가이드는 바르툭"
+    },
+    {
+     "en": "Raiment of the Sea",
+     "ko": "바다의 의복",
+     "slot_ko": "가슴 방어구",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Vox Omnium",
+     "ko": "만인지성",
+     "slot_ko": "지팡이",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true,
+     "note_ko": "출처 불일치: 얼음 속의 야수(아이시베인) / 바르샨의 메아리(다른 가이드 2곳)"
+    },
+    {
+     "en": "Autumnal Crown",
+     "ko": "가을의 왕관",
+     "slot_ko": "투구",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Greatstaff of the Crone",
+     "ko": "마녀의 큰지팡이",
+     "slot_ko": "지팡이",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Stone of Vehemen",
+     "ko": "맹위의 돌",
+     "slot_ko": "토템",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "100,000 Steps",
+     "ko": "만보",
+     "slot_ko": "장화",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Overkill",
+     "ko": "과잉 살상",
+     "slot_ko": "양손 철퇴",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Death's Pavane",
+     "ko": "죽음의 파반",
+     "slot_ko": "바지",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Eaglehorn",
+     "ko": "수리뿔",
+     "slot_ko": "활",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Pitfighter's Gull",
+     "ko": "투기장 싸움꾼의 사기",
+     "slot_ko": "반지",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hangman's Hand",
+     "ko": "교수형 집행인의 손",
+     "slot_ko": "장갑",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Hand of Naz",
+     "ko": "나즈의 손",
+     "slot_ko": "장갑",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Balazan's Maxtlatl",
+     "ko": "발라잔의 짚허리띠",
+     "slot_ko": "바지",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Wound Drinker",
+     "ko": "상처 포식자",
+     "slot_ko": "반지",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Seal of the Second Trumpet",
+     "ko": "두 번째 나팔의 문장",
+     "slot_ko": "반지",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Wreath of Auric Laurel",
+     "ko": "금빛 월계수의 화관",
+     "slot_ko": "반지",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ae'grom's Schism",
+     "ko": "아이그롬의 분열",
+     "slot_ko": "가슴 방어구",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Seal of the Ophanim",
+     "ko": "오파님의 문장",
+     "slot_ko": "반지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Thrice-Woven Nightmare",
+     "ko": "세 번 엮은 악몽",
+     "slot_ko": "장갑",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "lord_zir",
+   "en": "Lord Zir",
+   "ko": "군주 지르",
+   "location_ko": "조각난 봉우리 · 고대인의 옥좌",
+   "material": {
+    "en": "Lair Key",
+    "ko": "소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "고행 난이도 전쟁 계획의 열쇠 전리품, 지옥물결 고통받는 선물, 야외 우두머리·군단 이벤트, 속삭임의 나무 보관함, 쿠라스트 지하도시에서 얻음"
+   },
+   "trophy": {
+    "en": "Exquisite Blood",
+    "ko": "극상의 피",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "입문자 소굴 우두머리. 고행 I 이상에서 도전 가능, 소환은 무료이고 열쇠는 처치 후 비축고를 열 때만 소모(파티원 각자 필요). 비축고에서 상급 소굴 열쇠가 나오고, 드물게 칠흑의 돌·거짓 선지자의 십자가(고행 X 이상)도 나옴",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "X'Fal's Corroded Signet",
+     "ko": "크팔의 부식된 인장",
+     "slot_ko": "반지",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true,
+     "equip_classes": [
+      "sorcerer",
+      "druid",
+      "barbarian",
+      "rogue",
+      "necromancer",
+      "spiritborn",
+      "warlock"
+     ]
+    },
+    {
+     "en": "Fang of the Vipermagi",
+     "ko": "독사마술사의 송곳니",
+     "slot_ko": "단검",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Rimeblood",
+     "ko": "서리피",
+     "slot_ko": "장갑",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Staff of Lam Esen",
+     "ko": "람 에센의 지팡이",
+     "slot_ko": "지팡이",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Gathlen's Birthright",
+     "ko": "가틀렌의 생득권",
+     "slot_ko": "투구",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Unsung Ascetic's Wraps",
+     "ko": "무명 고행자의 두르개",
+     "slot_ko": "장갑",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Waxing Gibbous",
+     "ko": "차오르는 철월",
+     "slot_ko": "도끼",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Fields of Crimson",
+     "ko": "심홍색의 전장",
+     "slot_ko": "양손 도검",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Twin Strikes",
+     "ko": "이중 강타",
+     "slot_ko": "장갑",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Shroud of Khanduras",
+     "ko": "칸두라스의 장막",
+     "slot_ko": "가슴 방어구",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Skyhunter",
+     "ko": "하늘사냥꾼",
+     "slot_ko": "활",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Umbracrux",
+     "ko": "그림자십자",
+     "slot_ko": "단검",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Cruor's Embrace",
+     "ko": "크루올의 포옹",
+     "slot_ko": "장갑",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sanguivor, Blade of Zir",
+     "ko": "지르의 칼날, 생귀보르",
+     "slot_ko": "양손 도검",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ring of Writhing Moon",
+     "ko": "꿈틀거리는 달의 반지",
+     "slot_ko": "반지",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ring of the Midday Hunt",
+     "ko": "정오 사냥의 반지",
+     "slot_ko": "반지",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "출처 불일치: 군주 지르(아이시베인) / 안다리엘(다른 가이드 2곳)"
+    },
+    {
+     "en": "Judgment of Auriel",
+     "ko": "아우리엘의 심판",
+     "slot_ko": "목걸이",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Judicant's Glaivehelm",
+     "ko": "사법관의 글레이브투구",
+     "slot_ko": "투구",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Dirge of Odium",
+     "ko": "혐오의 만가",
+     "slot_ko": "양손 도끼",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Elegy",
+     "ko": "비가",
+     "slot_ko": "도검",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Fleshwrit Carapace",
+     "ko": "살점 갑각",
+     "slot_ko": "가슴 방어구",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "urivar",
+   "en": "Urivar",
+   "ko": "우리바르",
+   "location_ko": "나한투 · 심판의 벌판",
+   "material": {
+    "en": "Lair Key",
+    "ko": "소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "고행 난이도 전쟁 계획의 열쇠 전리품, 지옥물결 고통받는 선물, 야외 우두머리·군단 이벤트, 속삭임의 나무 보관함, 쿠라스트 지하도시에서 얻음"
+   },
+   "trophy": {
+    "en": "Judicator's Mask",
+    "ko": "심판관의 가면",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "입문자 소굴 우두머리. 고행 I 이상에서 도전 가능, 소환은 무료이고 열쇠는 처치 후 비축고를 열 때만 소모(파티원 각자 필요). 비축고에서 상급 소굴 열쇠가 나오고, 드물게 칠흑의 돌·거짓 선지자의 십자가(고행 X 이상)도 나옴. 증오의 그릇 확장팩 필요",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "Yen's Blessing",
+     "ko": "엔의 축복",
+     "slot_ko": "장화",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Flamescar",
+     "ko": "화염흉터",
+     "slot_ko": "마법봉",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Iceheart Brais",
+     "ko": "얼음심장 브레이스",
+     "slot_ko": "바지",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Molten Band",
+     "ko": "녹아내린 가락지",
+     "slot_ko": "반지",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Dark Howl",
+     "ko": "어둠의 포효",
+     "slot_ko": "장갑",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Dolmen Stone",
+     "ko": "고인돌",
+     "slot_ko": "목걸이",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Kilt of Blackwing",
+     "ko": "검은날개의 킬트",
+     "slot_ko": "바지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Mantle of Mountain's Fury",
+     "ko": "산의 분노의 어깨걸이",
+     "slot_ko": "가슴 방어구",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Unbroken Chain",
+     "ko": "부서지지 않는 사슬",
+     "slot_ko": "목걸이",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Cassia's Grace",
+     "ko": "카시아의 은총",
+     "slot_ko": "활",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Windforce",
+     "ko": "바람살",
+     "slot_ko": "활",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Writhing Band of Trickery",
+     "ko": "몸부림치는 속임수의 가락지",
+     "slot_ko": "반지",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Gospel of the Devotee",
+     "ko": "헌신자의 복음",
+     "slot_ko": "중심점",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Will of Rathma",
+     "ko": "라트마의 의지",
+     "slot_ko": "목걸이",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Band of First Breath",
+     "ko": "첫 숨결의 가락지",
+     "slot_ko": "반지",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sunbird's Gorget",
+     "ko": "태양새의 목가리개",
+     "slot_ko": "목걸이",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Cathedral's Song",
+     "ko": "대성당의 노래",
+     "slot_ko": "방패",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Herald's Morningstar",
+     "ko": "전령의 샛별",
+     "slot_ko": "철퇴",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Cowl of Malefic Torment",
+     "ko": "흉악한 고행의 머리쓰개",
+     "slot_ko": "투구",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Infernal Homunculus",
+     "ko": "지옥불 호문쿨루스",
+     "slot_ko": "중심점",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Blade of Sight Aflame",
+     "ko": "타오르는 시야의 검",
+     "slot_ko": "도검",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "duriel",
+   "en": "Duriel, King of Maggots",
+   "ko": "두리엘",
+   "location_ko": "케지스탄 · 게아 쿨 동쪽 던전(영문 Gaping Crevasse, 한국어 표기 \"갈라진 크레바스\"는 나무위키 기준)",
+   "material": {
+    "en": "Greater Lair Key",
+    "ko": "상급 소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "입문자 소굴 우두머리(빙하의 틈새·고대인의 옥좌·심판의 벌판·참회자의 전당·악의 굴길)와 전쟁 계획 열쇠 전리품에서 얻음. 칠흑의 돌(입문자 우두머리 희귀 드랍)은 연금술사에서 상급 소굴 열쇠로 교환"
+   },
+   "trophy": {
+    "en": "Shard of Agony",
+    "ko": "고통의 파편",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "상급 소굴 우두머리. 고행 I 이상, 열쇠는 비축고를 열 때 소모. 고행 X 이상에서 거짓 선지자의 십자가(메피스토 열쇠)가 드물게 나옴",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "Razorplate",
+     "ko": "서슬판금",
+     "slot_ko": "가슴 방어구",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Blue Rose",
+     "ko": "푸른 장미",
+     "slot_ko": "반지",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Galvanic Azurite",
+     "ko": "전류의 남동석",
+     "slot_ko": "반지",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Staff of Endless Rage",
+     "ko": "끝없는 분노의 지팡이",
+     "slot_ko": "지팡이",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Fractured Runestone",
+     "ko": "조각난 룬석",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Greenwalker's Oath",
+     "ko": "초원방랑자의 서약",
+     "slot_ko": "장화",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Mark of the Old Wolf",
+     "ko": "늙은 늑대의 징표",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Dark Stalker's Medallion",
+     "ko": "어둠의 추적자의 메달",
+     "slot_ko": "목걸이",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Rage of Harrogath",
+     "ko": "하로가스의 분노",
+     "slot_ko": "가슴 방어구",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "출처 불일치: 두리엘(아이시베인) / 도살자(다른 가이드 2곳)"
+    },
+    {
+     "en": "Sabre of Tsasgal",
+     "ko": "차스갈의 세이버",
+     "slot_ko": "도검",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Bands of Ichorous Rose",
+     "ko": "핏빛 장미의 띠",
+     "slot_ko": "장갑",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Condemnation",
+     "ko": "규탄",
+     "slot_ko": "단검",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sea Lord's Fine Gloves",
+     "ko": "바다 군주의 좋은 장갑",
+     "slot_ko": "장갑",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Mutilator Plate",
+     "ko": "절단자의 판금 갑옷",
+     "slot_ko": "가슴 방어구",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Path of Trag'Oul",
+     "ko": "트래그울의 길",
+     "slot_ko": "장화",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Undercrown",
+     "ko": "지하왕관",
+     "slot_ko": "투구",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Rod of Kepeleke",
+     "ko": "케펠레케의 막대",
+     "slot_ko": "육척봉",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Widow's Web",
+     "ko": "과부거미의 거미줄",
+     "slot_ko": "목걸이",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Wushe Nak Pa",
+     "ko": "우셰 낙 파",
+     "slot_ko": "글레이브",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Supplication",
+     "ko": "간청",
+     "slot_ko": "도검",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ward of the White Dove",
+     "ko": "하얀 비둘기의 호신부",
+     "slot_ko": "방패",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Gauntlets of Sheol",
+     "ko": "황천의 팔목 장갑",
+     "slot_ko": "장갑",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Morlu Fleshward",
+     "ko": "몰루 살점결계",
+     "slot_ko": "바지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "출처 불일치: 두리엘(아이시베인) / 얼음 속의 야수(다른 가이드)"
+    },
+    {
+     "en": "Rictus of Terror",
+     "ko": "공포의 억지웃음",
+     "slot_ko": "투구",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Scourge of Duriel",
+     "ko": "두리엘의 회초리",
+     "slot_ko": "도리깨",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "andariel",
+   "en": "Echo of Andariel",
+   "ko": "안다리엘",
+   "location_ko": "케지스탄 · 던전(영문 Hanged Man's Hall, 한국어 표기 \"매달린 자의 전당\"은 나무위키 기준)",
+   "material": {
+    "en": "Greater Lair Key",
+    "ko": "상급 소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "입문자 소굴 우두머리(빙하의 틈새·고대인의 옥좌·심판의 벌판·참회자의 전당·악의 굴길)와 전쟁 계획 열쇠 전리품에서 얻음. 칠흑의 돌(입문자 우두머리 희귀 드랍)은 연금술사에서 상급 소굴 열쇠로 교환"
+   },
+   "trophy": {
+    "en": "Pincushioned Doll",
+    "ko": "바늘꽂이 인형",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "상급 소굴 우두머리. 고행 I 이상, 열쇠는 비축고를 열 때 소모. 고행 X 이상에서 거짓 선지자의 십자가(메피스토 열쇠)가 드물게 나옴",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "Godslayer Crown",
+     "ko": "신 살해자 왕관",
+     "slot_ko": "투구",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Drognan's Anguish",
+     "ko": "드로그난의 고뇌",
+     "slot_ko": "반지",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Esadora's Overflowing Cameo",
+     "ko": "에사도라의 넘실거리는 카메오",
+     "slot_ko": "목걸이",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Orsivane",
+     "ko": "오르시베인",
+     "slot_ko": "철퇴",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Greenwalker's Signet",
+     "ko": "초원방랑자의 인장",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Insatiable Fury",
+     "ko": "만족을 모르는 분노",
+     "slot_ko": "가슴 방어구",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Storm's Companion",
+     "ko": "폭풍의 동료",
+     "slot_ko": "바지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ancients' Oath",
+     "ko": "선조의 맹세",
+     "slot_ko": "양손 도끼",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Emblem of Staalbreak",
+     "ko": "스탈브레이크의 표징",
+     "slot_ko": "목걸이",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hellhammer",
+     "ko": "지옥망치",
+     "slot_ko": "양손 철퇴",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Assassin's Stride",
+     "ko": "암살자의 걸음",
+     "slot_ko": "장화",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Beastfall Boots",
+     "ko": "야수내림 장화",
+     "slot_ko": "장화",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Deathmask of Nirmitruq",
+     "ko": "니르미트루크의 죽음가면",
+     "slot_ko": "투구",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ebonpiercer",
+     "ko": "칠흑쐐기",
+     "slot_ko": "목걸이",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Kessime's Legacy",
+     "ko": "케시메의 유산",
+     "slot_ko": "바지",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Lidless Wall",
+     "ko": "각성의 벽",
+     "slot_ko": "방패",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Craze of the Dead God",
+     "ko": "죽은 신의 발광",
+     "slot_ko": "장갑",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Jacinth Shell",
+     "ko": "적황색 갑각",
+     "slot_ko": "가슴 방어구",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "출처 불일치: 안다리엘(아이시베인) / 군주 지르(다른 가이드)"
+    },
+    {
+     "en": "Ring of the Midday Hunt",
+     "ko": "정오 사냥의 반지",
+     "slot_ko": "반지",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true,
+     "note_ko": "출처 불일치: 군주 지르(아이시베인) / 안다리엘(다른 가이드 2곳)"
+    },
+    {
+     "en": "Argent Veil",
+     "ko": "은빛 장막",
+     "slot_ko": "반지",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Dawnfire",
+     "ko": "새벽불길",
+     "slot_ko": "장갑",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Anathema of the Primes",
+     "ko": "대악마의 대척점",
+     "slot_ko": "양손 도검",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Night Terror",
+     "ko": "밤의 공포",
+     "slot_ko": "목걸이",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Scepter of the Three",
+     "ko": "셋의 홀",
+     "slot_ko": "양손 철퇴",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "harbinger_of_hatred",
+   "en": "Harbinger of Hatred",
+   "ko": "증오의 사도",
+   "location_ko": "나한투 · 던전(영문 Harbinger's Den, 한국어명 미확인)",
+   "material": {
+    "en": "Greater Lair Key",
+    "ko": "상급 소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "입문자 소굴 우두머리(빙하의 틈새·고대인의 옥좌·심판의 벌판·참회자의 전당·악의 굴길)와 전쟁 계획 열쇠 전리품에서 얻음. 칠흑의 돌(입문자 우두머리 희귀 드랍)은 연금술사에서 상급 소굴 열쇠로 교환"
+   },
+   "trophy": {
+    "en": "Abhorrent Heart",
+    "ko": "혐오스러운 심장",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "상급 소굴 우두머리. 고행 I 이상, 열쇠는 비축고를 열 때 소모. 고행 X 이상에서 거짓 선지자의 십자가(메피스토 열쇠)가 드물게 나옴. 증오의 그릇 확장팩 필요",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "Temerity",
+     "ko": "만용",
+     "slot_ko": "바지",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Flameweaver",
+     "ko": "화염직조자",
+     "slot_ko": "장갑",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sidhe Bindings",
+     "ko": "시드헤 구속구",
+     "slot_ko": "장갑",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Tal Rasha's Iridescent Loop",
+     "ko": "탈 라샤의 오색찬란한 고리",
+     "slot_ko": "반지",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Fleshrender",
+     "ko": "살점 분쇄봉",
+     "slot_ko": "철퇴",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ifeh's Dire Totem",
+     "ko": "이페의 섬뜩한 토템",
+     "slot_ko": "토템",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Might of the Ursine",
+     "ko": "곰의 힘",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Bane of Ahjad-Den",
+     "ko": "파괴의 군대의 숙적",
+     "slot_ko": "장갑",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Nomad's Longing Heart",
+     "ko": "유목민의 그리운 마음",
+     "slot_ko": "목걸이",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ugly Bastard Helm",
+     "ko": "못생긴 놈 투구",
+     "slot_ko": "투구",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Etna's Lost Dagger",
+     "ko": "에트나의 잃어버린 단검",
+     "slot_ko": "단검",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Scoundrel's Leathers",
+     "ko": "건달의 가죽옷",
+     "slot_ko": "가슴 방어구",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Shrouded Gift",
+     "ko": "가려진 선물",
+     "slot_ko": "바지",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Blood Wake",
+     "ko": "피의 흔적",
+     "slot_ko": "장화",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Pact of Bone",
+     "ko": "뼈의 맹약",
+     "slot_ko": "반지",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Gloom Ward",
+     "ko": "어스름 결계",
+     "slot_ko": "방패",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Protean Heart",
+     "ko": "프로테우스의 심장",
+     "slot_ko": "목걸이",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sepazontec",
+     "ko": "세파존텍",
+     "slot_ko": "육척봉",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Gate of the Red Dawn",
+     "ko": "붉은 새벽의 문",
+     "slot_ko": "방패",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Mantle of the Grey",
+     "ko": "회색의 어깨걸이",
+     "slot_ko": "가슴 방어구",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Bridle of Tor'Baalos",
+     "ko": "토르바알로스의 굴레",
+     "slot_ko": "투구",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Spine of Tathamet",
+     "ko": "타타메트의 척추",
+     "slot_ko": "철퇴",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Fecund Seal",
+     "ko": "다산의 문장",
+     "slot_ko": "반지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "butcher",
+   "en": "The Butcher",
+   "ko": "도살자",
+   "location_ko": "케지스탄 · 게아 쿨 던전(영문 The Broiler, 한국어 표기 \"구잇집\"은 나무위키 기준)",
+   "material": {
+    "en": "Greater Lair Key",
+    "ko": "상급 소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "입문자 소굴 우두머리(빙하의 틈새·고대인의 옥좌·심판의 벌판·참회자의 전당·악의 굴길)와 전쟁 계획 열쇠 전리품에서 얻음. 칠흑의 돌(입문자 우두머리 희귀 드랍)은 연금술사에서 상급 소굴 열쇠로 교환"
+   },
+   "trophy": {
+    "en": "Fresh Meat",
+    "ko": "신선한 고기",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "상급 소굴 우두머리. 고행 I 이상, 열쇠는 비축고를 열 때 소모. 고행 X 이상에서 거짓 선지자의 십자가(메피스토 열쇠)가 드물게 나옴",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "The Butcher's Cleaver",
+     "ko": "도살자의 식칼",
+     "slot_ko": "도끼",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true,
+     "equip_classes": [
+      "druid",
+      "barbarian",
+      "necromancer",
+      "paladin",
+      "warlock"
+     ]
+    },
+    {
+     "en": "Emberfury",
+     "ko": "잿불의 분노",
+     "slot_ko": "목걸이",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Shanar's Resonance",
+     "ko": "샤나르의 공명",
+     "slot_ko": "중심점",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Staff of Zerae",
+     "ko": "제레이의 지팡이",
+     "slot_ko": "지팡이",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Fury of the Wilds",
+     "ko": "황야의 분노",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Heart of Azgar",
+     "ko": "아즈가의 심장",
+     "slot_ko": "가슴 방어구",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Purified Lightbringer",
+     "ko": "정화된 빛의 인도자",
+     "slot_ko": "양손 철퇴",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Chainscourged Mail",
+     "ko": "사슬참화 쇠미늘",
+     "slot_ko": "바지",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Rage of Harrogath",
+     "ko": "하로가스의 분노",
+     "slot_ko": "가슴 방어구",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true,
+     "note_ko": "출처 불일치: 두리엘(아이시베인) / 도살자(다른 가이드 2곳)"
+    },
+    {
+     "en": "Ramaladni's Magnum Opus",
+     "ko": "라말라드니의 역작",
+     "slot_ko": "도검",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ring of Red Furor",
+     "ko": "붉은 열광의 반지",
+     "slot_ko": "반지",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Cowl of the Nameless",
+     "ko": "이름 없는 자의 머리쓰개",
+     "slot_ko": "투구",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Fist of the Iron Rose",
+     "ko": "강철 장미의 주먹",
+     "slot_ko": "장갑",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Scoundrel's Kiss",
+     "ko": "건달의 입맞춤",
+     "slot_ko": "반지",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Mace of King Leoric",
+     "ko": "레오릭 왕의 철퇴",
+     "slot_ko": "철퇴",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Red Blessing",
+     "ko": "붉은 축복",
+     "slot_ko": "목걸이",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Vengeful Sinew",
+     "ko": "원한 서린 힘줄",
+     "slot_ko": "가슴 방어구",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hesha e Kesungi",
+     "ko": "헤샤 에 케순기",
+     "slot_ko": "장갑",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Path of the Emissary",
+     "ko": "밀사의 길",
+     "slot_ko": "장화",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "March of the Stalwart Soul",
+     "ko": "굳건한 영혼의 행진",
+     "slot_ko": "장화",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Red Sermon",
+     "ko": "붉은 설교",
+     "slot_ko": "양손 도검",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hellbrand Signet",
+     "ko": "지옥낙인 인장",
+     "slot_ko": "반지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Lurid Pact",
+     "ko": "소름 끼치는 맹약",
+     "slot_ko": "반지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Moloch's Beating Flame",
+     "ko": "몰로크의 퍼덕이는 불길",
+     "slot_ko": "목걸이",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Nails of the Gore-Crowned",
+     "ko": "선혈 왕관의 못",
+     "slot_ko": "투구",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "belial",
+   "en": "Belial, Lord of Lies",
+   "ko": "거짓의 군주 벨리알",
+   "location_ko": "케지스탄 · 던전(영문 Palace of the Deceiver, 한국어명 미확인)",
+   "material": {
+    "en": "Superior Lair Key",
+    "ko": "고급 소굴 열쇠",
+    "per_summon": 1,
+    "how_ko": "소굴 우두머리 비축고를 연 뒤 가끔 기습하는 벨리알을 잡으면 획득(비축고를 연 본인만). 구 재료 배신자의 껍데기는 연금술사에서 고급 소굴 열쇠로 교환. 일부 가이드는 아직 \"배신자의 껍데기 2개\"로 표기"
+   },
+   "trophy": null,
+   "tiers_ko": "승격(최상위) 소굴 우두머리. 고정 전리품 없음 — 비축고를 열 때 다른 소굴 우두머리 하나의 목록을 골라 그 목록에서 받음. 고대 고유 1개 확정, 소굴 우두머리 중 신화 확률 최고. 기습 벨리알은 방금 잡은 우두머리의 전리품을 한 번 더 줌",
+   "seasonal": false,
+   "drops": [],
+   "loot_mode": "choose_boss_table",
+   "sources": [
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://www.icy-veins.com/d4/guides/belial-boss-guide/",
+    "https://maxroll.gg/d4/resources/bosses-overview",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)",
+    "https://news.blizzard.com/en-us/article/24295394/celebrate-30-years-of-diablo-in-season-of-hell-s-legacy"
+   ]
+  },
+  {
+   "id": "mephisto",
+   "en": "Echo of Mephisto",
+   "ko": "메피스토의 메아리",
+   "location_ko": "스코보스 (증오의 군주 확장팩 지역, 던전 영문명 Echo of the False Prophet, 한국어명 미확인)",
+   "material": {
+    "en": "Crux of the False Prophet",
+    "ko": "거짓 선지자의 십자가",
+    "per_summon": 1,
+    "how_ko": "고행 X 이상 상급 소굴 우두머리에게서 드물게, 전쟁 계획 열쇠 전리품·입문자 소굴 우두머리·야외 우두머리·정예에게서 아주 드물게 나옴. 3.2.1부터 열쇠 보관함에서도 낮은 확률"
+   },
+   "trophy": null,
+   "tiers_ko": "증오의 군주 확장팩 최상위 보스(가이드에 따라 승격/정점 분류). 3.2.1에서 전리품 품질이 오르고 신화 아이템 1개 확정. 비축고 이름은 메피스토의 비축고. 고행 X 이상 권장(가이드 기준). 신화 문장(영물용)의 대표 출처",
+   "seasonal": false,
+   "drops": [],
+   "loot_mode": "guaranteed_mythic",
+   "sources": [
+    "https://news.blizzard.com/en-us/article/24295394/celebrate-30-years-of-diablo-in-season-of-hell-s-legacy",
+    "https://news.blizzard.com/ko-kr/article/24295394/",
+    "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+    "https://maxroll.gg/d4/resources/bosses-overview",
+    "https://timesaver.gg/blog/diablo-4-echo-of-mephisto-season-15-farm-guide",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "astaroth",
+   "en": "Astaroth",
+   "ko": "아스타로트",
+   "location_ko": "심화되는 던전(악몽 심화)의 마지막 던전",
+   "material": {
+    "en": "Escalation Sigil",
+    "ko": "심화 인장",
+    "per_summon": 1,
+    "how_ko": "심화 인장으로 갈수록 강해지는 던전 연속 도전을 열고, 마지막 던전에서 아스타로트와 싸움. 고행 I 이상"
+   },
+   "trophy": {
+    "en": "Ash of the Charred Duke",
+    "ko": "불타버린 공작의 재",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "악몽 심화 보스. 고행 I 이상",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "Crown of Lucion",
+     "ko": "루시온의 왕관",
+     "slot_ko": "투구",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Battle Trance",
+     "ko": "전투 무아지경",
+     "slot_ko": "목걸이",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hooves of the Mountain God",
+     "ko": "산신의 발굽",
+     "slot_ko": "장화",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Third Blade",
+     "ko": "세 번째 칼날",
+     "slot_ko": "도검",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Dirge of Airidah",
+     "ko": "아이리다의 만가",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Mad Wolf's Glee",
+     "ko": "미친 늑대의 환희",
+     "slot_ko": "가슴 방어구",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Wildheart Hunger",
+     "ko": "야생심장의 갈망",
+     "slot_ko": "장화",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Blood Moon Breeches",
+     "ko": "핏빛 달의 무릎바지",
+     "slot_ko": "바지",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Bloodless Scream",
+     "ko": "피 말리는 비명",
+     "slot_ko": "양손 낫",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ring of the Sacrilegious Soul",
+     "ko": "신성모독자 영혼의 반지",
+     "slot_ko": "반지",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Asheara's Khanjar",
+     "ko": "아시아라의 칸자르",
+     "slot_ko": "단검",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Eyes in the Dark",
+     "ko": "어둠 속의 눈",
+     "slot_ko": "바지",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Gladiator's Triumph",
+     "ko": "검투사의 승리",
+     "slot_ko": "장갑",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Esu's Heirloom",
+     "ko": "에수의 가보",
+     "slot_ko": "장화",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Fractured Winterglass",
+     "ko": "조각난 겨울유리",
+     "slot_ko": "목걸이",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hail of Verglas",
+     "ko": "살얼음의 우박",
+     "slot_ko": "투구",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Echo of Kwatli",
+     "ko": "크와틀리의 메아리",
+     "slot_ko": "목걸이",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ring of the Midnight Sun",
+     "ko": "한밤중 태양의 반지",
+     "slot_ko": "반지",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Griswold's Opus",
+     "ko": "그리스월드의 작품",
+     "slot_ko": "도검",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Herald of Zakarum",
+     "ko": "자카룸의 전령",
+     "slot_ko": "방패",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Bindings of Attrition",
+     "ko": "마멸의 구속구",
+     "slot_ko": "바지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Footfalls of the Waning World",
+     "ko": "기우는 세계의 발소리",
+     "slot_ko": "장화",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hecaton Chasm",
+     "ko": "일백의 균열",
+     "slot_ko": "반지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Litany of Sable",
+     "ko": "흑담비의 기도문",
+     "slot_ko": "단검",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "https://maxroll.gg/d4/resources/bosses-overview",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+   ]
+  },
+  {
+   "id": "bartuc",
+   "en": "Bartuc, Lord of Chaos",
+   "ko": "바르툭",
+   "location_ko": "지옥불 군세 마지막(케지스탄 지옥문)",
+   "material": {
+    "en": "Infernal Hordes Compass",
+    "ko": "지옥불 군세 나침반",
+    "per_summon": 1,
+    "how_ko": "지옥불 군세 진행 중 불타는 에테르를 모아(가이드 기준 666) 마지막에 바르툭에게 도전. 나침반은 비술사에서 인장 가루로 제작 가능(3.2.1에서 500으로 인하)"
+   },
+   "trophy": {
+    "en": "Chaotic Essence",
+    "ko": "혼돈의 정수",
+    "how_ko": "이 우두머리 처치 시 주로 나오는 전리품. 호라드림의 함에서 이 우두머리 비축고 아이템으로 변환하는 재료(가이드 기준 5개=해당 우두머리 고유 1개). 고행 난이도 전용"
+   },
+   "tiers_ko": "지옥불 군세 보스. 고행 I 이상",
+   "seasonal": false,
+   "drops": [
+    {
+     "en": "Azurewrath",
+     "ko": "푸른 서슬",
+     "slot_ko": "도검",
+     "class": "all",
+     "mythic": false,
+     "confirmed": true,
+     "equip_classes": [
+      "sorcerer",
+      "druid",
+      "barbarian",
+      "rogue",
+      "necromancer",
+      "paladin",
+      "warlock"
+     ]
+    },
+    {
+     "en": "Arreat's Bearing",
+     "ko": "아리앗의 자세",
+     "slot_ko": "바지",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Open Eye of Gorgorra",
+     "ko": "고르고라의 뜬 눈",
+     "slot_ko": "목걸이",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Tuskhelm of Joritz the Mighty",
+     "ko": "위대한 조리츠의 엄니 투구",
+     "slot_ko": "투구",
+     "class": "barbarian",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Earthbreaker",
+     "ko": "대지 파괴자",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Khamsin Steppewalkers",
+     "ko": "캄신 평원방랑자",
+     "slot_ko": "장화",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Mjölnic Ryng",
+     "ko": "묠니르의 반지",
+     "slot_ko": "반지",
+     "class": "druid",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Gravewalker's Hand",
+     "ko": "무덤방랑자의 손",
+     "slot_ko": "장갑",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Omen of Pain",
+     "ko": "고통의 징조",
+     "slot_ko": "반지",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Unmaker",
+     "ko": "파괴자",
+     "slot_ko": "투구",
+     "class": "necromancer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Grasp of Shadow",
+     "ko": "그림자의 매듭끈",
+     "slot_ko": "장갑",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Misericorde",
+     "ko": "자비의 검",
+     "slot_ko": "도검",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Word of Hakan",
+     "ko": "하칸의 말",
+     "slot_ko": "목걸이",
+     "class": "rogue",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Axial Conduit",
+     "ko": "축 도관",
+     "slot_ko": "바지",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Ophidian Iris",
+     "ko": "뱀의 홍채",
+     "slot_ko": "목걸이",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Raiment of the Infinite",
+     "ko": "무한의 의복",
+     "slot_ko": "가슴 방어구",
+     "class": "sorcerer",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Harmony of Ebewaka",
+     "ko": "에베와카의 조화",
+     "slot_ko": "투구",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Loyalty's Mantle",
+     "ko": "충의의 어깨걸이",
+     "slot_ko": "투구",
+     "class": "spiritborn",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Arcadia",
+     "ko": "아카디아",
+     "slot_ko": "바지",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sundered Night",
+     "ko": "갈라진 밤",
+     "slot_ko": "양손 도끼",
+     "class": "paladin",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Eye of Baal",
+     "ko": "바알의 눈",
+     "slot_ko": "중심점",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Hand of Apotheosis",
+     "ko": "극치의 손",
+     "slot_ko": "장갑",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "Sashes of the Wretched",
+     "ko": "뒤틀린 자의 현장",
+     "slot_ko": "바지",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    },
+    {
+     "en": "The Hemat Stone",
+     "ko": "피의 돌",
+     "slot_ko": "목걸이",
+     "class": "warlock",
+     "mythic": false,
+     "confirmed": true
+    }
+   ],
+   "sources": [
+    "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "https://maxroll.gg/d4/resources/bosses-overview",
+    "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)",
+    "https://news.blizzard.com/en-us/article/24295394/celebrate-30-years-of-diablo-in-season-of-hell-s-legacy"
+   ]
+  },
+  {
+   "id": "prime_evils_s15",
+   "en": "Echoes of Diablo, Baal and Mephisto (Waking Nightmares)",
+   "ko": "디아블로·바알·메피스토의 메아리 (깨어 있는 악몽)",
+   "location_ko": "트리스트럼 대성당 밑(디아블로) · 아리앗 정상(바알) · 증오의 억류지(메피스토)",
+   "material": {
+    "en": null,
+    "ko": null,
+    "per_summon": 0,
+    "how_ko": "시즌 퀘스트로 처음 만나고, 이후 고행 난이도에서 다시 도전. 고행 10 이상에서는 정점 캡스톤으로도 열림. 열쇠 불필요(가이드 기준)"
+   },
+   "trophy": null,
+   "tiers_ko": "시즌 15 전용 대악마 캡스톤 던전(난이도 고정)",
+   "seasonal": true,
+   "drops": [
+    {
+     "en": "Leoric's Crown",
+     "ko": "레오릭의 왕관",
+     "slot_ko": "투구",
+     "class": "all",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "9종 레거시 고유는 공식 노트상 시즌15 신규(영구). 대악마(디아블로·바알·메피스토) 깨어 있는 악몽에서 나온다는 건 가이드 2곳 기준이며 공식 드랍처 명시 없음"
+    },
+    {
+     "en": "Nemesis Bracers",
+     "ko": "천벌의 팔보호구",
+     "slot_ko": "장갑",
+     "class": "all",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "9종 레거시 고유는 공식 노트상 시즌15 신규(영구). 대악마(디아블로·바알·메피스토) 깨어 있는 악몽에서 나온다는 건 가이드 2곳 기준이며 공식 드랍처 명시 없음"
+    },
+    {
+     "en": "Stone of Jordan",
+     "ko": "요르단의 반지",
+     "slot_ko": "반지",
+     "class": "all",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "9종 레거시 고유는 공식 노트상 시즌15 신규(영구). 대악마(디아블로·바알·메피스토) 깨어 있는 악몽에서 나온다는 건 가이드 2곳 기준이며 공식 드랍처 명시 없음"
+    },
+    {
+     "en": "Sirloin of the Bovine",
+     "ko": "소의 채끝살",
+     "slot_ko": "바지",
+     "class": "all",
+     "mythic": false,
+     "confirmed": false,
+     "note_ko": "9종 레거시 고유는 공식 노트상 시즌15 신규(영구). 대악마(디아블로·바알·메피스토) 깨어 있는 악몽에서 나온다는 건 가이드 2곳 기준이며 공식 드랍처 명시 없음"
+    },
+    {
+     "en": "Arioc's Needle",
+     "ko": "아리옥의 바늘",
+     "slot_ko": "미늘창",
+     "class": "all",
+     "mythic": false,
+     "confirmed": false,
+     "equip_classes": [
+      "barbarian",
+      "druid",
+      "spiritborn"
+     ],
+     "note_ko": "9종 레거시 고유는 공식 노트상 시즌15 신규(영구). 대악마(디아블로·바알·메피스토) 깨어 있는 악몽에서 나온다는 건 가이드 2곳 기준이며 공식 드랍처 명시 없음"
+    },
+    {
+     "en": "Henri's Perquisition",
+     "ko": "앙리의 쥐잡이",
+     "slot_ko": "중심점",
+     "class": "all",
+     "mythic": false,
+     "confirmed": false,
+     "equip_classes": [
+      "sorcerer",
+      "necromancer",
+      "warlock"
+     ],
+     "note_ko": "9종 레거시 고유는 공식 노트상 시즌15 신규(영구). 대악마(디아블로·바알·메피스토) 깨어 있는 악몽에서 나온다는 건 가이드 2곳 기준이며 공식 드랍처 명시 없음"
+    },
+    {
+     "en": "In-Geom",
+     "ko": "인검",
+     "slot_ko": "도검",
+     "class": "all",
+     "mythic": false,
+     "confirmed": false,
+     "equip_classes": [
+      "barbarian",
+      "druid",
+      "rogue",
+      "necromancer",
+      "paladin",
+      "sorcerer",
+      "warlock"
+     ],
+     "note_ko": "9종 레거시 고유는 공식 노트상 시즌15 신규(영구). 대악마(디아블로·바알·메피스토) 깨어 있는 악몽에서 나온다는 건 가이드 2곳 기준이며 공식 드랍처 명시 없음"
+    },
+    {
+     "en": "The Furnace",
+     "ko": "용광로",
+     "slot_ko": "양손 철퇴",
+     "class": "all",
+     "mythic": false,
+     "confirmed": false,
+     "equip_classes": [
+      "barbarian",
+      "druid",
+      "necromancer",
+      "paladin",
+      "warlock"
+     ],
+     "note_ko": "9종 레거시 고유는 공식 노트상 시즌15 신규(영구). 대악마(디아블로·바알·메피스토) 깨어 있는 악몽에서 나온다는 건 가이드 2곳 기준이며 공식 드랍처 명시 없음"
+    },
+    {
+     "en": "Messerschmidt's Reaver",
+     "ko": "메서슈미트의 도끼",
+     "slot_ko": "양손 도끼",
+     "class": "all",
+     "mythic": false,
+     "confirmed": false,
+     "equip_classes": [
+      "barbarian",
+      "druid",
+      "necromancer",
+      "paladin",
+      "warlock"
+     ],
+     "note_ko": "9종 레거시 고유는 공식 노트상 시즌15 신규(영구). 대악마(디아블로·바알·메피스토) 깨어 있는 악몽에서 나온다는 건 가이드 2곳 기준이며 공식 드랍처 명시 없음"
+    }
+   ],
+   "sources": [
+    "https://news.blizzard.com/en-us/article/24295394/celebrate-30-years-of-diablo-in-season-of-hell-s-legacy",
+    "https://news.blizzard.com/ko-kr/article/24295394/",
+    "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+    "https://bubaigei.com/d4/en/boss-loot/"
+   ]
+  }
+ ],
+ "mythics": [
+  {
+   "en": "Ahavarion, Spear of Lycander",
+   "ko": "아발리온 - 라이칸더의 창",
+   "slot_ko": "지팡이",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능",
+   "equip_classes": [
+    "sorcerer",
+    "druid"
+   ]
+  },
+  {
+   "en": "Andariel's Visage",
+   "ko": "안다리엘의 두개골",
+   "slot_ko": "투구",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능"
+  },
+  {
+   "en": "Doombringer",
+   "ko": "궤멸자",
+   "slot_ko": "도검",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능",
+   "equip_classes": [
+    "sorcerer",
+    "druid",
+    "barbarian",
+    "rogue",
+    "necromancer",
+    "paladin",
+    "warlock"
+   ]
+  },
+  {
+   "en": "El'Druin, Sword of Justice",
+   "ko": "정의의 검 엘드루인",
+   "slot_ko": "도검",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능",
+   "equip_classes": [
+    "sorcerer",
+    "druid",
+    "barbarian",
+    "rogue",
+    "necromancer",
+    "paladin",
+    "warlock"
+   ]
+  },
+  {
+   "en": "Harlequin Crest",
+   "ko": "할리퀸 관모",
+   "slot_ko": "투구",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능. 시즌 15: 트리스트럼 관련 숨은 퀘스트(오그덴의 간판 찾기)로 1개 확정 지급된다는 보도 다수"
+  },
+  {
+   "en": "Heir of Perdition",
+   "ko": "영벌의 후예",
+   "slot_ko": "투구",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능"
+  },
+  {
+   "en": "Melted Heart of Selig",
+   "ko": "셀리그의 녹은 심장",
+   "slot_ko": "목걸이",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능"
+  },
+  {
+   "en": "Nesekem, the Herald",
+   "ko": "전령 네세켐",
+   "slot_ko": "글레이브",
+   "class": "spiritborn",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능",
+   "equip_classes": [
+    "spiritborn"
+   ]
+  },
+  {
+   "en": "Ring of Starless Skies",
+   "ko": "별 없는 하늘의 반지",
+   "slot_ko": "반지",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능"
+  },
+  {
+   "en": "Shattered Vow",
+   "ko": "박살난 맹세",
+   "slot_ko": "미늘창",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능",
+   "equip_classes": [
+    "druid",
+    "barbarian",
+    "spiritborn"
+   ]
+  },
+  {
+   "en": "Shroud of False Death",
+   "ko": "거짓된 죽음의 수의",
+   "slot_ko": "가슴 방어구",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능"
+  },
+  {
+   "en": "The Grandfather",
+   "ko": "한아비",
+   "slot_ko": "양손 도검",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능",
+   "equip_classes": [
+    "barbarian",
+    "necromancer",
+    "paladin",
+    "warlock"
+   ]
+  },
+  {
+   "en": "Tyrael's Might",
+   "ko": "티리엘의 권능",
+   "slot_ko": "가슴 방어구",
+   "class": "all",
+   "from_ko": "고행 난이도의 무작위 출처(모든 적·활동, 3.2.1에서 확률 상향)와 소굴 우두머리의 일반 전리품에서 낮은 확률. 3.2.1부터 소굴 우두머리 전용 신화는 그 우두머리 목록에서만 나오므로 상징적 신화의 고정 보스는 없음. 메피스토의 메아리(신화 1개 확정) 목록에 포함된다는 가이드가 있으나 미확인. 대장장이 \"상징적 신화 전용\" 보관함(반짝이는 벼락불)으로 무작위 제작 가능"
+  },
+  {
+   "en": "Mythic quality of boss Uniques",
+   "ko": null,
+   "slot_ko": null,
+   "class": "all",
+   "from_ko": "시즌 14부터 신화는 품질 등급이라 보스 고유 아이템도 신화로 떨어질 수 있음. 입문자·상급 소굴 우두머리와 벨리알(선택한 목록)이 주는 신화는 그 우두머리 고유 목록 안에서만 나옴(3.2.1). 입문자 신화 확률이 상급과 같아짐"
+  }
+ ],
+ "sources": [
+  "https://news.blizzard.com/en-us/article/24295394/celebrate-30-years-of-diablo-in-season-of-hell-s-legacy",
+  "https://news.blizzard.com/ko-kr/article/24295394/",
+  "https://news.blizzard.com/en-us/article/24295395/diablo-iv-patch-notes",
+  "https://www.icy-veins.com/d4/guides/how-to-farm-uniques-from-bosses/",
+  "https://www.icy-veins.com/d4/guides/lair-boss-system-guide/",
+  "https://www.icy-veins.com/d4/guides/how-to-farm-uber-uniques/",
+  "https://www.icy-veins.com/d4/guides/belial-boss-guide/",
+  "https://maxroll.gg/d4/resources/bosses-overview",
+  "https://mythic-store.com/blog/diablo-4-season-15-boss-loot-tables-every-boss-and-its-drops",
+  "https://www.aoeah.com/news/4818--diablo-4-season-15-boss-loot-table--legacymythicsuniques-drop-boss",
+  "https://bubaigei.com/d4/en/boss-loot/",
+  "https://timesaver.gg/blog/diablo-4-echo-of-mephisto-season-15-farm-guide",
+  "game-data: maxroll planner data 3.2.1.73552 (items: BossSummoning_*, Collection_Item_*)"
+ ],
+ "confidence": "검증됨: ①3.2.1 공식 패치노트(영/한) — 신화 드랍 규칙, 메피스토 신화 확정, 레거시 고유 9종, 추방된 군주의 영물 제한. ②게임 데이터(빌드 3.2.1.73552) — 모든 아이템 한국어 이름·부위·착용 직업, 열쇠(소굴/상급/고급 소굴 열쇠, 거짓 선지자의 십자가, 칠흑의 돌)와 우두머리 전리품(트로피) 이름·획득처, 우두머리 한국어 이름(전류의 성자 그리구아르·얼음 속의 야수·바르샨의 메아리·군주 지르·우리바르·두리엘·안다리엘·증오의 사도·도살자·아스타로트·바르툭·거짓의 군주 벨리알). 메피스토의 메아리는 공식 한국어 패치노트. ③입문자 5종 던전명(빙하의 틈새·고대인의 옥좌·심판의 벌판·참회자의 전당·악의 굴길)은 게임 문자열. 드랍 목록: 아이시베인(S15)을 기본으로 mythic-store·aoeah(S15)와 대조해 2곳 이상 일치하면 confirmed=true. 불일치 7건(망울·만인지성·무한의 의복·정오 사냥의 반지·적황색 갑각·하로가스의 분노·몰루 살점결계)은 confirmed=false+note_ko. 두리엘 성기사 항목은 아이시베인 표가 다른 보스 아이템을 중복 기재해 제외하고 다른 가이드 2곳 값(간청·하얀 비둘기의 호신부)을 씀. 아스타로트·바르툭은 가이드 2곳(같은 원본일 가능성)만 근거. 미확인: 상급 4종·벨리알·메피스토의 던전 한국어명(일부는 나무위키 표기), 벨리알 열쇠 개수(게임 데이터는 고급 소굴 열쇠, 일부 가이드는 배신자의 껍데기 2개), 메피스토 신화 목록과 고행 X 요구, 트로피 5개 변환 수치, 시즌 대악마의 레거시 고유 드랍(공식 출처 미명시), 시즌14 타락한 사신(Corrupted Reaper)의 S15 존속 여부(목록에서 제외). 참고: 게임 데이터의 옛 families 표(DurielUniques 등)는 성기사·악마술사 아이템이 없는 구버전이라 드랍 판정에 쓰지 않음."
+}
