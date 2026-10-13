@@ -560,6 +560,639 @@
    "low": false
   },
   {
+   "id": "totem-shaman",
+   "en": "Totem Shaman",
+   "ko": "토템 주술사(스프리건 형상)",
+   "cls": "primalist",
+   "mastery": "shaman",
+   "skills": [
+    {
+     "en": "Summon Storm Totem",
+     "ko": "폭풍 토템 소환"
+    },
+    {
+     "en": "Summon Thorn Totem",
+     "ko": "가시 토템 소환"
+    },
+    {
+     "en": "Spriggan Form",
+     "ko": "스프리건 형상"
+    },
+    {
+     "en": "Summon Healing Totem (Spriggan Form)",
+     "ko": "치유 토템 소환(스프리건 형상)"
+    },
+    {
+     "en": "Spirit Thorns (Spriggan Form)",
+     "ko": "혼령 가시(스프리건 형상)"
+    },
+    {
+     "en": "Summon Spriggan",
+     "ko": "스프리건 소환"
+    },
+    {
+     "en": "Gathering Storm",
+     "ko": "폭풍 몰이"
+    },
+    {
+     "en": "Fury Leap",
+     "ko": "분노의 도약"
+    }
+   ],
+   "damage": "토템(하수인) 피해. 상시 스프리건 형상에서 치유 토템 소환을 연타(가시투성이 토템 노드로 가시 토템 트리 효과를 받아 관통 가시 투사체 발사)하고, 가시 토템 5개 이상일 때 혼령 가시를 쓰면 폭풍이 새긴 징표로 폭풍 토템 소환이 발동(번개. 독보적인 폭풍으로 두 트리 효과, 천둥 토템 강화). 폭풍 몰이는 특화만 해서 과열 볼트(마나 비례 배율)·돌풍 무기 노드 효과를 받음. 변신 중엔 마나 대신 격노 사용. 태그: 하수인·토템·번개·물리·주문.",
+   "tier": {
+    "farm": "A",
+    "boss": "B",
+    "end": "A"
+   },
+   "stages": {
+    "leveling": {
+     "affixes": [
+      {
+       "en": "Added Health",
+       "ko": "추가 생명력",
+       "cat": "방어",
+       "prio": 1,
+       "slots": [
+        "모든 방어구 접미사"
+       ]
+      },
+      {
+       "en": "Physical Resistance",
+       "ko": "물리 저항",
+       "cat": "방어",
+       "prio": 1,
+       "slots": [
+        "갑옷",
+        "투구",
+        "장갑"
+       ]
+      },
+      {
+       "en": "Minion Damage",
+       "ko": "하수인 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "반지",
+        "목걸이",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Attunement",
+       "ko": "조화력",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "갑옷",
+        "투구",
+        "장화",
+        "반지",
+        "장갑",
+        "유물"
+       ]
+      },
+      {
+       "en": "Minion Spell and Bow Damage",
+       "ko": "하수인 주문 및 활 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Minion Melee and Spell Damage",
+       "ko": "하수인 근접 및 주문 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Increased Cooldown Recovery Speed",
+       "ko": "재사용 대기시간 회복 속도 증가",
+       "cat": "유틸",
+       "prio": 2,
+       "slots": [
+        "반지",
+        "장화",
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Cast Speed for Totems",
+       "ko": "토템 시전 속도",
+       "cat": "공격",
+       "prio": 2,
+       "slots": [
+        "투구",
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Ward Per Second and Ward Decay Threshold",
+       "ko": "초당 보호막 및 보호막 감쇠 기준치",
+       "cat": "방어",
+       "prio": 2,
+       "slots": [
+        "반지",
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Elemental Resistance",
+       "ko": "원소 저항",
+       "cat": "방어",
+       "prio": 2,
+       "slots": [
+        "목걸이",
+        "갑옷"
+       ]
+      }
+     ],
+     "notes": "가이드는 80레벨까지 맥스롤 '원시술사 레벨링 가이드'(S5판, 폭풍 토템+스프리건 형상)를 안내 → 사실상 같은 토템 빌드. 1~9레벨 폭풍 몰이, 마스터리 후 폭풍 토템 소환이 주 딜. 스프리건 형상 '해방된 정원' 3포인트부터 치유 토템으로 회복. 기준=레벨링 플래너 3단계(35~80레벨) + 본문. 31레벨 터키석 반지 2개, 36레벨 터키석 목걸이·주술사 의복(하수인 피해 기본 옵션), 52레벨 오팔 반지, 66레벨 뿔 지팡이."
+    },
+    "endgame": {
+     "affixes": [
+      {
+       "en": "Attunement",
+       "ko": "조화력",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "유물",
+        "장갑",
+        "반지",
+        "반지"
+       ]
+      },
+      {
+       "en": "Mana",
+       "ko": "마나",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "목걸이",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Level of Summon Storm Totem",
+       "ko": "폭풍 토템 소환 레벨",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Minion Melee and Spell Damage",
+       "ko": "하수인 근접 및 주문 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Minion Critical Strike Multiplier",
+       "ko": "하수인 치명타 배율",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Minion Critical Strike Chance",
+       "ko": "하수인 치명타 확률",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "신상(정교한 헤오롯·웅장한 원시 징조)"
+       ]
+      },
+      {
+       "en": "Minion Damage",
+       "ko": "하수인 피해",
+       "cat": "공격",
+       "prio": 2,
+       "slots": [
+        "반지",
+        "반지"
+       ]
+      },
+      {
+       "en": "Cast Speed for Totems",
+       "ko": "토템 시전 속도",
+       "cat": "공격",
+       "prio": 2,
+       "slots": [
+        "신상(정교한 헤오롯·웅장한 원시 징조)"
+       ]
+      },
+      {
+       "en": "Mana and Mana Regen",
+       "ko": "마나, 마나 재생",
+       "cat": "유틸",
+       "prio": 2,
+       "slots": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Chance to Shock Attackers",
+       "ko": "공격자에게 감전을 유발할 확률",
+       "cat": "공격",
+       "prio": 2,
+       "slots": [
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Experimental Minions Transported with Traversal Skills",
+       "ko": "실험적 기동 스킬로 이동하는 하수인 수",
+       "cat": "유틸",
+       "prio": 2,
+       "slots": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Hybrid Health",
+       "ko": "복합 생명력",
+       "cat": "방어",
+       "prio": 2,
+       "slots": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Increased Health",
+       "ko": "생명력 증가",
+       "cat": "방어",
+       "prio": 2,
+       "slots": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Movement Speed",
+       "ko": "이동 속도",
+       "cat": "유틸",
+       "prio": 3,
+       "slots": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Effect of Prefixes for Idols in Refracted Slots",
+       "ko": "굴절된 칸에 놓인 신상의 접두사 효과",
+       "cat": "유틸",
+       "prio": 3,
+       "slots": [
+        "신상 제단"
+       ]
+      }
+     ],
+     "notes": "기준=맥스롤 플래너 'Endgame' 프로필(9/28). 11칸 모두 고유 장비라 접사는 거의 고유에 붙는 전설 잠재력 7등급. 우선순위: 폭풍이 새긴 징표 확보 > 조화력·마나 > 폭풍 토템 레벨 > 하수인 치명타(신상 확률 + 장비 배율). 'Starter' 프로필은 희귀 장비(5등급)에 폭풍 토템 레벨·토템 치명타 확률·하수인 치명타 배율·토템 시전 속도·생명력을 달고 허깨비의 손아귀 2개·까마귀의 비상·산호의 비호로 시작(폭풍이 새긴 징표는 스타터에도 필요)."
+    },
+    "high_corruption": {
+     "affixes": [
+      {
+       "en": "Added Attunement and Increased Mana Regen",
+       "ko": "추가 조화력, 마나 재생 증가",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "유물",
+        "반지",
+        "반지"
+       ]
+      },
+      {
+       "en": "Level of All Skills and Added Mana",
+       "ko": "모든 스킬 레벨, 추가 마나",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Damage Dealt to Mana before Health and Added Mana",
+       "ko": "생명력보다 마나에 먼저 적용하는 피해 비율, 추가 마나",
+       "cat": "방어",
+       "prio": 1,
+       "slots": [
+        "투구"
+       ]
+      },
+      {
+       "en": "Minion Damage",
+       "ko": "하수인 피해",
+       "cat": "공격",
+       "prio": 1,
+       "slots": [
+        "유물",
+        "장갑",
+        "목걸이",
+        "반지",
+        "반지",
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Minion Critical Strike Multiplier",
+       "ko": "하수인 치명타 배율",
+       "cat": "공격",
+       "prio": 2,
+       "slots": [
+        "투구",
+        "신상 타락"
+       ]
+      },
+      {
+       "en": "Increased Attack and Cast Speed",
+       "ko": "공격 및 시전 속도 증가",
+       "cat": "공격",
+       "prio": 2,
+       "slots": [
+        "장갑"
+       ]
+      },
+      {
+       "en": "Increased Mana and Current Mana Gained as Ward Per Second",
+       "ko": "마나 증가, 초당 보호막으로 획득하는 현재 마나 비율",
+       "cat": "방어",
+       "prio": 2,
+       "slots": [
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Increased Cast Speed and Ward gain on direct Spell Cast",
+       "ko": "시전 속도 증가, 주문 직접 시전 시 보호막 획득",
+       "cat": "방어",
+       "prio": 2,
+       "slots": [
+        "보조 장비"
+       ]
+      },
+      {
+       "en": "Increased Haste Effect and Less Damage over Time taken during Haste",
+       "ko": "가속 효과 증가, 가속 상태에서 받는 지속 피해 감폭",
+       "cat": "방어",
+       "prio": 2,
+       "slots": [
+        "장화"
+       ]
+      },
+      {
+       "en": "Cast Speed for Totems",
+       "ko": "토템 시전 속도",
+       "cat": "공격",
+       "prio": 2,
+       "slots": [
+        "갑옷"
+       ]
+      },
+      {
+       "en": "Minion Area and Damage",
+       "ko": "하수인 범위 및 피해",
+       "cat": "공격",
+       "prio": 3,
+       "slots": [
+        "목걸이"
+       ]
+      },
+      {
+       "en": "Added Melee Damage and Increased Melee Damage per Strength",
+       "ko": "추가 근접 피해, 힘 1당 근접 피해 증가",
+       "cat": "공격",
+       "prio": 3,
+       "slots": [
+        "무기"
+       ]
+      },
+      {
+       "en": "Increased Movement Speed for 4 seconds after using a Potion",
+       "ko": "물약 사용 후 4초 동안 이동 속도 증가",
+       "cat": "유틸",
+       "prio": 3,
+       "slots": [
+        "허리띠"
+       ]
+      },
+      {
+       "en": "Effect of Haste on You",
+       "ko": "당신에게 적용되는 가속의 효과",
+       "cat": "유틸",
+       "prio": 3,
+       "slots": [
+        "신상 타락"
+       ]
+      },
+      {
+       "en": "Maximum Omen Idols Equipped",
+       "ko": "최대 장착한 징조 신상 수",
+       "cat": "유틸",
+       "prio": 3,
+       "slots": [
+        "신상 제단"
+       ]
+      }
+     ],
+     "notes": "맥스롤 'Aspirational' 플래너 기준(타락 접사 + 고유 장비 추가 접사로 하수인 피해). 피라미드 제단에 굴절 칸 엮는 자 마법부여 효과·신상당 방어도·생명력 추가. 변형 'Death Dance + Eternal Font'은 장화·목걸이·허리띠를 죽음의 무도·영원한 샘·천둥의 징조로 바꿔 격동 토템 추가 + 토템 피해 면역, 반지에 근성·치명타 방지 및 추가 회피율."
+    }
+   },
+   "defense": [
+    "보호의 원 패시브 + 주술사 마스터리 보너스로 물리·원소 저항을 쉽게 상한",
+    "곰의 힘·궁지에 몰린 야수·멧돼지 심장 패시브의 피해 감소. 멧돼지 심장은 피하기(Evade)를 써야 발동",
+    "치유 토템 소환이 주 생명력 회복원. 칠성장어의 이빨이 폭풍 토템에 흡혈 부여, 선조의 속도로 가속",
+    "스프리건 소환: 기본 치명타·치명타 방지·주문 추가 피해·회피·치유 오라. 쓰러져도 버프 유지, 'A' 키로 안전한 위치에 배치(살려둬야 하는 게 단점으로 꼽힘)",
+    "산의 발로 근성 상한 + 정지 시 대피의 오라 회피, 창백한 황소의 겉옷(하수인 조종 시 탱킹), 고요한 숲의 유산(방어도·저항)",
+    "선조 무리의 뼈 보호막, 에키드라실의 씨앗의 '생명력보다 마나에 먼저 피해'가 격노에도 적용",
+    "신상: 근성 기준치·생명력 증가, 변신 중 방어도, 괴사 저항",
+    "죽음의 무도 변형: 영원한 샘+천둥의 징조로 토템 피해 면역, 물약 생명력 보호막 전환. 스프리건이 없으니 치명타 방지 및 추가 회피율로 치명타 방지 상한"
+   ],
+   "idols": [
+    {
+     "en": "Minion Critical Strike Chance",
+     "ko": "하수인 치명타 확률"
+    },
+    {
+     "en": "Cast Speed for Totems",
+     "ko": "토템 시전 속도"
+    },
+    {
+     "en": "Minion Cast Speed and Added Minion Spell Damage",
+     "ko": "하수인 시전 속도, 하수인 추가 주문 피해"
+    },
+    {
+     "en": "Endurance Threshold and Increased Health",
+     "ko": "근성 기준치, 생명력 증가"
+    },
+    {
+     "en": "Totem Damage",
+     "ko": "토템의 피해"
+    },
+    {
+     "en": "Armor while transformed and Rage Gained per Second While Transformed",
+     "ko": "변신한 동안 방어도, 변신한 동안 초당 격노 획득"
+    },
+    {
+     "en": "Necrotic Resistance and Minion Necrotic Resistance",
+     "ko": "괴사 저항 및 하수인 괴사 저항"
+    },
+    {
+     "en": "Dodge Rating and Increased Dodge Rating",
+     "ko": "회피율, 회피율 증가"
+    },
+    {
+     "en": "Minion Critical Strike Multiplier (corrupted)",
+     "ko": "하수인 치명타 배율(타락)"
+    },
+    {
+     "en": "Effect of Haste on You (corrupted)",
+     "ko": "당신에게 적용되는 가속의 효과(타락)"
+    },
+    {
+     "en": "Chance to apply Frailty on Minion Hit (corrupted)",
+     "ko": "하수인이 적중 시 허약을 적용할 확률(타락)"
+    },
+    {
+     "en": "Increased Totem Damage and Totem Teleportation on Traversal",
+     "ko": "토템 피해 증가, 기동 시 토템 순간이동"
+    },
+    {
+     "en": "Critical Strike Chance for Totems",
+     "ko": "토템 치명타 확률"
+    },
+    {
+     "en": "Critical Strike Avoidance for You and Your Minions",
+     "ko": "당신과 당신의 하수인의 치명타 방지"
+    }
+   ],
+   "uniques": [
+    {
+     "en": "Stormcarved Testament",
+     "ko": "폭풍이 새긴 징표",
+     "slot": "유물",
+     "core": true
+    },
+    {
+     "en": "Bones of the Ancestral Pack",
+     "ko": "선조 무리의 뼈",
+     "slot": "보조 장비",
+     "core": false
+    },
+    {
+     "en": "Phantom Grip",
+     "ko": "허깨비의 손아귀",
+     "slot": "반지",
+     "core": false
+    },
+    {
+     "en": "Silvafrond",
+     "ko": "숲이파리",
+     "slot": "반지",
+     "core": false
+    },
+    {
+     "en": "Ravens' Rise",
+     "ko": "까마귀의 비상",
+     "slot": "장갑",
+     "core": false
+    },
+    {
+     "en": "Tempest Maw",
+     "ko": "돌풍의 아가리",
+     "slot": "무기",
+     "core": false
+    },
+    {
+     "en": "Death Rattle",
+     "ko": "단말마",
+     "slot": "목걸이",
+     "core": false
+    },
+    {
+     "en": "Legacy of the Quiet Forest",
+     "ko": "고요한 숲의 유산",
+     "slot": "허리띠",
+     "core": false
+    },
+    {
+     "en": "Foot of the Mountain",
+     "ko": "산의 발",
+     "slot": "장화",
+     "core": false
+    },
+    {
+     "en": "Mantle of the Pale Ox",
+     "ko": "창백한 황소의 겉옷",
+     "slot": "갑옷",
+     "core": false
+    },
+    {
+     "en": "Seed of Ekkidrasil",
+     "ko": "에키드라실의 씨앗",
+     "slot": "투구",
+     "core": false
+    },
+    {
+     "en": "Ravager's Dart",
+     "ko": "유린자의 다트",
+     "slot": "투구",
+     "core": false
+    },
+    {
+     "en": "Coral Aegis",
+     "ko": "산호의 비호",
+     "slot": "보조 장비(방패)",
+     "core": false
+    },
+    {
+     "en": "Death Dance",
+     "ko": "죽음의 무도",
+     "slot": "장화",
+     "core": false
+    },
+    {
+     "en": "Eternal Font",
+     "ko": "영원한 샘",
+     "slot": "목걸이",
+     "core": false
+    },
+    {
+     "en": "Omen of Thunder",
+     "ko": "천둥의 징조",
+     "slot": "허리띠",
+     "core": false
+    }
+   ],
+   "exalted": [
+    "고유 대부분에 조화력 7등급(유물·장갑·반지 2개)을 전설 잠재력으로 옮기기",
+    "투구(에키드라실의 씨앗)에 폭풍 토템 소환 레벨 7등급, 갑옷(창백한 황소의 겉옷)에 하수인 치명타 배율 7등급",
+    "무기(돌풍의 아가리)에 하수인 근접 및 주문 피해 7등급, 목걸이(단말마)에 마나 7등급",
+    "장화(산의 발)에 실험적 기동 스킬로 이동하는 하수인 수 7등급, 보조 장비(선조 무리의 뼈)에 공격자 감전 확률 7등급",
+    "신상 제단(피라미드)에 굴절 칸 신상 접두사 효과 7등급"
+   ],
+   "sources": [
+    "https://maxroll.gg/last-epoch/build-guides/totem-shaman-guide",
+    "https://maxroll.gg/last-epoch/planner/vr6jps0q",
+    "https://maxroll.gg/last-epoch/build-guides/shaman-leveling-guide",
+    "https://maxroll.gg/last-epoch/planner/3k9hk0gr"
+   ],
+   "updated": "2026-09-28",
+   "note": "중상. 가이드·플래너 모두 9/28 S5 업데이트(이후 변경 기록 없음), 티어는 맥스롤 10/9 갱신본(파밍 A·보스 B·엔드게임 A). 엔드게임은 전부 고유 장비라 접사 우선순위는 플래너 배치 + 가이드 문구('조화력·마나 쌓기', '폭풍 토템이 최고 레벨', '신상 하수인 치명타 확률 필수')로 정한 추정값. 레벨링은 원시술사 공용 레벨링 가이드(토템 기반이라 이 빌드와 같은 흐름).",
+   "low": false
+  },
+  {
    "id": "tornado-shaman",
    "en": "Tornado Shaman",
    "ko": "Tornado(토네이도) 주술사",

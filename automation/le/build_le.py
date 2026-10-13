@@ -95,6 +95,9 @@ for r in raw:
         seen.add(bid)
         st = b.get('stages') or {}
         t = {key(k): v for k, v in TIERS.items()}.get(key(b.get('en')))
+        tm = b.get('tier_maxroll') or {}
+        if not t and any(tm.get(x) for x in ('farm', 'boss', 'end')):  # 조사 파일에 적힌 티어로 보충
+            t = ''.join((tm.get(x) or '-')[0] for x in ('farm', 'boss', 'end'))
         builds.append({
             'id': bid, 'en': clean(b.get('en')) or bid, 'ko': clean(b.get('ko')), 'cls': masteries[m][0], 'mastery': m,
             'skills': [{'en': clean(s.get('en')) or '', 'ko': clean(s.get('ko'))} for s in (b.get('skills') or []) if clean(s.get('en'))],
