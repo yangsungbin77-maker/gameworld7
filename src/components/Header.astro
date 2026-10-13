@@ -25,6 +25,7 @@ const MENUS = [
 		items: [
 			{ href: '/last-epoch-build-affixes/', label: '빌드별 중요 옵션', icon: '⏳' },
 			{ href: '/last-epoch-blessings/', label: '축복 정리·빌드별 추천', icon: '🙏' },
+			{ href: '/last-epoch-monolith/', label: '모노리스 공략·진행 체크표', icon: '🌀' },
 			...posts.filter((p) => /^last-epoch/.test(p.id)).map((p) => ({ href: `/${p.id}/`, label: short(p.data.title, /^라스트\s?에폭\s*/), icon: '📄' })),
 		],
 	},

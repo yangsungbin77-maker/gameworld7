@@ -1,0 +1,395 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import data from '../data/le-monolith.json';
+import bless from '../data/le-blessings.json';
+import LeSprite from '../components/le/LeSprite.astro';
+import LeHero from '../components/le/LeHero.astro';
+
+type TL = { id: string; en: string; ko: string | null; level: number | null; know: number; gate: number; boss_en: string | null; boss_ko: string | null; requires: string[]; stat: boolean; notes: string; drops: string[]; bless_tl: string | null };
+const tls = data.timelines as TL[];
+const C = data.corruption;
+const nm = (x: { ko: string | null; en: string }) => x.ko || x.en;
+const tlName = Object.fromEntries(tls.map((t) => [t.id, nm(t)]));
+// 빌드별 추천 축복: 축복 페이지 데이터에서 시간선 id → 축복 이름
+const blessTl: Record<string, string> = {};
+for (const t of bless.timelines as { id: string; blessings: { id: string }[] }[]) for (const b of t.blessings) blessTl[b.id] = t.id;
+const recs: Record<string, Record<string, string>> = {};
+for (const b of bless.builds as { id: string; picks: { ref: string | null; ko: string | null; en: string }[] }[]) {
+	recs[b.id] = {};
+	for (const p of b.picks) if (p.ref && blessTl[p.ref]) recs[b.id][blessTl[p.ref]] = p.ko || p.en;
+}
+// 시간선 지도: 레벨 순서 길(62→85) + "오로비스의 지식 5개" 관문 + 레벨 90 세 갈래
+const low = tls.filter((t) => !t.gate), high = tls.filter((t) => t.gate);
+const MW = 860, MH = 300;
+const pos: Record<string, { x: number; y: number }> = {};
+low.forEach((t, i) => { pos[t.id] = { x: 50 + i * ((560 - 50) / Math.max(1, low.length - 1)), y: i % 2 ? 190 : 110 }; });
+const GATE = { x: 650, y: 150 };
+high.forEach((t, i) => { pos[t.id] = { x: 790, y: (MH / (high.length + 1)) * (i + 1) }; });
+const seqEdges = low.slice(1).map((t, i) => ({ from: low[i].id, to: t.id }));
+const needKnow = high[0]?.gate || 5;
+const buildOpts = (bless.builds as { id: string; en: string; ko: string | null; picks: unknown[] }[]).filter((b) => b.picks.length).map((b) => ({ id: b.id, name: b.ko || b.en }));
+
+const title = `라스트에폭 모노리스 공략 — 시즌${data.season} 시간선 레벨·보스·타락(오염도)·강화 모노리스 진행 체크표 | 게임월드7`;
+const description = `라스트에폭 시즌 ${data.season} 모노리스를 한 장에 정리했습니다. 시간선 ${tls.length}곳의 레벨과 보스, 여는 순서, 강화 모노리스와 타락(오염도) 올리는 법, 특수 조우, 부캐 진행까지. 진행 체크표에 깬 곳을 표시하면 다음에 할 일과 내 빌드 추천 축복을 알려 줍니다.`;
+const faq = [
+	{ q: '모노리스는 언제 열리나요?', a: data.unlock.join(' ') || '캠페인을 끝내면 시간의 끝에서 모노리스를 열 수 있습니다.' },
+	{ q: '타락(오염도)은 어떻게 올리나요?', a: C.increase.join(' ') },
+	{ q: '부캐도 모노리스를 처음부터 해야 하나요?', a: data.alts.join(' ') },
+];
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={title} description={description} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap" rel="stylesheet" />
+		<script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.filter((f) => f.a).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })} />
+	</head>
+	<body class="le-body">
+		<Header />
+		<LeSprite />
+		<main class="mo">
+			<LeHero eyebrow={`LAST EPOCH · 시즌 ${data.season} · 운명의 모노리스`} title="모노리스 공략" lead={`시간선 ${tls.length}곳을 어떤 순서로 깨고, 언제 강화 모노리스로 넘어가고, 타락(오염도)을 얼마나 올릴지. 아래 지도에서 깬 곳을 누르면 다음 할 일을 알려 드려요.`} motif="monolith" />
+
+			<section class="mo-track" aria-label="진행 체크표">
+				<div class="mo-track-head">
+					<h2>내 진행 체크표</h2>
+					<label class="mo-build"><span>내 빌드 (추천 축복 표시)</span>
+						<select id="build"><option value="">— 고르지 않음 —</option>{buildOpts.map((b) => <option value={b.id}>{b.name}</option>)}</select>
+					</label>
+				</div>
+				<div class="mo-prog"><div class="mo-bar"><i id="bar"></i></div><p id="progTxt"></p></div>
+				<div class="mo-next" id="next" aria-live="polite"></div>
+				<div class="mo-map-wrap">
+					<svg class="mo-map" viewBox={`0 0 ${MW} ${MH}`} role="img" aria-label="시간선 여는 순서 지도">
+						<defs>
+							<marker id="moArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#3a4a6e" /></marker>
+						</defs>
+						{seqEdges.map((e) => { const a = pos[e.from], b = pos[e.to]; return <path class="mo-edge seq" data-from={e.from} d={`M${a.x} ${a.y} L${b.x} ${b.y}`} />; })}
+						{low.length > 0 && <path class="mo-edge gate-in" d={`M${pos[low[low.length - 1].id].x + 28} ${pos[low[low.length - 1].id].y} C${GATE.x - 40} ${pos[low[low.length - 1].id].y} ${GATE.x - 60} ${GATE.y} ${GATE.x - 30} ${GATE.y}`} marker-end="url(#moArrow)" />}
+						{high.map((t) => <path class="mo-edge gate-out" d={`M${GATE.x + 30} ${GATE.y} C${GATE.x + 70} ${GATE.y} ${pos[t.id].x - 70} ${pos[t.id].y} ${pos[t.id].x - 32} ${pos[t.id].y}`} marker-end="url(#moArrow)" />)}
+						<g class="mo-gate" transform={`translate(${GATE.x} ${GATE.y})`}>
+							<rect x="-28" y="-28" width="56" height="56" rx="8" transform="rotate(45)" />
+							<text y="-3" class="mo-gate-n" id="gateN">0/{needKnow}</text>
+							<text y="13" class="mo-gate-t">지식</text>
+							<text y="56" class="mo-label">오로비스의 지식</text>
+						</g>
+						{tls.map((t) => (
+							<g class={`mo-node${t.stat ? ' stat' : ''}`} data-node={t.id} transform={`translate(${pos[t.id].x} ${pos[t.id].y})`} tabindex="0" role="button" aria-label={`${nm(t)} 진행 표시 바꾸기`}>
+								<circle class="mo-halo" r="34" />
+								<circle class="mo-dot" r="26" />
+								<path class="mo-ring" d="M0 -26 A26 26 0 1 1 -0.01 -26" />
+								<text class="mo-lvl" y="5">{t.level ?? ''}</text>
+								<text class="mo-label" y="50">{(t.ko || t.en).length > 9 ? (t.ko || t.en).slice(0, 9) + '…' : t.ko || t.en}</text>
+							</g>
+						))}
+					</svg>
+					<div class="mo-legend"><span><i class="l0"></i>아직</span><span><i class="l1"></i>일반 완료</span><span><i class="l2"></i>강화 완료</span><span><i class="ls"></i>능력치 축복 시간선</span><span><i class="lg"></i>레벨 90 관문</span><span class="mo-tip">동그라미를 누를 때마다 아직 → 일반 → 강화로 바뀌어요. 레벨 90 미만은 어느 순서로 해도 되고, 선은 추천 순서예요.</span></div>
+				</div>
+				<div class="mo-grid">
+					{tls.map((t) => (
+						<article class={`mo-tl${t.stat ? ' stat' : ''}`} data-tl={t.id} data-req={t.requires.join(' ')} data-btl={t.bless_tl || ''} data-know={t.know} data-gate={t.gate}>
+							<header>
+								<span class="mo-lv">{t.level ? `Lv ${t.level}` : ''}</span>
+								<h3>{nm(t)}</h3>
+								<p>{t.boss_ko || t.boss_en ? `보스 ${t.boss_ko || t.boss_en}` : ''}</p>
+							</header>
+							<span class={`mo-type ${t.stat ? 's' : 'd'}`}>{t.stat ? '능력치 축복' : '드롭률 축복'}</span>
+							<div class="mo-checks">
+								<label><input type="checkbox" data-k="n" /> 일반 완료</label>
+								<label><input type="checkbox" data-k="e" /> 강화 완료</label>
+							</div>
+							<p class="mo-rec" hidden></p>
+							{t.gate > 0 ? <p class="mo-req">🔒 오로비스의 지식 {t.gate}개가 있어야 열려요</p> : <p class="mo-req">깨면 오로비스의 지식 +{t.know}</p>}
+						</article>
+					))}
+				</div>
+				<p class="mo-save">체크는 이 기기 브라우저에만 저장돼요. 캐릭터가 여럿이면 캐릭터마다 다른 기기·브라우저를 쓰거나 다시 체크하세요.</p>
+				<script type="application/json" id="recs" set:html={JSON.stringify(recs)} />
+			</section>
+
+			{data.roadmap.length > 0 && (
+				<section class="mo-sec">
+					<h2>진행 순서 한눈에</h2>
+					<ol class="mo-road">
+						{data.roadmap.map((r) => (
+							<li><b>{r.ko}</b>{r.level && <span class="mo-chip">{r.level}</span>}{r.check && <small>✔ {r.check}</small>}</li>
+						))}
+					</ol>
+				</section>
+			)}
+
+			<section class="mo-sec mo-two">
+				<div>
+					<h2>모노리스 여는 법·기본 흐름</h2>
+					<ul>{[...data.unlock, ...data.loop].map((x) => <li>{x}</li>)}</ul>
+				</div>
+				<div>
+					<h2>강화 모노리스</h2>
+					<ul>{data.empowered.map((x) => <li>{x}</li>)}</ul>
+				</div>
+			</section>
+
+			<section class="mo-sec">
+				<h2>시간선별 레벨·보스</h2>
+				<div class="mo-table-wrap">
+					<table>
+						<thead><tr><th>시간선</th><th>레벨</th><th>보스</th><th>축복</th><th>여는 조건</th><th>메모</th></tr></thead>
+						<tbody>
+							{tls.map((t) => (
+								<tr>
+									<td><b>{nm(t)}</b><small>{t.ko ? t.en : ''}</small></td>
+									<td>{t.level ?? '—'}</td>
+									<td>{t.boss_ko || t.boss_en || '—'}</td>
+									<td>{t.stat ? <a href="/last-epoch-blessings/">능력치</a> : '드롭률'}</td>
+									<td>{t.gate ? `오로비스의 지식 ${t.gate}개` : '처음부터 열림'}</td>
+									<td>{t.notes}{t.drops.length > 0 && <span class="mo-drops">드랍: {t.drops.join(', ')}</span>}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="mo-sec">
+				<h2>타락(오염도)</h2>
+				<div class="mo-two">
+					<div><h3>올리는 법</h3><ul>{C.increase.map((x) => <li>{x}</li>)}</ul></div>
+					<div><h3>무엇이 달라지나</h3><ul>{C.effects.map((x) => <li>{x}</li>)}</ul></div>
+				</div>
+				{C.milestones.length > 0 && (
+					<div class="mo-miles">
+						{C.milestones.map((m) => (<div class="mo-mile"><b>{m.at ?? ''}</b><p>{m.ko}</p></div>))}
+					</div>
+				)}
+				{C.defense.length > 0 && (<><h3>버티려면 먼저 맞출 것</h3><ul>{C.defense.map((x) => <li>{x}</li>)}</ul></>)}
+			</section>
+
+			{data.encounters.length > 0 && (
+				<section class="mo-sec">
+					<h2>모노리스 특수 조우</h2>
+					<div class="mo-enc">
+						{data.encounters.map((e) => (
+							<article>
+								<h3>{nm(e)}</h3>
+								{e.ko && <small>{e.en}</small>}
+								{e.why && <p>{e.why}</p>}
+								{e.unlock && <p class="mo-u"><b>여는 조건</b> {e.unlock}</p>}
+								{e.drops.length > 0 && <p class="mo-u"><b>얻는 것</b> {e.drops.join(', ')}</p>}
+							</article>
+						))}
+					</div>
+				</section>
+			)}
+
+			<section class="mo-sec mo-two">
+				{data.alts.length > 0 && <div><h2>부캐 모노리스</h2><ul>{data.alts.map((x) => <li>{x}</li>)}</ul></div>}
+				{data.season5.length > 0 && <div><h2>시즌 {data.season}에서 달라진 점</h2><ul>{data.season5.map((x) => <li>{x}</li>)}</ul></div>}
+			</section>
+
+			{data.terms.length > 0 && (
+				<section class="mo-sec">
+					<h2>용어 대조표</h2>
+					<div class="mo-terms">{data.terms.map((t) => <span><b>{t.ko || t.en}</b> {t.en}{t.community && ` · 흔히 "${t.community}"`}</span>)}</div>
+				</section>
+			)}
+
+			<section class="mo-doc">
+				<p>시간선 보스에서 고를 축복은 <a href="/last-epoch-blessings/">축복 정리·빌드별 추천</a>, 장비 옵션은 <a href="/last-epoch-build-affixes/">빌드별 중요 옵션</a>, 보스 아이템은 <a href="/last-epoch-boss-drops/">보스 드랍템 총정리</a>에 있어요.</p>
+				<h2>자주 묻는 질문</h2>
+				{faq.filter((f) => f.a).map((f) => (<details><summary>{f.q}</summary><p>{f.a}</p></details>))}
+				<p class="mo-legal">게임월드7이 만든 팬 자료이며 Eleventh Hour Games와 관련이 없습니다. 용어는 게임 공식 한국어를 따르고 커뮤니티 표기를 함께 적었습니다. 패치 {data.patch} · {data.updated} 기준. 출처 {data.sources.map((s, i) => <a href={s} rel="nofollow noopener" target="_blank">[{i + 1}]</a>)}</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	.le-body {
+		--l-bg: #0a0e1a; --l-panel: #111829; --l-panel-2: #172036; --l-line: #26324d;
+		--l-amber: #e9a94b; --l-amber-hi: #ffc874; --l-teal: #5ec8c2; --l-text: #e6e9f2; --l-muted: #93a0bb;
+		background: radial-gradient(900px 420px at 85% -80px, rgba(94, 200, 194, 0.16), transparent 70%), radial-gradient(900px 420px at 10% -120px, rgba(233, 169, 75, 0.14), transparent 70%), var(--l-bg);
+		color: var(--l-text);
+	}
+	.mo { width: var(--maxw); max-width: calc(100% - 2rem); margin: 0 auto; padding: 1.5rem 0 3rem; }
+	.mo h1, .mo h2 { font-family: 'Gowun Batang', serif; }
+	.mo-hero { text-align: center; padding: 1.4rem 0 0.6rem; }
+	.mo-eyebrow { font-size: 0.74rem; letter-spacing: 0.18em; color: var(--l-teal); }
+	.mo-hero h1 { font-size: clamp(2rem, 6vw, 3.1rem); margin: 0.4rem 0; color: #fff3dc; text-shadow: 0 0 26px rgba(233, 169, 75, 0.35); }
+	.mo-lead { color: var(--l-muted); max-width: 38em; margin: 0 auto; line-height: 1.7; }
+
+	.mo-track { margin-top: 18px; background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 18px; padding: 16px; }
+	.mo-track-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+	.mo-track h2, .mo-sec h2, .mo-doc h2 { font-size: 1.25rem; color: #fff3dc; margin: 0; }
+	.mo-build { display: flex; flex-direction: column; gap: 4px; font-size: 0.78rem; color: var(--l-muted); min-width: 240px; }
+	.mo-build select { background: var(--l-panel-2); color: var(--l-text); border: 1px solid var(--l-line); border-radius: 10px; padding: 9px 10px; font: inherit; }
+	.mo-prog { margin-top: 12px; }
+	.mo-bar { height: 8px; background: var(--l-panel-2); border-radius: 999px; overflow: hidden; }
+	.mo-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--l-teal), var(--l-amber)); transition: width 0.3s; }
+	.mo-prog p { margin: 6px 0 0; font-size: 0.82rem; color: var(--l-muted); }
+	.mo-next { margin-top: 10px; background: rgba(233, 169, 75, 0.08); border: 1px solid rgba(233, 169, 75, 0.35); border-radius: 12px; padding: 12px 14px; font-size: 0.92rem; line-height: 1.6; }
+	.mo-next b { color: var(--l-amber-hi); }
+	.mo-map-wrap { margin-top: 12px; background: radial-gradient(600px 260px at 50% 0%, rgba(94, 200, 194, 0.08), transparent 70%), var(--l-panel-2); border: 1px solid var(--l-line); border-radius: 14px; padding: 10px; overflow-x: auto; }
+	.mo-map { width: 100%; min-width: 620px; height: auto; display: block; }
+	.mo-edge { fill: none; stroke: #3a4a6e; stroke-width: 2; }
+	.mo-edge.on { stroke: var(--l-teal); }
+	.mo-edge.seq { stroke-dasharray: 6 6; }
+	.mo-gate rect { fill: #1d1530; stroke: #7a5cc9; stroke-width: 2; }
+	.mo-gate.open rect { fill: #2a1f45; stroke: #b8a1ff; filter: drop-shadow(0 0 8px rgba(184, 161, 255, 0.5)); }
+	.mo-gate-n { text-anchor: middle; font: 800 14px ui-monospace, Consolas, monospace; fill: #e6e9f2; }
+	.mo-gate-t { text-anchor: middle; font: 600 10px Pretendard, system-ui, sans-serif; fill: #b8a1ff; }
+	.mo-legend i.lg { border-radius: 2px; transform: rotate(45deg); border-color: #7a5cc9; background: #1d1530; }
+	.mo-node { cursor: pointer; outline: none; }
+	.mo-halo { fill: transparent; }
+	.mo-node:focus-visible .mo-halo, .mo-node:hover .mo-halo { fill: rgba(233, 169, 75, 0.12); }
+	.mo-dot { fill: #121a2d; stroke: #3a4a6e; stroke-width: 2; transition: fill 0.2s, stroke 0.2s; }
+	.mo-node.stat .mo-dot { stroke: #8a6a33; }
+	.mo-ring { fill: none; stroke: transparent; stroke-width: 5; }
+	.mo-node.s1 .mo-dot { fill: #12302f; stroke: var(--l-teal); }
+	.mo-node.s2 .mo-dot { fill: #3a2a12; stroke: var(--l-amber); }
+	.mo-node.s2 .mo-ring { stroke: var(--l-amber-hi); }
+	.mo-node.locked { opacity: 0.45; }
+	.mo-node.target .mo-halo { fill: rgba(233, 169, 75, 0.22); stroke: var(--l-amber); stroke-width: 1.5; stroke-dasharray: 4 4; }
+	.mo-lvl { text-anchor: middle; font: 800 15px ui-monospace, Consolas, monospace; fill: #e6e9f2; pointer-events: none; }
+	.mo-label { text-anchor: middle; font: 600 13px Pretendard, system-ui, sans-serif; fill: #c9d2e6; pointer-events: none; }
+	.mo-legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.76rem; color: var(--l-muted); margin-top: 6px; align-items: center; }
+	.mo-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 4px; vertical-align: -1px; border: 2px solid #3a4a6e; background: #121a2d; }
+	.mo-legend i.l1 { border-color: var(--l-teal); background: #12302f; }
+	.mo-legend i.l2 { border-color: var(--l-amber); background: #3a2a12; }
+	.mo-legend i.ls { border-color: #8a6a33; }
+	.mo-tip { flex-basis: 100%; }
+	.mo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; margin-top: 12px; }
+	.mo-tl { background: var(--l-panel-2); border: 1px solid var(--l-line); border-radius: 12px; padding: 11px; position: relative; }
+	.mo-tl.locked { opacity: 0.55; }
+	.mo-tl.done { border-color: rgba(94, 200, 194, 0.6); }
+	.mo-tl.full { border-color: var(--l-amber); box-shadow: inset 0 0 0 1px rgba(233, 169, 75, 0.4); }
+	.mo-tl.target { outline: 2px solid var(--l-amber); outline-offset: 2px; }
+	.mo-tl h3 { margin: 2px 0 0; font-size: 1rem; }
+	.mo-tl header p { margin: 2px 0 0; font-size: 0.76rem; color: var(--l-muted); }
+	.mo-lv { font-size: 0.7rem; color: var(--l-teal); font-family: ui-monospace, Consolas, monospace; }
+	.mo-type { display: inline-block; margin-top: 6px; font-size: 0.68rem; padding: 1px 7px; border-radius: 999px; }
+	.mo-type.s { background: rgba(233, 169, 75, 0.18); color: var(--l-amber-hi); }
+	.mo-type.d { background: rgba(147, 160, 187, 0.15); color: var(--l-muted); }
+	.mo-checks { display: flex; gap: 10px; margin-top: 8px; font-size: 0.82rem; flex-wrap: wrap; }
+	.mo-checks label { display: flex; gap: 5px; align-items: center; cursor: pointer; min-height: 32px; }
+	.mo-checks input { width: 17px; height: 17px; accent-color: var(--l-amber); }
+	.mo-rec { margin: 6px 0 0; font-size: 0.78rem; color: var(--l-amber-hi); }
+	.mo-rec[hidden] { display: none; }
+	.mo-req { margin: 6px 0 0; font-size: 0.7rem; color: var(--l-muted); }
+	.mo-save { font-size: 0.74rem; color: var(--l-muted); margin: 10px 0 0; }
+
+	.mo-sec { margin-top: 30px; }
+	.mo-sec h3 { font-size: 0.95rem; color: var(--l-amber); margin: 12px 0 6px; }
+	.mo-sec ul { margin: 8px 0 0; padding-left: 1.2em; line-height: 1.75; font-size: 0.93rem; }
+	.mo-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+	.mo-road { list-style: none; counter-reset: r; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
+	.mo-road li { counter-increment: r; position: relative; background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 12px; padding: 12px 12px 12px 46px; }
+	.mo-road li::before { content: counter(r); position: absolute; left: 12px; top: 12px; width: 24px; height: 24px; border-radius: 50%; background: var(--l-amber); color: #1a1206; font-weight: 900; font-size: 0.8rem; display: grid; place-items: center; }
+	.mo-road b { font-size: 0.95rem; }
+	.mo-chip { margin-left: 8px; font-size: 0.72rem; color: var(--l-teal); }
+	.mo-road small { display: block; margin-top: 4px; font-size: 0.8rem; color: var(--l-muted); }
+	.mo-table-wrap { overflow-x: auto; background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 14px; margin-top: 10px; }
+	.mo-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 720px; }
+	.mo-table-wrap th { text-align: left; color: var(--l-amber); font-size: 0.76rem; padding: 9px 10px; border-bottom: 1px solid var(--l-line); }
+	.mo-table-wrap td { padding: 9px 10px; border-bottom: 1px solid var(--l-line); vertical-align: top; color: var(--l-muted); line-height: 1.5; }
+	.mo-table-wrap td b { color: var(--l-text); display: block; }
+	.mo-table-wrap td small { font-size: 0.7rem; }
+	.mo-table-wrap a { color: var(--l-amber-hi); }
+	.mo-drops { display: block; color: var(--l-teal); margin-top: 3px; }
+	.mo-miles { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-top: 14px; }
+	.mo-mile { background: var(--l-panel); border: 1px solid var(--l-line); border-left: 3px solid var(--l-amber); border-radius: 10px; padding: 10px 12px; }
+	.mo-mile b { font-family: ui-monospace, Consolas, monospace; color: var(--l-amber-hi); font-size: 1.05rem; }
+	.mo-mile p { margin: 4px 0 0; font-size: 0.84rem; line-height: 1.5; }
+	.mo-enc { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin-top: 10px; }
+	.mo-enc article { background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 12px; padding: 12px; }
+	.mo-enc h3 { margin: 0; color: #fff3dc; }
+	.mo-enc small { font-size: 0.72rem; color: var(--l-muted); }
+	.mo-enc p { font-size: 0.86rem; line-height: 1.55; margin: 6px 0 0; }
+	.mo-u { color: var(--l-muted); }
+	.mo-u b { color: var(--l-teal); margin-right: 4px; }
+	.mo-terms { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+	.mo-terms span { background: var(--l-panel); border: 1px solid var(--l-line); border-radius: 10px; padding: 6px 10px; font-size: 0.82rem; color: var(--l-muted); }
+	.mo-terms b { color: var(--l-text); }
+	.mo-doc { margin-top: 36px; border-top: 1px solid var(--l-line); padding-top: 20px; line-height: 1.75; }
+	.mo-doc a { color: var(--l-amber-hi); }
+	.mo-doc details { border-bottom: 1px solid var(--l-line); padding: 8px 0; }
+	.mo-doc summary { cursor: pointer; font-weight: 700; }
+	.mo-doc p { color: var(--l-muted); }
+	.mo-legal { font-size: 0.78rem; margin-top: 18px; }
+	.mo-legal a { margin-left: 3px; }
+	@media (max-width: 420px) { .mo-grid { grid-template-columns: 1fr 1fr; } .mo-build { min-width: 0; width: 100%; } }
+</style>
+
+<script>
+	const LS = 'gw7:le:monolith', LB = 'gw7:le:build';
+	const recs: Record<string, Record<string, string>> = JSON.parse(document.getElementById('recs')!.textContent || '{}');
+	const cards = [...document.querySelectorAll<HTMLElement>('[data-tl]')];
+	const name = (c: HTMLElement) => c.querySelector('h3')!.textContent!;
+	let st: Record<string, { n?: boolean; e?: boolean }> = {};
+	try { st = JSON.parse(localStorage.getItem(LS) || '{}'); } catch {}
+	const sel = document.getElementById('build') as HTMLSelectElement;
+	try { const b = new URLSearchParams(location.search).get('build') || localStorage.getItem(LB); if (b && [...sel.options].some((o) => o.value === b)) sel.value = b; } catch {}
+
+	function render() {
+		const done = (id: string) => !!st[id]?.n;
+		const know = cards.reduce((k, c) => k + (done(c.dataset.tl!) ? Number(c.dataset.know || 0) : 0), 0);
+		const gateOpen = know >= 5;
+		const gn = document.getElementById('gateN'); if (gn) gn.textContent = `${Math.min(know, 5)}/5`;
+		document.querySelector('.mo-gate')?.classList.toggle('open', gateOpen);
+		document.querySelectorAll('.gate-out').forEach((p) => p.classList.toggle('on', gateOpen));
+		document.querySelectorAll('.gate-in').forEach((p) => p.classList.toggle('on', gateOpen));
+		let n = 0, e = 0;
+		const statCards = cards.filter((c) => c.classList.contains('stat'));
+		for (const c of cards) {
+			const id = c.dataset.tl!, req = (c.dataset.req || '').split(' ').filter(Boolean);
+			const open = req.every(done) && (!Number(c.dataset.gate || 0) || gateOpen);
+			c.classList.toggle('locked', !open && !done(id));
+			c.classList.toggle('done', done(id));
+			c.classList.toggle('full', !!st[id]?.e);
+			c.querySelectorAll<HTMLInputElement>('input[data-k]').forEach((i) => (i.checked = !!st[id]?.[i.dataset.k as 'n' | 'e']));
+			if (st[id]?.n) n++; if (st[id]?.e) e++;
+			const rec = c.querySelector<HTMLElement>('.mo-rec')!, r = sel.value && recs[sel.value]?.[c.dataset.btl || ''];
+			rec.hidden = !r; rec.textContent = r ? `🙏 추천 축복: ${r}` : '';
+			c.classList.remove('target');
+			const node = document.querySelector<SVGGElement>(`[data-node="${id}"]`);
+			if (node) { node.classList.toggle('s1', !!st[id]?.n && !st[id]?.e); node.classList.toggle('s2', !!st[id]?.e); node.classList.toggle('locked', !open && !done(id)); node.classList.remove('target'); }
+		}
+		document.querySelectorAll<SVGPathElement>('.mo-edge.seq').forEach((p) => p.classList.toggle('on', done(p.dataset.from!)));
+		const total = cards.length;
+		(document.getElementById('bar') as HTMLElement).style.width = ((n + e) / (total * 2)) * 100 + '%';
+		document.getElementById('progTxt')!.textContent = `일반 ${n}/${total} · 강화 ${e}/${total}`;
+		// 다음 할 일: 열린 곳 중 아직 안 깬 일반 → 능력치 시간선 강화 → 나머지 강화
+		const nextN = cards.find((c) => !st[c.dataset.tl!]?.n && !c.classList.contains('locked'));
+		const nextE = !nextN && (statCards.find((c) => !st[c.dataset.tl!]?.e) || cards.find((c) => !st[c.dataset.tl!]?.e));
+		const t = nextN || nextE;
+		const box = document.getElementById('next')!;
+		if (t) {
+			t.classList.add('target');
+			document.querySelector(`[data-node="${t.dataset.tl}"]`)?.classList.add('target');
+			const r0 = sel.value && recs[sel.value]?.[t.dataset.btl || '']; const r = r0 && nextN ? r0.replace('상급 ', '') + ' (일반)' : r0;
+			box.innerHTML = `다음 할 일 → <b>${name(t)}</b> ${nextN ? '일반' : '강화'} 시간선 보스 잡기${r ? ` · 고를 축복 <b>${r}</b>` : ''}${!nextN && t.classList.contains('stat') ? ' (능력치 축복 시간선부터 강화하면 바로 강해져요)' : ''}`;
+		} else box.innerHTML = '모든 시간선을 강화까지 끝냈어요. 이제 타락을 올리며 아래 "타락" 단계를 참고하세요.';
+		try { localStorage.setItem(LS, JSON.stringify(st)); if (sel.value) localStorage.setItem(LB, sel.value); } catch {}
+	}
+	document.querySelector('.mo-grid')!.addEventListener('change', (e) => {
+		const i = e.target as HTMLInputElement, c = i.closest<HTMLElement>('[data-tl]'); if (!c) return;
+		const id = c.dataset.tl!, k = i.dataset.k as 'n' | 'e';
+		st[id] = { ...st[id], [k]: i.checked };
+		if (k === 'e' && i.checked) st[id].n = true; // 강화를 깼으면 일반도 깬 것
+		if (k === 'n' && !i.checked) st[id].e = false;
+		render();
+	});
+	sel.addEventListener('change', render);
+	// 지도 동그라미: 아직 → 일반 → 강화 → 아직
+	const cycle = (id: string) => { const cur = st[id] || {}; st[id] = cur.e ? {} : cur.n ? { n: true, e: true } : { n: true }; render(); };
+	document.querySelectorAll<SVGGElement>('[data-node]').forEach((g) => {
+		g.addEventListener('click', () => cycle(g.dataset.node!));
+		g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cycle(g.dataset.node!); } });
+	});
+	render();
+</script>
