@@ -1,6 +1,32 @@
 ---
+import { getCollection } from 'astro:content';
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+
+// 게임별 메뉴. 도구는 고정, 글은 주소(slug) 앞부분으로 자동으로 모은다 → 새 글을 쓰면 메뉴에 저절로 붙는다.
+const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const short = (t: string, prefix: RegExp) => t.split(' — ')[0].replace(prefix, '').trim();
+const MENUS = [
+	{
+		key: 'd4',
+		label: '디아블로4',
+		match: ['/d4-', '/diablo'],
+		items: [
+			{ href: '/d4-build-planner/', label: '빌드 플래너', icon: '😈' },
+			{ href: '/d4-boss-drops/', label: '보스 드랍 테이블', icon: '🗝️' },
+			{ href: '/d4-runewords/', label: '룬워드 제작서', icon: '🔮' },
+			...posts.filter((p) => /^(diablo|d4-)/.test(p.id)).map((p) => ({ href: `/${p.id}/`, label: short(p.data.title, /^디아블로\s?4\s*/), icon: '📄' })),
+		],
+	},
+	{
+		key: 'le',
+		label: '라스트에폭',
+		match: ['/last-epoch'],
+		items: posts.filter((p) => /^last-epoch/.test(p.id)).map((p) => ({ href: `/${p.id}/`, label: short(p.data.title, /^라스트\s?에폭\s*/), icon: '📄' })),
+	},
+].filter((m) => m.items.length);
+const path = Astro.url.pathname;
+const inMenu = (m: (typeof MENUS)[number]) => m.match.some((x) => path.startsWith(x));
 ---
 
 <header>
@@ -12,11 +38,46 @@ import HeaderLink from './HeaderLink.astro';
 		<div class="internal-links">
 			<HeaderLink href="/">홈</HeaderLink>
 			<HeaderLink href="/blog">전체 글</HeaderLink>
+			{MENUS.map((m) => (
+				<details class:list={['dd', { active: inMenu(m) }]} data-dd>
+					<summary>{m.label}<span class="caret" aria-hidden="true">▾</span></summary>
+					<div class="dd-panel">
+						{m.items.map((it) => (
+							<a href={it.href} class:list={{ cur: path === it.href || path === it.href.slice(0, -1) }}><span aria-hidden="true">{it.icon}</span>{it.label}</a>
+						))}
+					</div>
+				</details>
+			))}
 			<HeaderLink href="/games">🎮 게임</HeaderLink>
 			<HeaderLink href="/about">소개</HeaderLink>
 		</div>
+
+		<details class="mnav" data-dd>
+			<summary aria-label="메뉴 열기">메뉴 <span aria-hidden="true">☰</span></summary>
+			<div class="mnav-panel">
+				<a href="/">홈</a>
+				<a href="/blog">전체 글</a>
+				{MENUS.map((m) => (
+					<div class="mnav-group">
+						<p>{m.label}</p>
+						{m.items.map((it) => <a href={it.href} class:list={{ cur: path === it.href }}><span aria-hidden="true">{it.icon}</span>{it.label}</a>)}
+					</div>
+				))}
+				<a href="/games">🎮 게임</a>
+				<a href="/about">소개</a>
+			</div>
+		</details>
 	</nav>
 </header>
+
+<script>
+	// 드롭다운: 하나를 열면 나머지는 닫고, 바깥을 누르거나 Esc를 누르면 닫는다
+	const dds = [...document.querySelectorAll<HTMLDetailsElement>('header [data-dd]')];
+	dds.forEach((d) => d.addEventListener('toggle', () => { if (d.open) dds.forEach((o) => o !== d && (o.open = false)); }));
+	document.addEventListener('click', (e) => { if (!(e.target as HTMLElement).closest('header [data-dd]')) dds.forEach((d) => (d.open = false)); });
+	document.addEventListener('keydown', (e) => { if (e.key === 'Escape') dds.forEach((d) => (d.open = false)); });
+</script>
+
 <style>
 	header {
 		position: sticky;
@@ -58,10 +119,12 @@ import HeaderLink from './HeaderLink.astro';
 	}
 	.internal-links {
 		display: flex;
-		gap: 0.4em;
+		align-items: center;
+		gap: 0.3em;
 	}
-	.internal-links :global(a) {
-		padding: 0.5em 0.9em;
+	.internal-links :global(a),
+	.dd summary {
+		padding: 0.5em 0.85em;
 		color: var(--text-muted);
 		border-radius: 999px;
 		font-weight: 600;
@@ -69,16 +132,97 @@ import HeaderLink from './HeaderLink.astro';
 		text-decoration: none;
 		transition: color 0.15s ease, background 0.15s ease;
 	}
-	.internal-links :global(a:hover) {
+	.internal-links :global(a:hover),
+	.dd summary:hover {
 		color: var(--text);
 		background: var(--bg-elev);
 	}
-	.internal-links :global(a.active) {
+	.internal-links :global(a.active),
+	.dd.active summary {
 		color: var(--accent);
 		background: rgba(62, 245, 139, 0.1);
 	}
+
+	/* 드롭다운 */
+	.dd { position: relative; }
+	.dd summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3em; white-space: nowrap; }
+	.dd summary::-webkit-details-marker { display: none; }
+	.caret { font-size: 0.7em; transition: transform 0.15s ease; }
+	.dd[open] .caret { transform: rotate(180deg); }
+	.dd summary:focus-visible, .mnav summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+	.dd-panel {
+		position: absolute;
+		top: calc(100% + 8px);
+		left: 50%;
+		transform: translateX(-50%);
+		min-width: 230px;
+		background: var(--bg-elev);
+		border: 1px solid var(--border-strong);
+		border-radius: 14px;
+		padding: 6px;
+		box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+		display: grid;
+	}
+	.internal-links .dd-panel :global(a) {
+		display: flex;
+		gap: 0.6em;
+		align-items: center;
+		border-radius: 10px;
+		padding: 0.6em 0.8em;
+		font-size: 0.92rem;
+		color: var(--text);
+		white-space: nowrap;
+	}
+	.internal-links .dd-panel :global(a.cur) { color: var(--accent); }
+
+	/* 휴대폰: 메뉴 버튼 하나로 */
+	.mnav { display: none; position: relative; }
+	.mnav summary {
+		list-style: none;
+		cursor: pointer;
+		padding: 0.45em 0.85em;
+		border-radius: 999px;
+		border: 1px solid var(--border-strong);
+		color: var(--text);
+		font-weight: 700;
+		font-size: 0.92rem;
+	}
+	.mnav summary::-webkit-details-marker { display: none; }
+	.mnav[open] summary { border-color: var(--accent); color: var(--accent); }
+	.mnav-panel {
+		position: absolute;
+		right: 0;
+		top: calc(100% + 10px);
+		width: min(300px, calc(100vw - 2rem));
+		max-height: calc(100vh - 90px);
+		overflow-y: auto;
+		background: var(--bg-elev);
+		border: 1px solid var(--border-strong);
+		border-radius: 16px;
+		padding: 8px;
+		box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+		display: grid;
+	}
+	.mnav-panel a {
+		display: flex;
+		gap: 0.6em;
+		padding: 0.75em 0.8em;
+		border-radius: 10px;
+		color: var(--text);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.95rem;
+	}
+	.mnav-panel a:hover, .mnav-panel a.cur { background: var(--bg-elev-2); color: var(--accent); }
+	.mnav-group { border-top: 1px solid var(--border); margin-top: 4px; padding-top: 4px; }
+	.mnav-group p { margin: 6px 0.8em 2px; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--text-dim); font-weight: 700; }
+	.mnav-group a { font-weight: 500; }
+
+	@media (max-width: 860px) {
+		.internal-links { display: none; }
+		.mnav { display: block; }
+	}
 	@media (max-width: 520px) {
 		.brand-name { font-size: 1.05rem; }
-		.internal-links :global(a) { padding: 0.4em 0.6em; font-size: 0.88rem; }
 	}
 </style>
