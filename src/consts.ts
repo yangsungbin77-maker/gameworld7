@@ -13,6 +13,14 @@ export const NAVER_VERIFICATION = '38ab2f323b2b7acf211e5afa0a16ebf533a1f7e3';
 // 사이트 내장 미니게임 목록. 홈 그리드와 /games 허브가 함께 사용한다.
 export const GAMES = [
 	{
+		href: '/arrow-escape',
+		title: '애로우 이스케이프',
+		emoji: '➡️',
+		genre: '두뇌 퍼즐',
+		desc: '길이 뚫린 화살표만 골라 판을 비우는 탈출 퍼즐. 막힌 걸 누르면 하트가 깎인다! 무한 스테이지.',
+		cover: '/images/games/arrow-escape.jpg',
+	},
+	{
 		href: '/hero',
 		title: '네온 히어로',
 		emoji: '⚔️',
