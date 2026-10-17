@@ -117,14 +117,11 @@ body {
 	window.fetch = function (input, init) {
 		const url = typeof input === 'string' ? input : (input && input.url) || '';
 		if (!/index\.wasm(\?|$)/.test(url)) return realFetch(input, init);
-		return realFetch(url.replace('index.wasm', 'index.wasm.gz.bin'), init).then(async (res) => {
+		// Stream-unpack so Godot's progress bar moves while the file downloads.
+		return realFetch(url.replace('index.wasm', 'index.wasm.gz.bin'), init).then((res) => {
 			if (!res.ok) return res;
-			let buf = await res.arrayBuffer();
-			const b = new Uint8Array(buf, 0, 2);
-			if (b[0] === 0x1f && b[1] === 0x8b) {
-				buf = await new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
-			}
-			return new Response(buf, { status: 200, headers: { 'Content-Type': 'application/wasm', 'Content-Length': String(buf.byteLength) } });
+			const body = res.body.pipeThrough(new DecompressionStream('gzip'));
+			return new Response(body, { status: 200, headers: { 'Content-Type': 'application/wasm' } });
 		});
 	};
 })();
