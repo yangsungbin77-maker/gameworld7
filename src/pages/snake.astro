@@ -238,7 +238,7 @@ const description =
 					touchStart = null;
 				});
 
-				draw(0);
+				reset(); draw(0); // 시작 전에도 판·뱀·오브를 미리 그려 둔다(빈 데이터로 그리다 오류 나던 문제)
 			})();
 		</script>
 	</body>
