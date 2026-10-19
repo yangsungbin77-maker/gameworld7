@@ -1,4 +1,5 @@
 ---
+import Guide_game from '../components/guides/game.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
@@ -36,7 +37,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 					</div>
 					<div class="hud-item">
 						<span class="hud-label">남은 시간</span>
-						<span class="hud-value" id="time">2:00</span>
+						<span class="hud-value" id="time">2:30</span>
 					</div>
 					<div class="hud-item">
 						<span class="hud-label">최고 점수</span>
@@ -69,6 +70,7 @@ const description = '빛나는 네온 숫자 블록을 드래그해 합이 10이
 
 				<p class="hint">💡 마우스(또는 터치)로 사각형을 그려 블록을 묶으세요. 합이 10이면 점수를 얻습니다.</p>
 			</div>
+			<Guide_game />
 		</main>
 		<Footer />
 

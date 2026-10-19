@@ -2,6 +2,9 @@
 # 2026-07-02 매핑 확대: 홈 뭉뚱그림(soft 404) → 주제 일치 새 글 1:1 리다이렉트
 # ⚠ 과거 /rpg-game-recommendations/→홈 규칙이 새 글까지 홈으로 튕기던 버그 제거함
 
+# 2026-10-19 welcome 공지 글 삭제 → 소개 페이지로
+/welcome/  /about/  301
+
 # --- 1:1 주제 매핑 (옛 글 → 동일/유사 주제 새 글) ---
 /%EC%B5%9C%EA%B3%A0%EC%9D%98-%EA%B2%8C%EC%9E%84-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%8B%A4%EC%A7%88%EC%A0%81%EC%9D%B8-%EB%B0%A9%EB%B2%95/  /fps-settings-basics/  301
 /%EB%AA%B0%EC%9E%85%EA%B0%90-%EC%9E%88%EB%8A%94-%EC%BD%98%EC%86%94-%EA%B2%8C%EC%9E%84-%EC%B6%94%EC%B2%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8/  /switch-game-recommendations-2026/  301

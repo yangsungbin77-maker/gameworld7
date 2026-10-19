@@ -1,0 +1,35 @@
+---
+// 미니게임 페이지 아래에 붙는 "자세한 규칙·공략" 글 상자 (2026-10-19 애드센스 정비)
+interface Props {
+	title: string;
+	updated?: string;
+}
+const { title, updated = '2026-10-19' } = Astro.props;
+---
+
+<article class="game-guide">
+	<h2 class="gg-title">{title}</h2>
+	<p class="gg-meta">게임월드7 운영자 Sungbin · {updated} 업데이트</p>
+	<slot />
+</article>
+
+<style>
+	.game-guide {
+		max-width: 760px;
+		margin: 2.5rem auto 3.5rem;
+		padding: 1.6rem 1.4rem;
+		background: var(--bg-elev);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		line-height: 1.8;
+	}
+	.gg-title { font-size: 1.4rem; margin: 0 0 0.3rem; }
+	.gg-meta { color: var(--text-dim); font-size: 0.85rem; margin: 0 0 1.2rem; }
+	.game-guide :global(h3) { font-size: 1.12rem; margin: 1.6rem 0 0.5rem; color: var(--accent); }
+	.game-guide :global(p) { color: var(--text-muted); margin: 0 0 0.9rem; }
+	.game-guide :global(ul), .game-guide :global(ol) { color: var(--text-muted); padding-left: 1.3em; margin: 0 0 1rem; }
+	.game-guide :global(li) { margin-bottom: 0.4em; }
+	.game-guide :global(strong) { color: var(--text); }
+	.game-guide :global(dt) { color: var(--text); font-weight: 700; margin-top: 0.9rem; }
+	.game-guide :global(dd) { color: var(--text-muted); margin: 0.3rem 0 0; }
+</style>
