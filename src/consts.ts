@@ -109,3 +109,7 @@ export const GAMES = [
 		cover: '/images/games/memory-match.jpg',
 	},
 ];
+
+// 홈 화면 전용 제목·설명 (검색어가 앞에 오게, 2026-10-20 진단 반영)
+export const HOME_TITLE = '디아블로4 빌드 플래너·보스 드랍표·게임 공략 도구 | 게임월드7';
+export const HOME_DESCRIPTION = '디아블로4 빌드 플래너와 보스 드랍 테이블, 룬워드 제작서, 라스트에폭 빌드 옵션까지 — 직접 계산해 쓰는 무료 게임 공략 도구 모음.';
