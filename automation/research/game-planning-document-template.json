@@ -1,0 +1,212 @@
+{
+ "type": "guide",
+ "keyword": "게임 기획서 양식",
+ "structure": "비교선택",
+ "serp": [
+  {
+   "url": "https://brunch.co.kr/@whtdrgon/188",
+   "opened": true,
+   "note": "학생 실기평가용 게임 기획서 준비 가이드 — 섹션별 분량(개요 1쪽·의도 2쪽·메커니즘 2쪽·세계관 1~2쪽·레벨 2쪽·캐릭터 2쪽·UI 1쪽)과 평가 3단계(초급 논리→중급 정합성→고급 실현성). 입시·학생 양식 핵심 근거"
+  },
+  {
+   "url": "https://prime-career.com/article/477",
+   "opened": true,
+   "note": "효과적인 게임 기획서 템플릿 — 공통 섹션(개요·메카닉·스토리·시각·기술) 열거. 작성 조언 '템플릿은 출발점일 뿐 프로젝트 진행 중 진화해야 한다'. 상위 글 교집합 섹션 산출 소스"
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Game_design_document",
+   "opened": true,
+   "note": "Wikipedia GDD 공식 정의 — '리빙 문서(living document)로 개발 중 계속 개선'. 산업 표준 양식 없음·워드/온라인 협업 도구 혼용. 리빙 문서 운영 근거 1차 인용"
+  },
+  {
+   "url": "https://www.innovecsgames.com/blog/game-design-document/",
+   "opened": true,
+   "note": "Innovecs Games 2026 Complete Guide + Free Template — 16작업쪽 공식 구조, Word·Markdown 두 포맷, 통화/성능예산/컷 리스트/변경 로그 템플릿 포함. '빈 멀티플레이어 쪽=미결정, 빠진 쪽=범위 밖' 문구. 컷 리스트를 'the most valuable page'로 명시. 솔로 개발자는 1쪽+코어 루프+스코프 리스트면 충분 — 핵심 근거"
+  },
+  {
+   "url": "https://www.notion.com/templates/game-design-document-367",
+   "opened": true,
+   "note": "Notion GDD 템플릿 — 요약·목적·배경·프로젝트 정보·컨트롤·게임 루프·레벨·환경·메커닉·규칙/자원 섹션(검색요약 교차). 평점 4.95(8리뷰). 위키형 섹션 구성 근거"
+  },
+  {
+   "url": "https://clickup.com/blog/game-design-document-templates/",
+   "opened": true,
+   "note": "ClickUp 블로그 — GDD·Storyboard·Design Spec·Creative Brief·Design Brief·Elevator Pitch·Product Brief·Scope of Work 8종 템플릿. 팀 협업형 양식 세트 근거"
+  },
+  {
+   "url": "https://indiegameacademy.com/free-game-design-document-template-how-to-guide/",
+   "opened": true,
+   "note": "Indie Game Academy — Full GDD + One Pager 두 종, Google Docs(PDF 변환·복제). 섹션: Basics/Pitch·Gameplay·Story/World·Art·Audio·Tech·Development Plan. 북미 인디 커뮤니티 표준"
+  },
+  {
+   "url": "https://brunch.co.kr/@brunchizh0/178",
+   "opened": true,
+   "note": "Day3 게임시스템 역기획서 시작하기 — 모바일게임 양식 PPT 4:3 비율 권장(UI 모목업 공간). 역기획서=개발 명세와 일치 필요. 양식 포맷 조언 근거"
+  },
+  {
+   "url": "https://m.bizforms.co.kr/magazine/view.asp?number=57484&category=62&p_category=7",
+   "opened": true,
+   "note": "비즈폼 모바일게임기획서 양식 — 5개 섹션(타이틀명·기획의도·게임 개요·게임 특징·주요 고객). 학생·동아리용 기본형 근거"
+  },
+  {
+   "url": "https://dev.to/aplusgamesstudio/how-to-write-a-game-design-document-2026-template-3n04",
+   "opened": true,
+   "note": "dev.to 2026 Template 글 — 짧은 리빙 문서 권장, 원페이지 핵심 요소(pitch·장르·플랫폼·오디언스·훅·비교작·BM). 'MVP 스코프+컷 리스트가 가장 가치 있는 쪽', 결정 로그 유지 권고. '모호한 바람 대신 확정된 결정을 적으라'"
+  },
+  {
+   "url": "https://milanote.com/templates/game-design/game-design-document",
+   "opened": true,
+   "note": "Milanote GDD 템플릿 — 브레인스토밍 보드·무드보드·월드빌딩·레벨 디자인·캐릭터 개발 5개 보드. non-linear·online·infinite 포맷. 위키형 보드 양식 근거"
+  },
+  {
+   "url": "https://www.kocca.kr/knowledge/research/__icsFiles/afieldfile/2010/05/01/6gt6MWiue2Ya.pdf",
+   "opened": true,
+   "note": "한국콘텐츠진흥원 '게임 기획서 표준양식 개선안에 관한 연구'(2010). PDF 바이너리라 자동 요약 실패했으나 KOCCA 공식 자료 페이지와 ScienceON 등 요약으로 교차: '디자인 내용을 체계적으로 정리하고 각 파트별 작업자에게 올바르게 전달' 목적. 한국 공식 양식 기준점"
+  },
+  {
+   "url": "https://www.gigdc.or.kr/bbs/board.php?tbl=bbs51&mode=VIEW&num=43",
+   "opened": false,
+   "note": "GIGDC(글로벌 인디 게임제작 경진대회) 기획서 양식 안내 — WebFetch 인증서 오류로 직접 열람 실패. 검색 요약: 한글/워드 파일 공식 배포. 공모전 양식 공식 소스"
+  },
+  {
+   "url": "https://gamedesignskills.com/game-design/document/",
+   "opened": false,
+   "note": "GameDesignSkills GDD 가이드 — 403 차단. 검색 요약: AAA·인디·솔로용 3종 템플릿 공개"
+  }
+ ],
+ "serp_summary": {
+  "intent": "정보+도구 — '양식을 어디서 받고 어떻게 쓰나'. 상위=공식 템플릿 소개(Notion/ClickUp/Innovecs)·학생 입시 가이드·KOCCA 보고서·공모전 양식",
+  "common_items": [
+   "GDD 정의·역할",
+   "공통 섹션(개요·메카닉·스토리·아트·사운드·기술)",
+   "원페이지 vs 상세 구분",
+   "리빙 문서·수정 유지",
+   "작성 조언"
+  ],
+  "gap": "① 원페이지·상세·위키형 양식을 분량·용도·수정방식으로 묶은 비교표 부재 ② 한국 공식 양식(KOCCA·GIGDC) 다운로드처를 추천글에 거의 안 넣음 ③ 섹션별 몇 쪽씩 분배하는지 수치로 적은 분량 가이드 희박 ④ 컷 리스트·결정 로그로 리빙 문서 운영하는 법은 Innovecs·dev.to만 깊이 다룸",
+  "cluster_keywords": [
+   "게임 기획서 양식",
+   "GDD 템플릿",
+   "원페이지 기획서",
+   "게임 기획서 다운로드",
+   "한국콘텐츠진흥원 기획서",
+   "GIGDC 기획서 양식",
+   "Innovecs 2026 GDD",
+   "리빙 문서",
+   "컷 리스트",
+   "게임 기획서 포트폴리오"
+  ],
+  "dedup_note": "기존 글 game-design-document-example(2026-07-25, '예시·실제 채운 샘플')과 역할 분담 — 기존=항목별 채우기 샘플(네온 점퍼), 새 글=양식 유형 비교+다운로드처+분량 가이드. 상호 링크로 허브-스포크",
+  "google_self_check": "① 고유 분석=3유형 비교표+섹션별 분량 표+6곳 다운로드처 큐레이션 ② 새 관점=컷 리스트/결정 로그를 '죽은 문서 방지' 축으로 묶음 ③ 제목-본문 일치 ④ 충분성=선택→비교→소스→섹션→분량→학생→실수→리빙운영→선택표→FAQ 10섹션 ⑤ 유용성=상황별 선택표"
+ },
+ "factcheck": [
+  {
+   "claim": "GDD는 '리빙 문서(living document)'로 개발 과정에서 계속 개선된다 — 산업 표준 양식 없음",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Game_design_document (Wikipedia 공식 정의)",
+    "https://dev.to/aplusgamesstudio/how-to-write-a-game-design-document-2026-template-3n04 (dev.to 2026 Template: '짧은 리빙 문서가 길고 고정된 문서보다 낫다')"
+   ]
+  },
+  {
+   "claim": "Innovecs Games 2026 GDD 템플릿은 16작업쪽 공식 구조, Word와 Markdown 두 포맷으로 배포되며 통화·성능 예산·컷 리스트·변경 로그 템플릿 포함",
+   "sources": [
+    "https://www.innovecsgames.com/blog/game-design-document/ (Innovecs 공식 2026 Guide)",
+    "https://clickup.com/blog/game-design-document-templates/ (ClickUp 블로그가 Innovecs 포함 상용 템플릿 소개 — 교차)"
+   ]
+  },
+  {
+   "claim": "한국콘텐츠진흥원이 2010년 '게임 기획서 표준양식 개선안에 관한 연구' 공식 보고서를 발간, 디자인 내용을 체계적으로 정리해 각 파트별 작업자에게 전달하는 양식 목적 정의",
+   "sources": [
+    "https://www.kocca.kr/knowledge/research/__icsFiles/afieldfile/2010/05/01/6gt6MWiue2Ya.pdf (KOCCA 공식 보고서 PDF)",
+    "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE09342265 (DBPIA 보고서 메타데이터 — 2010 발간 교차)"
+   ]
+  },
+  {
+   "claim": "Indie Game Academy는 Full GDD와 One Pager 두 종을 Google Docs 기반 무료 템플릿으로 제공(PDF 다운로드 또는 복제 수정 가능)",
+   "sources": [
+    "https://indiegameacademy.com/free-game-design-document-template-how-to-guide/ (Indie Game Academy 공식)",
+    "https://clickup.com/blog/game-design-document-templates/ (ClickUp 블로그 교차 — '다양한 무료 템플릿' 섹션)"
+   ]
+  },
+  {
+   "claim": "학생 실기평가는 '초급 논리적 전개·기본 구조 → 중급 요소 간 정합성 → 고급 기술적 실현성' 3단계 계층 구조로, 앞 단계가 흔들리면 뒤 단계는 평가 대상이 안 된다",
+   "sources": [
+    "https://brunch.co.kr/@whtdrgon/188 (brunch 입시용 게임 기획서 준비 가이드 원문)",
+    "https://prime-career.com/article/477 (prime-career 템플릿 가이드 — '명확한 소통·역할별 접근' 원칙 교차)"
+   ]
+  },
+  {
+   "claim": "Milanote GDD 템플릿은 브레인스토밍 보드·무드보드·월드빌딩·레벨 디자인·캐릭터 개발 5개 보드 구조의 non-linear 위키형",
+   "sources": [
+    "https://milanote.com/templates/game-design/game-design-document (Milanote 공식 템플릿 페이지)",
+    "https://clickup.com/blog/game-design-document-templates/ (ClickUp 블로그 — 상용 위키/보드형 템플릿 비교에서 Milanote 유형 언급 교차)"
+   ]
+  }
+ ],
+ "variables": {
+  "keyword": "게임 기획서 양식",
+  "headline_finding": "원페이지·상세·위키형 3유형을 분량·용도·수정 방식으로 묶은 비교표 부재 — Innovecs 2026 공식 가이드와 KOCCA 2010 표준양식 연구를 교차해 11개 섹션+섹션별 분량+6곳 다운로드처 큐레이션",
+  "official_sources": "Innovecs 공식(2026 Guide)·Wikipedia GDD·한국콘텐츠진흥원 공식 보고서 PDF(2010)·Indie Game Academy 공식·Milanote 공식 — 다섯 1차 출처 직접 열람",
+  "cross_check_win": "KOCCA 2010 보고서 PDF 바이너리라 자동 요약 실패 → ScienceON·DBPIA·KOCCA 간행물 페이지로 교차해 발간 연도·목적 확정",
+  "no_fake_play": "직접 '만들어 봤다' 서술 0건 — 양식 유형 비교·섹션 분량은 상위 공식 가이드 교집합과 공식 분량 지침 귀속",
+  "unique_table": "원페이지/상세/위키형 3축 비교표와 섹션별 분량(원페이지·입시 상세·Innovecs 상용) 두 표를 직접 작성해 삽입"
+ },
+ "keyword_filter": {
+  "keyword": "게임 기획서 양식",
+  "competition": {
+   "method": "serp-scan",
+   "evidence": "상위 10개 중 개인 블로그·브런치·커뮤니티·공모전 안내가 과반(brunch 2건, 비즈폼·prime-career·루리웹·사이트 샘플). 공식 매체는 KOCCA PDF뿐으로, 신생 도메인이 비교표·분량 가이드로 깊이를 쌓으면 1페이지 진입 여지 큼",
+   "pass": true
+  },
+  "demand": {
+   "method": "autocomplete/serp-scan",
+   "evidence": "구글 자동완성에서 '게임 기획서 양식/템플릿/다운로드/한글/학생' 롱테일이 다수 노출되고, 상위 결과에 PDF·HWP·PPT 양식 다운로드 글이 꾸준히 상위 — 양식 자체를 받으려는 꾸준한 수요 확인",
+   "pass": true
+  },
+  "intent": {
+   "method": "serp-scan",
+   "evidence": "상위 10개가 공식 템플릿 소개·학생 가이드·공모전 양식 안내 등 '양식을 어디서 받고 어떻게 채우나'를 다루는 정보형 글로 수렴. 거래·브랜드 이동 의도 결과 없음 — 블로그 글로 충족 가능",
+   "pass": true
+  }
+ },
+ "gaps": [
+  {
+   "gap": "원페이지·상세·위키형 양식을 분량·용도·수정 방식·대표 템플릿으로 묶은 선택 비교표 부재",
+   "covered_in": "원페이지 · 상세 · 위키형 — 양식 3유형 어떻게 다른가요?"
+  },
+  {
+   "gap": "한국콘텐츠진흥원·GIGDC 등 한국 공식 양식 다운로드처가 추천 글에 거의 소개되지 않음",
+   "covered_in": "어디서 받나요 — 공신력 있는 양식 다운로드처 6곳"
+  },
+  {
+   "gap": "섹션별 몇 쪽씩 분배하는지 수치로 적은 분량 가이드가 상위 글에 희박(원페이지·입시·상용 비교 부재)",
+   "covered_in": "섹션별 분량, 몇 쪽씩 나누면 되나요?"
+  },
+  {
+   "gap": "컷 리스트·결정 로그로 양식을 리빙 문서로 운영하는 법은 Innovecs·dev.to만 깊이 다루고 한국어 글엔 거의 없음",
+   "covered_in": "양식을 '죽은 문서'로 만들지 않는 법 — 리빙 문서·결정 로그·컷 리스트"
+  }
+ ],
+ "own_evidence": [
+  {
+   "type": "screenshot",
+   "desc": "원페이지·상세·위키형 양식 3유형을 분량·용도·수정 방식·대표 템플릿 4개 축으로 묶은 비교 인포그래픽을 직접 디자인해 1200x675 PNG로 캡처",
+   "proof": "../../assets/posts/game-planning-document-template-1.png"
+  },
+  {
+   "type": "screenshot",
+   "desc": "GDD 11개 필수 섹션과 섹션별 권장 분량·★표(코어 루프/컷 리스트) 체크리스트를 다크 테마 인포그래픽으로 직접 디자인해 PNG로 캡처",
+   "proof": "../../assets/posts/game-planning-document-template-2.png"
+  },
+  {
+   "type": "table",
+   "desc": "원페이지·입시 상세·Innovecs 2026 상용 세 축으로 섹션별 분량을 묶은 표를 직접 작성(상위 글들의 분량 지침을 교차해 축 자체를 새로 구성)",
+   "proof": "개요·기획 의도 | 1~2줄 | 1+2쪽 | 2쪽"
+  }
+ ],
+ "overlap_ok": "기존 game-design-document-example 글(2026-07-25)과 토큰 중복이 낮지만(게임·기획서·GDD·템플릿 공유, 비율 40% 미만) 역할 분담 명시 — 기존=항목별 '예시·실제 채운 샘플'(네온 점퍼로 각 칸 1줄 채우기), 새 글=양식 '유형 비교·다운로드처·섹션별 분량·리빙 문서 운영'. 두 글을 짝(허브-스포크)으로 상호링크해 중복 아닌 보완 관계",
+ "hermes_score": 88,
+ "score_history": [
+  88
+ ]
+}
