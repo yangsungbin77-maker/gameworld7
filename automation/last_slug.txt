@@ -1,1 +1,1 @@
-game-planning-document-template
+mobile-game-workshop-setup
