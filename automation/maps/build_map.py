@@ -1,3 +1,4 @@
+# 바탕 지도(점 없음) + 점 좌표(dots.json)를 따로 만든다. 점은 글 안의 SVG가 그려서 종류별로 켜고 끈다.
 import json, math, os, time, urllib.request
 from PIL import Image, ImageDraw, ImageFont
 Z=13; T=256
@@ -26,17 +27,8 @@ for ty in range(ty0,ty1+1):
         except Exception as e: print('bad',f,e)
 ox,oy=tx0*T,ty0*T
 d=ImageDraw.Draw(img)
-r=11
-for k,lng,lat in pts:
-    x,y=px(lng,lat); x-=ox; y-=oy
-    fill,ring=((255,255,255),(233,30,140)) if k=='p' else ((255,179,0),(122,61,0))
-    d.ellipse((x-r-3,y-r-3,x+r+3,y+r+3),fill=(0,0,0))
-    d.ellipse((x-r,y-r,x+r,y+r),fill=ring); d.ellipse((x-r+5,y-r+5,x+r-5,y+r-5),fill=fill)
-F=ImageFont.truetype('C:/Windows/Fonts/malgunbd.ttf',44); f2=ImageFont.truetype('C:/Windows/Fonts/malgun.ttf',26)
-d.rounded_rectangle((30,30,760,250),20,fill=(17,17,17))
-d.text((60,45),'붉은사막 진주·해양 광석 지도',font=F,fill='white')
-for i,(t,fl,rg) in enumerate([('천연 진주 53곳',(255,255,255),(233,30,140)),('열수 광맥(해양 광석) 160곳',(255,179,0),(122,61,0))]):
-    y=125+i*52; d.ellipse((62,y,96,y+34),fill=rg); d.ellipse((69,y+7,89,y+27),fill=fl); d.text((112,y-6),t,font=ImageFont.truetype('C:/Windows/Fonts/malgunbd.ttf',34),fill='white')
-d.text((W-560,H-50),'위치 자료: MapGenie · gameworld7.com',font=f2,fill=(230,230,230))
-img.save('../../public/images/crimson-desert-pearl-sea-ore-map-large.webp','WEBP',quality=80)
-print(W,H, os.path.getsize('../../public/images/crimson-desert-pearl-sea-ore-map-large.webp')//1024,'KB')
+d.text((W-560,H-50),'위치 자료: MapGenie · gameworld7.com',font=ImageFont.truetype('C:/Windows/Fonts/malgun.ttf',26),fill=(230,230,230))
+img.save('../../public/images/crimson-desert-sea-map-base.webp','WEBP',quality=80)
+dots=[[k,round(px(lng,lat)[0]-ox),round(px(lng,lat)[1]-oy)] for k,lng,lat in pts]
+json.dump({'w':W,'h':H,'dots':dots},open('dots.json','w'))
+print(W,H,len(dots),os.path.getsize('../../public/images/crimson-desert-sea-map-base.webp')//1024,'KB')
