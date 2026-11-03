@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # 자동 발행 임시 파일(매 실행마다 재생성)
 automation/assignment.json
+automation/maps/tiles/
