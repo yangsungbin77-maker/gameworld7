@@ -11,6 +11,52 @@ heroImage: '../../assets/posts/crimson-desert-pearl-sea-ore-map.webp'
 
 ## 붉은사막 진주·해양 광석 전체 지도
 
+<div class="zmap" id="zmap">
+<div class="zmap-stage"><img src="/images/crimson-desert-pearl-sea-ore-map-large.webp" alt="붉은사막 천연 진주·해양 광석 위치 지도 (확대 가능)" width="3840" height="3072" draggable="false"></div>
+<div class="zmap-bar"><button type="button" data-z="in" aria-label="확대">＋</button><button type="button" data-z="out" aria-label="축소">－</button><button type="button" data-z="reset" aria-label="처음 크기로">⟲</button><button type="button" data-z="full" aria-label="전체 화면">⛶</button></div>
+<div class="zmap-hint">🔍 마우스 휠·두 손가락으로 확대, 끌어서 이동</div>
+</div>
+
+<style>
+.zmap{position:relative;width:100%;aspect-ratio:5/4;background:#3e6070;border-radius:12px;overflow:hidden;touch-action:none;margin:1.2rem 0;user-select:none}
+.zmap-stage{position:absolute;inset:0;cursor:grab}
+.zmap-stage:active{cursor:grabbing}
+.zmap-stage img{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none;transform-origin:0 0;margin:0!important;border-radius:0!important;box-shadow:none!important}
+.zmap-bar{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.zmap-bar button{width:44px;height:44px;border:0;border-radius:10px;background:#111d;color:#fff;font-size:22px;font-weight:700;cursor:pointer}
+.zmap-bar button:hover{background:#000}
+.zmap-hint{position:absolute;left:10px;bottom:10px;background:#111c;color:#fff;font-size:13px;padding:6px 10px;border-radius:8px;pointer-events:none;z-index:2}
+.zmap:fullscreen{border-radius:0;aspect-ratio:auto;width:100vw;height:100vh}
+</style>
+
+<script is:inline>
+(function(){
+const box=document.getElementById('zmap'); if(!box) return;
+const img=box.querySelector('img'), stage=box.querySelector('.zmap-stage');
+let s=1,x=0,y=0; const MIN=1,MAX=8;
+function clamp(){const W=box.clientWidth,H=box.clientHeight,iw=W*s,ih=W*(3072/3840)*s;
+ x=iw<=W?(W-iw)/2:Math.min(0,Math.max(W-iw,x)); y=ih<=H?(H-ih)/2:Math.min(0,Math.max(H-ih,y));}
+function draw(){clamp();img.style.transform='translate('+x+'px,'+y+'px) scale('+s+')';}
+function zoomAt(f,cx,cy){const ns=Math.min(MAX,Math.max(MIN,s*f)); const k=ns/s; x=cx-(cx-x)*k; y=cy-(cy-y)*k; s=ns; draw();}
+function center(){return [box.clientWidth/2,box.clientHeight/2];}
+box.addEventListener('wheel',e=>{e.preventDefault();const r=box.getBoundingClientRect();zoomAt(e.deltaY<0?1.25:0.8,e.clientX-r.left,e.clientY-r.top);},{passive:false});
+const pts=new Map(); let last=null, pinch=null;
+stage.addEventListener('pointerdown',e=>{stage.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);last=[e.clientX,e.clientY];});
+stage.addEventListener('pointermove',e=>{if(!pts.has(e.pointerId))return;pts.set(e.pointerId,[e.clientX,e.clientY]);
+ if(pts.size===2){const [a,b]=[...pts.values()];const d=Math.hypot(a[0]-b[0],a[1]-b[1]);const r=box.getBoundingClientRect();const cx=(a[0]+b[0])/2-r.left,cy=(a[1]+b[1])/2-r.top;
+  if(pinch){zoomAt(d/pinch,cx,cy);} pinch=d; return;}
+ if(last){x+=e.clientX-last[0];y+=e.clientY-last[1];last=[e.clientX,e.clientY];draw();}});
+function up(e){pts.delete(e.pointerId);pinch=null;last=pts.size===1?[...pts.values()][0]:null;}
+stage.addEventListener('pointerup',up);stage.addEventListener('pointercancel',up);
+stage.addEventListener('dblclick',e=>{const r=box.getBoundingClientRect();zoomAt(2,e.clientX-r.left,e.clientY-r.top);});
+box.querySelector('.zmap-bar').addEventListener('click',e=>{const z=e.target.closest('button')?.dataset.z;const [cx,cy]=center();
+ if(z==='in')zoomAt(1.6,cx,cy); else if(z==='out')zoomAt(1/1.6,cx,cy); else if(z==='reset'){s=1;draw();}
+ else if(z==='full'){document.fullscreenElement?document.exitFullscreen():(box.requestFullscreen||box.webkitRequestFullscreen).call(box);}});
+document.addEventListener('fullscreenchange',()=>setTimeout(draw,100)); window.addEventListener('resize',draw);
+img.complete?draw():img.addEventListener('load',draw); draw();
+})();
+</script>
+
 아래 지도에서 **분홍 점이 천연 진주**, <b>주황 점이 열수 광맥(해양 광석)</b>입니다. 다른 아이콘은 전부 끄고 이 두 가지만 남겼어요.
 
 한눈에 봐도 차이가 큽니다. 진주는 넓은 바다에 띄엄띄엄 있어서 "지나가는 길에 하나씩 줍는" 재료예요. 반면 광맥은 두 덩어리로 뭉쳐 있어서 **한 번 가면 수십 개를 한꺼번에** 캘 수 있는 재료입니다.
