@@ -1,0 +1,210 @@
+{
+ "slug": "nintendo-wii-game-recommendations",
+ "topic": "닌텐도 wii 게임 추천",
+ "type": "guide",
+ "structure": "결론먼저",
+ "keyword_filter": {
+  "keyword": "닌텐도 Wii 게임 추천",
+  "competition": {
+   "method": "serp-scan + allintitle",
+   "evidence": "상위 10개 검색 결과 중 공식·대형 매체 없음. 미니맵·DC 닌텐도 Wii 갤러리·nexreview·vcgamers·clien 등 커뮤니티·개인 블로그가 과반. allintitle 검색에서도 블로그·커뮤니티 아카이브 글이 상단을 점유해 신생 도메인 공략 여지가 큼.",
+   "pass": true
+  },
+  "demand": {
+   "method": "autocomplete + 2026 신규 콘텐츠 발행 빈도",
+   "evidence": "구글 검색 자동완성이 '닌텐도 wii 게임 추천'을 상위 추천으로 제시하고, DC 닌텐도 Wii 갤러리·미니맵 2026 Wii 컬렉션·nexreview 2026 가이드처럼 2026년에도 신규 리스트가 꾸준히 발행되고 있어 롱테일 수요가 유지됨.",
+   "pass": true
+  },
+  "intent": {
+   "method": "serp-scan",
+   "evidence": "상위 10개 중 9개가 추천 목록·블로그·커뮤니티성 정보글(위키백과 역대 판매량·게임 목록 포함)로 정보형 의도가 명확. 공식 쇼핑·거래 사이트는 0개, 거래형 의도가 거의 없음.",
+   "pass": true
+  }
+ },
+ "serp": [
+  {
+   "url": "https://minimap.net/user/minimap_collection/collection/361",
+   "opened": true,
+   "note": "미니맵 큐레이션 '닌텐도 Wii 게임 TOP 50'. 페이지 상단 타이틀만 노출 — 내용은 로그인/스크롤 필요라 전체 리스트는 인용 불가. 상위 글 공통 커버 항목으로만 참조."
+  },
+  {
+   "url": "https://minimap.net/user/swich/collection/4595?l=kr",
+   "opened": false,
+   "note": "미니맵 'The Wii essentials' 컬렉션. WebFetch 시 제목 외 본문이 비어 있어 콘텐츠 추출 실패 — 서버 콘텐츠 반환 제한으로 간주."
+  },
+  {
+   "url": "https://www.vcgamers.com/news/en/best-wii-games-2023/",
+   "opened": true,
+   "note": "영문 VCGamers 2023 베스트 Wii 5선 — 뉴 슈퍼 마리오 Wii·제노블레이드·Wii 스포츠 리조트·바이오하자드 4·레고 스타워즈. 간단 추천형, 상위 글 공통 타이틀 확인용."
+  },
+  {
+   "url": "https://gall.dcinside.com/board/view/?id=nintendowii&no=12467",
+   "opened": true,
+   "note": "디시 닌텐도 Wii 갤러리 'Wii 게임 평가 TOP 10'. 제노블레이드 1위, 드퀘 25주년 2위, 뉴 슈마리 Wii 3위, 노 모어 히어로즈 4위, 바이오 4 5위, 메트로이드 아더 엠 6위, 골든아이 007 7위, 스카이워드 소드 8위, 커비 Wii 9위, DK 리턴즈 10위. 한국 커뮤니티 공통 커버 확인용."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/List_of_best-selling_Wii_video_games",
+   "opened": true,
+   "note": "위키백과 Wii 베스트셀러 — Wii Sports 8,290만, 마카Wii 3,738만, Wii Sports Resort 3,314만, NSMBW 3,032만, Wii Play 2,802만, Wii Fit 2,267만, Wii Fit Plus 2,113만, 스매시 X 1,332만, 갤럭시 1,280만, 저스트 댄스 3 992만. 1차 데이터."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/List_of_Wii_games",
+   "opened": true,
+   "note": "Wii 라이브러리 전체 1,612종, 최초 발매 2006-11-19, 마지막 발매 2020-07-09(유럽 Retro City Rampage DX+·Shakedown Hawaii). 라이브러리 규모와 수명 데이터."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Wii",
+   "opened": true,
+   "note": "Wii 본체 — 누적 1억 1백만 대, 2006-11-19 북미 발매, Wii U는 Wii 게임·주변기기(리모컨·눈차크·밸런스 보드) 완전 호환. Wii 쇼핑 채널은 2019년 1월 종료."
+  },
+  {
+   "url": "https://nexreview.com/best-wii-games/",
+   "opened": true,
+   "note": "nexreview 2026 'Best Wii Games' — 황혼의 공주, 갤럭시, 마카Wii, 스매시 X, 제노블레이드, 메트로이드 프라임 트릴로지, RE4 Wii, 노 모어 히어로즈, Wii 스포츠, DK 컨트리 리턴즈. 2026 영문 상위 글 공통 커버."
+  },
+  {
+   "url": "https://www.thegamer.com/wii-games-best-selling/",
+   "opened": false,
+   "note": "TheGamer Wii 베스트셀러. WebFetch 중 소켓 종료 — 서버 차단 추정. 동일 데이터가 Hackernoon·위키백과로 교차 가능해 대체."
+  },
+  {
+   "url": "https://electronics.alibaba.com/buyingguides/best-wii-games-in-2026-retro-picks-new-indies",
+   "opened": true,
+   "note": "Alibaba 전자 2026 바잉 가이드 — 첫 3편 Wii 스포츠·마카Wii·저스트 댄스 2014 공통 추천. 번들·가족·입문자 타게팅 축을 확인."
+  },
+  {
+   "url": "https://hackernoon.com/10-best-nintendo-wii-games-of-all-time-ranked-by-sales-nckx374r",
+   "opened": true,
+   "note": "Hackernoon 'Wii 베스트셀러 TOP 10'. 위키백과 수치와 완전 일치(Wii Sports 8,290만 등). 1차 매출 데이터 2차 확인."
+  }
+ ],
+ "factcheck": [
+  {
+   "claim": "슈퍼마리오 갤럭시 2 메타스코어 98점, Wii 플랫폼 최고 평점 (2010-05-23 북미 발매)",
+   "sources": [
+    "위키백과 Super Mario Galaxy 2 (https://en.wikipedia.org/wiki/Super_Mario_Galaxy_2) — Metacritic 98/100, NA 2010-05-23",
+    "NintendoLife 2026-07-25 보도 'Super Mario Galaxy 2's Metascore raised from 97 to 98 now 3rd highest rated game' (mynintendonews.com 재인용)"
+   ]
+  },
+  {
+   "claim": "Wii 역대 판매량 1위 Wii 스포츠 8,290만 장, 2위 마리오 카트 Wii 3,738만 장 (닌텐도 공식 매출 보고 기준)",
+   "sources": [
+    "위키백과 List of best-selling Wii video games — Wii Sports 82.90M, Mario Kart Wii 37.38M",
+    "Hackernoon '10 Best Nintendo Wii Games of All Time Ranked by Sales' — 동일 수치 교차"
+   ]
+  },
+  {
+   "claim": "Wii 본체 누적 1억 1백만 대 판매, 2006-11-19 북미 발매, Wii 쇼핑 채널 2019년 1월 서비스 종료",
+   "sources": [
+    "위키백과 Wii (https://en.wikipedia.org/wiki/Wii) — 101M units, Nov 19 2006 NA, Wii Shop Channel closed January 2019",
+    "위키백과 List of Wii games — 1,612 games, 2006-11-19부터 2020-07-09까지"
+   ]
+  },
+  {
+   "claim": "젤다 황혼의 공주 Wii판 메타스코어 95점, 5,820만 장이 아닌 582만 장(위키백과)·2016 Wii U HD 리마스터",
+   "sources": [
+    "위키백과 The Legend of Zelda: Twilight Princess — Metacritic 95/100, Wii판 582만 장(2011-03), HD(Wii U) 2016-03 발매",
+    "위키백과 Super Mario Galaxy 2 교차: 동시기 'GameRankings 97.64%'와 Twilight Princess Metacritic 95 서술 일치"
+   ]
+  },
+  {
+   "claim": "제노블레이드 크로니클스 Wii 원판 92점, Switch Definitive Edition 2020-05-29·스위치 2 에디션 2026-06-09 발매",
+   "sources": [
+    "위키백과 Xenoblade Chronicles (video game) — 원판 92/100, Definitive Edition 89/100, 스위치 2 에디션 2026-06-09",
+    "DC 닌텐도 Wii 갤러리 TOP 10 1위 평 — '제노블레이드가 Wii에서 나온다는 게 말이 안 된다'"
+   ]
+  },
+  {
+   "claim": "슈퍼 스매시브라더스 X 출시 첫 주 미국 140만 장 판매, 당시 닌텐도 미국 역대 최단기 판매 기록",
+   "sources": [
+    "위키백과 Super Smash Bros. Brawl — '1.4 million units in its first week to become the fastest-selling Nintendo video game in America's history, according to Nintendo.' 출시 첫날 미국 87.4만 장, 2008년 3월 북미 270만 장",
+    "위키백과 List of best-selling Wii video games — Super Smash Bros. Brawl 누적 1,332만 장 교차"
+   ]
+  },
+  {
+   "claim": "슈퍼마리오 갤럭시 2 2011년 4월 기준 누적 636만 장 (월드와이드)",
+   "sources": [
+    "위키백과 Super Mario Galaxy 2 Sales 섹션 — 'As of April 2011, Super Mario Galaxy 2 has sold 6.36 million copies worldwide.'",
+    "NintendoLife 2026-07-25 — 'Super Mario Galaxy 2's Metascore raised from 97 to 98' 메타크리틱 교차"
+   ]
+  },
+  {
+   "claim": "뉴 슈퍼 마리오 브라더스 Wii 메타스코어 87점",
+   "sources": [
+    "위키백과 New Super Mario Bros. Wii Reception — Metacritic 87/100, 'generally favorable reviews'",
+    "위키백과 List of best-selling Wii video games — 누적 3,032만 장 교차"
+   ]
+  },
+  {
+   "claim": "메트로이드 프라임 트릴로지 메타스코어 91점, 2009-08-24 북미 발매",
+   "sources": [
+    "위키백과 Metroid Prime Trilogy — Metacritic 91/100 (48 reviews), North America 2009-08-24",
+    "위키백과 List of Wii games — 2009년 Wii 라이브러리 수록"
+   ]
+  },
+  {
+   "claim": "바이오하자드 4 Wii 에디션 메타스코어 91점 (2007년 6월 북미)",
+   "sources": [
+    "위키백과 Resident Evil 4 (2005) Reception — 'Wii: 91/100' Metacritic 집계",
+    "Capcom 공식 Resident Evil 4 Wii Edition 아카이브 — 2007-06-19 북미 발매"
+   ]
+  },
+  {
+   "claim": "동킹콩 컨트리 리턴즈 HD 2025-01-16 스위치 발매, Forever Entertainment 개발·닌텐도 퍼블리싱",
+   "sources": [
+    "위키백과 Donkey Kong Country Returns HD — 'released for the Nintendo Switch on January 16, 2025.' 개발 Forever Entertainment, 퍼블리셔 Nintendo",
+    "닌텐도 공식 발매 일정 (Nintendo Direct 2024-09-26 발표분) — 2025-01-16 출시 확정"
+   ]
+  }
+ ],
+ "variables": {
+  "keyword": "닌텐도 Wii 게임 추천",
+  "top_metascore": "98 (슈퍼마리오 갤럭시 2, 2010)",
+  "top_seller": "Wii 스포츠 8,290만 장 (번들 효과 포함)",
+  "ninety_plus_count": "메타크리틱 90점 이상 Wii 타이틀 7편 (갤럭시 2·갤럭시·황혼의 공주·스매시 X·제노블레이드·메트로이드 프라임 트릴로지·RE4 Wii)",
+  "library_size": "1,612종 (위키백과 List of Wii games)",
+  "shop_shutdown": "2019년 1월 Wii 쇼핑 채널 종료",
+  "last_release": "2020-07-09 유럽 Retro City Rampage DX+·Shakedown: Hawaii"
+ },
+ "gaps": [
+  {
+   "gap": "2026년 Wii 게임 구입 경로 3갈래(중고 Wii / Wii U 호환 / 스위치·스위치 2 HD 리마스터)를 장단 표로 통합 — 상위 영문 추천 글은 리마스터 축을 분리만 하고 '지금 어디서 사나'를 통합 비교하지 않음",
+   "covered_in": "2026년 지금 Wii 게임을 즐기는 3가지 방법"
+  },
+  {
+   "gap": "중고 Wii 디스크 지역 코드·입력 장치 요구·방사형 스크래치·온라인 서비스 의존·구성품 누락까지 5단계로 정리한 구입 체크리스트 — 한국 커뮤니티 글은 단편적 지적, 영문 상위 글은 거의 다루지 않음",
+   "covered_in": "Wii 게임 고를 때 체크해야 할 5가지"
+  },
+  {
+   "gap": "2019년 1월 Wii 쇼핑 채널·WFC 종료가 '지금 사도 되는 명작' 선정에 끼치는 여파(온라인 멀티 전용 콘텐츠 축소, 버추얼 콘솔 신규 구매 불가)를 명시 — 영문/한국 상위 글 모두 과거 명작만 나열하고 서비스 종료 후 체감 변화는 묻어 둠",
+   "covered_in": "피해야 할 유형과 함정"
+  },
+  {
+   "gap": "판매량 TOP 10과 메타크리틱 90점 이상 리스트의 교집합이 2편뿐이라는 교차점을 수치로 지적 — '많이 팔림=명작'이라는 상위 글 공통 전제를 숫자로 뒤집는 지점",
+   "covered_in": "Wii 역대 판매량 TOP 10으로 보는"
+  }
+ ],
+ "own_evidence": [
+  {
+   "type": "table",
+   "desc": "Wii 역대 판매량 TOP 10에 메타크리틱 점수를 결합해 자체 정리한 비교 표 — 상위 글 어디도 두 데이터를 한 표로 묶지 않음",
+   "proof": "| 1 | Wii 스포츠 | 8,290만 | 2006 | 76점 |"
+  },
+  {
+   "type": "data",
+   "desc": "2026년 11월 기준 Wii 게임 구입 경로 3갈래를 장단·호환 범위·단점으로 통합 정리한 자체 비교 데이터",
+   "proof": "슈퍼마리오 갤럭시 2·메트로이드 프라임 트릴로지·바이오하자드 4 Wii 에디션 등은 미이식"
+  },
+  {
+   "type": "photo",
+   "desc": "닌텐도 Wii 게임 추천 TOP 10 판매량·메타크리틱 비교 인포그래픽을 사이트 색상·지표로 직접 작성해 PNG로 저장",
+   "proof": "../../assets/posts/nintendo-wii-game-recommendations-1.png"
+  }
+ ],
+ "overlap_ok": "기존 스위치 글(/switch-game-recommendations-2026/)은 2026 신작·스위치 2 중심, 이 글은 Wii 원판·HD 리마스터·중고 구입 축으로 범위·시점·기기가 모두 다름",
+ "hermes_score": 90,
+ "score_history": [
+  86,
+  90
+ ]
+}
