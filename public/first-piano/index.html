@@ -122,6 +122,9 @@ input,textarea{-webkit-user-select:text;user-select:text}
 
 <script>
 const SONGS=[
+ {id:'steps',lv:'first',title:'계단 오르내리기',en:'Up and Down the Stairs',bpm:90,s:'C4 D4 E4 F4 G4:2 R G4 F4 E4 D4 C4:2 R C4 D4 E4 F4 G4:2 R G4 F4 E4 D4 C4:3'},
+ {id:'thumb',lv:'first',title:'엄지와 새끼',en:'Thumb and Pinky',bpm:90,s:'C4 C4 G4:2 C4 C4 G4:2 G4 G4 C4:2 G4 G4 C4:2 C4 E4 G4:2 G4 E4 C4:3'},
+ {id:'echo',lv:'first',title:'메아리',en:'Echo',bpm:90,s:'C4 E4 G4:2 C4 E4 G4:2 G4 F4 E4 D4 C4:2 R E4 F4 G4:2 E4 F4 G4:2 G4 F4 E4 D4 C4:3'},
  {id:'buns',lv:'easy',title:'핫 크로스 번',en:'Hot Cross Buns',bpm:100,s:'E4 D4 C4:2 E4 D4 C4:2 C4:0.5 C4:0.5 C4:0.5 C4:0.5 D4:0.5 D4:0.5 D4:0.5 D4:0.5 E4 D4 C4:2'},
  {id:'moon',lv:'easy',title:'달빛 아래서',en:'Au Clair de la Lune',bpm:96,s:'C4 C4 C4 D4 E4:2 D4:2 C4 E4 D4 D4 C4:4 C4 C4 C4 D4 E4:2 D4:2 C4 E4 D4 D4 C4:4'},
  {id:'jacques',lv:'easy',title:'자크 형제',en:'Frère Jacques',bpm:100,s:'C4 D4 E4 C4 C4 D4 E4 C4 E4 F4 G4:2 E4 F4 G4:2 G4:0.5 A4:0.5 G4:0.5 F4:0.5 E4 C4 G4:0.5 A4:0.5 G4:0.5 F4:0.5 E4 C4 C4 G3 C4:2 C4 G3 C4:2'},
@@ -130,6 +133,8 @@ const SONGS=[
  {id:'london',lv:'easy',title:'런던 다리',en:'London Bridge',bpm:100,s:'G4:1.5 A4:0.5 G4 F4 E4 F4 G4:2 D4 E4 F4:2 E4 F4 G4:2 G4:1.5 A4:0.5 G4 F4 E4 F4 G4:2 D4:2 G4:2 E4 C4:3'},
  {id:'mac',lv:'easy',title:'맥도날드 할아버지',en:'Old MacDonald',bpm:100,s:'C4 C4 C4 G3 A3 A3 G3:2 E4 E4 D4 D4 C4:3 G3 C4 C4 C4 G3 A3 A3 G3:2 E4 E4 D4 D4 C4:4'},
  {id:'plane',lv:'easy',title:'비행기',en:'Mary Had a Little Lamb',bpm:96,s:'E4 D4 C4 D4 E4 E4 E4:2 D4 D4 D4:2 E4 G4 G4:2 E4 D4 C4 D4 E4 E4 E4 E4 D4 D4 E4 D4 C4:4'},
+ {id:'oldman',lv:'easy',title:'이 할아버지',en:'This Old Man',bpm:100,s:'G4 E4 G4:2 G4 E4 G4:2 A4 G4 F4 E4 D4 E4 F4:2 E4 F4 G4 C4 C4 C4:0.5 C4:0.5 C4:0.5 D4:0.5 E4:0.5 F4:0.5 G4:2 G4 D4 D4 F4 E4 D4 C4:2'},
+ {id:'kumbaya',lv:'easy',title:'쿰바야',en:'Kumbaya',bpm:84,s:'C4 E4 G4:2 G4 A4 A4 G4:2 C4 E4 G4:2 G4 F4 E4 D4:3 C4 E4 G4:2 G4 A4 A4 G4:2 F4 E4 D4 D4 C4:4'},
  {id:'butterfly',lv:'mid',title:'나비야',en:'Little Hans',bpm:96,s:'G4 E4 E4:2 F4 D4 D4:2 C4 D4 E4 F4 G4 G4 G4:2 G4 E4 E4:2 F4 D4 D4:2 C4 E4 G4 G4 C4:4 D4 D4 D4 D4 D4 E4 F4:2 E4 E4 E4 E4 E4 F4 G4:2 G4 E4 E4:2 F4 D4 D4:2 C4 E4 G4 G4 C4:4'},
  {id:'yankee',lv:'mid',title:'양키 두들',en:'Yankee Doodle',bpm:110,s:'C4 C4 D4 E4 C4 E4 D4 G3 C4 C4 D4 E4 C4:2 B3:2 C4 C4 D4 E4 F4 E4 D4 C4 B3 G3 A3 B3 C4:2 C4:2'},
  {id:'saints',lv:'mid',title:'성자들의 행진',en:'When the Saints Go Marching In',bpm:110,s:'C4 E4 F4 G4:4 R C4 E4 F4 G4:4 R C4 E4 F4 G4:2 E4:2 C4:2 E4:2 D4:4 E4 E4 D4 C4:3 C4 E4 G4:2 G4 F4:3 E4 F4 G4:2 E4:2 C4:2 D4:2 C4:4'},
@@ -137,8 +142,11 @@ const SONGS=[
  {id:'jingle',lv:'mid',title:'징글벨',en:'Jingle Bells',bpm:110,s:'E4 E4 E4:2 E4 E4 E4:2 E4 G4 C4:1.5 D4:0.5 E4:4 F4 F4 F4:1.5 F4:0.5 F4 E4 E4 E4:0.5 E4:0.5 E4 D4 D4 E4 D4:2 G4:2 E4 E4 E4:2 E4 E4 E4:2 E4 G4 C4:1.5 D4:0.5 E4:4 F4 F4 F4:1.5 F4:0.5 F4 E4 E4 E4:0.5 E4:0.5 G4 G4 F4 D4 C4:4'},
  {id:'amazing',lv:'mid',title:'놀라운 은혜',en:'Amazing Grace',bpm:84,s:'G3 C4:2 E4:0.5 C4:0.5 E4:2 D4 C4:2 A3 G3:2 G3 C4:2 E4:0.5 C4:0.5 E4:2 D4 G4:5 E4 G4:1.5 E4:0.5 G4:0.5 E4:0.5 C4:2 G3 A3:1.5 C4:0.5 C4:0.5 A3:0.5 G3:2 G3 C4:2 E4:0.5 C4:0.5 E4:2 D4 C4:5'},
  {id:'silent',lv:'mid',title:'고요한 밤',en:'Silent Night',bpm:72,s:'G4:1.5 A4:0.5 G4 E4:3 G4:1.5 A4:0.5 G4 E4:3 D5:2 D5 B4:3 C5:2 C5 G4:3 A4:2 A4 C5:1.5 B4:0.5 A4 G4:1.5 A4:0.5 G4 E4:3 A4:2 A4 C5:1.5 B4:0.5 A4 G4:1.5 A4:0.5 G4 E4:3 D5:2 D5 F5:1.5 D5:0.5 B4 C5:3 E5:3 C5 G4 E4 G4:1.5 F4:0.5 D4 C4:6'},
+ {id:'susanna',lv:'mid',title:'오! 수재너',en:'Oh! Susanna',bpm:110,s:'C4 D4 E4 G4 G4:1.5 A4:0.5 G4 E4 C4 D4:1.5 E4:0.5 E4 D4 C4 D4:3 C4 D4 E4 G4 G4:1.5 A4:0.5 G4 E4 C4 D4:1.5 E4:0.5 E4 D4 D4 C4:3 R F4:2 F4 A4 A4:2 A4 G4 G4 E4 C4 D4:3 C4 D4 E4 G4 G4:1.5 A4:0.5 G4 E4 C4 D4:1.5 E4:0.5 E4 D4 D4 C4:3'},
+ {id:'brahms',lv:'mid',title:'브람스 자장가',en:"Brahms' Lullaby",bpm:84,s:'E4:0.5 E4:0.5 G4:2 E4:0.5 E4:0.5 G4:2 E4:0.5 G4:0.5 C5 B4:1.5 A4:0.5 A4 G4 D4:0.5 E4:0.5 F4 D4 D4:0.5 E4:0.5 F4:2 D4:0.5 F4:0.5 B4:0.5 A4:0.5 G4 B4 C5:3'},
  {id:'canon',lv:'mid',title:'캐논 (주제)',en:'Canon (theme)',bpm:72,s:'E5:2 D5:2 C5:2 B4:2 A4:2 G4:2 A4:2 B4:2 C5:2 B4:2 A4:2 G4:2 F4:2 E4:2 F4:2 D4:2'},
  {id:'minuet',lv:'hard',title:'미뉴에트 G장조',en:'Minuet in G',bpm:100,s:'D5 G4:0.5 A4:0.5 B4:0.5 C5:0.5 D5 G4 G4 E5 C5:0.5 D5:0.5 E5:0.5 F#5:0.5 G5 G4 G4 C5 D5:0.5 C5:0.5 B4:0.5 A4:0.5 B4 C5:0.5 B4:0.5 A4:0.5 G4:0.5 F#4 G4:0.5 A4:0.5 B4:0.5 G4:0.5 A4:3 D5 G4:0.5 A4:0.5 B4:0.5 C5:0.5 D5 G4 G4 E5 C5:0.5 D5:0.5 E5:0.5 F#5:0.5 G5 G4 G4 C5 D5:0.5 C5:0.5 B4:0.5 A4:0.5 B4 C5:0.5 B4:0.5 A4:0.5 G4:0.5 A4 B4:0.5 A4:0.5 G4:0.5 F#4:0.5 G4:3'},
+ {id:'green',lv:'hard',title:'그린슬리브스',en:'Greensleeves',bpm:90,s:'A4 C5:2 D5 E5:1.5 F5:0.5 E5 D5:2 B4 G4:1.5 A4:0.5 B4 C5:2 A4 A4:1.5 G#4:0.5 A4 B4:2 G#4 E4:2 A4 C5:2 D5 E5:1.5 F5:0.5 E5 D5:2 B4 G4:1.5 A4:0.5 B4 C5:1.5 B4:0.5 A4 G#4:1.5 F#4:0.5 G#4 A4:3'},
  {id:'elise',lv:'hard',title:'엘리제를 위하여',en:'Für Elise (opening)',bpm:80,s:'E5:0.5 D#5:0.5 E5:0.5 D#5:0.5 E5:0.5 B4:0.5 D5:0.5 C5:0.5 A4:1.5 C4:0.5 E4:0.5 A4:0.5 B4:1.5 E4:0.5 G#4:0.5 B4:0.5 C5:1.5 E4:0.5 E5:0.5 D#5:0.5 E5:0.5 D#5:0.5 E5:0.5 B4:0.5 D5:0.5 C5:0.5 A4:1.5 C4:0.5 E4:0.5 A4:0.5 B4:1.5 E4:0.5 C5:0.5 B4:0.5 A4:3'},
  {id:'bday',lv:'mid',title:'생일 축하 노래',en:'Happy Birthday',bpm:90,s:'G4:0.75 G4:0.25 A4 G4 C5 B4:2 G4:0.75 G4:0.25 A4 G4 D5 C5:2 G4:0.75 G4:0.25 G5 E5 C5 B4 A4:2 F5:0.75 F5:0.25 E5 C5 D5 C5:2'}
 ];
@@ -151,7 +159,7 @@ const T={
   typeHelp:'도 레 미 파 솔 라 시로 적어요. 한 글자가 한 박자, ~는 한 박자 더 길게, 높은도는 위쪽 도예요. 괄호가 있으면 괄호 안 계이름만 읽어요. 이 곡은 이 기기에만 저장돼요.',
   songName:'곡 이름',typeEx:'도도솔솔 라라솔~ 파파미미 레레도~',cancel:'취소',addSong:'곡 넣기',done:'다 쳤어요!',again:'한 번 더',faster:'조금 빠르게',
   footer:'막대 위 동그라미 숫자는 오른손 손가락이에요. 1 엄지, 2 검지, 3 가운데, 4 약지, 5 새끼. ▶ 시작을 누르면 막대가 자동으로 떨어져요. 노란 줄에 닿을 때 같은 색 건반을 치면 돼요. 반복을 켜면 끝나도 처음부터 계속 흘러가요. \'한 음씩 기다리기\'로 바꾸면 막대가 멈춰서 기다려요. 수록곡은 모두 저작권이 끝난 옛날 노래와 클래식이에요. 악보는 이 앱에서 새로 옮겨 적었어요.',
-  lv:{easy:'쉬움',mid:'보통',hard:'어려움',mine:'내 곡'},chooseSong:'곡 고르기',streak:n=>`🔥 ${n}일 연속`,streakTip:'연속으로 연습한 날',
+  lv:{first:'첫걸음',easy:'쉬움',mid:'보통',hard:'어려움',mine:'내 곡'},chooseSong:'곡 고르기',streak:n=>`🔥 ${n}일 연속`,streakTip:'연속으로 연습한 날',
   more:n=>`빠르기를 ${n===1?'0.5배':'0.75배'} 이상으로 올리면 별을 더 받아요.`,best:'최고예요! 별 3개!',
   newSticker:s=>`오늘의 스티커를 받았어요 ${s}`,countToday:(c,s)=>`오늘 ${c}곡째 연습했어요 ${s}`,
   days:['일','월','화','수','목','금','토'],today:'오늘',next:n=>`다음: ${n}`,pressNow:n=>`이제 ${n}를 눌러요`,
@@ -164,7 +172,7 @@ const T={
   typeHelp:'Write C D E F G A B (or do re mi fa sol la ti). Each note is one beat, ~ holds one beat longer, C5 is the high C. If there are brackets, only the notes inside them are read. The song stays on this device.',
   songName:'Song name',typeEx:'C C G G A A G~ F F E E D D C~',cancel:'Cancel',addSong:'Add song',done:'You did it!',again:'Play again',faster:'A bit faster',
   footer:'The number in the circle is the right-hand finger: 1 thumb, 2 index, 3 middle, 4 ring, 5 pinky. Press ▶ Start and the bars fall on their own. Play the key with the same color when a bar touches the yellow line. Turn on Repeat to keep the song going. Switch to "Wait for each note" and the bars stop and wait for you. Every built-in song is an old public-domain tune or classical piece, newly arranged for this app.',
-  lv:{easy:'Easy',mid:'Medium',hard:'Hard',mine:'My songs'},chooseSong:'Choose a song',streak:n=>`🔥 ${n}-day streak`,streakTip:'Days practiced in a row',
+  lv:{first:'First steps',easy:'Easy',mid:'Medium',hard:'Hard',mine:'My songs'},chooseSong:'Choose a song',streak:n=>`🔥 ${n}-day streak`,streakTip:'Days practiced in a row',
   more:n=>`Set the speed to ${n===1?'0.5×':'0.75×'} or more to earn more stars.`,best:'Amazing! 3 stars!',
   newSticker:s=>`You got today's sticker ${s}`,countToday:(c,s)=>`Song number ${c} today ${s}`,
   days:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],today:'Today',next:n=>`Next: ${n}`,pressNow:n=>`Now press ${n}`,
@@ -347,7 +355,7 @@ const songsEl=$('songSel');
 const groups={};
 function buildSongList(){
  songsEl.textContent='';
- ['easy','mid','hard','mine'].forEach(lv=>{const g=document.createElement('optgroup');g.label=t('lv')[lv];groups[lv]=g;songsEl.appendChild(g)});
+ ['first','easy','mid','hard','mine'].forEach(lv=>{const g=document.createElement('optgroup');g.label=t('lv')[lv];groups[lv]=g;songsEl.appendChild(g)});
  SONGS.forEach(addOption);
  songsEl.value=st.song.id;songsEl.setAttribute('aria-label',t('chooseSong'));
 }
