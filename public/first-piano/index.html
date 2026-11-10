@@ -230,7 +230,7 @@ function load(song){
  $('ovTitle').textContent=songTitle(song);$('ovSub').textContent=t('ovSub');$('startOv').hidden=false;$('doneOv').hidden=true;setPlayLabel();
  store.set('song',song.id);resize();
 }
-function setPlayLabel(){$('play').textContent=st.playing?t('pause'):t('play')}
+function setPlayLabel(){$('play').textContent=st.playing?t('pause'):t('play');$('ovPlay').textContent=t('play')}
 function play(){audio();$('startOv').hidden=true;$('doneOv').hidden=true;if(st.done){restart();}st.playing=true;setPlayLabel();try{navigator.wakeLock&&navigator.wakeLock.request('screen').catch(()=>{})}catch(e){}}
 function pause(){st.playing=false;setPlayLabel()}
 function restart(){st.beat=-4;st.next=0;st.waiting=false;st.done=false;st.ev.forEach(e=>e.ok=false);st.flash={}}
