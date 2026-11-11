@@ -1,0 +1,322 @@
+{
+ "slug": "mobile-tcg-game-recommendations",
+ "topic": "모바일 tcg 게임 추천",
+ "type": "review",
+ "structure": "비교선택",
+ "variables": {
+  "keyword": "모바일 tcg 게임 추천",
+  "headline_finding": "포켓몬 TCG 포켓 1억 다운로드·마블 스냅 2.18억 달러 매출·유희왕 마스터듀얼 Steam 262K 동접이 2026년 모바일 TCG 추천 Best 10의 뼈대",
+  "target_audience": "입문·경쟁·수집 목적별로 어떤 모바일 TCG를 깔지 비교하고 싶은 플레이어",
+  "best_5_bias": "포켓몬 TCG 포켓(수집)·마블 스냅(짧은 경쟁)·유희왕 마스터듀얼(원작)·하스스톤(심층)·Slay the Spire(오프라인) 한 조합씩 교차 조립",
+  "release_dates": {
+   "pokemon_tcg_pocket": "2024-10-30",
+   "marvel_snap": "2022-10-18",
+   "yugioh_master_duel_mobile": "2022-01-27",
+   "hearthstone_smartphone": "2015-04-16",
+   "legends_of_runeterra": "2020-04",
+   "shadowverse_wb": "2025-06-17",
+   "genius_invokation": "2022-12-07",
+   "clash_royale": "2016-03-02",
+   "slay_the_spire_mobile": "2020-06",
+   "balatro_mobile": "2024-09"
+  },
+  "lifetime_metrics": {
+   "pokemon_tcg_pocket_downloads": "100M+ (Sensor Tower 2026-02)",
+   "pokemon_tcg_pocket_revenue_15y": "$1.6B (Pocket Gamer.biz 2026)",
+   "marvel_snap_lifetime_revenue": "$218M (Udonis 2026)",
+   "marvel_snap_total_downloads": "32.2M (Udonis 2026)",
+   "yugioh_master_duel_two_weeks": "10M+ downloads",
+   "yugioh_master_duel_steam_peak": "262,333 concurrent (Wikipedia)",
+   "hearthstone_accounts_2018": "100M+ accounts (Blizzard 2018-11)",
+   "hearthstone_active_2020": "20M+ active players (Blizzard 2020)"
+  },
+  "korea_signals": "포켓몬 TCG 포켓 한국 다운로드 점유율 3%·아시아 2위, 매출 11위(센서타워 2024-12)"
+ },
+ "serp": [
+  {
+   "url": "https://www.mistplay.com/blog/mobile-tcg-games",
+   "opened": true,
+   "note": "Best 10 mobile TCG — Marvel Snap·Black Deck·Clash Royale 설명. 좁은 CCG 중심 리스트."
+  },
+  {
+   "url": "https://www.pockettactics.com/best-mobile-card-games",
+   "opened": false,
+   "note": "HTTP 403. Pocket Tactics 상위 추천 글이지만 서버 차단으로 열람 실패."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Marvel_Snap",
+   "opened": true,
+   "note": "출시일 2022-10-18, Second Dinner 개발, 2024년 2,200만 DL·2억 달러 매출, 메타크리틱 85점, Game Awards 2022 Best Mobile."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Trading_Card_Game_Pocket",
+   "opened": true,
+   "note": "2024-10-30 글로벌 출시, 2025년 2월 $500M 매출, 100M+ 다운로드, Creatures·DeNA 개발."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Hearthstone",
+   "opened": true,
+   "note": "2014-03-11 PC, 2015-04-16 스마트폰, 2018년 11월 1억 계정, 2020년 2,000만+ 활성."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Master_Duel",
+   "opened": true,
+   "note": "2022-01-19 콘솔·PC, 2022-01-27 모바일, 2주 내 1,000만 DL, Steam 첫 주 262,333 동시접속."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Genius_Invokation_TCG",
+   "opened": true,
+   "note": "2022-12-07 원신 3.3 영구 모드, 캐릭터 3장+액션 30장 덱, 2024-11-08 중국 실물 카드 발매."
+  },
+  {
+   "url": "https://techbuzzireland.com/2026/08/08/the-12-best-free-mobile-games-to-play-in-2026/",
+   "opened": true,
+   "note": "Marvel Snap · Pokémon TCG Pocket · Hearthstone 모바일 비교 요약. F2P/시즌 패스 가격."
+  },
+  {
+   "url": "https://tech-insider.org/pokemon-tcg-pocket-vs-mtg-arena-vs-hearthstone-2026/",
+   "opened": true,
+   "note": "2026년 매출 비교: 포켓몬 TCG 포켓 $1.49B·하스스톤 $950M+. F2P 친화 순위 — LoR > 하스스톤 > MTG Arena 식."
+  },
+  {
+   "url": "https://www.blog.udonis.co/top-games/games-like-hearthstone",
+   "opened": true,
+   "note": "하스스톤 대안 10선. LoR·Shadowverse·Eternal·Master Duel·Slay the Spire·Monster Train 등 분류."
+  },
+  {
+   "url": "https://bestforandroid.com/guide/betting/best-card-games/",
+   "opened": true,
+   "note": "Android 2026 카드게임 가이드 — Marvel Snap 4.2점·Pokemon TCG Pocket 4.5점·Balatro/Slay the Spire 4.8점."
+  },
+  {
+   "url": "https://www.fixgamingchannel.com/best-mobile-games-2026-ios-android/",
+   "opened": true,
+   "note": "2026 모바일 게임 15선에 Pokemon TCG Pocket 3위, Marvel Snap 10위."
+  },
+  {
+   "url": "https://wecoach.gg/blog/article/10-card-games-like-hearthstone-you-should-try-in-2026",
+   "opened": true,
+   "note": "하스스톤 대안 10선 표 — LoR·Marvel Snap·Pokemon TCG·Gwent·MTG Arena·Shadowverse·Eternal·Slay the Spire·Master Duel·Clash Royale."
+  },
+  {
+   "url": "https://www.blog.udonis.co/statistics/marvel-snap",
+   "opened": true,
+   "note": "Marvel Snap 2026 통계 — 라이프타임 $218M 매출·32.2M DL·2026년 5월 DAU 27만·MAU 120만·월 DL 98% 하락."
+  },
+  {
+   "url": "https://sensortower.com/blog/pokemon-tcg-pocket-100-million-downloads",
+   "opened": true,
+   "note": "2026년 2월 1억 DL 돌파. '#1 Top Grossing Card Battler of all time'. 포켓몬 IP 2026 인앱 매출 37%."
+  },
+  {
+   "url": "https://sensortower.com/ko/blog/Pokemon-TCG-Pocket-achieves-40-million-downloads-worldwide",
+   "opened": true,
+   "note": "출시 50일 4천만 DL·누적 $300M. 한국 다운로드 3%·매출 11위·RPD $7."
+  },
+  {
+   "url": "https://playruneterra.com/en-us/news/community/a-letter-from-the-lor-team/",
+   "opened": true,
+   "note": "Riot 공식 2024-01 'A Letter from the LoR Team' 축소 공지. 'LoR cost significantly more to develop and support than it earned' 원문."
+  },
+  {
+   "url": "https://www.bulbagarden.net/news/2026/09/pokemon-tcg-pocket-mau-drop/",
+   "opened": true,
+   "note": "bulbagarden 2026-09 리포트 — 포켓몬 TCG 포켓 MAU 전년 동기 3,900만 → 2,300만(센서타워 재인용)."
+  },
+  {
+   "url": "https://mobilegamer.biz/pokemon-tcg-pocket-revenue-slide-2026/",
+   "opened": true,
+   "note": "mobilegamer.biz 2026-09 보도 — 상반기 월 매출 $25M → 하반기 $20M 하락. bulbagarden MAU 수치 재인용."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Magic:_The_Gathering_Arena",
+   "opened": true,
+   "note": "MTG Arena — Wizards of the Coast, 2019년 9월 정식(PC), 2022년 iOS/Android. 60장 덱·같은 카드 4장 제한."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Monster_Train",
+   "opened": true,
+   "note": "Monster Train(Shiny Shoe) 2020-05 PC 스팀, 2022 Switch, 2023 모바일. 메타크리틱 Switch 82점. Monster Train 2 2025-05 PC 출시."
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Gwent:_The_Witcher_Card_Game",
+   "opened": true,
+   "note": "Gwent(CD Projekt Red) 2018 정식. 2023 Homecoming 이후 라이브 운영 종료, 커뮤니티 Project Golem 전환."
+  }
+ ],
+ "factcheck": [
+  {
+   "claim": "포켓몬 TCG 포켓 2024-10-30 글로벌 출시, 2026년 2월 센서타워 집계 1억 다운로드 돌파, 1.5년 누적 매출 16억 달러",
+   "sources": [
+    "Wikipedia Pokémon Trading Card Game Pocket (worldwide release October 30, 2024)",
+    "Sensor Tower blog 2026-02 — 'Pokémon TCG Pocket Hits 100M Downloads'",
+    "Pocket Gamer.biz 2026 — Pokémon TCG Pocket makes $1.6bn in 1.5 years"
+   ]
+  },
+  {
+   "claim": "포켓몬 TCG 포켓 MAU 전년 동기 3,900만 → 2,300만(41% 하락), 월 매출 상반기 $25M → 하반기 $20M",
+   "sources": [
+    "bulbagarden 2026-09월 리포트(센서타워 재인용) — 원수치",
+    "mobilegamer.biz 2026-09월 'Pokemon TCG Pocket revenue slide' 보도 — bulbagarden 수치 재인용 및 월 매출 하락 보고"
+   ]
+  },
+  {
+   "claim": "포켓몬 TCG 포켓이 2026년 포켓몬 IP 인앱 매출의 약 37%·포켓몬 IP 자체가 모바일 게임 매출 전역 3위",
+   "sources": [
+    "Sensor Tower 'Pokémon TCG Pocket Hits 100M Downloads' 보고서(2026-02 발행) — 37% 및 Top Mobile Game IPs 섹션 3위",
+    "sensortower.com/blog/pokemon-tcg-pocket-100-million-downloads (동일 보고서 웹 공개 페이지)"
+   ]
+  },
+  {
+   "claim": "마블 스냅 2022-10-18 iOS/Android 출시, Second Dinner 개발, 라이프타임 매출 2.18억 달러·총 다운로드 3,220만, 메타크리틱 iOS 85점, Game Awards 2022 Best Mobile 수상, Ben Brode 'elevator ride' 설계 의도",
+   "sources": [
+    "Wikipedia Marvel Snap (release date, developer, awards, Metacritic 85)",
+    "Udonis blog — Marvel Snap Stats 2026 (lifetime $218M·32.2M downloads)",
+    "Second Dinner 블로그 2022-10 'Welcome to Marvel Snap' 포스트 및 D.I.C.E. Summit 2023 기조 (Ben Brode 공식 설계 의도)"
+   ]
+  },
+  {
+   "claim": "유희왕 마스터듀얼 2022-01-27 모바일 출시, 코나미 개발, 출시 2주 만에 1,000만 다운로드·Steam 첫 주 262,333명 동시접속",
+   "sources": [
+    "Wikipedia Yu-Gi-Oh! Master Duel (release dates, 10M downloads by Feb 6)",
+    "Steam 한국 스토어 페이지 app/1449850 (무료 플레이·앱 내 구입 표기, Konami)"
+   ]
+  },
+  {
+   "claim": "하스스톤 2015-04-16 iOS/Android 스마트폰 출시, 2018년 11월 1억 계정, 2020년 활성 2,000만+, 2026년 연 매출 $950M+·포켓몬 TCG 포켓 라이프타임 $1.49B 대비 약 2/3 수준",
+   "sources": [
+    "Wikipedia Hearthstone (release dates, account/player milestones)",
+    "tech-insider.org 2026 'Pokemon TCG Pocket vs MTG Arena vs Hearthstone' — $1.49B / $950M+ 비교"
+   ]
+  },
+  {
+   "claim": "MTG Arena 2019년 9월 정식 출시(PC), 2022년 iOS/Android, 60장 덱·같은 카드 4장 제한, F2P 메타 덱 완성 가장 어려움",
+   "sources": [
+    "Wikipedia Magic: The Gathering Arena (release dates, deck format)",
+    "tech-insider.org 2026 'Pokemon TCG Pocket vs MTG Arena vs Hearthstone' — Wildcards·F2P 커브 평가"
+   ]
+  },
+  {
+   "claim": "Legends of Runeterra 2024-01 라이엇 공식 축소 공지, 2026-10-07 패치 7.10 Shen 추가로 유지 운영",
+   "sources": [
+    "playruneterra.com/news/community/a-letter-from-the-lor-team 공식 2024-01 'A Letter from the LoR Team'",
+    "playruneterra.com 2026-10 패치 7.10 뉴스"
+   ]
+  },
+  {
+   "claim": "섀도우버스 Worlds Beyond 2025-06-17 App Store·Google Play·Steam·Epic 동시 글로벌 출시, 사전등록 — Cygames 공식 150만+ / noisypixel 100만+ (두 출처 상충, 둘 다 명시)",
+   "sources": [
+    "Cygames 공식 cygames.co.jp/en/news/id-24435 — 150만 이상 사전등록",
+    "noisypixel.net — Shadowverse WB surpasses one million pre-registrations (100만 돌파 시점)"
+   ]
+  },
+  {
+   "claim": "Monster Train 2020-05 PC 스팀 출시, 2022 Switch, 2023 iOS/Android 모바일, 메타크리틱 Switch 82점, Monster Train 2는 2025-05 Shiny Shoe 공식 발표로 PC 출시",
+   "sources": [
+    "Wikipedia Monster Train (release dates, Metacritic)",
+    "Shiny Shoe 공식 2025 발표 — Monster Train 2 PC 출시"
+   ]
+  },
+  {
+   "claim": "Gwent(CD Projekt Red) 2018 정식 출시, 2023 Homecoming 이후 라이브 운영 종료 → 커뮤니티 Project Golem로 전환",
+   "sources": [
+    "Wikipedia Gwent: The Witcher Card Game",
+    "CD Projekt Red 공식 2023 발표 — Gwent 라이브 운영 종료 안내"
+   ]
+  },
+  {
+   "claim": "포켓몬 TCG 포켓 한국 다운로드 점유율 3%·아시아 2위, 매출 규모 세계 11위, 사용자 25~34세 48%",
+   "sources": [
+    "Sensor Tower 한국 블로그 2024-12 — 포켓몬 카드 게임 Pocket 4천만 다운로드",
+    "포켓몬코리아 공식 페이지 pokemonkorea.co.kr/pokemon_tcg_pocket"
+   ]
+  }
+ ],
+ "keyword_filter": {
+  "keyword": "모바일 tcg 게임 추천",
+  "competition": {
+   "method": "serp-scan",
+   "evidence": "상위 10개 중 Mistplay·Udonis·wecoach·bestforandroid·fixgamingchannel 등 중소 블로그·게임 매체가 과반. 공식기관·대형 포털·위키는 Wikipedia 게임별 문서 뿐. 신생 도메인도 콘텐츠 깊이로 승산 있음.",
+   "pass": true
+  },
+  "demand": {
+   "method": "autocomplete/serp-scan",
+   "evidence": "한국어 '모바일 TCG 게임 추천' 검색 시 상위 결과가 fixgamingchannel 한글 가이드·mistplay 한국어 번역 포함. 자동완성에 '포켓몬 TCG 포켓'·'하스스톤 모바일' 등 파생 쿼리 다수. 2024-10-30 Pokemon TCG Pocket 출시 후 수요 급증.",
+   "pass": true
+  },
+  "intent": {
+   "method": "serp-scan",
+   "evidence": "상위 10개 전원이 '추천 목록(best/top 10)' 유형. 다운로드 사이트·공식 홈·앱스토어 링크는 뒤로 밀려 있어 '정보형 추천 리스트' 의도가 선명. 거래·설치보다 비교·선택 지원이 핵심 의도.",
+   "pass": true
+  }
+ },
+ "own_evidence": [
+  {
+   "type": "data",
+   "desc": "상위 11편 모바일 TCG의 출시일·개발사·공식 집계 수치를 한 표로 묶어 비교(MTG Arena 포함)",
+   "proof": "공식 자료·메타크리틱·센서타워 집계를 교차해 아래 표로 정리됩니다"
+  },
+  {
+   "type": "table",
+   "desc": "입문·경쟁·원작·오프라인·IP·교차플랫폼 7개 상황별로 1순위·2순위·피할 선택을 매칭한 결정 표",
+   "proof": "모바일 TCG 게임 추천을 목적 4갈래로 쪼개면 선택이 단순해져요"
+  },
+  {
+   "type": "table",
+   "desc": "첫 1주일 입문자 체크리스트 6단계 — 튜토리얼·무료 팩 수령·10판 플레이·공식 가이드 1편·덱 레시피 복사·일주일 뒤 재점검",
+   "proof": "✅ 첫 1주일 입문자 체크리스트"
+  },
+  {
+   "type": "screenshot",
+   "desc": "상위 TCG 공식 수치를 담은 자체 제작 비교 인포그래픽 PNG(1200x675, 16:9)",
+   "proof": "../../assets/posts/mobile-tcg-game-recommendations-1.png"
+  },
+  {
+   "type": "screenshot",
+   "desc": "목적별(입문·경쟁·원작·오프라인) 선택 플로차트와 실전 조합 3개를 담은 자체 제작 인포그래픽 PNG(16:9)",
+   "proof": "../../assets/posts/mobile-tcg-game-recommendations-2.png"
+  }
+ ],
+ "gaps": [
+  {
+   "gap": "포켓몬 TCG 포켓 MAU 41% 하락·마블 스냅 월 다운로드 98% 감소 같은 2026년 최신 시장 하락 데이터는 상위 글 대부분이 안 다룬다",
+   "covered_in": "2026년 모바일 TCG 시장이 바뀐 세 가지 — MAU 하락·IP 집중·IP 리뉴얼"
+  },
+  {
+   "gap": "한국 다운로드 점유율·한국어 공식 지원 여부(나무위키 마블스냅 한국어 더빙 등) 같은 '한국 유저용' 정보는 영어 상위 글에 아예 없다",
+   "covered_in": "Q. 한국어 공식 지원이 되는 모바일 TCG는 뭐가 있나요?"
+  },
+  {
+   "gap": "'추천 TOP 10' 나열로 끝나는 상위 글과 달리, 7개 상황별 1순위·2순위·피할 선택을 매칭한 결정 표와 첫 1주일 체크리스트가 빠져 있다",
+   "covered_in": "목적별 추천 플로차트 — 입문·경쟁·수집·오프라인"
+  },
+  {
+   "gap": "상위 글 과반이 다루는 MTG Arena·Gwent 운영 축소 흐름이 한국어 추천 글에서는 자주 빠진다",
+   "covered_in": "MTG Arena — 원작 MTG 룰·60장 덱·F2P 커브가 가장 가파름"
+  }
+ ],
+ "quotes": [
+  {
+   "source": "Sensor Tower 2026-02 보고서 'Pokémon TCG Pocket Hits 100M Downloads'",
+   "text": "Pokémon TCG Pocket hasn't yet caught up to the success of Pokémon GO"
+  },
+  {
+   "source": "Ben Brode (Second Dinner 창립자) D.I.C.E. Summit 2023 기조 / Second Dinner 블로그 2022-10 'Welcome to Marvel Snap'",
+   "text": "we wanted to make a card game you could finish on an elevator ride — three minutes, start to finish"
+  },
+  {
+   "source": "Riot Games 공식 2024-01 playruneterra.com 'A Letter from the LoR Team'",
+   "text": "LoR cost significantly more to develop and support than it earned"
+  },
+  {
+   "source": "Udonis 2026 games-like-hearthstone",
+   "text": "no mana curve system, complex combo chains"
+  }
+ ],
+ "overlap_ok": "'모바일게임 작업장 세팅'은 리니지M 매크로/수익/법적 리스크 분석이고, 이 글은 모바일 TCG 추천 Best 10이라 주제·검색의도·타깃 독자가 완전히 다릅니다. '모바일 축구게임 추천'은 축구 장르 전용 추천이고 이 글은 카드 TCG 전용 추천이라 주제가 다릅니다.",
+ "hermes_score": 89,
+ "score_history": [
+  86,
+  89
+ ]
+}
