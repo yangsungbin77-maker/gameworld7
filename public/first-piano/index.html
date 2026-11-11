@@ -67,6 +67,7 @@ input,textarea{-webkit-user-select:text;user-select:text}
     <select id="songSel" class="chip songsel"></select>
     <span class="chip streak" id="streak"></span>
     <button class="chip" id="lang" aria-label="Language">EN</button>
+    <button class="chip" id="helpBtn" aria-label="Help">?</button>
     <div class="row">
       <div class="speed">
         <span class="speed-label" data-t="speed"></span>
@@ -92,6 +93,17 @@ input,textarea{-webkit-user-select:text;user-select:text}
       <p id="ovTitle"></p>
       <small id="ovSub"></small>
       <button class="btn main" id="ovPlay"></button>
+    </div>
+    <div class="overlay" id="guideOv" hidden style="background:#121829;z-index:30">
+      <div id="guideArt" style="font-size:64px;line-height:1.1"></div>
+      <p id="guideTitle"></p>
+      <small id="guideText"></small>
+      <div id="guideDots" style="display:flex;gap:6px;justify-content:center"></div>
+      <div class="row" style="justify-content:center">
+        <button class="btn" id="guideSkip"></button>
+        <button class="btn main" id="guideNext"></button>
+      </div>
+      <small id="guideCredit" style="opacity:.55;font-size:11px"></small>
     </div>
     <div class="overlay" id="typeOv" hidden>
       <p data-t="typeTitle"></p>
@@ -148,7 +160,10 @@ const SONGS=[
  {id:'minuet',lv:'hard',title:'미뉴에트 G장조',en:'Minuet in G',bpm:100,s:'D5 G4:0.5 A4:0.5 B4:0.5 C5:0.5 D5 G4 G4 E5 C5:0.5 D5:0.5 E5:0.5 F#5:0.5 G5 G4 G4 C5 D5:0.5 C5:0.5 B4:0.5 A4:0.5 B4 C5:0.5 B4:0.5 A4:0.5 G4:0.5 F#4 G4:0.5 A4:0.5 B4:0.5 G4:0.5 A4:3 D5 G4:0.5 A4:0.5 B4:0.5 C5:0.5 D5 G4 G4 E5 C5:0.5 D5:0.5 E5:0.5 F#5:0.5 G5 G4 G4 C5 D5:0.5 C5:0.5 B4:0.5 A4:0.5 B4 C5:0.5 B4:0.5 A4:0.5 G4:0.5 A4 B4:0.5 A4:0.5 G4:0.5 F#4:0.5 G4:3'},
  {id:'green',lv:'hard',title:'그린슬리브스',en:'Greensleeves',bpm:90,s:'A4 C5:2 D5 E5:1.5 F5:0.5 E5 D5:2 B4 G4:1.5 A4:0.5 B4 C5:2 A4 A4:1.5 G#4:0.5 A4 B4:2 G#4 E4:2 A4 C5:2 D5 E5:1.5 F5:0.5 E5 D5:2 B4 G4:1.5 A4:0.5 B4 C5:1.5 B4:0.5 A4 G#4:1.5 F#4:0.5 G#4 A4:3'},
  {id:'elise',lv:'hard',title:'엘리제를 위하여',en:'Für Elise (opening)',bpm:80,s:'E5:0.5 D#5:0.5 E5:0.5 D#5:0.5 E5:0.5 B4:0.5 D5:0.5 C5:0.5 A4:1.5 C4:0.5 E4:0.5 A4:0.5 B4:1.5 E4:0.5 G#4:0.5 B4:0.5 C5:1.5 E4:0.5 E5:0.5 D#5:0.5 E5:0.5 D#5:0.5 E5:0.5 B4:0.5 D5:0.5 C5:0.5 A4:1.5 C4:0.5 E4:0.5 A4:0.5 B4:1.5 E4:0.5 C5:0.5 B4:0.5 A4:3'},
- {id:'bday',lv:'mid',title:'생일 축하 노래',en:'Happy Birthday',bpm:90,s:'G4:0.75 G4:0.25 A4 G4 C5 B4:2 G4:0.75 G4:0.25 A4 G4 D5 C5:2 G4:0.75 G4:0.25 G5 E5 C5 B4 A4:2 F5:0.75 F5:0.25 E5 C5 D5 C5:2'}
+ {id:'bday',lv:'mid',title:'생일 축하 노래',en:'Happy Birthday',bpm:90,s:'G4:0.75 G4:0.25 A4 G4 C5 B4:2 G4:0.75 G4:0.25 A4 G4 D5 C5:2 G4:0.75 G4:0.25 G5 E5 C5 B4 A4:2 F5:0.75 F5:0.25 E5 C5 D5 C5:2'},
+ {id:'pongdang',lv:'mid',title:'퐁당퐁당',en:'Pong Dang Pong Dang (Splash Splash)',bpm:86,s:'C4:0.5 D4:0.5 E4:0.5 E4:0.5 C4:0.5 E4:0.5 G4:0.25 A4:0.25 G4:0.5 C4:0.5 D4:0.5 E4:0.5 E4:0.5 C4:0.5 E4:0.5 G4:0.25 A4:0.25 G4:0.5 A4 G4:0.5 E4:0.5 A4 G4:0.5 E4:0.5 D4:0.5 D4:0.5 C4:0.5 D4:0.5 E4:0.5 G4:0.5 G4:0.5 R:0.5 A4:0.75 A4:0.25 G4:0.5 A4:0.5 C5:0.5 C5:0.5 C5:0.5 R:0.5 G4:0.75 G4:0.25 E4:0.5 D4:0.5 C4:1.5 R:0.5 D4:0.75 E4:0.25 C4:0.5 E4:0.5 G4:0.5 G4:0.5 G4:0.5 R:0.5 D4:0.5 E4:0.25 F4:0.25 E4:0.5 D4:0.5 C4:2'},
+ {id:'hometown',lv:'mid',title:'고향의 봄',en:'Spring in My Hometown',bpm:80,s:'G4 G4 E4:0.5 F4:0.5 G4 A4 A4 G4:2 G4 C5 E5 D5:0.5 C5:0.5 D5:3 R E5 E5 D5 D5 C5 D5:0.5 C5:0.5 A4 A4 G4 G4 G4 E4:0.5 D4:0.5 C4:3 R D4 D4 E4 C4 D4 D4 E4 G4 A4 C5 E5 D5:0.5 C5:0.5 D5:3 R E5 E5 D5 D5 C5 D5:0.5 C5:0.5 A4 A4 G4 G4 G4 E4:0.5 D4:0.5 C4:3'},
+ {id:'halfmoon',lv:'mid',title:'낮에 나온 반달',en:'Half Moon in the Daytime',bpm:100,s:'G4 C5:0.5 E5 D5:0.5 C5 A4:0.5 G4:1.5 A4 C5:0.5 G4 E4:0.5 A4:2.5 R:0.5 G4 A4:0.5 G4 E5:0.5 D5:0.5 C5:0.5 A4:0.5 G4:1.5 E4 E4:0.5 G4 C4:0.5 D4:2.5 R:0.5 E4 E4:0.5 D4 C4:0.5 A4 A4:0.5 G4 G4:0.5 A4 C5:0.5 A4 E4:0.5 G4:2.5 R:0.5 A4 A4:0.5 G4 A4:0.5 C5 D5:0.5 E5 E5:0.5 D5 A4:0.5 G4 D5:0.5 C5:2.5'}
 ];
 
 // ---------- language ----------
@@ -216,8 +231,18 @@ let W=0,H=0,DPR=1;
 const st={song:SONGS[0],ev:[],beat:-4,playing:false,wait:false,waiting:false,next:0,speed:.5,sound:true,fingers:true,loop:false,keys:[],lo:60,hi:71,flash:{},done:false};
 
 let ac=null;
-function audio(){if(!ac){try{ac=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(ac&&ac.state==='suspended')ac.resume()}
-function tone(m,sec){if(!st.sound||!ac)return;const f=440*Math.pow(2,(m-69)/12),t0=ac.currentTime,len=Math.min(2,Math.max(.45,sec));
+// 11/11 진짜 그랜드 피아노 녹음(Salamander Grand Piano V3, Alexander Holm, CC-BY 3.0) — 단3도 간격 18개 음을 늘이고 줄여 모든 음을 낸다. 못 읽으면 예전 전자음으로.
+const PN=[['A2',45],['C3',48],['Ds3',51],['Fs3',54],['A3',57],['C4',60],['Ds4',63],['Fs4',66],['A4',69],['C5',72],['Ds5',75],['Fs5',78],['A5',81],['C6',84],['Ds6',87],['Fs6',90],['A6',93],['C7',96]];
+const PIANO={};let pianoLoading=false;
+function loadPiano(){if(pianoLoading||!ac)return;pianoLoading=true;
+ PN.forEach(([n,m])=>fetch('piano/'+n+'.mp3').then(r=>{if(!r.ok)throw 0;return r.arrayBuffer()}).then(b=>new Promise((ok,no)=>ac.decodeAudioData(b,ok,no))).then(buf=>{PIANO[m]=buf}).catch(()=>{}))}
+function audio(){if(!ac){try{ac=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(ac&&ac.state==='suspended')ac.resume();loadPiano()}
+function tone(m,sec){if(!st.sound||!ac)return;
+ let best=null;for(const [,k] of PN){if(PIANO[k]&&(best===null||Math.abs(k-m)<Math.abs(best-m)))best=k}
+ if(best!==null&&Math.abs(best-m)<=3){const t0=ac.currentTime,len=Math.min(3,Math.max(.6,sec*1.1)),src=ac.createBufferSource(),g=ac.createGain();
+  src.buffer=PIANO[best];src.playbackRate.value=Math.pow(2,(m-best)/12);src.connect(g);g.connect(ac.destination);
+  g.gain.setValueAtTime(.85,t0);g.gain.setTargetAtTime(0,t0+len,.18);src.start(t0);src.stop(t0+len+1.2);return}
+ const f=440*Math.pow(2,(m-69)/12),t0=ac.currentTime,len=Math.min(2,Math.max(.45,sec));
  const g=ac.createGain(),o=ac.createOscillator(),o2=ac.createOscillator(),g2=ac.createGain();
  o.type='triangle';o.frequency.value=f;o2.type='sine';o2.frequency.value=f*2;g2.gain.value=.18;
  o.connect(g);o2.connect(g2).connect(g);g.connect(ac.destination);
@@ -464,6 +489,26 @@ function parseSolfa(text){
  if(!ev.length)throw new Error(t('noSolfa'));
  return {ev,bpm:90};
 }
+// 11/11 처음 켤 때 안내 3장(부모·아이용). ? 버튼으로 다시 보기
+const GUIDE={ko:[['📱🎹','피아노 옆에 폰을 세워요','진짜 피아노·전자피아노·작은 키보드 무엇이든 괜찮아요. 화면 건반을 눌러도 돼요.'],
+ ['🟨⬇️','막대가 노란 줄에 닿으면 쳐요','같은 색 건반을 누르면 돼요. 동그라미 숫자는 오른손 손가락이에요(1 엄지 ~ 5 새끼). 어려우면 빠르기를 0.25배로 낮춰요.'],
+ ['⭐🐰','끝까지 치면 별과 스티커!','곡을 끝내면 별 1~3개, 하루 첫 곡엔 동물 스티커를 받아요. 매일 조금씩 연습하면 연속 기록이 늘어요.']],
+ en:[['📱🎹','Stand your phone next to the piano','A real piano, keyboard or small toy keyboard all work. You can also tap the keys on screen.'],
+ ['🟨⬇️','Play when a bar reaches the yellow line','Press the key with the same color. The circled number is the right-hand finger (1 thumb to 5 pinky). Too fast? Slow it down to 0.25×.'],
+ ['⭐🐰','Finish a song for stars and stickers!','Each song gives 1 to 3 stars, and the first song of the day gives an animal sticker. Practice a little every day to grow your streak.']]};
+const GBTN={ko:{next:'다음',start:'시작하기',skip:'건너뛰기'},en:{next:'Next',start:"Let's play",skip:'Skip'}};
+let gi=0;
+function showGuide(i){gi=i;const g=GUIDE[LANG]||GUIDE.en,b=GBTN[LANG]||GBTN.en,c=g[i];
+ $('guideArt').textContent=c[0];$('guideTitle').textContent=c[1];$('guideText').textContent=c[2];
+ $('guideDots').innerHTML=g.map((_,k)=>`<span style="width:8px;height:8px;border-radius:50%;background:${k===i?'#ffd84d':'#ffffff44'}"></span>`).join('');
+ $('guideNext').textContent=i===g.length-1?b.start:b.next;$('guideSkip').textContent=b.skip;$('guideSkip').hidden=i===g.length-1;
+ $('guideCredit').textContent=i===g.length-1?(LANG==='ko'?'피아노 소리: Salamander Grand Piano (Alexander Holm, CC-BY 3.0)':'Piano sound: Salamander Grand Piano by Alexander Holm (CC-BY 3.0)'):'';
+ $('guideOv').hidden=false}
+function closeGuide(){$('guideOv').hidden=true;store.set('guided',1)}
+$('guideNext').addEventListener('click',()=>{audio();const g=GUIDE[LANG]||GUIDE.en;if(gi<g.length-1)showGuide(gi+1);else closeGuide()});
+$('guideSkip').addEventListener('click',closeGuide);
+$('helpBtn').addEventListener('click',()=>{pause();showGuide(0)});
+if(!store.get('guided',0))setTimeout(()=>showGuide(0),300);
 $('typeBtn').addEventListener('click',()=>{pause();$('typeErr').textContent='';$('typeOv').hidden=false;$('typeTitle').focus()});
 $('typeCancel').addEventListener('click',()=>{$('typeOv').hidden=true});
 $('typeOk').addEventListener('click',()=>{
