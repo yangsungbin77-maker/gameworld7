@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>맨손 사장 — 1인 창업 인생 게임 | 게임월드7</title>
+<meta name="description" content="전단지 알바로 시작해 유튜브·앱·가게·블로그·임대로 자는 동안에도 돈이 들어오는 사장이 되는 1인 창업 인생 게임. 설치 없이 폰에서 바로, 무료.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://gameworld7.com/maenson-sajang/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="맨손 사장 — 자는 동안에도 돈 벌기">
+<meta property="og:description" content="전단지 알바로 시작해 유튜브·앱·가게·블로그·임대로 자는 동안에도 돈이 들어오는 사장이 되는 1인 창업 인생 게임. 설치 없이 폰에서 바로, 무료.">
+<meta property="og:url" content="https://gameworld7.com/maenson-sajang/">
+<meta name="theme-color" content="#f3eadb">
+<style>
+:root{color-scheme:dark;--bg:#141826;--card:#1f2538;--card2:#283049;--line:#343d5c;--txt:#eef1fa;--sub:#9aa3c0;--gold:#ffc94a;--green:#5fd38d;--red:#ff6b6b;--blue:#6aa8ff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--txt);font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif}
+body{min-height:100dvh;display:flex;justify-content:center}
+#app{width:100%;max-width:480px;padding-block:12px 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:10px}
+h1{font-size:15px;margin:0;color:var(--sub);font-weight:600;display:flex;justify-content:space-between;align-items:center}
+h1 b{color:var(--gold)}
+.top{background:var(--card);border-radius:16px;padding:12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px 14px}
+.date{grid-column:1/3;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:17px}
+.pill{font-size:12.5px;padding:4px 10px;border-radius:99px;background:var(--card2);color:var(--sub);font-weight:600}
+.pill.warn{background:#4a2230;color:var(--red)}
+.pill.ok{background:#1f3d30;color:var(--green)}
+.stat{font-size:13px;color:var(--sub)}
+.stat b{display:block;font-size:19px;color:var(--txt);margin-top:1px}
+.stat b.money{color:var(--gold)}
+.bar{grid-column:1/3}
+.bar .lab{display:flex;justify-content:space-between;font-size:12.5px;color:var(--sub);margin-bottom:4px}
+.track{height:10px;border-radius:99px;background:var(--card2);overflow:hidden}
+.fill{height:100%;border-radius:99px;background:var(--green);transition:width .25s}
+.fill.low{background:var(--red)}
+.dots{display:flex;gap:6px;align-items:center;font-size:12.5px;color:var(--sub)}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--gold)}
+.dot.used{background:var(--line)}
+.msg{background:var(--card);border-radius:16px;padding:14px;min-height:92px;display:flex;gap:12px;align-items:center}
+.msg .em{font-size:38px;line-height:1}
+.msg .tx{font-size:15px;line-height:1.5}
+.msg .tx small{display:block;color:var(--sub);font-size:13px;margin-top:3px}
+.up{color:var(--green);font-weight:700}.down{color:var(--red);font-weight:700}.gold{color:var(--gold);font-weight:700}
+h2{font-size:13px;color:var(--sub);margin:6px 2px 0;font-weight:600}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+button{font-family:inherit;color:var(--txt);border:0;cursor:pointer}
+.act{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:10px 11px;text-align:left;display:flex;flex-direction:column;gap:3px;min-height:74px;transition:transform .06s}
+.act:active{transform:scale(.97)}
+.act .n{font-size:15px;font-weight:700}
+.act .d{font-size:12.5px;color:var(--sub);line-height:1.35}
+.act[disabled]{opacity:.45;cursor:default}
+.act.lock{border-style:dashed}
+.act.yt{border-color:#7a4a4a;background:#2a2030}
+.act.buy{border-color:#6b5a2a}
+.tabs{display:flex;gap:6px}.info{font-size:13px;color:var(--sub);background:var(--card);border-radius:12px;padding:8px 12px;line-height:1.5}.info:empty{display:none}
+.tab{flex:1;white-space:nowrap;padding:9px 1px;letter-spacing:-.3px;border-radius:11px;background:var(--card);color:var(--sub);font-weight:700;font-size:13.5px;border:1.5px solid var(--line)}.tab.on{background:var(--gold);color:#221a00;border-color:var(--gold)}
+.chs{display:flex;flex-direction:column;gap:8px}.chs .act{min-height:0}.chs .act.cur{border-color:var(--gold)}
+.room{position:relative;border-radius:16px;overflow:hidden;background:#000;line-height:0}
+.room canvas{width:100%;display:block;image-rendering:pixelated;image-rendering:crisp-edges}
+.mapBtn{position:absolute;left:8px;top:8px;font-size:12.5px;line-height:1.3;font-weight:700;background:rgba(0,0,0,.6);color:#fff;padding:5px 10px;border-radius:99px}.mapBtn.on{background:var(--gold);color:#221a00}
+.mapL{position:absolute;inset:0;pointer-events:none;display:none}.mapL span{position:absolute;transform:translate(-50%,-50%);font-size:11px;line-height:1;background:rgba(255,255,255,.88);border-radius:6px;padding:2px 3px}
+.room.town .mapL{display:block}.room.town .bub{display:none}
+.decoBtn{position:absolute;right:8px;top:8px;font-size:12.5px;line-height:1.3;font-weight:700;background:rgba(0,0,0,.6);color:#fff;padding:5px 10px;border-radius:99px}
+.decoBtn.on{background:var(--gold);color:#221a00}
+.room.deco canvas{touch-action:none;cursor:grab}
+.room.deco .bub{display:none}
+.dpanel{background:var(--card);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.dhint{font-size:13px;color:var(--sub);line-height:1.5}
+.dlab{font-size:12.5px;color:var(--sub);font-weight:700}
+.sw{display:flex;gap:6px;flex-wrap:wrap}
+.swb{width:54px;padding:0 0 4px;border-radius:10px;background:var(--card2);border:2px solid var(--line);font-size:10.5px;line-height:1.25;color:var(--txt);overflow:hidden}
+.swb i{display:block;height:26px;margin-bottom:3px}
+.swb.on{border-color:var(--gold)}
+.swb[disabled]{opacity:.45}
+.bub{pointer-events:none;position:absolute;left:47%;top:58%;transform:translate(-50%,-100%);font-size:20px;line-height:1;background:#fff;border-radius:10px;padding:4px 6px;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.bub:empty{display:none}
+.rname{position:absolute;left:8px;bottom:8px;font-size:11.5px;line-height:1.3;background:rgba(0,0,0,.55);color:#fff;padding:3px 9px;border-radius:99px}
+.hbtn{background:var(--card);border:1.5px solid var(--line);color:var(--txt);border-radius:99px;padding:5px 10px;font-size:12.5px;font-weight:700;margin-left:5px}
+.tipbox{border:1.5px solid #6b5a2a;color:var(--txt)}.tipbox button{background:none;color:var(--gold);font-weight:700;font-size:13px;padding:0 0 0 6px}
+.modal{position:fixed;inset:0;background:rgba(8,10,18,.82);display:none;align-items:center;justify-content:center;padding:18px;z-index:9}
+.modal.on{display:flex}
+.box{background:var(--card);border-radius:20px;padding:20px 18px;width:100%;max-width:420px;max-height:88dvh;overflow:auto}
+.box h3{margin:0 0 10px;font-size:19px}
+.box .big{font-size:54px;text-align:center;margin:4px 0 8px}
+.box p{margin:6px 0;font-size:15px;line-height:1.55}
+.box ul{margin:8px 0;padding:0;list-style:none}
+.box li{padding:7px 0;border-bottom:1px solid var(--line);font-size:14.5px;display:flex;justify-content:space-between;gap:10px}
+.box li:last-child{border:0}
+.box li span:first-child{min-width:0}.box li span:last-child{flex:none;max-width:46%;text-align:right}
+.go{width:100%;margin-top:14px;padding:14px;border-radius:14px;background:var(--gold);color:#221a00;font-weight:800;font-size:16px}
+.note{font-size:12.5px;color:var(--sub);text-align:center;margin-top:8px}
+/* ── 폰 한 화면 배치: 페이지는 안 움직이고 아래 칸만 스크롤 ── */
+[hidden]{display:none!important}
+html,body{height:100%;overflow:hidden}
+#app{height:100%;padding-block:8px 8px;gap:6px;overflow:hidden}
+.hud{background:var(--card);border-radius:14px;padding:8px 12px;display:flex;flex-direction:column;gap:5px;flex:none}
+.hrow{display:flex;align-items:center;gap:7px;font-size:15px}
+.hrow .sp{flex:1}
+#date,.hrow .pill{white-space:nowrap}
+.hrow .pill{font-size:11.5px;padding:3px 8px}
+.hrow .hbtn{margin-left:0;padding:3px 7px;font-size:13px}
+.srow{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:8px}
+.srow .stat{font-size:11.5px;min-width:0}
+.srow .stat b{font-size:15px;margin-top:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.srow #subs{font-size:13px!important;line-height:1.3!important}
+.hud .bar .lab{font-size:11px;margin-bottom:2px}
+.hud .track{height:6px}
+.dot{width:9px;height:9px}
+.room{flex:none;aspect-ratio:16/9;width:min(100%,calc(29dvh*16/9));margin:0 auto;border-radius:14px}
+.room canvas{height:100%}
+.mapBtn,.decoBtn{font-size:11.5px;padding:4px 9px;top:6px}
+.rname{bottom:6px;font-size:11px}
+.msg{flex:none;min-height:0;height:58px;padding:6px 12px;gap:10px;border-radius:14px;overflow:hidden}
+.msg .em{font-size:26px}
+.msg .tx{font-size:13.5px;line-height:1.35}
+.msg .tx small{font-size:12px;margin-top:1px}
+#atabs{flex:none;gap:4px}
+#atabs .tab{display:flex;flex-direction:column;align-items:center;gap:0;font-size:11px;padding:4px 0 5px;letter-spacing:-.4px;border-radius:10px}
+#atabs .tab i{font-style:normal;font-size:17px;line-height:1.25}
+.panel{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding-bottom:6px;overscroll-behavior:contain}
+.panel .tabs{flex:none}
+.panel .tab{padding:6px 2px;font-size:12.5px}
+.panel .info{flex:none;font-size:12px;padding:6px 10px}
+.panel .grid{gap:6px;flex:none}
+.act{min-height:54px;padding:7px 9px;border-radius:12px;gap:2px}
+.act .n{font-size:14px}
+.act .d{font-size:11.5px;line-height:1.3}
+.dpanel{flex:none}
+.decoing #atabs,.decoing #tabs,.decoing #acts,.decoing #shop,.decoing #ainfo,.decoing #tip{display:none!important}
+
+/* Cozy pocket game: paper, apricot and midnight income. */
+:root{color-scheme:light;--bg:#eee6d7;--card:#fffaf0;--card2:#ece3d3;--line:#d6c8b3;--txt:#34352f;--sub:#726b5f;--gold:#956014;--green:#287450;--red:#b4483d;--blue:#426580}
+html,body{height:100%;overflow:hidden;background:var(--bg);font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif}
+body{min-height:0;background-image:radial-gradient(#cfc2ab .7px,transparent .7px);background-size:12px 12px}
+#app{height:100%;height:100dvh;min-height:0;max-width:480px;padding-block:max(8px,env(safe-area-inset-top,0px)) max(8px,env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));gap:6px;overflow:hidden}
+#app>*{min-width:0}
+button{touch-action:manipulation;min-height:40px}
+button:focus-visible{outline:3px solid #426580;outline-offset:2px}
+.hud{padding:5px 10px 8px;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 3px 0 #d6c8b3}
+.hrow{gap:4px;min-height:40px;font-size:13px}
+.hrow .sp{min-width:0}
+.hrow .hbtn{width:40px;min-width:40px;height:40px;padding:0;margin:0;border:1px solid var(--line);border-radius:10px;background:#f4ecdd;box-shadow:0 2px 0 #d6c8b3;font-size:16px}
+.hrow .pill{font-size:10px;padding:4px 6px;letter-spacing:-.4px;border:1px solid var(--line);background:#eee7da;color:#655e52}
+.pill.warn,.hrow .pill.warn{background:#fbe0d7;color:#9b352e;border-color:#dfad9c}
+.pill.ok,.hrow .pill.ok{background:#e1efdf;color:#28623e;border-color:#acc7a5}
+.dots{gap:3px;font-size:10px;flex-shrink:0}
+.dot{width:7px;height:9px;border-radius:2px;background:#e5a14b;box-shadow:inset 0 -2px 0 #c78332}
+.dot.used{background:#e4ddcf;box-shadow:inset 0 1px 0 #cfc5b4}
+.srow{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.45fr);gap:6px;align-items:stretch}
+.srow .stat{font-size:10px;line-height:1.35;padding:7px 0;align-content:center}
+.srow .stat b{font-size:14px;line-height:1.4;margin-top:3px;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.srow .stat b.money{color:#665033}
+.srow #subs{font-size:12px!important;line-height:1.4!important}
+.srow .stat:last-child{position:relative;padding:7px 9px;border:1px solid #555c76;border-radius:10px;background:linear-gradient(135deg,#394259,#283145);color:#e8dfcb;box-shadow:inset 0 1px 0 #6c7487}
+.srow .stat:last-child::after{content:"";position:absolute;right:9px;top:8px;width:7px;height:7px;border-radius:50%;box-shadow:2px 1px 0 #f4ce78;pointer-events:none}
+#skl{padding-right:10px}
+.srow #sing{font-size:19px;color:#ffda8e;line-height:1.25;min-height:25px;letter-spacing:-.6px}
+.hud .bar{display:grid;grid-template-columns:minmax(0,1fr) 72px;gap:8px;align-items:center;min-height:12px}
+.hud .bar .lab{font-size:10px;line-height:12px;margin:0;gap:3px;white-space:nowrap}
+.hud .bar .lab span:first-child{white-space:normal;word-break:keep-all}
+.hud .track{height:6px;background:#e5ddcd;box-shadow:inset 0 1px 1px #cdbfa7;border-radius:3px}
+.fill{background:#6b9f76;border-radius:3px;box-shadow:inset 0 1px 0 #ffffff55}.fill.low{background:#ce7960}
+.room{flex:none;aspect-ratio:16/9;width:min(100%,calc(29dvh*16/9));margin:0 auto;border:3px solid #b49c7e;border-radius:11px;background:#b49c7e;box-shadow:0 2px 0 #8e785e;overflow:hidden}
+.room canvas{width:100%;height:100%;image-rendering:pixelated}
+.mapBtn,.decoBtn{top:6px;min-height:40px;padding:7px 10px;border:1px solid #fff6df99;border-radius:9px;background:#34372ee8;color:#fff7e7;font-size:11px;box-shadow:0 2px 0 #0003}
+.mapBtn{left:6px}.decoBtn{right:6px}
+.mapBtn.on,.decoBtn.on{background:#ffda8e;border-color:#ffedbf;color:#49391f}
+.rname{left:6px;bottom:6px;padding:4px 8px;border-radius:5px;background:#34372ee8;color:#fff5df;font-size:10px;letter-spacing:.2px}
+.mapL span{border:1px solid #baa480;background:#fff5df;color:var(--txt);border-radius:4px}
+.bub{border:1px solid #c5b599;border-radius:7px;background:#fffaf0;box-shadow:0 3px 0 #4c463b33}
+.msg{height:52px;padding:5px 10px;gap:9px;background:#f9f0db;border:1px solid #d8c49f;border-left:4px solid #ce9652;border-radius:9px;box-shadow:none}
+.msg .em{font-size:25px;flex:none}
+.msg .tx{min-width:0;font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+.msg .tx small{font-size:10.5px;line-height:1.35;margin-top:1px;color:#7b6c54}
+#atabs{padding:3px;gap:3px;background:#ded3bf;border:1px solid #cbbb9f;border-radius:12px}
+#atabs .tab{min-width:0;min-height:43px;padding:3px 0;font-size:10.5px;border:1px solid transparent;border-radius:8px;background:transparent;color:#685e4f;box-shadow:none;line-height:1.25}
+#atabs .tab i{font-size:18px;line-height:1.25}
+#atabs .tab.on{background:#fffaf0;color:#403d31;border-color:#c4b294;box-shadow:0 2px 0 #b8a487}
+#panel{overflow-x:hidden;overflow-y:auto;padding:3px 2px 8px;gap:7px;scrollbar-width:thin;scrollbar-color:#c7b89d transparent;scroll-padding-block:6px}
+.panel .tabs{gap:4px;flex-wrap:wrap}
+.panel .tab{flex:1 1 0;min-width:0;min-height:40px;font-size:11.5px;padding:6px 3px;white-space:normal;word-break:keep-all;border-radius:8px;border:1px solid #cdbfa7;background:#f8f1e4;color:#72634e;box-shadow:0 2px 0 #d1c2a9}
+.panel .tab.on{background:#3f6858;border-color:#315343;color:#fff9e9;box-shadow:0 2px 0 #294838}
+.panel .info{background:#e5e7d9;border:1px solid #c9ceba;border-radius:8px;padding:7px 9px;font-size:11.5px;line-height:1.5;color:#57614d;overflow-wrap:anywhere}
+.panel .tipbox{background:#fff0d1;border-color:#dec391;color:#795930}
+.tipbox button{min-height:40px;text-decoration:underline;text-underline-offset:3px;color:#80531b}
+.panel .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding-bottom:3px}
+.act{position:relative;min-width:0;min-height:68px;padding:10px;border:1px solid #c8b99e;border-bottom:2px solid #b8a589;border-radius:10px;background:#fffaf0;box-shadow:0 3px 0 #d4c5ab;gap:4px;transition:transform .1s,box-shadow .1s;overflow-wrap:anywhere}
+.act .n{font-size:13px;font-weight:800;line-height:1.4;word-break:keep-all}
+.act .d{font-size:11.5px;line-height:1.45;color:#756b5b}
+.act.yt{background:#fff0e9;border-color:#d7a18a;box-shadow:0 3px 0 #e2bea8}
+.act.buy{background:#fbe5bf;border-color:#c69d62;box-shadow:0 3px 0 #d6b483}.act.buy .d{color:#7a572a}
+.act.lock,.act:disabled{background:#e9e4da;color:#827c70;border-color:#c9c0b0;box-shadow:none;opacity:1;cursor:default}
+.act.lock{border-style:dashed}.act.lock .d,.act:disabled .d{color:#817a6e}
+.act:active:not(:disabled){transform:translateY(2px);box-shadow:none}.act:disabled:active{transform:none}
+.chs{gap:10px;margin-top:10px}.chs .act{min-height:48px}
+.chs .act.cur{background:#e4efdf;border:2px solid #658769;box-shadow:0 2px 0 #bdcdb1}
+.dpanel{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--card)}
+.dhint{font-size:12px}.dlab{color:#67583e;font-size:12px;letter-spacing:.2px}
+.sw{gap:7px}.swb{min-height:48px;border-radius:7px;background:#fff8e9;border-color:#cdbfa7;color:var(--txt)}
+.swb.on{border-color:#3f6858;box-shadow:0 0 0 1px #3f6858}.swb[disabled]{opacity:.55}
+.modal{padding:16px;background:#27332ec4;backdrop-filter:blur(3px)}
+.box{max-height:88dvh;padding:20px 17px 17px;border:2px solid #c7b28d;border-radius:17px;background:#fffaf0;box-shadow:0 6px 0 #3b362b55,0 20px 60px #111a1744;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c7b89d transparent}
+.box h3{font-size:19px;letter-spacing:-.5px;color:#3b453b;margin-bottom:12px}
+.box .big{font-size:48px;margin:0 auto 12px;width:82px;height:82px;display:grid;place-items:center;background:#f2e9d7;border:1px solid #d8c7a7;border-radius:24px;box-shadow:0 3px 0 #e2d5bf}
+.box p{font-size:14px;line-height:1.65;overflow-wrap:anywhere}
+.box p>b.gold{color:#9a6a12;font-size:16px}
+.box p[style*="text-align:center"]>b.gold{display:block;padding:13px 10px;border:1px solid #505c74;border-radius:11px;background:linear-gradient(135deg,#394259,#283145);color:#ffda8e;font-size:22px!important;line-height:1.5;font-variant-numeric:tabular-nums;box-shadow:0 3px 0 #d9d1c1}
+.box ul{padding:3px 10px;margin:12px 0;background:#f4eddf;border:1px solid #ded1b9;border-radius:10px}
+.box li{padding:10px 0;font-size:12.5px;line-height:1.5;border-bottom:1px dashed #d6c8b0;overflow-wrap:anywhere}
+.box li span:last-child{font-variant-numeric:tabular-nums;font-weight:700}.box li small{font-size:11.5px}
+.go{min-height:48px;padding:12px;background:#f3c47c;color:#50391e;border:1px solid #c79956;border-bottom:2px solid #b18448;border-radius:10px;box-shadow:0 3px 0 #e0c59c;font-size:15px}
+.go:active,.hbtn:active,.tab:active,.swb:active{transform:translateY(1px)}
+.note{line-height:1.5;font-size:11.5px;margin-top:12px}
+[hidden]{display:none!important}
+@media(max-width:380px){.hrow{gap:3px;font-size:12px}.hrow .pill{font-size:9px;padding-inline:4px}.srow .stat b{font-size:13px}.srow #sing{font-size:18px}.srow{gap:4px}.srow .stat:last-child{padding-inline:7px}}
+@media(max-height:700px){#app{gap:5px}.hud{padding-block:4px 6px;gap:3px}.srow .stat{padding-block:5px}.room{width:min(100%,calc(25dvh*16/9))}.msg{height:48px}.act{min-height:62px;padding:8px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Screenshot review: readable messages, collections and rewards. */
+.msg{height:auto;min-height:64px;padding-block:7px}
+.msg .tx{line-height:16px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.msg .tx small{line-height:16px;margin-top:0;color:#716149}
+.dhint{padding:8px;background:#f4eddf;border-radius:7px;line-height:1.6}
+.dpanel .dlab{margin-top:4px;font-weight:800}
+.sw{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.sw:has(>.swb:nth-child(6)){grid-template-columns:repeat(3,minmax(0,1fr))}
+.swb{width:100%;min-width:0;min-height:60px;font-size:11px;line-height:1.35}
+.swb i{height:25px}
+.dpanel .tabs{padding-top:5px;border-top:1px solid var(--line)}
+.dpanel .tabs .tab{min-height:44px}
+.act.buy:disabled{color:#6c675d}.act.buy:disabled .d{color:#746d60}
+.box .dlab{margin-top:16px;padding:8px 10px;border-left:3px solid #b7813d;border-radius:3px;background:#f5e5c8;color:#62471f;font-size:13px;font-weight:800}
+.box .dlab+ul{padding:0;border:0;background:none;display:grid;gap:7px;margin-top:8px}
+.box .dlab+ul>li{padding:10px;border:1px solid #bdcdb5;border-left:3px solid #658769;border-radius:8px;background:#edf3e7}
+.box .dlab+ul>li:has(>span:first-child[style*="color:var(--sub)"]){background:#f6f1e7;border:1px dashed #cfc2ad}
+.box .dlab+ul>li>span:first-child{flex:1}
+.box .dlab+ul>li>span:last-child:empty{display:none}
+.box .dlab+ul>li>span:last-child:not(:empty){align-self:flex-start;color:#375d46;white-space:nowrap}
+.box .dlab+ul small{display:inline-block;margin-top:3px;line-height:1.5}
+.box:has(>.big):has(>ul)>.big{width:90px;height:90px;font-size:55px;border:2px solid #d3a658;background:radial-gradient(circle,#fff9e6 45%,#f5d496);box-shadow:0 3px 0 #dec191,0 0 0 5px #fcf0d7;position:relative;margin-bottom:17px}
+.box:has(>.big):has(>ul)>.big::after{content:"\2726";position:absolute;right:-13px;top:3px;color:#aa7223;font-size:24px;text-shadow:-90px 55px #c08a38}
+.box:has(>.big):has(>ul)>h3{font-size:22px;color:#79521e;line-height:1.4}
+.box:has(>.big):has(>ul)>ul li{padding-block:8px}
+.box:has(>.big):has(>ul)>ul li>span:last-child{max-width:54%}
+.box .go[style*="background:var(--card2)"]{background:#f7f0e3!important;color:#66543e!important;border:1px solid #bba687;box-shadow:0 2px 0 #dfd0b8;font-size:13px;margin-top:10px}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="hud">
+    <div class="hrow"><b id="date"></b><span class="dots" id="dots"></span><span class="sp"></span><span class="pill" id="rent"></span><button class="hbtn" id="bookBtn">📖</button><button class="hbtn" id="sndBtn">🔊</button><span id="best" hidden></span></div>
+    <div class="srow">
+      <div class="stat">돈<b class="money" id="money"></b></div>
+      <div class="stat">내 사업<b id="subs"></b></div>
+      <div class="stat"><span id="skl">밤마다 수입</span><b id="sing"></b></div>
+    </div>
+    <div class="bar"><div class="lab"><span>체력</span><span id="hpn"></span></div><div class="track"><div class="fill" id="hp"></div></div></div>
+    <div class="bar" id="burnbox" style="display:none"><div class="lab"><span>🥵 번아웃</span><span id="burnn"></span></div><div class="track"><div class="fill low" id="burn"></div></div></div>
+    <div class="bar" id="lowqbox" style="display:none"><div class="lab"><span>📉 저품질 위험</span><span id="lowqn"></span></div><div class="track"><div class="fill low" id="lowq"></div></div></div>
+    <div class="bar" id="gripebox" style="display:none"><div class="lab"><span>😤 세입자 불만</span><span id="gripen"></span></div><div class="track"><div class="fill low" id="gripe"></div></div></div>
+    <div class="bar" id="dirtbox" style="display:none"><div class="lab"><span>🧹 가게 관리 소홀</span><span id="dirtn"></span></div><div class="track"><div class="fill low" id="dirt"></div></div></div>
+    <div class="bar" id="riskbox" style="display:none"><div class="lab"><span id="riskl"></span><span id="riskn"></span></div><div class="track"><div class="fill low" id="risk"></div></div></div>
+  </div>
+  <div class="room"><canvas id="room" width="128" height="72"></canvas><div class="bub" id="bub"></div><div class="rname" id="rname"></div><div class="mapL" id="mapL"></div><button class="mapBtn" id="mapBtn">🗺️ 지도</button><button class="decoBtn" id="decoBtn">🎨 꾸미기</button></div>
+  <div class="msg"><div class="em" id="em"></div><div class="tx" id="tx"></div></div>
+  <div class="tabs" id="atabs"></div>
+  <div class="panel" id="panel">
+    <div class="info tipbox" id="tip"></div>
+    <div class="dpanel" id="dpanel" style="display:none"></div>
+    <div class="tabs" id="tabs"></div>
+    <div class="info" id="ainfo"></div>
+    <div class="grid" id="acts"></div>
+    <div class="grid" id="shop"></div>
+  </div>
+  <button id="resetBtn" hidden></button>
+</div>
+<div class="modal" id="modal"><div class="box" id="box"></div></div>
+
+<script>
+let GROW=0.25;const MONTH_DAYS=10, MONTHS=6, RENT=[40,45,50,55,60,65], LIVING=1;
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const won=n=>(n<0?'-':'')+Math.abs(Math.round(n)).toLocaleString()+'만 원';
+const ppl=n=>n>=10000?(Math.floor(n/1000)/10)+'만 명':n.toLocaleString()+'명';
+let S;
+
+function fresh(){return{day:1,left:3,money:10,hp:80,sing:0,talk:0,game:0,ch:null,risk:0,ban:0,fired:0,subs:0,jobs:0,uploads:0,own:{},used:{},home:0,editor:false,monet:false,ytEarn:0,jobEarn:0,over:false,night:[],hit:{},code:0,proj:null,products:[],devEarn:0,bizEarn:0,stock:0,coin:0,friend:0,lover:null,love:0,salary:0,mcn:false,seen:{},write:0,posts:0,adsense:false,adsTry:0,adsWait:0,lowq:0,blogBan:0,est:0,gripe:0,vacant:0,loan:0,burn:0,devBan:0,biz:0,dirt:0,bizBan:0,promo:0,staff:{},loc:'home',leg:null,rests:0,sued:false,bought:false,wall:'base',floorSkin:'base',pos:{},deco:{}}}
+
+/* ───── 행동 목록 ───── */
+const JOBS=[
+ {id:'flyer',ic:'📄',name:'전단지 돌리기',pay:3,hp:15,lock:()=>null,
+  txt:['아파트 단지를 세 바퀴 돌았어요.','경비 아저씨 눈을 피해 다 돌렸어요.','바람에 전단지가 날아가서 주우러 뛰었어요.']},
+ {id:'mop',ic:'🧹',name:'바닥 청소',pay:5,hp:22,lock:()=>null,
+  txt:['상가 복도를 반짝반짝 닦았어요.','걸레질 실력이 늘고 있어요.','껌 떼느라 허리가 아파요.']},
+ {id:'cvs',ic:'🏪',name:'편의점 야간',pay:7,hp:24,lock:s=>s.jobs<6?`알바 6번 하면 열려요 (${s.jobs}/6)`:null,
+  txt:['새벽 손님은 조용해서 좋아요.','폐기 삼각김밥을 얻어 먹었어요.','취객을 잘 달래서 보냈어요.']},
+ {id:'bike',ic:'🛵',name:'배달',pay:10,hp:32,lock:s=>(s.own.bicycle||s.own.scooter)?null:s.jobs<16?`알바 16번 또는 자전거 (${s.jobs}/16)`:null,
+  txt:['비 오는 날이라 콜이 쏟아졌어요.','엘리베이터 없는 5층을 세 번 올랐어요.','길을 외워서 점점 빨라져요.']},
+ {id:'wed',ic:'🎤',name:'결혼식 축가',pay:13,hp:18,daily:1,show:s=>s.ch&&ch(s).skill==='sing'||s.sing>=30,lock:s=>s.sing<30?`노래 실력 30이면 열려요 (${s.sing}/30)`:null,
+  txt:['신부 어머니가 우셨어요. 성공이에요.','박수를 크게 받았어요.','음이 살짝 나갔지만 다들 몰랐어요.']},
+ {id:'mc',ic:'🎙️',name:'행사 사회',pay:13,hp:18,daily:1,show:s=>s.ch&&ch(s).skill==='talk'||s.talk>=30,lock:s=>s.talk<30?`말빨 30이면 열려요 (${s.talk}/30)`:null,
+  txt:['돌잔치 사회를 봤어요. 아기가 돈을 잡았어요.','체육대회 사회로 목이 쉬었어요.','썰렁한 분위기를 농담 하나로 살렸어요.']},
+ {id:'coach',ic:'🕹️',name:'게임 코치',pay:11,hp:16,daily:1,show:s=>s.ch&&ch(s).skill==='game'||s.game>=30,lock:s=>s.game<30?`게임 실력 30이면 열려요 (${s.game}/30)`:null,
+  txt:['초등학생을 골드까지 올려 줬어요.','직장인 손님의 승급전을 도왔어요.','한 시간 내내 "스킬 아끼세요"만 외쳤어요.']},
+ {id:'freelance',ic:'🧑‍💻',name:'외주 개발',pay:14,hp:16,daily:1,show:s=>s.code>0,lock:s=>s.code<30?`코딩 실력 30이면 열려요 (${s.code}/30)`:null,
+  txt:['동네 식당 홈페이지를 만들어 줬어요.','"간단한 수정"이라더니 밤을 새웠어요.','견적서를 보내고 입금을 받았어요.']},
+ {id:'ghost',ic:'✍️',name:'원고 알바',pay:12,hp:14,daily:1,show:s=>s.write>0,lock:s=>s.write<30?`글솜씨 30이면 열려요 (${s.write}/30)`:null,
+  txt:['동네 치과 홍보 글을 써 줬어요.','"감성 있게, 근데 정보도 많게, 근데 짧게" 써 달래요.','자기소개서를 대신 다듬어 줬어요.']},
+ {id:'manager',ic:'🛒',name:'매장 관리 대타',pay:13,hp:18,daily:1,show:s=>s.biz>0,lock:s=>s.biz<30?`장사 수완 30이면 열려요 (${s.biz}/30)`:null,
+  txt:['발주 실수를 잡아내서 칭찬받았어요.','진열을 바꿨더니 매출이 올랐대요.','마감 정산을 한 번에 맞췄어요.']},
+];
+const CH={
+ sing:{ic:'🎤',name:'노래 커버',skill:'sing',skn:'노래 실력',pr:'노래 연습',hp:16,risk:[5,9],prRisk:[2,4],body:1,rk:'🗣️ 목 피로',banWhy:'목이 쉬었어요',eff:s=>s.sing,mult:s=>1,
+  desc:'꾸준히 크는 정석이에요. 너무 부르면 목이 쉬어요.',
+  prTxt:['코인 노래방에서 목이 쉬도록 불렀어요.','고음이 조금 더 올라가요.','녹음해서 들어 보니 어제보다 나아요.'],
+  upTxt:['댓글에 "목소리 좋아요"가 달렸어요.','썸네일을 열 번 고쳐서 올렸어요.','커버곡 영상을 올렸어요.']},
+ game:{ic:'🎮',name:'게임 방송',skill:'game',skn:'게임 실력',pr:'게임 연습',hp:11,risk:[4,7],prRisk:[2,4],body:1,rk:'🖐️ 손목 피로',banWhy:'손목이 아파요',eff:s=>s.game,mult:s=>.85*(s.own.console?1.2:1),
+  desc:'체력을 덜 써서 자주 올려요. 너무 하면 손목이 나가요. 게임기 1.2배.',
+  prTxt:['새벽까지 랭크를 돌렸어요.','프로 선수 영상을 보며 따라 했어요.','손가락에 굳은살이 생겼어요.'],
+  upTxt:['역전승 장면을 올렸어요.','"형 진짜 잘한다" 댓글이 달렸어요.','신작 게임 첫 플레이를 올렸어요.']},
+ muk:{ic:'🍜',name:'먹방',skill:'talk',skn:'말빨',pr:'리액션 연습',hp:4,cost:3,risk:[7,11],body:1,rk:'🤢 소화 불량',banWhy:'속이 안 좋아요',eff:s=>Math.min(100,35+s.talk*.65),mult:s=>.9,
+  desc:'실력 없이 바로 시작. 영상마다 음식값 3만 원. 너무 먹으면 탈이 나요.',
+  prTxt:['거울 보고 "음~!" 표정을 연습했어요.','맛 표현 단어를 백 개 외웠어요.','국물 소리 내는 법을 익혔어요.'],
+  upTxt:['짜장면 다섯 그릇을 비웠어요.','편의점 신상을 다 먹어 봤어요.','매운 라면에 눈물을 쏟았어요.']},
+ vlog:{ic:'🧳',name:'알바 브이로그',skill:'talk',skn:'말빨',pr:'말하기 연습',hp:12,risk:[5,9],rk:'👀 사장님 눈치',eff:s=>Math.min(100,Math.round(s.talk*.5+s.jobs*.7)),mult:s=>1,
+  desc:'알바를 많이 할수록 재밌어져요. 사장님한테 걸리면 잘려요.',
+  prTxt:['카메라 앞에서 혼자 떠드는 연습을 했어요.','자막 넣는 법을 배웠어요.','어색한 인사말을 스무 번 다시 찍었어요.'],
+  upTxt:['"편의점 야간 알바의 하루"를 올렸어요.','진상 손님 썰이 공감을 얻었어요.','월급날 브이로그를 올렸어요.']},
+ wreck:{ic:'📢',name:'이슈 렉카',skill:'talk',skn:'말빨',pr:'대본 쓰기 연습',hp:16,risk:[4,8],fatal:1,rk:'⚖️ 고소 위험',viral:1.8,eff:s=>s.talk,mult:s=>1.6,
+  desc:'제일 빨리 커요. 하지만 올릴 때마다 고소 위험이 쌓이고, 100이 되면 끝이에요.',
+  prTxt:['자극적인 제목 짓는 법을 연구했어요.','뉴스를 30초로 줄여 말하는 연습을 했어요.','목소리에 분노를 싣는 법을 익혔어요.'],
+  upTxt:['"충격! 그 사람의 실체"를 올렸어요.','논란을 3분으로 정리해 올렸어요.','빨간 화살표 썸네일이 먹혔어요.']},
+};
+const ch=s=>CH[s.ch||'sing'];
+const skillOf=s=>s[ch(s).skill];
+const riskMul=s=>(s.leg==='lawyer'?.8:1)*((s.ch==='sing'&&s.own.humid)||(s.ch==='game'&&s.own.brace)||(s.ch==='muk'&&s.own.gym)||(s.ch==='vlog'&&s.own.edit)?.65:1);
+function addRisk(range){const r=Math.max(1,Math.round(rnd(range[0],range[1])*riskMul(S)));S.risk=Math.min(100,S.risk+r);return ` · <span class="down">${ch(S).rk} +${r}</span>`}
+const banTxt=s=>`${ch(s).banWhy} · ${s.ban}일 쉬어야 해요`;
+const jobLock=(s,j)=>s.fired>0&&j.id!=='flyer'&&j.id!=='mop'?`소문이 나서 ${s.fired}일 뒤에 받아 줘요`:j.lock(s)||(j.daily&&(s.used['j_'+j.id]||0)>=j.daily?'오늘 일감은 끝났어요 (하루 1건)':null);
+function bigTrouble(){
+  const k=S.ch;if(k==='wreck')return finish('court');sfx('bad');
+  const pay=n=>{const c=Math.min(n,Math.max(0,S.money));S.money-=c;return c};
+  if(k==='sing'){const c=pay(30);S.ban=5;say('🏥','성대 결절이래요. 의사가 닷새 동안 말도 하지 말래요.',`<span class="down">병원비 -${won(c)} · 5일 동안 노래 금지</span>`)}
+  else if(k==='game'){const c=pay(30);S.ban=5;say('🏥','손목 터널 증후군이래요. 마우스를 잡을 수가 없어요.',`<span class="down">병원비 -${won(c)} · 5일 동안 게임 금지</span>`)}
+  else if(k==='muk'){const c=pay(40);S.ban=4;S.hp=Math.min(S.hp,10);say('🚑','급성 위염으로 응급실에 실려 갔어요.',`<span class="down">병원비 -${won(c)} · 4일 동안 먹방 금지 · 체력 바닥</span>`)}
+  else{const lost=Math.round(S.subs*.4);S.subs-=lost;S.fired=5;say('🚫','손님 얼굴이 그대로 나가서 항의가 쏟아졌어요. 영상을 전부 내렸어요.',`<span class="down">구독자 -${ppl(lost)} · 5일 동안 전단지·청소만 가능</span>`)}
+  S.risk=30;
+}
+const DREAM=[
+ {id:'practice',hp:s=>10,desc:s=>`${ch(s).skn}이 올라요 · 체력 -10`,lock:s=>!s.ch?'채널부터 만들어요':s.ban>0?banTxt(s):skillOf(s)>=100?'실력이 최고예요':null},
+ {id:'upload',hp:s=>ch(s).hp,yt:1,desc:s=>(s.monet?'구독자 + 광고 수익':'구독자가 늘어요')+` · 체력 -${ch(s).hp}`+(ch(s).cost?` · ${ch(s).cost}만 원`:'')+(ch(s).risk?` · ${ch(s).rk} ↑`:''),lock:s=>!s.ch?'채널부터 만들어요':s.ban>0?banTxt(s):ch(s).cost&&s.money<ch(s).cost?`음식값 ${ch(s).cost}만 원이 없어요`:null},
+ {id:'rest',hp:s=>0,desc:s=>'체력 +'+(35+(s.own.console?15:0)),lock:s=>s.hp>=maxHp(s)?'체력이 가득해요':null},
+];
+const maxHp=s=>(s.own.gym?120:100)+(s.leg==='body'?10:0);
+const heal=(s,n)=>{s.hp=Math.min(maxHp(s),s.hp+n)};
+const full=s=>s.hp>=maxHp(s)?'체력이 가득해요':null;
+const gear=s=>(s.own.mic?1.5:1)*(s.own.cam?1.6:1)*(s.own.edit?1.2:1)*(s.editor?1.25:1)*(s.home>=2?1.1:1)*(s.friend>=60?1.1:1)*(s.lover&&s.love>=70?1.1:1);
+const sleepHp=s=>30+(s.own.bed?8:0)+[0,12,22][s.home]+(s.lover?8:0)+Math.min(10,comfort(s));
+const rentOf=(s,mon)=>RENT[mon]+[0,20,50][s.home];
+const jobPay=(s,j)=>j.pay+(s.leg==='alba'?1:0)+(s.friend>=30?1:0)+(j.id==='bike'&&s.own.scooter?4:0)+((j.id==='wed'||j.id==='mc')?(s.own.suit?4:0)+(s.own.car?6:0):0);
+const jobHp=(s,j)=>Math.max(5,j.hp-(j.id==='bike'&&s.own.scooter?8:0)-(s.own.car?3:0));
+const EDITOR_PAY=6;
+const CATS=[['day','🍙 오늘'],['gear','🎙️ 장비'],['life','🏠 생활'],['money','💰 굴리기']];
+const SHOP=[
+ {id:'gimbap',cat:'day',ic:'🍙',name:'삼각김밥',cost:1,daily:3,desc:'체력 +8',lock:full,fx:s=>heal(s,8)},
+ {id:'gukbap',cat:'day',ic:'🍲',name:'든든한 국밥',cost:3,daily:2,desc:'체력 +22',lock:full,fx:s=>heal(s,22)},
+ {id:'massage',cat:'day',ic:'💆',name:'마사지',cost:12,daily:1,desc:'체력 가득 채우기',lock:full,fx:s=>heal(s,999)},
+ {id:'drink',cat:'day',ic:'⚡',name:'에너지 음료',cost:4,daily:1,desc:'오늘 행동 +1번',fx:s=>{s.left++}},
+ {id:'lesson',cat:'day',ic:'👩‍🏫',name:'과외 레슨',cost:8,daily:1,desc:'채널 실력 +5',lock:s=>!s.ch?'유튜브 채널이 있어야 해요':skillOf(s)>=100?'실력이 최고예요':null,fx:s=>{const k=ch(s).skill;s[k]=Math.min(100,s[k]+5);return ch(s).skn+' +5'}},
+ {id:'adS',cat:'day',ic:'📣',name:'영상 광고',cost:10,daily:1,desc:'구독자가 늘어요',lock:s=>s.uploads<1?'영상을 먼저 올려요':null,fx:s=>{const g=Math.round(100+s.subs*.008);s.subs+=g;milestones();return'구독자 +'+g.toLocaleString()+'명'}},
+ {id:'adL',cat:'day',ic:'📺',name:'큰 광고 캠페인',cost:60,daily:1,desc:'구독자가 크게 늘어요',lock:s=>s.subs<5000?'구독자 5,000명부터':null,fx:s=>{const g=Math.round(800+s.subs*.015);s.subs+=g;milestones();return'구독자 +'+g.toLocaleString()+'명'}},
+ {id:'pear',cat:'day',ic:'🍯',name:'도라지 배즙',cost:3,daily:2,desc:'목 피로 -15',show:s=>s.ch==='sing',lock:s=>s.risk<=0?'목이 멀쩡해요':null,fx:s=>{s.risk=Math.max(0,s.risk-15)}},
+ {id:'ice',cat:'day',ic:'🧊',name:'손목 찜질',cost:3,daily:2,desc:'손목 피로 -15',show:s=>s.ch==='game',lock:s=>s.risk<=0?'손목이 멀쩡해요':null,fx:s=>{s.risk=Math.max(0,s.risk-15)}},
+ {id:'pill',cat:'day',ic:'💊',name:'소화제',cost:2,daily:2,desc:'소화 불량 -15',show:s=>s.ch==='muk',lock:s=>s.risk<=0?'속이 편해요':null,fx:s=>{s.risk=Math.max(0,s.risk-15)}},
+ {id:'gift',cat:'day',ic:'🎁',name:'사장님께 음료 선물',cost:4,daily:1,desc:'사장님 눈치 -20',show:s=>s.ch==='vlog',lock:s=>s.risk<=0?'사장님 기분이 좋아요':null,fx:s=>{s.risk=Math.max(0,s.risk-20)}},
+ {id:'humid',cat:'gear',ic:'💨',name:'가습기',cost:20,desc:'목 피로가 덜 쌓여요',show:s=>s.ch==='sing'},
+ {id:'brace',cat:'gear',ic:'🧤',name:'손목 보호대',cost:15,desc:'손목 피로가 덜 쌓여요',show:s=>s.ch==='game'},
+ {id:'lawyer',cat:'day',ic:'⚖️',name:'변호사 상담',cost:25,daily:1,desc:'고소 위험 -30',show:s=>s.ch==='wreck',lock:s=>s.risk<=0?'고소 위험이 없어요':null,fx:s=>{s.risk=Math.max(0,s.risk-30)}},
+ {id:'mic',cat:'gear',ic:'🎙️',name:'좋은 마이크',cost:20,desc:'영상 효과 1.5배'},
+ {id:'edit',cat:'gear',ic:'💻',name:'편집 프로그램',cost:35,desc:'영상 효과 1.2배 · 브이로그 모자이크'},
+ {id:'cam',cat:'gear',ic:'📷',name:'카메라와 조명',cost:60,desc:'영상 효과 1.6배'},
+ {id:'booth',cat:'gear',ic:'🎧',name:'방음 부스',cost:90,desc:'연습 효과 1.6배'},
+ {id:'bicycle',cat:'gear',ic:'🚲',name:'중고 자전거',cost:12,desc:'배달 알바가 바로 열려요'},
+ {id:'scooter',cat:'gear',ic:'🛵',name:'전기 스쿠터',cost:70,desc:'배달 +4만 원 · 체력 덜 써요'},
+ {id:'suit',cat:'gear',ic:'🤵',name:'무대 의상',cost:30,desc:'축가·행사 사회 +4만 원'},
+ {id:'editor',cat:'gear',ic:'🧑‍💻',name:'편집자 고용',toggle:1,cost:0,desc:`매일 밤 ${EDITOR_PAY}만 원 · 영상 효과 1.25배`,lock:s=>s.subs<3000&&!s.editor?'구독자 3,000명부터':null},
+ {id:'laptop',cat:'gear',ic:'💼',name:'노트북',cost:45,desc:'개발하기 가능 · 코딩 공부 1.3배'},
+ {id:'domain',cat:'blogshop',ic:'🌐',name:'내 도메인과 예쁜 테마',cost:15,desc:'광고 수입 1.15배'},
+ {id:'keyboard',cat:'blogshop',ic:'⌨️',name:'손에 붙는 키보드',cost:20,desc:'글쓰기 체력을 덜 써요'},
+ {id:'ebook',cat:'blogshop',ic:'📕',name:'전자책 내기',cost:20,desc:'밤마다 +6만 원',lock:s=>s.posts<25&&!s.own.ebook?`글 25편부터 (${s.posts}/25)`:null},
+ {id:'letter',cat:'blogshop',ic:'📰',name:'유료 뉴스레터 열기',cost:30,desc:'밤마다 +10만 원',lock:s=>s.posts<50&&!s.own.letter?`글 50편부터 (${s.posts}/50)`:null},
+ {id:'aiw',cat:'blogshop',ic:'🤖',name:'AI 글쓰기 도구 구독',toggle:1,cost:0,pay:3,desc:'매일 밤 3만 원 · 한 번에 글 2편, 저품질 위험도 2배 가까이',lock:s=>null},
+ {id:'parking',cat:'rentshop',ic:'🅿️',name:'주차장 한 칸',cost:200,desc:'밤마다 약 5만 원'},
+ {id:'studio',cat:'rentshop',ic:'🚪',name:'원룸 한 채',cost:600,desc:'밤마다 약 16만 원'},
+ {id:'shopunit',cat:'rentshop',ic:'🏬',name:'상가 한 칸',cost:1500,desc:'밤마다 약 45만 원'},
+ {id:'building',cat:'rentshop',ic:'🏢',name:'꼬마빌딩',cost:4000,desc:'밤마다 약 130만 원'},
+ {id:'janitor',cat:'rentshop',ic:'🧑‍🔧',name:'관리인 고용',toggle:1,cost:0,pay:6,desc:'매일 밤 6만 원 · 세입자를 대신 챙겨 줘요',lock:s=>!rentCount(s)&&!s.staff.janitor?'세 줄 곳이 있어야 해요':null},
+ {id:'loanGet',cat:'money',ic:'🏦',name:'은행 대출 받기',cost:0,repeat:1,desc:s=>`200만 원 빌리기 · 매일 밤 이자 3만 원 · 지금 ${s.loan}건`,lock:s=>s.loan>=3?'은행이 더는 안 빌려줘요':s.day<6?'통장 거래 기록이 더 필요해요 (6일째부터)':null,fx:s=>{s.money+=200;s.loan++;return'통장에 200만 원이 찍혔어요. 내 돈은 아니에요'}},
+ {id:'loanPay',cat:'money',ic:'💳',name:'대출 200만 원 갚기',cost:200,repeat:1,desc:s=>`남은 대출 ${s.loan}건`,lock:s=>s.loan<1?'빚이 없어요':null,fx:s=>{s.loan--;return'빚이 줄었어요. 발 뻗고 자요'}},
+ {id:'stockBuy',cat:'money',ic:'📈',name:'주식 10만 원 사기',cost:10,repeat:1,desc:s=>`조금씩 오르내려요 · 지금 ${won(s.stock)}`,fx:s=>{s.stock+=10;return'주식 계좌 '+won(s.stock)}},
+ {id:'stockSell',cat:'money',ic:'💵',name:'주식 전부 팔기',cost:0,repeat:1,desc:s=>`받을 돈 ${won(s.stock)}`,lock:s=>s.stock<1?'가진 주식이 없어요':null,fx:s=>{const v=Math.round(s.stock);s.money+=v;s.stock=0;return'+'+won(v)}},
+ {id:'coinBuy',cat:'money',ic:'🪙',name:'코인 10만 원 사기',cost:10,repeat:1,desc:s=>`크게 오르고 크게 떨어져요 · 지금 ${won(s.coin)}`,fx:s=>{s.coin+=10;return'코인 지갑 '+won(s.coin)}},
+ {id:'coinSell',cat:'money',ic:'💵',name:'코인 전부 팔기',cost:0,repeat:1,desc:s=>`받을 돈 ${won(s.coin)}`,lock:s=>s.coin<1?'가진 코인이 없어요':null,fx:s=>{const v=Math.round(s.coin);s.money+=v;s.coin=0;return'+'+won(v)}},
+ {id:'vend',cat:'bizshop',ic:'🥤',name:'음료 자판기',cost:60,desc:'밤마다 약 2만 원'},
+ {id:'laundry',cat:'bizshop',ic:'🧺',name:'무인 빨래방',cost:120,desc:'밤마다 약 5만 원'},
+ {id:'store',cat:'bizshop',ic:'📦',name:'위탁판매 스토어',cost:180,desc:'밤마다 약 6만 원'},
+ {id:'restaurant',cat:'bizshop',ic:'🍜',name:'음식점',cost:450,desc:s=>'밤마다 약 16만 원'+(s.ch==='muk'?' · 먹방 채널이라 1.5배!':' · 먹방 채널이면 1.5배')},
+ {id:'icecream',cat:'bizshop',ic:'🍦',name:'무인 아이스크림 가게',cost:550,desc:'밤마다 약 18만 원'},
+ {id:'cafe',cat:'bizshop',ic:'☕',name:'테이크아웃 카페',cost:1000,desc:'밤마다 약 30만 원'},
+ {id:'cctv',cat:'bizshop',ic:'📹',name:'CCTV',cost:25,desc:'도둑을 막고 관리 소홀이 덜 쌓여요',lock:s=>!shopCount(s)&&!s.own.cctv?'가게가 있어야 해요':null},
+ {id:'clerk',cat:'bizshop',ic:'🧑‍🔧',name:'알바생 고용',toggle:1,cost:0,pay:4,desc:'매일 밤 4만 원 · 가게를 대신 돌봐 줘요',lock:s=>!shopCount(s)&&!s.staff.clerk?'가게가 있어야 해요':null},
+ {id:'ai',cat:'gear',ic:'🤖',name:'AI 코딩 도구 구독',toggle:1,cost:0,pay:3,desc:'매일 밤 3만 원 · 개발 1.6배, 공부 1.3배',show:s=>s.code>0||s.own.laptop,lock:s=>null},
+ {id:'vaccine',cat:'gear',ic:'🛡️',name:'백신 프로그램',cost:6,desc:'바이러스를 막아 줘요',show:s=>s.code>0||s.own.laptop},
+ {id:'monitor',cat:'gear',ic:'🖥️',name:'듀얼 모니터',cost:30,desc:'개발 속도 1.3배',show:s=>s.code>0||s.own.laptop},
+ {id:'chair',cat:'gear',ic:'🪑',name:'좋은 의자',cost:20,desc:'번아웃이 덜 쌓여요',show:s=>s.code>0||s.own.laptop},
+ {id:'server',cat:'gear',ic:'☁️',name:'튼튼한 서버',cost:40,desc:'제품 수입 1.1배 · 서버가 안 터져요',show:s=>s.products.length>0},
+ {id:'designer',cat:'gear',ic:'🎨',name:'디자이너 고용',toggle:1,cost:0,pay:5,desc:'매일 밤 5만 원 · 새로 내는 것 수입 1.3배',show:s=>s.code>0||s.own.laptop,lock:s=>!s.products.length&&!s.staff.designer?'먼저 하나를 출시해요':null},
+ {id:'yoga',cat:'day',ic:'🧘',name:'요가 수업',cost:3,daily:2,desc:'번아웃 -15',show:s=>s.burn>0,fx:s=>{s.burn=Math.max(0,s.burn-15)}},
+ {id:'launchAd',cat:'day',ic:'🚀',name:'내 제품 홍보',cost:15,daily:1,desc:'제품 하나 수입 +20%',show:s=>s.products.length>0,fx:s=>{const x=pick(s.products);x.inc*=1.2;x.peak=Math.max(x.peak||0,x.inc);return`"${x.name}" 수입이 올랐어요`}},
+ {id:'bed',cat:'life',ic:'🛏️',name:'푹신한 매트리스',cost:25,desc:'잘 때 체력 +8 더'},
+ {id:'console',cat:'life',ic:'🎮',name:'게임기',cost:25,desc:'푹 쉬기 +15 · 게임 방송 1.2배'},
+ {id:'gym',cat:'life',ic:'🏋️',name:'헬스장 회원권',cost:40,desc:'최대 체력 120 · 먹방 탈이 덜 나요'},
+ {id:'oneroom',cat:'life',ic:'🏠',name:'원룸으로 이사',cost:80,desc:'잘 때 체력 +12 · 월세 +20만',fx:s=>{s.home=1}},
+ {id:'officetel',cat:'life',ic:'🏙️',name:'오피스텔로 이사',cost:250,desc:'잘 때 +22 · 영상 1.1배 · 월세 +50만',lock:s=>s.home<1?'원룸 먼저 가야 해요':null,fx:s=>{s.home=2}},
+ {id:'car',cat:'life',ic:'🚗',name:'중고차',cost:350,desc:'축가·사회 +6만 · 모든 알바 체력 -3'},
+];
+let shopTab='day';
+const ATABS=[['job','💼 알바'],['path','🚀 사업'],['ppl','👥 사람'],['shop','🛒 상점']];let actTab='job';
+const PATHS=[['yt','📹 유튜브'],['dev','💻 만들기'],['biz','🏪 가게'],['blog','✍️ 블로그'],['rent','🏢 임대']];let pathTab='yt';const isPath=k=>PATHS.some(p=>p[0]===k);
+function shopLock(it){
+  if(it.toggle)return it.lock(S);
+  if(!it.daily&&!it.repeat&&S.own[it.id])return '샀어요 ✔';
+  if(it.daily&&(S.used[it.id]||0)>=it.daily)return '오늘은 다 썼어요';
+  const l=it.lock&&it.lock(S);if(l)return l;
+  if(S.money<it.cost)return won(it.cost)+' · 돈이 모자라요';
+  return null;
+}
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const dsc=it=>typeof it.desc==='function'?it.desc(S):it.desc;
+/* ───── 만들기 · 부업 · 사람 ───── */
+const PROJ={
+ web:{ic:'🌐',name:'웹사이트',need:10,work:60,base:1,note:'금방 만들어요'},
+ tool:{ic:'🤖',name:'자동화 도구',need:20,work:110,base:2,note:'구독형이라 수입이 안 줄어요'},
+ app:{ic:'📱',name:'앱',need:35,work:180,base:4,note:'꾸준히 벌어요'},
+ course:{ic:'🎓',name:'온라인 강의',need:50,work:240,base:4,note:'유튜브 구독자가 많으면 잘 팔려요'},
+ gm:{ic:'👾',name:'게임',need:60,work:400,base:6,note:'오래 걸리지만 대박 확률이 커요'},
+ kiosk:{ic:'📲',name:'내 가게 주문 앱',need:30,work:150,base:0,once:'kiosk',show:s=>shopCount(s)>0&&!s.own.kiosk,note:'가게 수입 1.1배 · 관리가 편해져요'},
+};
+const PNAMES={web:['맛집 지도','이력서 생성기','동네 게시판','환율 계산기','글자 수 세기'],tool:['영수증 정리 봇','예약 알림 봇','재고 관리 도구','자막 자동 생성기'],app:['가계부 앱','습관 체크 앱','펫 키우기 앱','운동 기록 앱','단어 암기 앱'],course:['코딩 첫걸음 강의','앱 만들기 강의','1인 창업 강의'],gm:['고양이 퍼즐','던전 키우기','로봇 디펜스','농장 타이쿤','밤의 생존자'],kiosk:['우리 가게 주문 앱']};
+const BIZ={vend:2,laundry:5,store:6,restaurant:16,icecream:18,cafe:30};
+const fanBoost=s=>s.ch?1+Math.min(.4,Math.log10(1+s.subs)/14):1;
+const shopCount=s=>Object.keys(BIZ).filter(k=>s.own[k]).length;
+const bizMul=s=>s.bizBan>0?0:(.7+s.biz*.006)*(s.promo>0?1.15:1);
+const staffOn=id=>id==='editor'?!!S.editor:!!S.staff[id];
+const burnMul=s=>(s.own.chair?.65:1)*(s.leg==='lawyer'?.8:1);
+function addBurn(a,b){const r=Math.max(1,Math.round(rnd(a,b)*burnMul(S)));S.burn=Math.min(100,S.burn+r);return ` · <span class="down">🥵 번아웃 +${r}</span>`}
+function burnOut(){const c=Math.min(20,Math.max(0,S.money));S.money-=c;S.devBan=5;S.burn=30;sfx('bad');say('🏥','번아웃이 왔어요. 화면만 봐도 속이 울렁거려요.',`<span class="down">병원비 -${won(c)} · 5일 동안 개발·공부 금지</span>`)}
+const devInc=s=>Math.round(s.products.reduce((a,x)=>a+x.inc,0)*(s.own.server?1.1:1));
+const bizInc=s=>Math.round(Object.keys(BIZ).reduce((a,k)=>a+(s.own[k]?BIZ[k]*(k==='restaurant'&&s.ch==='muk'?1.5:1):0),0)*bizMul(s)*fanBoost(s)*(s.own.kiosk?1.1:1));
+const adCut=s=>s.mcn?.7:1;
+const adNight=s=>s.monet?Math.max(1,Math.round(Math.sqrt(s.subs)/20*adCut(s))):0;
+const RENTS={parking:5,studio:16,shopunit:45,building:130};
+const rentCount=s=>Object.keys(RENTS).filter(k=>s.own[k]).length;
+const rentInc=s=>s.vacant>0?0:Math.round(Object.keys(RENTS).reduce((a,k)=>a+(s.own[k]?RENTS[k]:0),0)*(.8+s.est*.004));
+const blogInc=s=>(s.adsense&&s.blogBan<=0?Math.round(s.posts*(.12+s.write*.004)*(s.own.domain?1.15:1)*(s.ch?1+Math.log10(1+s.subs)/20:1)):0)+(s.own.ebook?6:0)+(s.own.letter?10:0);
+const nightInc=s=>adNight(s)+devInc(s)+bizInc(s)+blogInc(s)+rentInc(s)+(s.salary||0)-(s.loan||0)*3;
+function showIncome(){
+  if($('modal').classList.contains('on'))return;
+  const rows=[['▶️ 유튜브 광고',adNight(S)],['💻 만든 것',devInc(S)],['🏪 가게',bizInc(S)],['✍️ 블로그',blogInc(S)],['🏢 월세',rentInc(S)],['👔 정직원 일당',S.salary||0],['🏦 대출 이자',-(S.loan||0)*3]].filter(r=>r[1]);
+  show(`<div class="big">💤</div><h3 style="text-align:center">자는 동안 버는 돈</h3><p style="text-align:center"><b class="gold" style="font-size:24px">밤마다 ${won(nightInc(S))}</b></p>`+
+    (rows.length?`<ul>${rows.map(r=>`<li><span>${r[0]}</span><span class="${r[1]>=0?'up':'down'}">${r[1]>=0?'+':''}${won(r[1])}</span></li>`).join('')}</ul>`:'<p style="color:var(--sub)">아직 자는 동안 들어오는 돈이 없어요. 🚀 사업 탭에서 내 일을 시작해 보세요.</p>')+
+    `<p style="color:var(--sub);font-size:13px">월세는 하루로 치면 ${Math.round(rentOf(S,Math.min(MONTHS-1,Math.floor((S.day-1)/MONTH_DAYS)))/MONTH_DAYS)}만 원이에요. 이걸 넘기면 일을 안 해도 쫓겨나지 않아요.</p><button class="go" id="ok">닫기</button>`);
+}
+const chLine=s=>s.ch?`${CH[s.ch].ic} ${CH[s.ch].name} · ${ppl(s.subs)}`:'없음';
+function bizLine(s){const a=[];if(s.ch)a.push(`${CH[s.ch].ic} ${ppl(s.subs)}`);if(s.products.length)a.push(`💻 ${s.products.length}개`);const b=Object.keys(BIZ).filter(k=>s.own[k]).length;if(b)a.push(`🏪 ${b}곳`);if(s.posts)a.push(`✍️ ${s.posts}편`);const rc=rentCount(s);if(rc)a.push(`🏢 ${rc}채`);if(s.salary)a.push('👔 정직원');return a.length?a.join(' · '):'아직 없음'}
+const LOVERS=['지우','서아','하루','도하','시우','유나'];
+function startProj(k){
+  const P=PROJ[k];if(S.over||S.proj||!P||(P.show&&!P.show(S))||S.code<P.need||$('modal').classList.contains('on'))return false;
+  S.proj={k,prog:0,name:pick(PNAMES[k])};say(P.ic,`${P.name} "${S.proj.name}" 만들기를 시작했어요.`,`작업량 ${P.work} · "개발하기"로 채워요`);render();return true;
+}
+const ADS_NO=['"가치가 낮은 콘텐츠"래요. 내 글이요?','"사이트를 찾을 수 없음"이래요. 방금도 들어갔는데요.','"정책 위반"이래요. 뭘 위반했는지는 안 알려 줘요.','"콘텐츠 부족"이래요. 3만 자를 썼는데요.','또 거절이에요. 이제 거절 메일 문장을 외웠어요.'];
+function adsApply(){
+  if(S.over||S.adsense||S.posts<10||S.adsWait>0||$('modal').classList.contains('on'))return false;
+  if(Math.random()<Math.min(.9,.15+S.posts*.012+S.write*.006)){S.adsense=true;sfx('good');say('🎊',`애드센스 승인! ${S.adsTry+1}번 만에 붙었어요.`,`이제 글이 밤마다 돈을 벌어요 · 밤마다 <span class="up">+${won(blogInc(S))}</span>`)}
+  else{S.adsTry++;S.adsWait=3;sfx('bad');say('📩',`애드센스 ${S.adsTry}번째 거절. `+ADS_NO[Math.min(ADS_NO.length-1,S.adsTry-1)],'3일 뒤에 다시 신청할 수 있어요 · 글이 많고 글솜씨가 높을수록 잘 붙어요')}
+  render();return true;
+}
+function quitJob(){if(S.over||!S.salary)return false;S.salary=0;say('🚪','사표를 냈어요. 다시 내 시간이 생겼어요.','내일부터 하루 행동 3번');render();return true}
+const XACT=[
+ {id:'study',tab:'dev',ic:'📚',name:s=>'코딩 공부',hp:s=>10,desc:s=>'코딩 실력이 올라요 · 체력 -10',lock:s=>s.devBan>0?`번아웃 · ${s.devBan}일 쉬어야 해요`:s.code>=100?'실력이 최고예요':null,
+  run:s=>{const g=Math.round(rnd(3,5.4)*(s.own.laptop?1.3:1)*(s.staff.ai?1.3:1));s.code=Math.min(100,s.code+g);const b=addBurn(2,4);say('📚',pick(['무료 강의를 2배속으로 들었어요.','"Hello World"가 처음으로 떴어요.','에러 메시지를 읽는 법을 배웠어요.','남의 코드를 따라 치며 익혔어요.']),`코딩 실력 <span class="up">+${g}</span> · 체력 -10`+b);if(s.burn>=100)burnOut()}},
+ {id:'build',tab:'dev',ic:'⌨️',name:s=>s.proj?`${s.proj.name} 개발하기`:'개발하기',hp:s=>14,desc:s=>`진행 ${s.proj.prog}/${PROJ[s.proj.k].work} · 체력 -14`,
+  lock:s=>s.devBan>0?`번아웃 · ${s.devBan}일 쉬어야 해요`:!s.own.laptop?'노트북이 있어야 해요 (🛒 상점 → 장비)':!s.proj?'아래에서 만들 것을 골라요':null,
+  run:s=>{const P=PROJ[s.proj.k],k=s.proj.k,nm=s.proj.name;s.proj.prog+=Math.round((8+s.code*.14)*rnd(.8,1.2)*(s.own.monitor?1.3:1)*(s.staff.ai?1.6:1));s.code=Math.min(100,s.code+1);let b=addBurn(4,7);
+    if(s.ch){const vg=Math.max(1,Math.round((3+s.code*.2)*gear(s)*.3));s.subs+=vg;b+=` · <span class="up">📹 개발 과정 영상 +${vg}명</span>`;milestones()}
+    if(s.proj.prog>=P.work&&P.once){s.own[P.once]=true;s.proj=null;say('📲',`"${nm}" 완성! 내 가게에 달았더니 주문이 알아서 들어와요.`,'가게 수입 1.1배 · 관리 소홀이 절반만 쌓여요'+b);if(s.burn>=100)burnOut();return}
+    if(s.proj.prog>=P.work){const hit=Math.random()<(.08+s.code*.0005)*(k==='gm'?2:1),same=s.products.filter(x=>x.k===k).length;
+      const fans=1+Math.log10(1+s.subs)/(k==='course'?4:16);
+      const inc=Math.max(1,Math.round(P.base*(.5+s.code/150)*rnd(.7,1.3)*fans*(hit?3:1)*(s.staff.designer?1.3:1)/(1+.25*same)));
+      s.products.push({k,name:nm,inc,peak:inc});s.proj=null;
+      say(hit?'🎉':P.ic,hit?`"${nm}" 출시! 입소문이 나서 대박이 났어요!`:`"${nm}" 출시! 첫 사용자가 들어왔어요.`,`밤마다 <span class="up">+${won(inc)}</span>이 들어와요`+b)}
+    else say('⌨️',pick(['버그 하나를 잡으니 둘이 생겼어요.','커피 석 잔째에 코드가 풀렸어요.','드디어 화면이 뜨기 시작했어요.','어제 짠 코드를 오늘 못 알아보겠어요.']),`진행 ${s.proj.prog}/${P.work} · 체력 -14`+b);
+    if(s.burn>=100)burnOut()}},
+ {id:'update',tab:'dev',ic:'🔧',name:s=>'업데이트하기',hp:s=>10,show:s=>s.products.length>0,desc:s=>'낸 것 전부 수입 +10% · 체력 -10',lock:s=>s.devBan>0?`번아웃 · ${s.devBan}일 쉬어야 해요`:null,
+  run:s=>{for(const x of s.products)x.inc=Math.min((x.peak||x.inc)*1.5,x.inc*1.1);const b=addBurn(2,4);say('🔧',pick(['사용자 요청 기능을 넣었어요.','별점 1점 리뷰의 버그를 고쳤어요.','새 버전을 올렸어요.']),`밤마다 <span class="up">${won(devInc(s))}</span>으로 올랐어요`+b);if(s.burn>=100)burnOut()}},
+ {id:'shopVid',tab:'yt',ic:'🎬',name:s=>'내 가게 소개 영상',hp:s=>ch(s).hp,show:s=>!!s.ch&&shopCount(s)>0,desc:s=>`구독자 조금 + 4일간 가게 손님 몰림 · 체력 -${ch(s).hp}`,lock:s=>s.ban>0?banTxt(s):s.promo>=3?'아직 홍보 효과가 남아 있어요':null,
+  run:s=>{const g=Math.round(baseGain(s)*.5);s.subs+=g;s.uploads++;s.promo=4;const r=ch(s).risk?addRisk(ch(s).risk):'';say('🎬',pick(['내 가게를 영상으로 소개했어요. "가 볼게요" 댓글이 달려요.','가게 뒷이야기 영상이 반응이 좋아요.','구독자들이 가게로 찾아오기 시작했어요.']),`구독자 <span class="up">+${ppl(g)}</span> · 4일간 가게 수입 +15%`+r);milestones();if(s.risk>=100)bigTrouble()}},
+ {id:'prodVid',tab:'yt',ic:'📢',name:s=>'내가 만든 것 소개 영상',hp:s=>ch(s).hp,show:s=>!!s.ch&&s.products.length>0,desc:s=>`구독자 조금 + 제품 하나 수입 +15% · 체력 -${ch(s).hp}`,lock:s=>s.ban>0?banTxt(s):(s.used.prodVid?'오늘은 이미 올렸어요':null),
+  run:s=>{const g=Math.round(baseGain(s)*.5);s.subs+=g;s.uploads++;s.used.prodVid=1;const x=pick(s.products);x.inc*=1.15;x.peak=Math.max(x.peak||0,x.inc);const r=ch(s).risk?addRisk(ch(s).risk):'';say('📢',`"${x.name}" 소개 영상을 올렸어요. 써 보겠다는 사람이 늘었어요.`,`구독자 <span class="up">+${ppl(g)}</span> · "${x.name}" 수입 +15%`+r);milestones();if(s.risk>=100)bigTrouble()}},
+ {id:'wpractice',tab:'blog',ic:'📖',name:s=>'글쓰기 연습',hp:s=>10,desc:s=>'글솜씨가 올라요 · 체력 -10',lock:s=>s.write>=100?'글솜씨가 최고예요':null,
+  run:s=>{const g=Math.round(rnd(3,5.4));s.write=Math.min(100,s.write+g);say('📖',pick(['잘 쓴 글을 통째로 베껴 써 봤어요.','제목만 스무 개 지어 봤어요.','첫 문장을 열 번 고쳤어요.','"그래서 하고 싶은 말이 뭔데?"를 스스로에게 물었어요.']),`글솜씨 <span class="up">+${g}</span> · 체력 -10`)}},
+ {id:'post',tab:'blog',ic:'✍️',name:s=>'블로그 글 쓰기',hp:s=>s.own.keyboard?9:12,desc:s=>`글 ${s.staff.aiw?2:1}편 · 쌓일수록 광고 수입 ↑ · 체력 -${s.own.keyboard?9:12}`,lock:s=>null,
+  run:s=>{const n=s.staff.aiw?2:1;s.posts+=n;s.write=Math.min(100,s.write+1);const r=Math.max(1,Math.round(rnd(4,7)*(s.staff.aiw?1.8:1)*(s.leg==='lawyer'?.8:1)));s.lowq=Math.min(100,s.lowq+r);
+    say('✍️',pick(['맛집 후기를 정성껏 썼어요. 사진만 40장이에요.','"○○ 하는 법 총정리" 글을 올렸어요.','쓰다 보니 내 얘기가 절반이에요.','검색어를 제목에 세 번 넣었어요.']),`글 <span class="up">${s.posts}편</span>`+(s.adsense?` · 밤마다 ${won(blogInc(s))}`:` · 애드센스 승인 전`)+` · <span class="down">📉 저품질 위험 +${r}</span>`);
+    if(s.lowq>=100){s.blogBan=5;s.posts=Math.round(s.posts*.8);s.lowq=30;sfx('bad');say('📉','저품질 블로그 판정을 받았어요. 검색 결과에서 통째로 사라졌어요.','<span class="down">5일 동안 광고 수입 0 · 글 20%가 날아갔어요</span>')}}},
+ {id:'scout',tab:'rent',ic:'🚶',name:s=>'임장 다니기',hp:s=>12,desc:s=>'부동산 안목이 올라요 · 체력 -12',lock:s=>s.est>=100?'안목이 최고예요':null,
+  run:s=>{const g=Math.round(rnd(3,5.4));s.est=Math.min(100,s.est+g);say('🚶',pick(['하루에 2만 보를 걸으며 동네를 돌았어요.','부동산 사장님이 믹스커피를 타 줬어요.','"역세권"의 뜻이 사람마다 다르다는 걸 알았어요.','등기부등본 읽는 법을 배웠어요.']),`부동산 안목 <span class="up">+${g}</span> · 체력 -12`)}},
+ {id:'tenant',tab:'rent',ic:'🔧',name:s=>'세입자 챙기기',hp:s=>10,desc:s=>'세입자 불만 -30 · 안목 +1 · 체력 -10',lock:s=>!rentCount(s)?'세 줄 곳이 있어야 해요':null,
+  run:s=>{const d=Math.min(30,s.gripe);s.gripe-=d;s.est=Math.min(100,s.est+1);say('🔧',pick(['막힌 변기를 뚫어 줬어요. 건물주도 쉽지 않아요.','전등을 갈아 주고 귤을 얻어 왔어요.','층간 소음 중재를 하다가 둘 다에게 혼났어요.','현관 비밀번호를 세 번째 다시 알려 줬어요.']),`세입자 불만 <span class="up">-${d}</span> · 체력 -10`)}},
+ {id:'research',tab:'biz',ic:'📊',name:s=>'시장 조사',hp:s=>10,desc:s=>'장사 수완이 올라요 · 체력 -10',lock:s=>s.biz>=100?'수완이 최고예요':null,
+  run:s=>{const g=Math.round(rnd(3,5.4));s.biz=Math.min(100,s.biz+g);say('📊',pick(['잘되는 가게 앞에서 손님 수를 세어 봤어요.','상권 분석 책을 한 권 읽었어요.','망한 가게 사장님 이야기를 들었어요.','유동 인구 지도를 들여다봤어요.']),`장사 수완 <span class="up">+${g}</span> · 체력 -10`)}},
+ {id:'care',tab:'biz',ic:'🧽',name:s=>'가게 돌보기',hp:s=>12,desc:s=>'관리 소홀 -30 · 장사 수완 +1 · 체력 -12',lock:s=>!shopCount(s)?'가게가 있어야 해요':null,
+  run:s=>{const d=Math.min(30,s.dirt);s.dirt-=d;s.biz=Math.min(100,s.biz+1);say('🧽',pick(['자판기를 닦고 물건을 채웠어요.','바닥을 쓸고 쓰레기통을 비웠어요.','고장 난 카드 단말기를 고쳤어요.','손님 쪽지에 답장을 붙여 놨어요.']),`관리 소홀 <span class="up">-${d}</span> · 장사 수완 +1 · 체력 -12`)}},
+ {id:'promo',tab:'biz',ic:'📣',name:s=>'가게 홍보',hp:s=>10,cost:3,desc:s=>'3만 원 · 3일 동안 가게 수입 +15%',lock:s=>!shopCount(s)?'가게가 있어야 해요':s.promo>0?`홍보 중 (${s.promo}일 남음)`:null,
+  run:s=>{s.promo=3;say('📣',pick(['동네 카페에 전단지를 붙였어요.','개업 할인 쿠폰을 돌렸어요.','동네 커뮤니티에 글을 올렸어요.']),'3일 동안 가게 수입 <span class="up">+15%</span> · <span class="down">-3만 원</span>')}},
+ {id:'friend',tab:'ppl',ic:'🍻',name:s=>'친구 만나기',hp:s=>0,cost:2,desc:s=>'2만 원 · 우정 ↑ · 체력 +10',lock:s=>null,
+  run:s=>{const g=Math.round(rnd(8,12));s.friend=Math.min(100,s.friend+g);heal(s,10);say('🍻',pick(['떡볶이를 먹으며 수다를 떨었어요.','친구가 내 영상에 "좋아요"를 눌러 줬어요.','PC방에서 밤을 새울 뻔했어요.','한강에서 치킨을 뜯었어요.']),`우정 <span class="up">+${g}</span> · 체력 +10 · <span class="down">-2만 원</span>`)}},
+ {id:'blind',tab:'ppl',ic:'💘',name:s=>'소개팅',hp:s=>8,cost:8,show:s=>!s.lover,desc:s=>`8만 원 · 성공 확률 ${charm(s)}%`,lock:s=>s.friend<30?`우정 30이면 친구가 소개해 줘요 (${s.friend}/30)`:null,
+  run:s=>{if(Math.random()*100<charm(s)){s.lover=pick(LOVERS);s.love=45;say('💕',`${s.lover}와 말이 잘 통했어요. 사귀기로 했어요!`,'잘 때 체력 +8 · 애정이 0이 되면 헤어져요')}
+    else say('😅',pick(['어색하게 밥만 먹고 헤어졌어요.','"좋은 분 같아요"라는 답장이 왔어요.','상대가 30분 만에 일이 생겼대요.']),'<span class="down">-8만 원</span> · 옷·집·차가 좋아지면 확률이 올라요')}},
+ {id:'date',tab:'ppl',ic:'💑',name:s=>`${s.lover}와 데이트`,hp:s=>0,cost:5,show:s=>!!s.lover,desc:s=>'5만 원 · 애정 ↑ · 체력 +15',lock:s=>null,
+  run:s=>{const g=Math.round(rnd(15,21));s.love=Math.min(100,s.love+g);heal(s,15);say('💑',pick(['영화를 보고 손을 잡았어요.','맛집 줄을 한 시간 서도 즐거웠어요.','내 꿈 얘기를 끝까지 들어 줬어요.','공원을 세 바퀴 돌며 걸었어요.']),`애정 <span class="up">+${g}</span> · 체력 +15 · <span class="down">-5만 원</span>`)}},
+];
+const charm=s=>Math.min(90,35+(s.own.suit?10:0)+(s.own.gym?10:0)+s.home*10+(s.own.car?15:0)+(s.subs>=1000?10:0));
+const CHOICES=[
+ {id:'wallet',p:s=>true,em:'👛',t:'길에서 지갑을 주웠어요',d:'현금 15만 원과 신분증이 들어 있어요.',opts:[
+   ['주인을 찾아 준다',s=>{s.money+=5;heal(s,10);return'주인이 고맙다며 사례금 5만 원을 줬어요. 발걸음이 가벼워요. (체력 +10)'}],
+   ['슬쩍 챙긴다',s=>{if(Math.random()<.3){const c=Math.min(30,Math.max(0,s.money));s.money-=c;return`CCTV에 찍혔어요. 경찰서에 불려 가 합의금 ${c}만 원을 냈어요.`}s.money+=15;return'15만 원이 생겼어요. 그런데 잠이 잘 안 와요.'}]]},
+ {id:'sponsor',p:s=>s.subs>=2000,em:'🤫',t:'수상한 협찬 제안',d:'"광고 표시 없이 좋다고만 말해 주시면 40만 원 드릴게요."',opts:[
+   ['받는다 (뒷광고)',s=>{s.money+=40;if(Math.random()<.5){const l=Math.round(s.subs*.15);s.subs-=l;return`40만 원을 받았어요. 그런데 들통나서 구독자 ${ppl(l)}이 떠났어요.`}return'40만 원을 받았어요. 아직은 아무도 몰라요.'}],
+   ['거절한다',s=>{const g=Math.round(s.subs*.03);s.subs+=g;return`"정직한 채널"이라는 소문이 났어요. 구독자 +${ppl(g)}`}]]},
+ {id:'lend',p:s=>s.friend>=20&&s.money>=20,em:'🙏',t:'친구가 돈을 빌려 달래요',d:'"20만 원만… 다음 주에 꼭 갚을게."',opts:[
+   ['빌려준다',s=>{s.money-=20;if(Math.random()<.6){s.money+=28;s.friend=Math.min(100,s.friend+20);return'친구가 이자까지 쳐서 28만 원을 갚았어요. 우정 +20'}s.friend=Math.max(0,s.friend-30);return'친구가 연락을 끊었어요. 20만 원과 친구를 잃었어요. 우정 -30'}],
+   ['미안하다고 한다',s=>{s.friend=Math.max(0,s.friend-10);return'친구가 서운해했어요. 우정 -10'}]]},
+ {id:'fulltime',p:s=>s.jobs>=25&&!s.salary,em:'👔',t:'사장님의 정직원 제안',d:'"자네 성실하던데, 정직원 할 생각 없나? 매일 9만 원."',opts:[
+   ['수락한다',s=>{s.salary=9;return'정직원이 됐어요. 매일 밤 9만 원이 들어오지만, 하루 행동이 2번으로 줄어요. (알바 탭에서 퇴사할 수 있어요)'}],
+   ['"제 꿈이 있어서요"',s=>{heal(s,10);return'사장님이 어깨를 두드려 줬어요. "그래, 응원하네." (체력 +10)'}]]},
+ {id:'mcn',p:s=>s.subs>=8000&&!s.mcn,em:'📝',t:'유튜버 소속사(MCN)의 계약 제안',d:'"저희가 키워 드릴게요. 대신 광고 수익의 30%는 저희 몫입니다."',opts:[
+   ['계약한다',s=>{s.mcn=true;const g=Math.round(s.subs*.25);s.subs+=g;return`소속사가 밀어 줘서 구독자 +${ppl(g)}. 앞으로 광고 수익은 70%만 받아요.`}],
+   ['혼자 간다',s=>'계약서를 돌려보냈어요. 느려도 전부 내 것이에요.']]},
+ {id:'usedcam',p:s=>!s.own.cam&&s.money>=30,em:'📷',t:'중고 카메라 급매',d:'"60만 원짜리 카메라, 30만 원에 드려요. 직거래만요."',opts:[
+   ['산다',s=>{s.money-=30;if(Math.random()<.7){s.own.cam=true;return'멀쩡한 카메라였어요! 반값에 득템했어요.'}return'상자를 열어 보니 벽돌이 들어 있었어요. 30만 원을 날렸어요.'}],
+   ['안 산다',s=>'너무 싸면 의심부터 해야죠.']]},
+ {id:'tip',p:s=>s.money>=100,em:'🪙',t:'"무조건 오르는 코인"',d:'아는 형이 귓속말로 말해요. "100만 원만 넣어. 다음 주에 열 배야."',opts:[
+   ['100만 원 넣는다',s=>{s.money-=100;if(Math.random()<.25){s.money+=300;return'정말 올랐어요! 300만 원이 돌아왔어요. (운이 좋았을 뿐이에요)'}return'일주일 뒤 그 코인은 사라졌어요. 100만 원이 0원이 됐어요.'}],
+   ['안 넣는다',s=>'"무조건"이라는 말은 믿지 않기로 했어요.']]},
+];
+let deciding=null;
+function showChoice(c,then){
+  deciding={c,then};
+  $('box').innerHTML=`<div class="big">${c.em}</div><h3 style="text-align:center">${c.t}</h3><p>${c.d}</p><div class="chs">`+c.opts.map((o,i)=>`<button class="act" data-i="${i}"><span class="n">${o[0]}</span></button>`).join('')+'</div>';
+  $('modal').classList.add('on');$('box').querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>choose(+b.dataset.i));
+}
+function choose(i){
+  if(!deciding||!deciding.c.opts[i])return false;const {c,then}=deciding;deciding=null;
+  sfx('tap');const r=c.opts[i][1](S);milestones();render();
+  show(`<div class="big">${c.em}</div><h3 style="text-align:center">${c.opts[i][0]}</h3><p>${r}</p><button class="go" id="ok">확인</button>`,then);return true;
+}
+
+function say(em,tx,small){S.em=em;S.tx=tx+(small?`<small>${small}</small>`:'')}
+
+function act(id){
+  if(S.over||S.left<=0||$('modal').classList.contains('on'))return false;
+  const x=XACT.find(v=>v.id===id);
+  if(x){
+    if((x.show&&!x.show(S))||x.lock(S)||S.hp<x.hp(S)||(x.cost&&S.money<x.cost))return false;
+    go(ACTLOC[id]);S.hp-=x.hp(S);if(x.cost)S.money-=x.cost;sfx('skill');x.run(S);if(S.over)return true;
+    S.left--;if(S.left===0)endDay();else render();return true;
+  }
+  const j=JOBS.find(x=>x.id===id), d=DREAM.find(x=>x.id===id), a=j||d;
+  if(!a)return false;const cost=j?jobHp(S,j):d.hp(S);
+  if((j?jobLock(S,j):a.lock(S))||S.hp<cost)return false;
+  go(ACTLOC[id]);S.hp-=cost;
+  if(j){
+    const pay=jobPay(S,j);S.money+=pay;S.jobs++;S.jobEarn+=pay;sfx('coin');if(j.daily)S.used['j_'+j.id]=(S.used['j_'+j.id]||0)+1;
+    say(j.ic,pick(j.txt),`<span class="up">+${won(pay)}</span> · 체력 -${cost}`);
+  }else if(id==='practice'){
+    const c=ch(S),g=Math.round(rnd(3,5.4)*(S.own.booth?1.6:1));S[c.skill]=Math.min(100,S[c.skill]+g);sfx('skill');
+    say(c.ic,pick(c.prTxt),`${c.skn} <span class="up">+${g}</span> · 체력 -10`+(c.prRisk?addRisk(c.prRisk):''));
+    if(S.risk>=100)bigTrouble();
+  }else if(id==='upload'){
+    upload();if(S.over)return true;
+  }else if(id==='rest'){
+    S.rests=(S.rests||0)+1;sfx('rest');const rg=35+(S.own.console?15:0);heal(S,rg);
+    const cool=ch(S).body&&S.risk>0?Math.min(12,S.risk):0;S.risk-=cool;S.burn=Math.max(0,S.burn-12);
+    say('😴',pick(S.own.console?['게임 한 판 하고 푹 쉬었어요.','보스를 잡고 기분이 좋아졌어요.']:['낮잠을 푹 잤어요.','라면 끓여 먹고 뒹굴었어요.','아무것도 안 하는 것도 일이에요.']),`체력 <span class="up">+${rg}</span>`+(cool?` · <span class="up">${ch(S).rk} -${cool}</span>`:''));
+  }
+  S.left--;
+  if(S.left===0)endDay(); else render();
+  return true;
+}
+
+const baseGain=s=>{const c=ch(s);return (6+c.eff(s)*0.65)*gear(s)*c.mult(s)*rnd(.6,1.4)*Math.pow(1+s.subs/3000,GROW)};
+function upload(){
+  const c=ch(S),e=c.eff(S);S.uploads++;
+  if(c.cost)S.money-=c.cost;
+  let gain=baseGain(S);
+  const viral=Math.random()<Math.min(.22,(.04+e*.0012)*(c.viral||1));
+  if(viral)gain=gain*5;
+  gain=Math.round(gain);S.subs+=gain;
+  let extra='';
+  if(S.monet){const ad=Math.max(1,Math.round(Math.sqrt(S.subs)/8*adCut(S)));S.money+=ad;S.ytEarn+=ad;extra=` · 광고 <span class="up">+${won(ad)}</span>`}
+  if(c.cost)extra+=` · <span class="down">-${won(c.cost)}</span>`;
+  if(c.risk)extra+=addRisk(c.risk);
+  sfx(viral?'good':'pop');
+  if(viral)say('🚀','알고리즘이 골라 줬어요! 영상이 터졌어요!',`구독자 <span class="gold">+${ppl(gain)}</span>${extra}`);
+  else if(e<10)say('📹','올리긴 했는데… 아직 많이 서툴러요.',`구독자 <span class="up">+${ppl(gain)}</span>${extra} · 연습하면 더 늘어요`);
+  else say(c.ic,pick(c.upTxt),`구독자 <span class="up">+${ppl(gain)}</span>${extra}`);
+  milestones();
+  if(S.risk>=100)bigTrouble();
+}
+function milestones(){
+  const m=[[100,'💯','구독자 100명 돌파!','처음으로 모르는 사람이 구독했어요.'],[1000,'💵','구독자 1,000명! 광고 수익이 열렸어요','이제 영상을 올릴 때마다, 그리고 매일 밤 돈이 들어와요.'],[10000,'🔥','구독자 1만 명!','길에서 한 명이 알아봤어요.'],[100000,'🏆','구독자 10만 명!','실버버튼이 택배로 오고 있어요.']];
+  for(const [n,em,t,d] of m){ if(S.subs>=n&&!S.hit[n]){S.hit[n]=1;if(n===1000)S.monet=true;S.night.push({em,t,d,mile:1});}}
+}
+
+const lose=(s,n)=>{n=Math.round(n*(1+Math.floor((s.day-1)/10)*.4));const c=Math.min(n,Math.max(0,Math.round(s.money)));s.money-=c;return c};
+function wpick(pool){let t=pool.reduce((a,e)=>a+(e.w||1),0),r=Math.random()*t;for(const e of pool){r-=(e.w||1);if(r<=0)return e}return pool[pool.length-1]}
+const EVENTS=[
+ {p:s=>s.jobs>3,em:'🎁',t:'사장님이 수고했다고 보너스를 줬어요',f:s=>{s.money+=5;return'+5만 원'},good:1},
+ {p:()=>true,em:'📱',t:'휴대폰 액정이 깨졌어요',f:s=>{const c=Math.min(8,Math.max(0,s.money));s.money-=c;return'-'+c+'만 원'}},
+ {p:()=>true,em:'🤧',t:'감기에 걸렸어요',f:s=>{s.hp=Math.max(0,s.hp-20);return'체력 -20'}},
+ {p:()=>true,em:'🍗',t:'친구가 치킨을 사 줬어요',f:s=>{heal(s,20);return'체력 +20'},good:1},
+ {p:s=>s.uploads>0,em:'💬',t:'유명 유튜버가 댓글을 남겼어요',f:s=>{const g=Math.round(40+s.subs*.03);s.subs+=g;return'구독자 +'+g.toLocaleString()},good:1},
+ {p:s=>s.uploads>2,em:'👎',t:'악플이 달려서 잠을 설쳤어요',f:s=>{s.hp=Math.max(0,s.hp-12);return'체력 -12'}},
+ {p:()=>true,em:'🧧',t:'엄마가 용돈을 보내 줬어요',f:s=>{s.money+=7;return'+7만 원'},good:1},
+ {p:()=>true,em:'💡',t:'전기요금 고지서가 왔어요',f:s=>{const c=Math.min(4,Math.max(0,s.money));s.money-=c;return'-'+c+'만 원'}},
+ {p:()=>true,em:'🥘',t:'집주인 할머니가 반찬을 주셨어요',f:s=>{heal(s,15);return'체력 +15'},good:1},
+ {p:s=>s.uploads>3,em:'📈',t:'옛 영상이 뒤늦게 추천에 떴어요',f:s=>{const g=Math.round(100+s.subs*.05);s.subs+=g;return'구독자 +'+g.toLocaleString()},good:1},
+ {p:s=>s.products.length>0&&!s.own.server,em:'🔥',t:'서버가 터져서 밤새 고쳤어요',f:s=>{const c=Math.min(5,Math.max(0,s.money));s.money-=c;s.hp=Math.max(0,s.hp-10);return'-'+c+'만 원 · 체력 -10'}},
+ {p:s=>s.products.length>0,em:'⭐',t:'만든 것이 추천 목록에 올랐어요',f:s=>{const x=pick(s.products),a=Math.max(1,Math.round(x.inc*.5));x.inc+=a;return`"${x.name}" 수입 +${a}만`},good:1},
+ {p:s=>s.friend>=30,em:'🤝',t:'친구가 일일 알바를 소개해 줬어요',f:s=>{s.money+=8;return'+8만 원'},good:1},
+ {p:s=>!!s.lover,em:'🍱',t:s=>`${s.lover}가 도시락을 싸 왔어요`,f:s=>{heal(s,20);return'체력 +20'},good:1},
+ // ── 만들기 길
+ {w:.6,p:s=>s.own.laptop&&s.code>0&&!s.own.vaccine,em:'🦠',t:'"무료 강의 다운로드.exe"를 눌렀다가 바이러스에 걸렸어요. 노트북이 벽돌이 됐어요',f:s=>{s.own.laptop=false;return'노트북을 다시 사야 해요'}},
+ {p:s=>s.own.laptop,em:'☕',t:'키보드에 커피를 쏟았어요. 이제 ㅋ만 눌려요',f:s=>'수리비 -'+lose(s,8)+'만 원'},
+ {p:s=>!!s.proj,em:'🐱',t:'길고양이가 창문으로 들어와 키보드 위에서 잤어요. 코드 300줄이 "ㅁㅁㅁㅁ"가 됐어요',f:s=>{const d=Math.min(20,s.proj.prog);s.proj.prog-=d;return'개발 진행 -'+d}},
+ {p:s=>!!s.proj,em:'💡',t:'샤워하다가 3일 묵은 버그의 답이 떠올랐어요',f:s=>{s.proj.prog+=25;return'개발 진행 +25'},good:1},
+ {p:s=>s.products.length>0,em:'⭐',t:'별점 1점 리뷰가 달렸어요. "앱은 좋은데 제 인생이 안 풀려요"',f:s=>{const x=pick(s.products);x.inc=Math.max(1,x.inc*.9);return`"${x.name}" 수입 -10%`}},
+ {p:s=>s.products.length>0&&s.money>=5,em:'🤴',t:'어느 나라 왕자가 내 앱을 인수하겠대요. 수수료만 먼저 보내래요',f:s=>'속았어요 · -'+lose(s,5)+'만 원'},
+ {p:s=>s.staff.ai&&s.products.length>0,em:'🤖',t:'AI가 짠 코드가 밤새 혼자 돌면서 서버비를 태웠어요',f:s=>'-'+lose(s,10)+'만 원'},
+ {p:s=>s.code>=20,em:'🖨️',t:'친구가 "컴퓨터 잘하잖아" 하며 프린터를 들고 왔어요',f:s=>{s.hp=Math.max(0,s.hp-10);s.friend=Math.min(100,s.friend+8);return'체력 -10 · 우정 +8'}},
+ // ── 가게 길
+ {w:.6,p:s=>s.own.vend&&!s.own.cctv,em:'🦹',t:'밤사이 도둑들이 자판기를 통째로 업고 갔어요. 콜라 한 캔만 굴러다녀요',f:s=>{s.own.vend=false;return'자판기를 잃었어요 (CCTV가 있었다면…)'}},
+ {p:s=>s.own.vend,em:'🥤',t:'자판기가 동전만 먹고 음료를 안 줘서 항의 쪽지가 12장 붙었어요',f:s=>'환불 -'+lose(s,3)+'만 원'},
+ {p:s=>s.own.laundry,em:'🧦',t:'빨래방에 주인 없는 양말이 47짝 쌓였어요. 짝이 맞는 건 하나도 없어요',f:s=>{s.dirt=Math.min(100,s.dirt+10);return'관리 소홀 +10'}},
+ {p:s=>s.own.icecream,em:'🍦',t:'초등학생들이 아이스크림 가게를 아지트로 삼았어요. 매출은 0, 에어컨은 최대',f:s=>'전기세 -'+lose(s,6)+'만 원'},
+ {p:s=>s.own.store,em:'📦',t:'스토어에 반품이 왔어요. 상자를 열어 보니 벽돌이 들어 있어요',f:s=>'-'+lose(s,7)+'만 원'},
+ {p:s=>s.own.restaurant,em:'🍜',t:'먹방 유튜버가 와서 "사장님이 미쳤어요" 영상을 찍고 갔어요',f:s=>{s.money+=20;return'손님 폭발 +20만 원'},good:1},
+ {p:s=>s.own.cafe,em:'💻',t:'카페에 아메리카노 한 잔으로 9시간을 버틴 손님이 있었어요',f:s=>'-'+lose(s,4)+'만 원'},
+ {p:s=>shopCount(s)>=2,em:'🏗️',t:'건물주가 "요즘 장사 잘되시네요?" 하며 웃고 갔어요',f:s=>'임대료 인상 -'+lose(s,15)+'만 원'},
+ {p:s=>s.bizEarn+s.devEarn+s.ytEarn>300,em:'🧾',t:'세무서에서 다정한 편지가 왔어요',f:s=>'세금 -'+lose(s,Math.min(40,Math.round(s.money*.05)+5))+'만 원'},
+ // ── 유튜브 길
+ {p:s=>s.ch==='sing'&&s.uploads>0,em:'🎤',t:'코인 노래방 옆방에서 누가 내 커버를 따라 부르고 있었어요',f:s=>{const g=Math.round(60+s.subs*.04);s.subs+=g;return'구독자 +'+g.toLocaleString()},good:1},
+ {p:s=>s.ch==='game'&&s.uploads>0,em:'🚪',t:'방송 중에 엄마가 문을 열고 "밥 먹어!"를 외쳤어요. 그 장면만 퍼졌어요',f:s=>{const g=Math.round(80+s.subs*.05);s.subs+=g;return'구독자 +'+g.toLocaleString()},good:1},
+ {p:s=>s.ch==='muk'&&s.uploads>0,em:'😵',t:'먹방 찍다 사레들린 장면이 밈이 됐어요',f:s=>{const g=Math.round(80+s.subs*.05);s.subs+=g;s.risk=Math.min(99,s.risk+10);return'구독자 +'+g.toLocaleString()+' · 소화 불량 +10'},good:1},
+ {p:s=>s.ch==='vlog'&&s.uploads>0,em:'🫣',t:'브이로그에 사장님 비상금 숨긴 자리가 찍혔어요',f:s=>{s.risk=Math.min(99,s.risk+15);return'사장님 눈치 +15'}},
+ {p:s=>s.ch==='wreck'&&s.subs>100,em:'🫠',t:'어제 저격한 사람이 알고 보니 내 구독자 1호였어요',f:s=>{const l=Math.round(s.subs*.03);s.subs-=l;return'구독자 -'+l.toLocaleString()}},
+ {p:s=>s.subs>=1000,em:'📮',t:'구독자 이벤트 상품을 보냈는데 착불로 돌아왔어요',f:s=>'-'+lose(s,4)+'만 원'},
+ {p:s=>s.uploads>5,em:'🤡',t:'내 썸네일이 "이렇게 만들면 망합니다" 강의 자료로 쓰였어요',f:s=>{const l=Math.round(s.subs*.02);s.subs-=l;return'구독자 -'+l.toLocaleString()}},
+ {p:s=>s.own.mic&&s.uploads>0,em:'🔇',t:'마이크를 끈 채로 한 시간을 혼자 떠들었어요',f:s=>{s.hp=Math.max(0,s.hp-10);return'체력 -10'}},
+ {p:s=>s.editor,em:'✂️',t:'편집자가 영상에 자기 얼굴을 몰래 넣었어요. 댓글은 그쪽이 더 많아요',f:s=>{const g=Math.round(30+s.subs*.02);s.subs+=g;return'구독자 +'+g.toLocaleString()+' (기분은 묘해요)'},good:1},
+ // ── 블로그 길
+ {p:s=>s.posts>=5,em:'🐌',t:'댓글이 40개 달렸어요. 전부 "잘 보고 갑니다^^ 제 블로그도 놀러 오세요"예요',f:s=>{s.hp=Math.max(0,s.hp-5);return'체력 -5'}},
+ {p:s=>s.posts>=10,em:'📋',t:'내 글을 통째로 베낀 블로그가 검색에서 나보다 위에 떴어요',f:s=>{const l=Math.max(1,Math.round(s.posts*.08));s.posts-=l;return'글 '+l+'편이 묻혔어요'}},
+ {p:s=>s.adsense,em:'🌪️',t:'검색 엔진이 "대규모 업데이트"를 했어요. 방문자가 반 토막 났어요',f:s=>{s.blogBan=Math.max(s.blogBan,2);return'2일 광고 수입 0'}},
+ {p:s=>s.adsense,em:'💰',t:'3년 전에 쓴 글 하나가 갑자기 검색 1등이 됐어요. 왜인지는 아무도 몰라요',f:s=>{s.money+=12;return'+12만 원'},good:1},
+ {p:s=>s.adsense,em:'🪙',t:'애드센스 오늘 수익이 "0.01달러"로 찍혔어요. 캡처해서 간직했어요',f:s=>{s.hp=Math.max(0,s.hp-6);return'체력 -6'}},
+ // ── 임대 길
+ {p:s=>rentCount(s)>0,em:'🎁',t:'세입자가 "항상 감사해요" 하며 명절 선물 세트를 줬어요. 스팸이에요',f:s=>{heal(s,10);s.gripe=Math.max(0,s.gripe-10);return'체력 +10 · 불만 -10'},good:1},
+ {p:s=>rentCount(s)>0,em:'🧮',t:'재산세 고지서가 왔어요. 건물주도 누군가의 세입자였어요',f:s=>'세금 -'+lose(s,10+rentCount(s)*8)+'만 원'},
+ {p:s=>s.own.parking,em:'🚙',t:'내 주차장 칸에 모르는 차가 사흘째 서 있어요. 전화번호도 없어요',f:s=>{s.gripe=Math.min(99,s.gripe+12);return'세입자 불만 +12'}},
+ {p:s=>s.loan>0,em:'📈',t:'은행에서 문자가 왔어요. "금리가 인상되었습니다 ^^"',f:s=>'추가 이자 -'+lose(s,4*s.loan)+'만 원'},
+ // ── 알바·생활
+ {p:s=>s.own.bicycle&&!s.own.scooter,em:'🚲',t:'자전거는 그대로인데 안장만 없어졌어요',f:s=>'안장값 -'+lose(s,3)+'만 원'},
+ {p:s=>s.own.scooter,em:'🛵',t:'스쿠터 배터리가 사거리 한복판에서 방전됐어요. 밀고 왔어요',f:s=>{s.hp=Math.max(0,s.hp-15);return'체력 -15'}},
+ {p:s=>s.jobs>0,em:'🐦',t:'비둘기가 전단지 뭉치를 물고 날아갔어요. 사장님은 안 믿어요',f:s=>'물어냄 -'+lose(s,2)+'만 원'},
+ {p:s=>s.home===0,em:'😴',t:'고시원 옆방 코골이가 오늘은 랩을 했어요',f:s=>{s.hp=Math.max(0,s.hp-18);return'체력 -18'}},
+ {p:s=>s.home===1,em:'🚿',t:'원룸 보일러가 고장 나서 찬물로 정신 수양을 했어요',f:s=>'수리비 -'+lose(s,10)+'만 원'},
+ {p:s=>s.home===2,em:'🛗',t:'오피스텔 엘리베이터 점검 날이었어요. 우리 집은 23층이에요',f:s=>{s.hp=Math.max(0,s.hp-15);return'체력 -15'}},
+ {p:()=>true,em:'👟',t:'하나뿐인 운동화 밑창이 입을 벌렸어요',f:s=>'-'+lose(s,4)+'만 원'},
+ {p:()=>true,em:'🍕',t:'배달 실수로 남의 피자가 우리 집에 왔어요. 연락이 안 닿아요',f:s=>{heal(s,15);return'체력 +15'},good:1},
+ {p:()=>true,em:'📞',t:'보이스피싱 전화에 30분 동안 인생 상담을 해 줬어요',f:s=>{s.talk=Math.min(100,s.talk+3);s.hp=Math.max(0,s.hp-5);return'말빨 +3 · 체력 -5'}},
+ {p:()=>true,em:'🎰',t:'길에서 주운 복권이 5등에 당첨됐어요',f:s=>{s.money+=5;return'+5만 원'},good:1},
+ {p:s=>s.own.car,em:'🅿️',t:'"잠깐이면 돼" 하고 세운 자리에 주차 딱지가 붙었어요',f:s=>'-'+lose(s,6)+'만 원'},
+ {p:s=>s.own.gym,em:'🏋️',t:'헬스장을 3주째 안 갔더니 트레이너가 안부 문자를 보냈어요',f:s=>{s.hp=Math.max(0,s.hp-5);return'양심 -5 (체력 -5)'}},
+ // ── 사람·돈
+ {p:s=>!!s.lover,em:'📅',t:s=>`${s.lover}와의 기념일을 까먹었어요. 달력엔 "월세"만 적혀 있었어요`,f:s=>{s.love=Math.max(1,s.love-20);return'애정 -20'}},
+ {p:s=>s.friend>=30,em:'💌',t:'이번 달에만 청첩장이 세 장 왔어요',f:s=>'축의금 -'+lose(s,10)+'만 원'},
+ {p:s=>s.stock>=20,em:'📉',t:'아는 형이 "이건 진짜"라던 종목이 거래정지됐어요',f:s=>{const l=Math.round(s.stock*.4);s.stock-=l;return'주식 -'+l+'만 원'}},
+ {p:s=>s.coin>=20,em:'🐕',t:'내가 산 코인의 마스코트 강아지가 은퇴를 선언했어요',f:s=>{const l=Math.round(s.coin*.5);s.coin-=l;return'코인 -'+l+'만 원'}},
+ {p:s=>s.deco&&s.deco.cat&&s.deco.plant,em:'🪴',t:'고양이가 어항을 노려보다 옆에 있던 화분을 밀어 떨어뜨렸어요',f:s=>{delete s.deco.plant;return'화분이 깨졌어요'}},
+];
+
+function endDay(){
+  const N=S.night; const rows=[];let zz=0;
+  // 생활비
+  if(S.money>=LIVING){S.money-=LIVING;rows.push(['🍚 밥값',`<span class="down">-${won(LIVING)}</span>`])}
+  else{S.hp=Math.max(0,S.hp-15);rows.push(['🍚 돈이 없어 굶었어요','<span class="down">체력 -15</span>'])}
+  // 광고 수익
+  if(S.monet){const ad=Math.max(1,Math.round(Math.sqrt(S.subs)/20*adCut(S)));S.money+=ad;S.ytEarn+=ad;zz+=ad;rows.push(['▶️ 오늘 광고 수익',`<span class="up">+${won(ad)}</span>`])}
+  if(S.editor){if(S.money>=EDITOR_PAY){S.money-=EDITOR_PAY;rows.push(['🧑‍💻 편집자 일당',`<span class="down">-${won(EDITOR_PAY)}</span>`])}else{S.editor=false;rows.push(['🧑‍💻 돈을 못 줘서 편집자가 그만뒀어요','<span class="down">해고</span>'])}}
+  if(S.salary){S.money+=S.salary;S.jobEarn+=S.salary;zz+=S.salary;rows.push(['👔 정직원 일당',`<span class="up">+${won(S.salary)}</span>`])}
+  for(const x of S.products)if(x.k!=='tool')x.inc=Math.max(1,x.inc*.985);
+  const di=devInc(S);if(di){S.money+=di;S.devEarn+=di;zz+=di;rows.push([`💻 만든 것 ${S.products.length}개 수입`,`<span class="up">+${won(di)}</span>`])}
+  for(const [id,label,pay] of [['designer','🎨 디자이너 일당',5],['clerk','🧑‍🔧 알바생 일당',4],['ai','🤖 AI 코딩 도구 구독료',3],['aiw','🤖 AI 글쓰기 도구 구독료',3],['janitor','🧑‍🔧 관리인 일당',6]])if(S.staff[id]){
+    if(S.money>=pay){S.money-=pay;rows.push([label,`<span class="down">-${won(pay)}</span>`])}else{S.staff[id]=false;rows.push([label.slice(0,2)+' 돈을 못 줘서 그만뒀어요','<span class="down">계약 끝</span>'])}}
+  if(S.devBan>0)S.devBan--;
+  if(S.burn>0){if(S.burn>=40&&Math.random()<(S.burn-30)/150){S.devBan=2;S.burn=Math.max(0,S.burn-35);rows.push(['🥵 머리가 하얘져서 코드가 안 읽혀요','<span class="down">2일 개발·공부 금지</span>'])}else S.burn=Math.max(0,S.burn-5)}
+  const shops=shopCount(S);if(S.promo>0)S.promo--;
+  if(S.bizBan>0){S.bizBan--;rows.push(['🚫 영업정지 중이에요','<span class="down">가게 수입 0</span>'])}
+  else{const bi=bizInc(S);if(bi){S.money+=bi;S.bizEarn+=bi;zz+=bi;rows.push([`🏪 가게 ${shops}곳 수입`,`<span class="up">+${won(bi)}</span>`])}}
+  if(shops){
+    if(S.staff.clerk)S.dirt=Math.max(0,S.dirt-5);else S.dirt=Math.min(100,S.dirt+Math.max(1,Math.round(3*shops*(S.own.cctv?.65:1)*(S.own.kiosk?.5:1))));
+    if(S.dirt>=100){const c=Math.min(30,Math.max(0,S.money));S.money-=c;S.bizBan=3;S.dirt=30;rows.push(['🚫 위생 점검에 걸려 영업정지를 당했어요',`<span class="down">벌금 -${won(c)} · 3일 수입 0</span>`])}
+    else if(S.dirt>=40&&Math.random()<(S.dirt-30)/150){const ev=pick([['🦹 가게에 도둑이 들었어요',10],['🔧 기계가 고장 났어요',8],['⭐ 별점 테러를 당했어요',5]]);const c=Math.min(ev[1],Math.max(0,S.money));S.money-=c;S.dirt=Math.max(0,S.dirt-20);rows.push([ev[0],`<span class="down">-${won(c)}</span>`])}
+  }
+  if(S.adsWait>0)S.adsWait--;if(S.blogBan>0)S.blogBan--;
+  {const bl=blogInc(S);if(bl){S.money+=bl;S.blogEarn=(S.blogEarn||0)+bl;zz+=bl;rows.push([`✍️ 블로그 글 ${S.posts}편 수입`,`<span class="up">+${won(bl)}</span>`])}}
+  if(S.lowq>0){if(S.lowq>=40&&Math.random()<(S.lowq-30)/150){S.blogBan=2;S.lowq=Math.max(0,S.lowq-35);rows.push(['🔎 내 글이 검색에서 누락됐어요','<span class="down">2일 광고 수입 0</span>'])}else S.lowq=Math.max(0,S.lowq-5)}
+  const rc=rentCount(S);
+  if(rc){
+    if(S.vacant>0){S.vacant--;rows.push(['🏚️ 공실이에요. 부동산에 전화만 돌려요','<span class="down">월세 수입 0</span>'])}
+    else{const rn=rentInc(S);S.money+=rn;S.rentEarn=(S.rentEarn||0)+rn;zz+=rn;rows.push([`🏢 월세 ${rc}곳 수입`,`<span class="up">+${won(rn)}</span>`])}
+    if(S.staff.janitor)S.gripe=Math.max(0,S.gripe-5);else S.gripe=Math.min(100,S.gripe+2*rc);
+    if(S.gripe>=100){S.vacant=5;S.gripe=30;rows.push(['📦 세입자가 "여긴 못 살겠다"며 짐을 뺐어요','<span class="down">5일 공실</span>'])}
+    else if(S.gripe>=40&&Math.random()<(S.gripe-30)/150){const ev=pick([['🚽 새벽 3시에 "변기가 역류해요" 문자가 왔어요',12],['🐈 세입자가 고양이 일곱 마리를 몰래 키우고 있었어요',15],['💧 윗집 물이 아랫집 천장으로 여행을 갔어요',20]]);S.gripe=Math.max(0,S.gripe-20);rows.push([ev[0],`<span class="down">수리비 -${won(lose(S,ev[1]))}</span>`])}
+  }
+  if(S.loan>0){const it=S.loan*3;if(S.money>=it){S.money-=it;rows.push([`🏦 대출 ${S.loan}건 이자`,`<span class="down">-${won(it)}</span>`])}else{S.money=0;S.hp=Math.max(0,S.hp-15);rows.push(['🏦 이자를 못 내서 독촉 전화에 시달렸어요','<span class="down">체력 -15</span>'])}}
+  for(const [k,nm,lo,hi,crash] of [['stock','📈 주식',.94,1.085,0],['coin','🪙 코인',.8,1.26,.04]]){
+    if(S[k]>=1){const o=S[k];S[k]*=Math.random()<crash?.5:rnd(lo,hi);const dd=(S[k]/o-1)*100;rows.push([nm,`<span class="${dd>=0?'up':'down'}">${dd>=0?'+':''}${dd.toFixed(1)}% · ${won(S[k])}</span>`])}}
+  if(S.friend>0)S.friend=Math.max(0,S.friend-1);
+  if(S.lover){S.love-=S.home>=2?3:4;
+    if(S.love<=0){rows.push([`💔 ${S.lover}와 헤어졌어요`,'<span class="down">체력 -30</span>']);S.lover=null;S.love=0;S.hp=Math.max(0,S.hp-30)}
+    else if(S.love>=70&&S.risk>0)S.risk=Math.max(0,S.risk-3)}
+  if(S.ban>0)S.ban--;if(S.fired>0)S.fired--;
+  if(S.risk>0){const k=S.ch;
+    if(S.risk>=40&&Math.random()<(S.risk-30)/150){
+      if(k==='wreck'){S.sued=true;const fee=Math.round(20+Math.sqrt(S.subs)/2);
+        if(S.money>=fee){S.money-=fee;rows.push(['⚖️ 고소장이 왔어요. 합의금을 냈어요',`<span class="down">-${won(fee)}</span>`])}
+        else{const lost=Math.round(S.subs*.4);S.subs-=lost;rows.push(['⚖️ 합의금이 없어 영상을 내렸어요',`<span class="down">구독자 -${ppl(lost)}</span>`])}}
+      else if(k==='sing'){S.ban=2;rows.push(['🗣️ 목이 쉬어서 소리가 안 나와요','<span class="down">2일 노래 금지</span>'])}
+      else if(k==='game'){S.ban=2;rows.push(['🖐️ 손목이 시큰거려요','<span class="down">2일 게임 금지</span>'])}
+      else if(k==='muk'){const c=Math.min(8,Math.max(0,S.money));S.money-=c;S.ban=2;rows.push(['🤢 체해서 밤새 화장실을 들락거렸어요',`<span class="down">약값 -${won(c)} · 2일 먹방 금지</span>`])}
+      else{const lost=Math.round(S.subs*.1);S.subs-=lost;S.fired=3;rows.push(['👀 사장님이 영상을 봤어요. "내일부터 나오지 마"',`<span class="down">구독자 -${ppl(lost)} · 3일 전단지·청소만</span>`])}
+      S.risk=Math.max(0,S.risk-35)}
+    else S.risk=Math.max(0,S.risk-(k==='wreck'?3:5));
+  }
+  // 사건
+  {const nEv=(Math.random()<.5?1:0)+(S.day>12&&Math.random()<.3?1:0),seen=[];
+   for(let i=0;i<nEv;i++){const pool=EVENTS.filter(e=>!seen.includes(e)&&e.p(S));if(!pool.length)break;const e=wpick(pool);seen.push(e);const title=e.em+' '+(typeof e.t==='function'?e.t(S):e.t),r=e.f(S);
+     rows.push([title,`<span class="${e.good?'up':'down'}">${r}</span>`])}
+   if(nEv)milestones()}
+  // 잠
+  const sl=sleepHp(S);heal(S,sl);rows.push([['🛏️ 고시원에서','🏠 원룸에서','🏙️ 오피스텔에서'][S.home]+' 잠을 잤어요',`<span class="up">체력 +${sl}</span>`]);
+  const dom=(S.day-1)%MONTH_DAYS+1, mon=Math.floor((S.day-1)/MONTH_DAYS);
+  let rentRow=null, broke=false;
+  if(dom===MONTH_DAYS){
+    const r=rentOf(S,mon);
+    if(S.money>=r){S.money-=r;rentRow=`<p>🏠 <b>월세 ${won(r)}</b>을 냈어요. 한 달을 버텼어요!</p>`}
+    else broke=r;
+  }
+  for(const a of checkAch())S.night.push({em:'🏅',t:'도전 과제 달성!',d:a[1]+' '+a[2],mile:1});
+  const miles=N.filter(x=>x.mile).map(x=>`<p><span style="font-size:22px">${x.em}</span> <b class="gold">${x.t}</b><br><span style="color:var(--sub);font-size:13.5px">${x.d}</span></p>`).join('');
+  S.night=[];
+  if(broke){return finish('broke',broke)}
+  const last=S.day>=MONTH_DAYS*MONTHS;
+  S.day++;S.left=S.salary?2:3;S.used={};S.loc='home';anim=null;
+  let cz=null;if(!last&&Math.random()<.16){const pool=CHOICES.filter(c=>!S.seen[c.id]&&c.p(S));if(pool.length){cz=pick(pool);S.seen[cz.id]=1}}
+  sfx('night');say('🌅','새 아침이에요. 오늘은 뭘 할까요?');
+  render();
+  show(`<h3>🌙 ${mon+1}달째 ${dom}일 밤</h3>${zz>0?`<p style="text-align:center;margin:2px 0 8px"><b class="gold" style="font-size:17px">💤 자는 동안 번 돈 +${won(zz)}</b></p>`:''}${miles}<ul>${rows.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('')}</ul>${rentRow||''}
+    <button class="go" id="ok">${last?'결과 보기':'다음 날로'}</button>`,()=>{const fin=()=>{if(last)finish('end')};if(cz)showChoice(cz,fin);else fin()});
+}
+
+function finish(kind,need){
+  S.over=true;let em,t,d;
+  const inv=Math.round(S.stock+S.coin);if(kind==='end'&&inv>0){S.money+=inv;S.stock=0;S.coin=0}
+  if(kind==='end'&&S.loan>0){S.money-=S.loan*200;S.loan=0}
+  const di=devInc(S),bi=bizInc(S),bl=blogInc(S),rn=rentInc(S),silver=S.subs>=100000;
+  if(kind==='broke'){em='🚌';t='고향행 버스';d=`월세 ${won(need)}이 필요한데 ${won(S.money)}밖에 없었어요. 짐을 싸서 집으로 돌아가요.`}
+  else if(kind==='court'){em='⚖️';t='법정에 선 렉카';d='고소장이 한꺼번에 쏟아졌어요. 채널은 삭제됐고, 변호사비로 통장도 비었어요. 빨리 가는 길에는 값이 있었어요.';S.money=0}
+  else if(silver&&di+bi+bl+rn>=20){em='🏢';t='1인 기업 대표';d='구독자 10만 명에, 자는 동안에도 돈이 들어와요. 전단지를 돌리던 사람이 회사를 차렸어요. 직원은 아직 나 하나지만요.'}
+  else if(silver){em='🏆';t='실버버튼 유튜버';d='구독자 10만 명. 전단지를 돌리던 손으로 실버버튼을 들었어요. 이제 진짜 1인 사장이에요.'}
+  else if(di>=80){em='💻';t='1인 개발 사장';d=`내가 만든 것 ${S.products.length}개가 밤마다 ${won(di)}을 벌어 와요. 알람 없이 일어나는 아침이 왔어요.`}
+  else if(bi>=35){em='🏪';t='무인 가게 사장님';d='가게가 알아서 돈을 벌어요. 나는 가끔 냉동고만 고치면 돼요.'}
+  else if(rn>=50){em='🏢';t='조물주 위에 건물주';d=`월세로만 밤마다 ${won(rn)}이 들어와요. 고시원에서 시작한 사람이 이제 방을 빌려주고 있어요. 새벽 3시 변기 문자는 덤이에요.`}
+  else if(bl>=45){em='✍️';t='글로 먹고사는 사람';d=`글 ${S.posts}편이 밤마다 ${won(bl)}을 벌어 와요. 써 둔 글이 나 대신 일하는 삶이에요.`}
+  else if(inv>=800){em='📈';t='투자의 귀재';d=`주식과 코인으로 ${won(inv)}을 만들었어요. 운이었는지 실력이었는지는 아무도 몰라요.`}
+  else if(S.subs>=10000){em='📹';t='전업 유튜버 새싹';d='알바를 그만둬도 먹고살 만큼 채널이 컸어요. 다음 목표는 10만이에요.'}
+  else if(S.salary){em='👔';t='성실한 정직원';d='꿈은 잠시 접어 뒀지만, 월급은 꼬박꼬박 들어와요. 나쁘지 않은 삶이에요.'}
+  else if(S.money>=600){em='💰';t='알바왕';d='채널은 못 떴지만 통장은 두둑해요. 이 돈으로 뭘 시작해 볼까요?'}
+  else{em='🍜';t='오늘도 버텼다';d='여섯 달을 쫓겨나지 않고 살아남았어요. 그것만으로도 대단한 일이에요.'}
+  const epi=[];if(kind==='end'){if(S.lover&&S.love>=50)epi.push(`💕 곁에는 ${S.lover}가 있어요.`);if(S.friend>=60)epi.push('🍻 친구들이 축하 파티를 열어 줬어요.');if(S.home===2)epi.push('🏙️ 오피스텔 창밖으로 도시 불빛이 보여요.')}
+  const score=Math.round(S.money+S.subs/50+(di+bi+bl+rn)*20);
+  let best=0;try{best=+localStorage.getItem('soloceo_best')||0;if(score>best)localStorage.setItem('soloceo_best',score)}catch(e){}
+  S.ending=t;sfx(kind==='end'?'end':'bad');const extra=record(kind,t);render();
+  show(`<div class="big">${em}</div><h3 style="text-align:center">엔딩 · ${t}</h3><p>${d}</p>${epi.map(x=>`<p style="color:var(--sub);font-size:14px">${x}</p>`).join('')}${extra}
+   <ul><li><span>버틴 날</span><span>${kind==='end'?MONTH_DAYS*MONTHS:S.day}일</span></li><li><span>남은 돈</span><span class="gold">${won(S.money)}</span></li>
+   <li><span>유튜브</span><span>${chLine(S)}</span></li>
+   <li><span>알바로 번 돈</span><span>${won(S.jobEarn)}</span></li><li><span>유튜브로 번 돈</span><span>${won(S.ytEarn)}</span></li>
+   <li><span>만든 것으로 번 돈</span><span>${won(S.devEarn)}</span></li><li><span>부업으로 번 돈</span><span>${won(S.bizEarn)}</span></li>
+   <li><span>자는 동안 들어오는 돈</span><span>밤마다 ${won(di+bi+bl+rn)}</span></li>
+   <li><span>점수</span><span class="gold">${score.toLocaleString()}${score>best?' · 새 기록!':''}</span></li></ul>
+   <button class="go" id="ok">다시 하기</button><div class="note">엔딩은 13가지예요. 다른 길도 가 보세요.</div>`,start);
+}
+
+function buy(id){
+  const it=SHOP.find(x=>x.id===id);if(S.over||!it||(it.show&&!it.show(S))||$('modal').classList.contains('on')||shopLock(it))return false;
+  if(it.toggle){const on=!staffOn(id);if(id==='editor')S.editor=on;else S.staff[id]=on;sfx('buy');say(it.ic,on?`${it.name} — 같이 일하기로 했어요.`:`${it.name} — 계약을 끝냈어요.`,on?dsc(it):'이제 일당이 안 나가요');render();return true}
+  S.bought=true;sfx('buy');S.money-=it.cost;if(it.daily)S.used[id]=(S.used[id]||0)+1;else if(!it.repeat)S.own[id]=true;
+  const r=it.fx?it.fx(S):null;
+  say(it.ic,it.cost?`${it.name} — 샀어요!`:it.name,(it.cost?`<span class="down">-${won(it.cost)}</span> · `:'')+`<span class="up">${r||dsc(it)}</span>`);render();return true;
+}
+
+let onOk=null;
+let choosing=false;
+function chooser(first){
+  if(S.over)return;choosing=true;
+  const loss=!first&&S.subs>0;
+  $('box').innerHTML=`<h3>${first?'어떤 유튜브 채널을 만들까요?':'채널 바꾸기'}</h3>${loss?'<p class="down">채널을 바꾸면 구독자 30%가 떠나요.</p>':''}<div class="chs">`+
+    Object.entries(CH).map(([k,c])=>`<button class="act${k===S.ch?' cur':''}" data-ch="${k}"><span class="n">${c.ic} ${c.name}${k===S.ch?' (지금)':''}</span><span class="d">${c.desc}</span></button>`).join('')+
+    `</div><button class="go" id="cancel" style="background:var(--card2);color:var(--txt)">${first?'나중에 정할게요':'그대로 할래요'}</button>`;
+  $('modal').classList.add('on');
+  $('box').querySelectorAll('[data-ch]').forEach(b=>b.onclick=()=>pickCh(b.dataset.ch));
+  $('cancel').onclick=()=>{choosing=false;$('modal').classList.remove('on')};
+}
+function pickCh(k){
+  if(!choosing||!CH[k])return false;choosing=false;$('modal').classList.remove('on');
+  if(k===S.ch)return true;
+  const first=!S.ch;let lost=0;if(!first&&S.subs>0){lost=Math.round(S.subs*.3);S.subs-=lost}
+  S.ch=k;S.risk=0;S.ban=0;const c=CH[k];
+  say(c.ic,first?`${c.name} 채널을 만들었어요. 구독자 0명에서 시작이에요.`:`${c.name} 채널로 바꿨어요.`,lost?`<span class="down">구독자 -${ppl(lost)}</span>`:c.desc);render();return true;
+}
+function show(html,cb){choosing=false;$('box').innerHTML=html;$('modal').classList.add('on');onOk=cb||null;$('ok').onclick=next}
+function next(){if(choosing||deciding||legacying||!$('modal').classList.contains('on'))return;$('modal').classList.remove('on');const f=onOk;onOk=null;if(f)f()}
+
+function btn(cls,ic,name,desc,dis,fn){
+  const b=document.createElement('button');b.className='act '+cls;b.disabled=!!dis;
+  b.innerHTML=`<span class="n">${ic} ${name}</span><span class="d">${desc}</span>`;b.onclick=fn;return b;
+}
+function shopBtn(it){const lk=shopLock(it);const d=it.toggle?(lk||(staffOn(it.id)?'일하는 중 ✔ · 누르면 계약 끝':dsc(it))):(lk||(it.cost?`${won(it.cost)} · `:'')+dsc(it)+(it.daily?` · 오늘 ${it.daily-(S.used[it.id]||0)}번`:''));return btn('buy',it.ic,it.name,d,lk||S.over,()=>buy(it.id))}
+function render(){
+  drawRoom();renderDeco();save();renderTip();
+  const dom=(S.day-1)%MONTH_DAYS+1, mon=Math.min(MONTHS-1,Math.floor((S.day-1)/MONTH_DAYS)), r=rentOf(S,mon), dleft=MONTH_DAYS-dom+1;
+  $('date').textContent=`${mon+1}달째 ${dom}일`;
+  const rp=$('rent');rp.textContent=`월세 ${r}만 · ${dleft}일 뒤`;
+  rp.className='pill '+(S.money>=r?'ok':(dleft<=3?'warn':''));
+  $('money').textContent=won(S.money);$('subs').textContent=bizLine(S);
+  $('sing').textContent='+'+won(nightInc(S));
+  for(const k of ['lowq','gripe']){$(k+'box').style.display=S[k]>0?'':'none';$(k+'n').textContent=S[k]+' / 100';$(k).style.width=S[k]+'%'}
+  $('burnbox').style.display=S.burn>0?'':'none';$('burnn').textContent=S.burn+' / 100';$('burn').style.width=S.burn+'%';$('dirtbox').style.display=S.dirt>0?'':'none';$('dirtn').textContent=S.dirt+' / 100';$('dirt').style.width=S.dirt+'%';
+  $('riskbox').style.display=S.risk>0?'':'none';$('riskl').textContent=ch(S).rk+(ch(S).fatal?' (100이면 끝)':' (100이면 큰 사고)');$('riskn').textContent=S.risk+' / 100';$('risk').style.width=S.risk+'%';
+  $('hpn').textContent=S.hp+' / '+maxHp(S);$('hp').style.width=(S.hp/maxHp(S)*100)+'%';$('hp').className='fill'+(S.hp<25?' low':'');
+  $('dots').innerHTML=Array.from({length:Math.max(3,S.left)},(_,i)=>i).map(i=>`<span class="dot${i<S.left?'':' used'}"></span>`).join('');
+  $('em').textContent=S.em;$('tx').innerHTML=S.tx;
+  let best=0;try{best=+localStorage.getItem('soloceo_best')||0}catch(e){}
+  $('best').textContent=best?`최고 ${best.toLocaleString()}점`:'';
+  const AT=$('atabs');AT.innerHTML='';
+  for(const [k,label] of ATABS){const t=document.createElement('button');const on=k==='path'?isPath(actTab):k===actTab;t.className='tab'+(on?' on':'');const sp=label.indexOf(' ');t.innerHTML=`<i>${label.slice(0,sp)}</i>${label.slice(sp+1)}`;t.onclick=()=>{actTab=k==='path'?pathTab:k;$('panel').scrollTop=0;render()};AT.appendChild(t)}
+  const A=$('acts');A.innerHTML='';const c=ch(S);let info='';
+  const addX=tab=>{for(const x of XACT.filter(v=>v.tab===tab&&(!v.show||v.show(S)))){const lk=x.lock(S)||(x.cost&&S.money<x.cost?`${x.cost}만 원이 없어요`:null);const tired=!lk&&S.hp<x.hp(S);
+    A.appendChild(btn(lk?'lock':'',x.ic,x.name(S),lk||(tired?'체력이 모자라요':x.desc(S)),lk||tired||S.over,()=>act(x.id)))}};
+  if(actTab==='job'){
+    for(const j of JOBS.filter(j=>!j.show||j.show(S))){const lk=jobLock(S,j);const tired=!lk&&S.hp<jobHp(S,j);
+      A.appendChild(btn(lk?'lock':'',lk?'🔒':j.ic,j.name,lk||(tired?'체력이 모자라요':`+${won(jobPay(S,j))} · 체력 -${jobHp(S,j)}`+(j.daily?' · 하루 1건':'')),lk||tired||S.over,()=>act(j.id)))}
+    if(S.salary)A.appendChild(btn('','🚪','퇴사하기','일당을 포기하고 행동 3번으로',S.over,quitJob));
+    info=(S.salary?`👔 정직원 · 매일 밤 +${S.salary}만 원 · 하루 행동 2번`:'')+(S.friend>=30?(S.salary?' · ':'')+'🍻 친구 소개로 알바비 +1만 원':'');
+  }else if(actTab==='yt'){
+    if(!S.ch){A.appendChild(btn('yt','📹','유튜브 채널 만들기','5종류 중에 골라요 · 행동 안 씀',S.over,()=>chooser(true)));info='아직 채널이 없어요. 유튜브는 돈 버는 여러 길 중 하나예요.'}else{
+    const dn={practice:[c.ic,c.pr],upload:['📹',c.name+' 영상 올리기']};
+    for(const d of DREAM.filter(d=>d.id!=='rest')){const lk=d.lock(S);const tired=!lk&&S.hp<d.hp(S);
+      A.appendChild(btn(d.yt?'yt':'',dn[d.id][0],dn[d.id][1],lk||(tired?'체력이 모자라요':d.desc(S)),lk||tired||S.over,()=>act(d.id)))}
+    addX('yt');
+    A.appendChild(btn('','🔁','채널 바꾸기',`지금: ${c.ic} ${c.name}`,S.over,()=>chooser(false)));
+    info=`${c.ic} ${c.name} · 구독자 ${ppl(S.subs)}${S.monet?' 💵':''} · ${c.skn} ${skillOf(S)}/100`+(S.mcn?' · 소속사 계약 중(광고 70%)':'');}
+  }else if(actTab==='dev'){
+    addX('dev');
+    if(!S.proj)for(const [k,P] of Object.entries(PROJ).filter(([k,P])=>!P.show||P.show(S))){const lk=S.code<P.need?`코딩 실력 ${P.need}부터 (${S.code}/${P.need})`:null;
+      A.appendChild(btn(lk?'lock':'buy',P.ic,P.name+' 만들기 시작',lk||`${P.note} · 작업량 ${P.work}`,lk||S.over,()=>startProj(k)))}
+    info=`💻 코딩 실력 ${S.code}/100`+(S.proj?` · ${PROJ[S.proj.k].ic} ${S.proj.name} ${S.proj.prog}/${PROJ[S.proj.k].work}`:'')+(S.products.length?` · 출시 ${S.products.length}개, 밤마다 +${won(devInc(S))} (안 돌보면 조금씩 줄어요)`:' · 노트북은 🛒 상점의 장비에 있어요');
+  }else if(actTab==='biz'){
+    addX('biz');
+    for(const it of SHOP.filter(x=>x.cat==='bizshop'))A.appendChild(shopBtn(it));
+    const n=shopCount(S);
+    info=`🏪 장사 수완 ${S.biz}/100`+(n?` · 가게 ${n}곳, 밤마다 +${won(bizInc(S))}`+(fanBoost(S)>1.005?` · 구독자 덕에 +${Math.round((fanBoost(S)-1)*100)}%`:'')+(S.promo>0?` · 홍보 중 ${S.promo}일`:'')+(S.bizBan>0?` · 영업정지 ${S.bizBan}일`:''):' · 가게를 사 두면 자는 동안에도 돈이 들어와요. 수완이 높을수록 더 벌어요');
+  }else if(actTab==='blog'){
+    addX('blog');
+    if(!S.adsense){const lk=S.posts<10?`글 10편부터 신청할 수 있어요 (${S.posts}/10)`:S.adsWait>0?`심사 결과 대기 · ${S.adsWait}일 뒤 다시`:null;
+      A.appendChild(btn(lk?'lock':'yt','💰','애드센스 신청',lk||`광고를 달아야 돈이 돼요 · 붙을 확률 ${Math.round(Math.min(.9,.15+S.posts*.012+S.write*.006)*100)}%`,lk||S.over,adsApply))}
+    for(const it of SHOP.filter(x=>x.cat==='blogshop'))A.appendChild(shopBtn(it));
+    info=`✍️ 글솜씨 ${S.write}/100 · 글 ${S.posts}편`+(S.adsense?` · 밤마다 +${won(blogInc(S))}`+(S.blogBan>0?` (검색 누락 ${S.blogBan}일)`:''):(S.adsTry?` · 애드센스 거절 ${S.adsTry}번`:' · 글을 쌓고 애드센스에 붙으면 글이 대신 일해요'));
+  }else if(actTab==='rent'){
+    addX('rent');
+    for(const it of SHOP.filter(x=>x.cat==='rentshop'))A.appendChild(shopBtn(it));
+    const rc=rentCount(S);
+    info=`🏢 부동산 안목 ${S.est}/100`+(rc?` · ${rc}곳, 밤마다 +${won(rentInc(S))}`+(S.vacant>0?` (공실 ${S.vacant}일)`:''):' · 큰돈이 들지만 한번 사 두면 평생 월세가 들어와요. 🛒 상점 굴리기 탭에 은행 대출도 있어요');
+  }else if(actTab==='shop'){
+    info='물건을 사는 건 행동 횟수를 안 써요.';
+  }else{
+    addX('ppl');
+    info=`🍻 우정 ${S.friend}/100`+(S.friend>=60?' (알바비 +1만 · 영상 1.1배)':S.friend>=30?' (알바비 +1만, 60이면 영상 1.1배)':' (30이면 알바 소개·소개팅)')+(S.lover?` · 💕 ${S.lover} 애정 ${S.love}/100`+(S.love>=70?' (영상 1.1배)':' (70이면 영상 1.1배)'):'');
+  }
+  const rd=DREAM.find(d=>d.id==='rest'),rl=rd.lock(S);A.appendChild(btn('','😴','푹 쉬기',rl||rd.desc(S),rl||S.over,()=>act('rest')));
+  $('ainfo').textContent=info;
+  const shopOn=actTab==='shop',pathOn=isPath(actTab);if(pathOn)pathTab=actTab;$('tabs').hidden=!(shopOn||pathOn);$('shop').hidden=!shopOn;$('acts').hidden=shopOn;
+  const T=$('tabs');T.innerHTML='';
+  for(const [k,label] of (pathOn?PATHS:CATS)){const t=document.createElement('button');t.className='tab'+(k===(pathOn?actTab:shopTab)?' on':'');t.textContent=label;t.onclick=()=>{if(pathOn)actTab=k;else shopTab=k;$('panel').scrollTop=0;render()};T.appendChild(t)}
+  const P=$('shop');P.innerHTML='';
+  for(const it of SHOP.filter(x=>x.cat===shopTab&&(!x.show||x.show(S)))){    P.appendChild(shopBtn(it))}
+}
+/* ───── 도트 방 (그림 파일 없이 코드로 그림) ───── */
+const cv=$('room'),cx=cv.getContext('2d');let frame=0;
+const px=(x,y,w,h,c)=>{cx.fillStyle=c;cx.fillRect(x,y,w,h)};
+function spr(x,y,rows,pal){for(let j=0;j<rows.length;j++)for(let i=0;i<rows[j].length;i++){const c=pal[rows[j][i]];if(c)px(x+i,y+j,1,1,c)}}
+function ring(x,y,d,c){px(x+1,y,d-2,1,c);px(x+1,y+d-1,d-2,1,c);px(x,y+1,1,d-2,c);px(x+d-1,y+1,1,d-2,c)}
+const ME=[
+ "...hhhhhh...",
+ "..hhhhhhhh..",
+ "..hhhhhhhh..",
+ "..hssssssh..",
+ "..ssessess..",
+ "..ssssssss..",
+ "...ssmmss...",
+ "..tttttttt..",
+ ".tttttttttt.",
+ ".stttttttts.",
+ ".stttttttts.",
+ "..tttttttt..",
+ "..pppppppp..",
+ "..ppp..ppp..",
+ "..ppp..ppp..",
+ "..bbb..bbb..",
+];
+const YOU=[
+ "...hhhhhh...",
+ "..hhhhhhhh..",
+ "..hhhhhhhh..",
+ ".hhsssssshh.",
+ ".hssessessh.",
+ ".hssssssssh.",
+ ".h.ssmmss.h.",
+ "..tttttttt..",
+ ".tttttttttt.",
+ ".stttttttts.",
+ ".stttttttts.",
+ "..tttttttt..",
+ "..pppppppp..",
+ "..ppp..ppp..",
+ "..ppp..ppp..",
+ "..bbb..bbb..",
+];
+const SHIRT={sing:'#e0559a',game:'#5a7dff',muk:'#ff9a3c',vlog:'#4cc38a',wreck:'#e23b3b'};
+const ROOMS=[
+ {name:'🛏️ 고시원',wall:'#6b665a',wall2:'#625d52',floor:'#4f4437',line:'#463c30',win:[48,10,16,13]},
+ {name:'🏠 원룸',wall:'#d8ccb2',wall2:'#cfc2a6',floor:'#b38c5c',line:'#9c784c',win:[42,8,26,19]},
+ {name:'🏙️ 오피스텔',wall:'#e6e1ee',wall2:'#dcd6e8',floor:'#8d6c4c',line:'#7a5c40',win:[30,6,48,25]},
+];
+/* ── 동네 지도와 장소 화면 ── */
+const PLACES={
+ home:{x:19,row:0,ic:'🏠',name:'집'},cvs:{x:45,row:0,ic:'🏪',name:'편의점'},mall:{x:83,row:0,ic:'🏬',name:'상가'},hall:{x:111,row:0,ic:'💒',name:'예식장'},
+ cafe:{x:19,row:1,ic:'☕',name:'카페'},park:{x:45,row:1,ic:'🌳',name:'공원'},food:{x:83,row:1,ic:'🍜',name:'식당'},lib:{x:111,row:1,ic:'📚',name:'도서관'},
+};
+const ACTLOC={flyer:'park',mop:'mall',cvs:'cvs',bike:'food',wed:'hall',mc:'hall',coach:'cafe',practice:'home',upload:'home',rest:'home',study:'lib',build:'home',update:'home',freelance:'home',manager:'cvs',wpractice:'lib',post:'cafe',ghost:'cafe',scout:'park',tenant:'mall',research:'lib',care:'mall',promo:'park',shopVid:'mall',prodVid:'home',friend:'cafe',blind:'cafe',date:'cafe'};
+const LINE=[31,66],TOPY=[6,41];
+let anim=null,peek=false;
+const door=k=>[PLACES[k].x,TOPY[PLACES[k].row]+22];
+function pathOf(a,b){
+  const A=PLACES[a],B=PLACES[b],pts=[door(a),[A.x,LINE[A.row]]];
+  if(A.row!==B.row){pts.push([64,LINE[A.row]]);pts.push([64,LINE[B.row]])}
+  pts.push([B.x,LINE[B.row]]);pts.push(door(b));return pts;
+}
+function along(pts,t){
+  const seg=[];let tot=0;for(let i=1;i<pts.length;i++){const d=Math.abs(pts[i][0]-pts[i-1][0])+Math.abs(pts[i][1]-pts[i-1][1]);seg.push(d);tot+=d}
+  let want=t*tot;for(let i=0;i<seg.length;i++){if(want<=seg[i]||i===seg.length-1){const r=seg[i]?Math.min(1,want/seg[i]):1;return[pts[i][0]+(pts[i+1][0]-pts[i][0])*r,pts[i][1]+(pts[i+1][1]-pts[i][1])*r,tot]}want-=seg[i]}
+  return[...pts[pts.length-1],tot];
+}
+function go(to){
+  if(!to||!PLACES[to])return;const from=S.loc||'home';S.loc=to;
+  if(TEST||from===to||decoMode){return}
+  const pts=pathOf(from,to),len=along(pts,1)[2];peek=false;
+  anim={pts,to,t0:performance.now(),dur:Math.min(1500,500+len*9)};requestAnimationFrame(tick);
+}
+function tick(){
+  if(!anim)return;
+  if(performance.now()>=anim.t0+anim.dur){anim=null;drawRoom();return}
+  drawRoom();requestAnimationFrame(tick);
+}
+function mini(x,y,step){x=Math.round(x);y=Math.round(y);
+  px(x-2,y-8,5,2,'#2a2233');px(x-2,y-6,5,2,'#f3caa2');px(x-2,y-4,5,3,SHIRT[S.ch]||'#e8e8f0');
+  px(x-2+(step?0:1),y-1,1,2,'#3a4a70');px(x+2-(step?0:1),y-1,1,2,'#3a4a70');
+}
+function bld(k,wall,roof,extra){
+  const P=PLACES[k],ty=TOPY[P.row],x=P.x-11;
+  px(x+1,ty+22,22,1,'#00000030');px(x-1,ty,24,6,roof);px(x-1,ty+5,24,1,'#00000033');px(x,ty+6,22,16,wall);
+  px(P.x-2,ty+15,4,7,'#4a3527');px(P.x+1,ty+18,1,1,'#ffd23c');px(x+2,ty+9,5,4,'#bfe6f5');px(x+15,ty+9,5,4,'#bfe6f5');
+  if(extra)extra(x,ty);
+}
+function drawTown(){
+  px(0,0,128,72,'#7fb069');
+  for(let i=0;i<40;i++)px((i*37)%128,(i*53)%72,1,1,i%2?'#8fc27a':'#6fa05b');
+  // 길
+  for(const ly of LINE){px(0,ly-3,128,7,'#8f8f97');px(0,ly-4,128,1,'#c9c9cf');px(0,ly+4,128,1,'#c9c9cf');for(let x=2;x<128;x+=8)px(x,ly,4,1,'#f4f0e6')}
+  px(61,LINE[0]+4,7,LINE[1]-LINE[0]-7,'#8f8f97');px(60,LINE[0]+5,1,LINE[1]-LINE[0]-9,'#c9c9cf');px(68,LINE[0]+5,1,LINE[1]-LINE[0]-9,'#c9c9cf');
+  for(let y=LINE[0]+6;y<LINE[1]-4;y+=6)px(64,y,1,3,'#f4f0e6');
+  // 집 (사는 곳에 따라 달라짐)
+  if(S.home===0)bld('home','#8b8578','#5f5a4f',(x,ty)=>{px(x+2,ty+8,18,6,'#8b8578');for(let i=0;i<4;i++)px(x+2+i*5,ty+8,3,2,'#ffe9a0')});
+  else if(S.home===1)bld('home','#d8ccb2','#b5694e');
+  else bld('home','#b9c4e6','#5a6aa8',(x,ty)=>{px(x+2,ty-6,18,12,'#b9c4e6');px(x+1,ty-7,20,2,'#5a6aa8');for(let j=0;j<3;j++)for(let i=0;i<4;i++)px(x+3+i*4,ty-4+j*4,3,2,'#e6f0ff')});
+  bld('cvs','#f4f6f8','#2f9e6b',(x,ty)=>{px(x,ty+6,22,2,'#2f9e6b');px(x+8,ty+2,6,2,'#fff')});
+  bld('mall','#b98a6a','#7a5230',(x,ty)=>{px(x,ty+6,22,1,'#ffd23c');px(x+9,ty+9,4,4,'#bfe6f5')});
+  bld('hall','#fbeff3','#e08aa6',(x,ty)=>{px(x+10,ty-3,2,4,'#fff');px(x+9,ty-2,4,1,'#fff');px(x+9,ty+13,4,2,'#e08aa6')});
+  bld('cafe','#c9a27a','#6b4a2e',(x,ty)=>{for(let i=0;i<22;i+=4){px(x+i,ty+6,2,2,'#fff');px(x+i+2,ty+6,2,2,'#d9534f')}});
+  bld('food','#f1dcc0','#c0392b',(x,ty)=>{px(x+1,ty+7,3,3,'#ff6b3c');px(x+18,ty+7,3,3,'#ff6b3c')});
+  bld('lib','#dfe6f2','#3d5a9a',(x,ty)=>{px(x+7,ty+8,1,14,'#fff');px(x+14,ty+8,1,14,'#fff');px(x+8,ty+2,6,2,'#fff')});
+  // 공원
+  {const P=PLACES.park,x=P.x-12,ty=TOPY[1];px(x,ty,24,22,'#6aa85a');px(x+9,ty+16,6,6,'#d9c9a3');px(x+8,ty+8,8,5,'#8fd8ff');px(x+9,ty+9,6,3,'#c9eeff');
+    for(const [tx,tyy] of [[x+1,ty+1],[x+17,ty+2],[x+2,ty+13],[x+18,ty+13]]){px(tx+2,tyy+5,2,3,'#7a5230');px(tx,tyy,6,5,'#2e8b57');px(tx+1,tyy-1,4,1,'#3cb371')}}
+  // 나
+  let pos,dest=null;
+  if(anim){const t=Math.min(1,(performance.now()-anim.t0)/anim.dur);pos=along(anim.pts,t);dest=anim.to}
+  else pos=door(S.loc||'home');
+  if(dest){const P=PLACES[dest],ty=TOPY[P.row];cx.strokeStyle='#ffc94a';cx.lineWidth=1;cx.setLineDash([2,2]);cx.strokeRect(P.x-12.5,ty-.5,25,23);cx.setLineDash([])}
+  const step=anim?Math.floor(performance.now()/140)%2:frame;
+  if(!anim&&!frame)px(Math.round(pos[0])-3,Math.round(pos[1])+1,7,1,'#ffc94a');
+  mini(pos[0],pos[1],step);
+}
+// 장소 안 그림. 내 캐릭터가 서 있는 x좌표를 돌려준다(말풍선 자리)
+const mePal=shirt=>({h:'#2a2233',s:'#f3caa2',e:'#1a1a1a',m:'#c2705c',t:shirt||SHIRT[S.ch]||'#9aa0b5',p:'#3a4a70',b:'#1f1f25'});
+function meAt(x,y,shirt){px(x,y+16,12,2,'#00000040');spr(x,y+frame,ME,mePal(shirt))}
+const SCN={
+ cvs(){
+  px(0,0,128,48,'#eef3f7');px(0,48,128,24,'#cfd6dd');for(let x=0;x<128;x+=16)px(x,48,1,24,'#bcc4cc');px(0,60,128,1,'#bcc4cc');
+  for(let r=0;r<3;r++){px(6,11+r*12,62,2,'#8e98a3');for(let i=0;i<15;i++)px(8+i*4,5+r*12,3,6,['#e2553f','#ffd23c','#5bc0de','#5cb85c','#f0ad4e'][(i+r*2)%5])}
+  px(6,4,1,44,'#8e98a3');px(67,4,1,44,'#8e98a3');
+  px(74,4,22,40,'#9ccbdc');px(75,5,20,38,'#dff4fb');px(85,5,1,38,'#9ccbdc');for(let j=0;j<4;j++)for(let i=0;i<4;i++)px(76+i*5-(i>1?-1:0),8+j*9,3,6,['#3cb371','#e2553f','#f0ad4e','#5bc0de'][(i+j)%4]);
+  px(0,0,128,3,'#2f9e6b');
+  meAt(104,32,'#2f9e6b');
+  px(96,47,32,17,'#3f8f6b');px(96,45,32,3,'#2f6f52');px(116,36,9,9,'#30323c');px(117,37,7,4,frame?'#7fe0c0':'#74d6b6');px(99,41,6,4,'#f4f0e6');
+  return [110,32];
+ },
+ mall(){
+  px(0,0,128,48,'#ddd5c6');px(0,48,128,24,'#bdb6a8');for(let x=0;x<128;x+=20)px(x,48,1,24,'#aaa396');px(0,58,128,1,'#cfc9bc');
+  for(const [x,c] of [[6,'#d9534f'],[48,'#5bc0de'],[90,'#f0ad4e']]){px(x,6,32,5,c);px(x+10,7,12,2,'#fff');px(x,12,32,34,'#8a8f98');px(x+2,14,13,32,'#cfe8f2');px(x+17,14,13,32,'#cfe8f2');px(x+14,28,1,4,'#555');px(x+17,28,1,4,'#555')}
+  px(84,58,7,9,'#3d7fd9');px(83,57,9,2,'#2f66b3');px(86,54,3,3,'#3d7fd9');
+  px(24,56,1,11,'#333');px(20,60,9,7,'#ffd23c');px(23,62,3,3,'#333');
+  meAt(54,44);px(67,46,1,18,'#c9a36b');px(64,64,7,3,'#f1f1f1');px(60,66,12,1,'#ffffff66');
+  return [60,44];
+ },
+ park(){
+  px(0,0,128,40,'#9fd8ff');px(10,6,14,4,'#ffffffcc');px(80,10,18,4,'#ffffffcc');
+  for(const [x,h] of [[4,22],[22,28],[92,24],[110,30]]){px(x,40-h,14,h,'#c9d3e0');for(let j=2;j<h-2;j+=5)for(let i=2;i<12;i+=4)px(x+i,40-h+j,2,2,'#8fa3bd')}
+  px(0,40,128,32,'#7fb069');px(0,54,128,9,'#d9c9a3');px(0,53,128,1,'#c4b48c');
+  for(const x of [40,74]){px(x+4,30,3,14,'#7a5230');px(x,18,11,10,'#2e8b57');px(x+2,15,7,4,'#3cb371');px(x+1,27,9,3,'#2e8b57')}
+  px(12,46,18,2,'#8a5a2b');px(13,48,2,5,'#6b4a2e');px(27,48,2,5,'#6b4a2e');px(12,42,18,2,'#8a5a2b');
+  const wx=96-(frame?2:0);px(wx,61,12,2,'#00000030');spr(wx,45,YOU,{h:'#4a4a55',s:'#f3caa2',e:'#1a1a1a',m:'#c2705c',t:'#8fa3bd',p:'#555',b:'#1f1f25'});
+  meAt(56,45);px(68,53,4,3,'#fff');px(69,52,4,3,'#f4f0e6');px(51,54,4,3,'#fff');
+  return [62,45];
+ },
+ food(){
+  px(0,0,128,50,'#ead8bf');px(0,50,128,22,'#8f8f97');px(0,50,128,2,'#c9c9cf');for(let x=4;x<128;x+=14)px(x,62,7,1,'#f4f0e6');
+  px(8,6,70,6,'#c0392b');for(let i=0;i<70;i+=8){px(8+i,12,4,4,'#c0392b');px(12+i,12,4,4,'#fff')}
+  px(12,20,30,26,'#bfe6f5');px(13,21,28,24,'#e7f6fb');px(26,21,1,24,'#bfe6f5');px(48,18,22,32,'#6b4a2e');px(50,20,18,28,'#8a5f3a');px(65,34,2,2,'#ffd23c');
+  px(18,36,8,4,'#e2553f');px(19,35,6,1,'#ffe39a');if(frame){px(20,31,1,3,'#ffffff99');px(23,30,1,3,'#ffffff99')}
+  px(86,8,30,14,'#30323c');px(88,10,26,2,'#ffd23c');px(88,14,18,1,'#fff');px(88,17,22,1,'#fff');
+  const o=S.own;
+  if(o.scooter){ring(96,59,7,'#222');ring(114,59,7,'#222');px(99,58,18,3,'#3fb0a0');px(115,50,1,9,'#666');px(113,50,4,1,'#333');px(100,56,7,2,'#333');px(93,51,7,7,'#3fb0a0')}
+  else{ring(96,58,8,'#222');ring(112,58,8,'#222');px(100,57,14,1,'#dd9944');px(103,54,1,7,'#dd9944');px(115,52,1,9,'#dd9944');px(113,52,4,1,'#333');px(101,53,4,1,'#333');px(94,49,7,6,'#3fb0a0')}
+  meAt(72,46);px(69,52,4,7,'#3fb0a0');px(70,53,2,2,'#fff');
+  return [78,46];
+ },
+ hall(){
+  px(0,0,128,48,'#f8eef2');px(0,48,128,24,'#e9dcc9');px(46,48,36,24,'#c0392b');px(48,48,32,24,'#d9534f');
+  for(const x of [0,112]){px(x,0,16,50,'#c96a8a');px(x+4,0,2,50,'#b05574');px(x+10,0,2,50,'#b05574')}
+  px(40,6,48,3,'#3cb371');px(38,8,3,38,'#3cb371');px(87,8,3,38,'#3cb371');for(let i=0;i<12;i++)px(41+i*4,5+(i%2),2,2,i%3?'#ff9ec0':'#fff');for(let j=0;j<8;j++){px(38,10+j*5,2,2,'#ff9ec0');px(88,10+j*5,2,2,'#fff')}
+  px(22,10,8,10,'#ffe9a0');px(98,10,8,10,'#ffe9a0');
+  for(let i=0;i<4;i++){px(4+i*10,62,7,6,'#f4f0e6');px(4+i*10,58,7,4,'#fff');px(88+i*10,62,7,6,'#f4f0e6');px(88+i*10,58,7,4,'#fff')}
+  meAt(58,38,S.own.suit?'#23232b':null);px(72,40,1,16,'#777');px(70,56,5,1,'#444');px(71,37,3,4,'#d9d9e0');
+  if(frame){px(80,30,1,4,'#fff');px(81,30,2,1,'#fff');px(79,33,2,2,'#fff')}
+  return [64,38];
+ },
+ cafe(){
+  px(0,0,128,48,'#ead9c2');px(0,48,128,24,'#a9794d');for(let y=54;y<72;y+=6)px(0,y,128,1,'#946840');
+  px(6,6,26,16,'#30323c');px(8,9,14,1,'#fff');px(8,12,20,1,'#ffd23c');px(8,15,10,1,'#fff');px(8,18,16,1,'#fff');
+  px(84,34,40,28,'#6b4a2e');px(84,32,40,3,'#8a5f3a');px(104,20,12,12,'#8e98a3');px(106,22,8,4,'#30323c');px(108,28,4,4,'#555');px(90,27,4,5,'#fff');px(96,27,4,5,'#fff');
+  px(100,4,14,10,'#ffe9a0');px(106,0,1,4,'#555');
+  const other=S.lover?{h:'#7a3b2e',s:'#f3caa2',e:'#1a1a1a',m:'#d0607a',t:'#ff8fb1',p:'#5a4a7a',b:'#1f1f25'}:{h:'#5a3a1a',s:'#e8b98a',e:'#1a1a1a',m:'#c2705c',t:'#4cc38a',p:'#444',b:'#1f1f25'};
+  px(62,60,12,2,'#00000040');spr(62,44+(frame^1),YOU,other);
+  meAt(34,44);
+  px(44,54,22,2,'#f4f0e6');px(54,56,2,10,'#8e98a3');px(50,66,10,1,'#8e98a3');px(47,50,3,4,'#fff');px(60,50,3,4,'#fff');if(frame){px(48,47,1,2,'#ffffff99');px(61,46,1,2,'#ffffff99')}
+  return [40,44];
+ },
+ lib(){
+  px(0,0,128,48,'#e6e9f0');px(0,48,128,24,'#9c8466');for(let y=54;y<72;y+=6)px(0,y,128,1,'#8a7458');
+  for(const x of [4,46,88]){px(x,4,36,42,'#7a5230');for(let r=0;r<4;r++){px(x+1,5+r*10,34,8,'#a37446');for(let i=0;i<8;i++)px(x+2+i*4,6+r*10+((i+r)%3?0:1),3,7-((i+r)%3?0:1),['#d9534f','#5bc0de','#f0ad4e','#5cb85c','#9b59b6','#e8e8e8'][(i*3+r+x)%6])}}
+  px(40,56,48,3,'#c9a36b');px(42,59,2,9,'#8a6a3a');px(84,59,2,9,'#8a6a3a');
+  meAt(58,40);
+  px(50,52,12,4,'#fff');px(56,52,1,4,'#bbb');px(51,53,4,1,'#999');px(57,53,4,1,'#999');px(74,46,1,10,'#777');px(71,44,7,3,frame?'#ffe9a0':'#fff0b8');
+  px(40,56,48,3,'#c9a36b');
+  return [64,40];
+ },
+};
+function viewNow(){return decoMode?'home':(anim||peek)?'town':(S.loc&&SCN[S.loc]?S.loc:'home')}
+function drawRoom(){
+  if(!S)return;const v=viewNow(),room=document.querySelector('.room');
+  room.classList.toggle('town',v==='town');let bx=60,by=44,name;
+  if(v==='town'){drawTown();name=anim?`🚶 ${PLACES[anim.to].name} 가는 중`:`🗺️ 우리 동네 · 지금 ${PLACES[S.loc||'home'].name}`}
+  else if(v==='home'){drawHome();name=ROOMS[S.home].name;bx=60+(off('me')[0]||0)}
+  else{[bx,by]=SCN[v]();name=PLACES[v].ic+' '+PLACES[v].name}
+  $('rname').textContent=name;const b=$('bub');b.textContent=S.em||'';b.style.left=(bx/128*100)+'%';b.style.top=(by/72*100-3)+'%';
+  $('mapBtn').className='mapBtn'+(peek?' on':'');$('mapBtn').textContent=peek?'✔ 지도 닫기':'🗺️ 지도';
+  $('decoBtn').style.display=v==='home'||decoMode?'':'none';
+}
+$('mapL').innerHTML=Object.values(PLACES).map(P=>`<span style="left:${P.x/128*100}%;top:${(TOPY[P.row]+2)/72*100}%">${P.ic}</span>`).join('');
+$('mapBtn').onclick=()=>{if(decoMode)toggleDeco(false);anim=null;peek=!peek;drawRoom()};
+cv.addEventListener('pointerdown',()=>{if(anim){anim=null;drawRoom()}});
+/* ── 꾸미기: 벽지·바닥·장식, 가구 끌어 옮기기 ── */
+const WALLS=[{id:'base',name:'기본'},{id:'mint',name:'민트',a:'#bfe3d0',b:'#b1d8c4',cost:5},{id:'pink',name:'분홍',a:'#f3cfd6',b:'#eac0c9',cost:5},{id:'sky',name:'하늘',a:'#cfe3f5',b:'#c0d7ee',cost:5},{id:'navy',name:'남색',a:'#2f3a5f',b:'#293353',cost:8},{id:'brick',name:'벽돌',a:'#b5694e',b:'#8f4f39',pat:'brick',cost:12}];
+const FLOORS=[{id:'base',name:'기본'},{id:'oak',name:'밝은 나무',a:'#d2a56d',b:'#bb9058',cost:6},{id:'dark',name:'짙은 나무',a:'#5a4130',b:'#4a3527',cost:6},{id:'tile',name:'체크 타일',a:'#e8e4da',b:'#b9c2cc',pat:'check',cost:10},{id:'carpet',name:'회색 카펫',a:'#8b8f9c',b:'#8b8f9c',cost:8}];
+const DECO=[
+ {id:'rug',ic:'🟥',name:'러그',cost:7,zone:'rug',box:[36,62,50,8],draw(){px(36,62,50,8,'#b0506a');px(38,63,46,6,'#c2647c');px(40,65,42,1,'#d98a9d')}},
+ {id:'plant',ic:'🪴',name:'화분',cost:6,zone:'floor',box:[76,48,8,14],draw(){px(78,48,4,3,'#2e8b57');px(79,50,2,6,'#2e8b57');px(77,52,2,3,'#3cb371');px(81,51,2,4,'#3cb371');px(76,56,8,2,'#c97a2b');px(77,58,6,4,'#b5651d')}},
+ {id:'lamp',ic:'💡',name:'스탠드 조명',cost:8,zone:'floor',box:[30,40,7,22],draw(){px(33,46,1,15,'#777');px(31,61,5,1,'#444');px(30,40,7,6,frame?'#ffe9a0':'#fff0b8');px(31,39,5,1,'#e6cf86')}},
+ {id:'shelf',ic:'📚',name:'책장',cost:15,zone:'floor',box:[66,38,14,24],draw(){px(66,38,14,24,'#7a5230');px(67,39,12,6,'#a37446');px(67,46,12,7,'#a37446');px(67,54,12,7,'#a37446');px(68,40,2,5,'#d9534f');px(70,41,2,4,'#5bc0de');px(72,40,2,5,'#f0ad4e');px(75,41,3,4,'#5cb85c');px(68,48,3,5,'#9b59b6');px(72,47,2,6,'#e8e8e8');px(75,49,2,4,'#d9534f');px(68,56,4,5,'#f0ad4e');px(73,55,2,6,'#5bc0de')}},
+ {id:'sofa',ic:'🛋️',name:'소파',cost:30,zone:'floor',box:[44,49,26,13],draw(){px(45,49,24,8,'#4f6fc9');px(44,53,3,8,'#3f5cb0');px(67,53,3,8,'#3f5cb0');px(47,55,20,5,'#6f8de0');px(56,55,1,5,'#5b7bd6');px(45,61,2,1,'#222');px(67,61,2,1,'#222')}},
+ {id:'cat',ic:'🐈',name:'고양이 입양',cost:20,zone:'floor',box:[70,63,10,7],draw(){px(72,66,7,3,'#e8a24a');px(70,64,4,4,'#e8a24a');px(70,63,1,1,'#e8a24a');px(73,63,1,1,'#e8a24a');px(71,65,1,1,'#222');px(79,frame?63:64,1,3,'#e8a24a');px(72,69,1,1,'#c98434');px(77,69,1,1,'#c98434')}},
+ {id:'tank',ic:'🐠',name:'어항',cost:12,zone:'floor',box:[10,46,12,16],draw(){px(10,56,12,6,'#6b4a2e');px(11,46,10,10,'#8fd8ff');px(11,46,10,1,'#c9eeff');px(11,54,10,2,'#d8c08a');px(frame?13:15,50,2,1,'#ff8a3c');px(frame?18:16,52,2,1,'#ffd23c');px(12,52,1,2,'#3cb371')}},
+ {id:'poster',ic:'🖼️',name:'포스터',cost:3,zone:'wall',box:[26,8,9,12],draw(s){px(26,8,9,12,'#f4f0e6');px(27,9,7,10,SHIRT[s.ch]||'#9aa0b5');px(29,11,3,3,'#fff');px(28,16,5,1,'#fff')}},
+ {id:'clock',ic:'🕒',name:'벽시계',cost:4,zone:'wall',box:[72,10,7,7],draw(){px(73,10,5,7,'#f4f0e6');px(72,11,7,5,'#f4f0e6');px(75,11,1,3,'#333');px(75,13,2,1,'#333')}},
+ {id:'frame',ic:'👪',name:'가족 사진',cost:3,zone:'wall',box:[14,28,8,7],draw(){px(14,28,8,7,'#8a5a2b');px(15,29,6,5,'#cfe3f5');px(16,31,1,3,'#e8a24a');px(18,30,1,4,'#d9534f');px(19,31,1,3,'#5bc0de')}},
+ {id:'neon',ic:'🔴',name:'ON AIR 네온',cost:10,zone:'wall',box:[86,34,18,7],draw(){px(86,34,18,7,'#2a0f18');const c=frame?'#ff4d6d':'#b02a45';px(88,36,2,3,c);px(91,36,2,3,c);px(95,36,1,3,c);px(97,36,2,3,c);px(100,36,2,3,c)}},
+ {id:'garland',ic:'✨',name:'꼬마전구',cost:5,zone:'wall',box:[38,1,50,4],draw(){px(38,2,50,1,'#555');for(let i=0;i<10;i++)px(40+i*5,3,2,2,['#ffd23c','#ff6b6b','#6aa8ff','#5fd38d'][(i+frame)%4])}},
+];
+const comfort=s=>Object.keys(s.deco||{}).length+(s.wall!=='base'?1:0)+(s.floorSkin!=='base'?1:0);
+const FURN=[
+ {id:'p10k',zone:'wall',box:[1,9,9,8],show:s=>s.hit[10000],draw(){px(1,9,9,8,'#8a5a2b');px(2,10,7,6,'#e9c46a');px(4,11,1,4,'#8a5a2b');px(5,12,1,2,'#8a5a2b')}},
+ {id:'p100k',zone:'wall',box:[1,20,9,8],show:s=>s.hit[100000],draw(){px(1,20,9,8,'#555');px(2,21,7,6,'#e8e8f0');px(4,22,1,4,'#888');px(5,23,1,2,'#888')}},
+ {id:'suit',zone:'wall',box:[12,7,10,16],show:s=>s.own.suit,draw(){px(16,7,1,2,'#999');px(12,9,10,1,'#999');px(12,10,10,13,'#23232b');px(16,10,2,3,'#fff');px(16,12,2,5,'#c33')}},
+ {id:'booth',zone:'wall',box:[88,6,31,23],show:s=>s.own.booth,draw(){for(let j=0;j<3;j++)for(let i=0;i<4;i++)px(88+i*8,6+j*8,7,7,(i+j)%2?'#3a3550':'#4d4670')}},
+ {id:'bedB',zone:'floor',box:[4,44,36,17],show:s=>s.own.bed,draw(){px(4,44,2,13,'#7a5230');px(4,53,36,4,'#7a5230');px(5,57,2,4,'#5c3d22');px(37,57,2,4,'#5c3d22');px(6,49,33,4,'#f3f3f3');px(16,48,23,6,'#5b7bd6');px(7,47,8,3,'#fff')}},
+ {id:'bedA',zone:'floor',box:[5,56,32,7],show:s=>!s.own.bed,draw(){px(5,58,32,5,'#8291b5');px(13,58,24,1,'#6f7ea3');px(5,56,8,3,'#e6e6e6')}},
+ {id:'ringlight',zone:'floor',box:[43,27,7,34],show:s=>s.own.cam,draw(){px(46,34,1,26,'#444');px(44,60,5,1,'#444');ring(43,27,7,'#fff3b0')}},
+ {id:'tripod',zone:'floor',box:[70,39,9,22],show:s=>s.own.cam,draw(){px(73,44,1,16,'#444');px(71,60,5,1,'#444');px(70,40,7,4,'#2b2b33');px(77,41,2,2,'#7fb0ff');px(71,39,2,1,'#e33')}},
+ {id:'desk',zone:'floor',box:[84,33,36,29],show:s=>true,draw(s){const o=s.own,c=s.ch;
+   px(84,45,36,2,'#9b6b3d');px(85,47,2,15,'#7a5230');px(117,47,2,15,'#7a5230');
+   if(o.edit){px(97,33,15,10,'#22232b');px(98,34,13,8,frame?'#6fb6ff':'#7cc0ff');px(100,36,6,1,'#fff');px(100,38,9,1,'#dff');px(103,43,3,2,'#22232b')}
+   else if(o.laptop){px(96,37,12,7,'#30323c');px(97,38,10,5,frame?'#7fe0c0':'#74d6b6');px(94,44,16,1,'#b9bdc8')}
+   else{px(98,42,9,3,'#8b8f99');px(99,38,7,4,'#555b66');px(100,39,5,2,'#9fd0c0')}
+   if(o.mic){px(87,44,5,1,'#666');px(89,38,1,6,'#888');px(88,33,3,5,'#d9d9e0');px(88,35,3,1,'#999')}
+   if(c==='sing'){px(114,37,1,7,'#fff');px(115,37,3,1,'#fff');px(112,43,3,2,'#fff')}
+   if(c==='game'){px(112,42,7,3,'#e8e8f0');px(113,43,1,1,'#333');px(117,43,1,1,'#e33')}
+   if(c==='muk'){px(112,42,7,3,'#e2553f');px(113,41,5,1,'#ffe39a');if(frame){px(114,38,1,2,'#ffffff99');px(116,37,1,2,'#ffffff99')}}
+   if(c==='vlog'){px(113,37,5,8,'#22232b');px(114,38,3,5,'#8fd0ff')}
+   if(c==='wreck'){px(112,44,7,1,'#444');px(113,40,5,4,frame?'#ff3b3b':'#a51d1d');px(114,39,3,1,frame?'#ff8a8a':'#a51d1d')}}},
+ {id:'console',zone:'floor',box:[40,59,19,9],show:s=>s.own.console,draw(){px(40,59,13,9,'#1e1f27');px(41,60,11,7,frame?'#58c98a':'#4cbd80');px(44,62,2,2,'#fff');px(54,66,5,2,'#eee')}},
+ {id:'gym',zone:'floor',box:[21,65,12,5],show:s=>s.own.gym,draw(){px(22,67,10,1,'#888');px(21,65,2,5,'#333');px(31,65,2,5,'#333')}},
+ {id:'ride',zone:'floor',box:[98,54,26,17],show:s=>s.own.scooter||s.own.bicycle,draw(s){
+   if(s.own.scooter){ring(98,63,7,'#222');ring(116,63,7,'#222');px(101,62,18,3,'#3fb0a0');px(117,54,1,9,'#666');px(115,54,4,1,'#333');px(102,60,7,2,'#333')}
+   else{ring(98,62,8,'#222');ring(114,62,8,'#222');px(102,61,14,1,'#dd9944');px(105,58,1,7,'#dd9944');px(117,56,1,9,'#dd9944');px(115,56,4,1,'#333');px(103,57,4,1,'#333')}}},
+ {id:'lover',zone:'floor',box:[38,44,12,18],show:s=>!!s.lover,draw(){px(38,60,12,2,'#00000040');spr(38,44+(frame^1),YOU,{h:'#7a3b2e',s:'#f3caa2',e:'#1a1a1a',m:'#d0607a',t:'#ff8fb1',p:'#5a4a7a',b:'#1f1f25'})}},
+ {id:'me',zone:'floor',box:[54,44,12,18],show:s=>true,draw(s){const tired=s.hp<25,by=44+(tired?1:frame);px(54,60,12,2,'#00000040');
+   spr(54,by,ME,{h:'#2a2233',s:'#f3caa2',e:'#1a1a1a',m:'#c2705c',t:SHIRT[s.ch]||'#9aa0b5',p:'#3a4a70',b:'#1f1f25'});
+   if(tired){px(67,by+3,1,2,'#7fd0ff');px(67,by+5,1,1,'#bfe8ff')}}},
+];
+let decoMode=false,drag=null,sel=null;
+const off=id=>S.pos[id]||[0,0];
+function pieces(){
+  const ps=FURN.filter(f=>f.show(S)).concat(DECO.filter(d=>S.deco[d.id]));
+  const rank={wall:0,rug:1,floor:2};
+  return ps.sort((a,b)=>rank[a.zone]-rank[b.zone]||(a.box[1]+a.box[3]+off(a.id)[1])-(b.box[1]+b.box[3]+off(b.id)[1]));
+}
+function drawHome(){
+  const Rm=ROOMS[S.home];
+  const W=WALLS.find(w=>w.id===S.wall)||WALLS[0],F=FLOORS.find(f=>f.id===S.floorSkin)||FLOORS[0];
+  const wa=W.a||Rm.wall,wb=W.b||Rm.wall2,fa=F.a||Rm.floor,fb=F.b||Rm.line;
+  // 벽
+  px(0,0,128,48,wa);
+  if(W.pat==='brick'){for(let y=0;y<48;y+=6){px(0,y+5,128,1,wb);for(let x=(y/6%2)*6;x<128;x+=12)px(x,y,1,5,wb)}}
+  else for(let x=7;x<128;x+=16)px(x,0,1,48,wb);
+  // 바닥
+  px(0,48,128,24,fa);
+  if(F.pat==='check'){for(let y=0;y<3;y++)for(let x=0;x<16;x++)if((x+y)%2)px(x*8,48+y*8,8,8,fb)}
+  else for(let y=54;y<72;y+=6)px(0,y,128,1,fb);
+  px(0,47,128,1,'#00000044');
+  if(S.home===0){if(S.wall==='base'){px(100,4,9,6,'#5d584d');px(24,31,5,3,'#5d584d')}px(34,0,1,7,'#222');px(33,7,3,3,'#ffe9a0')}
+  // 창문
+  const [wx,wy,ww,wh]=Rm.win;const sky=S.left>=3?'#8fd0ff':S.left===2?'#ffd58f':'#f58f6a';
+  px(wx-1,wy-1,ww+2,wh+2,'#f4f0e6');px(wx,wy,ww,wh,sky);
+  const bc=S.home===2?'#3d4a7a':'#6f7890';
+  for(let i=0;i<ww-4;i+=6){const bh=4+((i*7+S.home*3)%9);px(wx+i,wy+wh-bh,5,bh,bc);
+    if(S.home===2)for(let k=1;k<bh-1;k+=3){px(wx+i+1,wy+wh-bh+k,1,1,'#ffe07a');px(wx+i+3,wy+wh-bh+k,1,1,'#ffe07a')}}
+  if(S.own.car){const ax=wx+ww-11,ay=wy+wh-4;px(ax,ay,10,3,'#d33');px(ax+2,ay-2,6,2,'#d33');px(ax+3,ay-1,2,1,'#bdf');px(ax+6,ay-1,1,1,'#bdf');px(ax+1,ay+3,2,1,'#111');px(ax+7,ay+3,2,1,'#111')}
+  px(wx+(ww>>1),wy,1,wh,'#f4f0e6');
+  if(S.home>=1){px(wx-4,wy-2,3,wh+7,'#c96a6a');px(wx+ww+1,wy-2,3,wh+7,'#c96a6a')}
+  // 가구·장식 (끌어서 옮긴 만큼 밀어서 그림)
+  for(const p of pieces()){const [dx,dy]=off(p.id);cx.save();cx.translate(dx,dy);p.draw(S);cx.restore();
+    if(decoMode&&sel===p.id&&p.id!=='me'){const [bx,by,bw,bh]=p.box;cx.strokeStyle='#ffc94a';cx.lineWidth=1;cx.setLineDash([2,2]);cx.strokeRect(bx+dx-.5,by+dy-.5,bw+1,bh+1);cx.setLineDash([])}}
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function movePiece(p,dx,dy){
+  const [bx,by,bw,bh]=p.box;
+  const nx=clamp(bx+dx,0,128-bw)-bx;
+  const ny=p.zone==='wall'?clamp(by+dy,0,47-bh)-by:clamp(by+bh+dy,50,72)-(by+bh);
+  S.pos[p.id]=[Math.round(nx),Math.round(ny)];
+}
+function cpos(e){const r=cv.getBoundingClientRect();return[(e.clientX-r.left)/r.width*128,(e.clientY-r.top)/r.height*72]}
+cv.addEventListener('pointerdown',e=>{
+  if(!decoMode||!S||S.over)return;const [x,y]=cpos(e);
+  const hit=pieces().filter(p=>p.id!=='me').filter(p=>{const [dx,dy]=off(p.id),[bx,by,bw,bh]=p.box;return x>=bx+dx-2&&x<=bx+dx+bw+2&&y>=by+dy-2&&y<=by+dy+bh+2}).sort((a,b)=>a.box[2]*a.box[3]-b.box[2]*b.box[3])[0];
+  sel=hit?hit.id:null;
+  if(hit){const o=off(hit.id);drag={p:hit,sx:x,sy:y,ox:o[0],oy:o[1]};try{cv.setPointerCapture(e.pointerId)}catch(_){}}
+  drawRoom();e.preventDefault();
+});
+cv.addEventListener('pointermove',e=>{if(!drag)return;const [x,y]=cpos(e);movePiece(drag.p,drag.ox+x-drag.sx,drag.oy+y-drag.sy);drawRoom();e.preventDefault()});
+const endDrag=()=>{drag=null};cv.addEventListener('pointerup',endDrag);cv.addEventListener('pointercancel',endDrag);
+function toggleDeco(on){decoMode=on===undefined?!decoMode:on;if(decoMode){peek=false;anim=null}sel=null;drag=null;render()}
+$('decoBtn').onclick=()=>toggleDeco();
+function buySkin(kind,id){
+  const list=kind==='wall'?WALLS:FLOORS,it=list.find(x=>x.id===id),key=kind+'_'+id,field=kind==='wall'?'wall':'floorSkin';
+  if(!it||S.over)return false;
+  if(id!=='base'&&!S.own[key]){if(S.money<it.cost)return false;S.money-=it.cost;S.own[key]=true;say('🎨',`${it.name} ${kind==='wall'?'벽지':'바닥'}로 바꿨어요.`,`<span class="down">-${won(it.cost)}</span> · 아늑함이 올라요`)}
+  S[field]=id;render();return true;
+}
+function buyDeco(id){
+  const d=DECO.find(x=>x.id===id);if(!d||S.over||S.deco[id]||S.money<d.cost)return false;
+  S.money-=d.cost;S.deco[id]=1;sel=id;say(d.ic,`${d.name} — 방에 놓았어요!`,`<span class="down">-${won(d.cost)}</span> · 끌어서 원하는 자리에 두세요`);render();return true;
+}
+function renderDeco(){
+  const P=$('dpanel');$('decoBtn').className='decoBtn'+(decoMode?' on':'');$('decoBtn').textContent=decoMode?'✔ 꾸미기 끝':'🎨 꾸미기';
+  document.querySelector('.room').classList.toggle('deco',decoMode);$('app').classList.toggle('decoing',decoMode);
+  if(!decoMode){P.style.display='none';return}
+  P.style.display='';P.innerHTML='';const c=comfort(S);
+  const add=(tag,cls,txt)=>{const e=document.createElement(tag);e.className=cls;if(txt)e.textContent=txt;P.appendChild(e);return e};
+  add('div','dhint',`방 안의 가구를 손가락으로 끌어서 옮겨요. 벽에 거는 건 벽에만, 바닥 물건은 바닥에만 놓여요. 아늑함 ${c} · 잘 때 체력 +${Math.min(10,c)} (최대 10)`);
+  for(const [kind,label,list,cur,dflt] of [['wall','벽지',WALLS,S.wall,ROOMS[S.home].wall],['floor','바닥',FLOORS,S.floorSkin,ROOMS[S.home].floor]]){
+    add('div','dlab',label);const row=add('div','sw');
+    for(const it of list){const own=it.id==='base'||S.own[kind+'_'+it.id];const b=document.createElement('button');b.className='swb'+(cur===it.id?' on':'');
+      b.innerHTML=`<i style="background:${it.a||dflt}"></i>${it.name}<br>${own?(cur===it.id?'사용 중':'있음'):it.cost+'만'}`;b.disabled=!own&&S.money<it.cost;b.onclick=()=>buySkin(kind,it.id);row.appendChild(b)}
+  }
+  add('div','dlab','장식 사기');const g=add('div','grid');
+  for(const d of DECO){const own=S.deco[d.id];g.appendChild(btn('buy',d.ic,d.name,own?'방에 있어요 ✔':S.money<d.cost?`${won(d.cost)} · 돈이 모자라요`:`${won(d.cost)} · 아늑함 +1`,own||S.money<d.cost||S.over,()=>buyDeco(d.id)))}
+  const row=add('div','tabs');
+  const r=document.createElement('button');r.className='tab';r.textContent='↩️ 전부 원래 자리로';r.onclick=()=>{S.pos={};sel=null;render()};row.appendChild(r);
+  const k=document.createElement('button');k.className='tab on';k.textContent='✔ 꾸미기 끝';k.onclick=()=>toggleDeco(false);row.appendChild(k);
+}
+setInterval(()=>{frame^=1;drawRoom()},550);
+
+/* ───── 도감 · 물려받기 · 도전 과제 · 효과음 (판이 끝나도 남는 기록) ───── */
+let TEST=false;
+const METAKEY='soloceo_meta_v1';
+function loadMeta(){const d={endings:{},ach:{},chs:{},runs:0,sound:true,tipOff:false};try{return Object.assign(d,JSON.parse(localStorage.getItem(METAKEY)||'{}'))}catch(e){return d}}
+let META=loadMeta();
+function saveMeta(){if(TEST)return;try{localStorage.setItem(METAKEY,JSON.stringify(META))}catch(e){}}
+const ENDLIST=[['🏢','1인 기업 대표','구독자 10만에, 자는 동안에도 돈이 들어오면'],['🏆','실버버튼 유튜버','구독자 10만 명'],['💻','1인 개발 사장','만든 것으로 밤마다 80만 원'],['🏢','조물주 위에 건물주','월세로 밤마다 50만 원'],['✍️','글로 먹고사는 사람','블로그로 밤마다 45만 원'],['🏪','무인 가게 사장님','가게로 밤마다 35만 원'],['📈','투자의 귀재','주식·코인을 800만 원어치'],['📹','전업 유튜버 새싹','구독자 1만 명'],['👔','성실한 정직원','사장님의 제안을 받아들이면'],['💰','알바왕','통장에 600만 원'],['🍜','오늘도 버텼다','그냥 여섯 달을 버티면'],['🚌','고향행 버스','월세를 못 내면…'],['⚖️','법정에 선 렉카','위험한 길의 끝']];
+const LEGACY=[
+ {id:'mom',from:'고향행 버스',ic:'🧧',name:'엄마의 비상금',desc:'시작 돈 +20만 원',apply:s=>{s.money+=20}},
+ {id:'body',from:'오늘도 버텼다',ic:'💪',name:'단련된 몸',desc:'최대 체력 +10, 체력 가득으로 시작',apply:s=>{s.hp=110}},
+ {id:'alba',from:'알바왕',ic:'🧹',name:'알바 경력',desc:'편의점이 바로 열리고 모든 알바비 +1만 원',apply:s=>{s.jobs=6}},
+ {id:'sever',from:'성실한 정직원',ic:'💼',name:'퇴직금',desc:'시작 돈 +40만 원',apply:s=>{s.money+=40}},
+ {id:'mic',from:'전업 유튜버 새싹',ic:'🎙️',name:'쓰던 마이크',desc:'마이크를 가진 채 시작',apply:s=>{s.own.mic=true}},
+ {id:'fans',from:'실버버튼 유튜버',ic:'👥',name:'옛 팬들',desc:'구독자 500명으로 시작',apply:s=>{s.subs=500;s.hit[100]=1}},
+ {id:'laptop',from:'1인 개발 사장',ic:'🖥️',name:'쓰던 노트북',desc:'노트북과 코딩 실력 15로 시작',apply:s=>{s.own.laptop=true;s.code=15}},
+ {id:'vend',from:'무인 가게 사장님',ic:'🥤',name:'자판기 한 대',desc:'밤마다 2만 원 버는 자판기로 시작',apply:s=>{s.own.vend=true}},
+ {id:'stock',from:'투자의 귀재',ic:'📈',name:'주식 계좌',desc:'주식 30만 원어치로 시작',apply:s=>{s.stock=30}},
+ {id:'card',from:'1인 기업 대표',ic:'🪪',name:'대표 명함',desc:'우정 30과 돈 +30만 원으로 시작',apply:s=>{s.friend=30;s.money+=30}},
+ {id:'posts',from:'글로 먹고사는 사람',ic:'✍️',name:'쌓아 둔 글 10편',desc:'블로그 글 10편과 글솜씨 15로 시작',apply:s=>{s.posts=10;s.write=15}},
+ {id:'parking',from:'조물주 위에 건물주',ic:'🅿️',name:'주차장 한 칸',desc:'밤마다 약 5만 원 버는 주차장으로 시작',apply:s=>{s.own.parking=true}},
+ {id:'lawyer',from:'법정에 선 렉카',ic:'⚖️',name:'변호사 친구',desc:'모든 위험이 20% 덜 쌓여요',apply:s=>{}},
+];
+const ACH=[
+ ['first100','💯','첫 구독자 100명',s=>s.subs>=100],
+ ['monet','💵','광고 수익 열기',s=>s.monet],
+ ['silver','🏆','실버버튼 받기',s=>s.subs>=100000],
+ ['rich','💰','통장에 1,000만 원',s=>s.money>=1000],
+ ['dev3','📦','만든 것 3개 출시',s=>s.products.length>=3],
+ ['game1','👾','게임 출시',s=>s.products.some(x=>x.k==='gm')],
+ ['lover','💕','연인 만들기',s=>!!s.lover],
+ ['cozy','🛋️','아늑함 10 채우기',s=>comfort(s)>=10],
+ ['officetel','🏙️','오피스텔 입주',s=>s.home>=2],
+ ['passive','😴','자는 동안 밤마다 20만 원',s=>devInc(s)+bizInc(s)>=20],
+ ['noAlba','🙅','알바 한 번 없이 6달 버티기',(s,f)=>f==='end'&&s.jobs===0],
+ ['noRest','🔥','한 번도 안 쉬고 6달 버티기',(s,f)=>f==='end'&&!s.rests],
+ ['cleanWreck','😇','고소장 없이 렉카로 10만',s=>s.ch==='wreck'&&s.subs>=100000&&!s.sued],
+ ['end5','📖','엔딩 5가지 보기',()=>Object.keys(META.endings).length>=5],
+ ['allCh','🎬','유튜버 5종류로 모두 끝까지',()=>Object.keys(META.chs).length>=5],
+ ['endAll','👑','엔딩 13가지 모두 보기',()=>Object.keys(META.endings).length>=ENDLIST.length],
+];
+function checkAch(final){
+  if(TEST)return[];const got=[];
+  for(const a of ACH)if(!META.ach[a[0]]&&a[3](S,final)){META.ach[a[0]]=1;got.push(a)}
+  if(got.length){saveMeta();sfx('good')}return got;
+}
+function record(kind,t){
+  if(TEST)return'';const isNew=!META.endings[t];
+  META.endings[t]=(META.endings[t]||0)+1;META.runs++;if(S.ch)META.chs[S.ch]=1;saveMeta();
+  const got=checkAch(kind);let h='';
+  if(isNew){const L=LEGACY.find(l=>l.from===t);h+=`<p><b class="gold">🆕 새 엔딩! 도감 ${Object.keys(META.endings).length}/${ENDLIST.length}</b>`+(L?`<br>🎁 다음 판부터 <b>${L.name}</b>을 물려받을 수 있어요. (${L.desc})`:'')+'</p>'}
+  if(got.length)h+=`<p>🏅 도전 과제 달성 · ${got.map(a=>a[1]+' '+a[2]).join(', ')}</p>`;
+  return h;
+}
+let legacying=false;
+function legacyChooser(){
+  const un=LEGACY.filter(l=>META.endings[l.from]);if(TEST||!un.length)return;
+  legacying=true;
+  $('box').innerHTML=`<h3>🎁 하나만 물려받기</h3><p style="color:var(--sub);font-size:13.5px">지난 판에서 본 엔딩이 선물을 남겼어요. 엔딩을 더 모으면 고를 게 늘어요.</p><div class="chs">`+
+    un.map(l=>`<button class="act" data-l="${l.id}"><span class="n">${l.ic} ${l.name}</span><span class="d">${l.desc}</span></button>`).join('')+
+    `<button class="act" data-l=""><span class="n">🎒 맨손으로 시작</span><span class="d">아무것도 안 받아요</span></button></div>`;
+  $('modal').classList.add('on');$('box').querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>pickLegacy(b.dataset.l));
+}
+function pickLegacy(id){
+  if(!legacying)return false;legacying=false;$('modal').classList.remove('on');
+  const l=LEGACY.find(x=>x.id===id);if(l){S.leg=l.id;l.apply(S);say(l.ic,`${l.name} — 물려받았어요.`,l.desc)}
+  render();return true;
+}
+function openBook(){
+  if($('modal').classList.contains('on'))return;
+  let best=0;try{best=+localStorage.getItem('soloceo_best')||0}catch(e){}
+  const n=Object.keys(META.endings).length,k=Object.keys(META.ach).length;
+  show(`<h3>📖 도감</h3><p style="color:var(--sub);font-size:13.5px">끝까지 한 판 ${META.runs}번 · 최고 ${best.toLocaleString()}점</p><div class="dlab">엔딩 ${n}/${ENDLIST.length}</div><ul>`+
+   ENDLIST.map(([em,t,h])=>{const c=META.endings[t],L=LEGACY.find(l=>l.from===t);
+     return c?`<li><span>${em} ${t}<br><small style="color:var(--sub)">🎁 ${L.name} · ${L.desc}</small></span><span>${c}번</span></li>`:`<li><span style="color:var(--sub)">❔ ???<br><small>${h}</small></span><span></span></li>`}).join('')+
+   `</ul><div class="dlab" style="margin-top:10px">도전 과제 ${k}/${ACH.length}</div><ul>`+
+   ACH.map(a=>`<li><span${META.ach[a[0]]?'':' style="color:var(--sub)"'}>${META.ach[a[0]]?a[1]:'🔒'} ${a[2]}</span><span class="up">${META.ach[a[0]]?'✔':''}</span></li>`).join('')+
+   `</ul><button class="go" id="ok">닫기</button><button class="go" id="rst" style="background:var(--card2);color:var(--txt)">🔄 처음부터 다시 하기</button><div class="note">진행 상황은 이 기기에 자동으로 저장돼요.</div>`);
+  $('rst').onclick=()=>{closeModal();$('resetBtn').click()};
+}
+$('bookBtn').onclick=openBook;
+function renderTip(){
+  let t='';
+  if(!TEST&&!META.tipOff&&META.runs===0&&!S.over&&S.day<=6)
+    t=!S.jobs?'① 먼저 💼 알바로 돈을 벌어요. 10일마다 월세를 내야 해요.':(!S.ch&&!S.code&&!bizInc(S)&&!S.posts&&!S.est)?'② 돈이 조금 모이면 🚀 사업 탭에서 내 일을 시작해요. 유튜브, 만들기, 가게, 블로그, 임대 중에 끌리는 걸로요.':!S.bought?'③ 체력이 모자라면 푹 쉬거나 🛒 상점에서 밥을 사 먹어요. 돈이 남으면 장비도 사요.':'④ 물건은 🛒 상점 탭에서 사요. 방 그림의 🎨 꾸미기와 🗺️ 지도도 눌러 보세요.';
+  $('tip').innerHTML=t?`💡 ${t}<button id="tipx">안내 끄기</button>`:'';
+  if(t)$('tipx').onclick=()=>{META.tipOff=true;saveMeta();render()};
+}
+/* 효과음: 소리 파일 없이 삑삑 소리를 즉석에서 만든다 */
+let AC=null;
+const SFX={tap:[[440,0,.06]],coin:[[880,0,.07],[1320,.07,.12]],skill:[[523,0,.07],[659,.07,.07],[784,.14,.1]],pop:[[660,0,.08],[990,.08,.1]],good:[[523,0,.09],[659,.09,.09],[784,.18,.09],[1047,.27,.2]],rest:[[392,0,.15,'sine'],[330,.15,.25,'sine']],buy:[[660,0,.05],[880,.05,.08]],bad:[[196,0,.18,'sawtooth'],[147,.18,.3,'sawtooth']],night:[[330,0,.2,'sine'],[262,.2,.35,'sine']],end:[[523,0,.12],[659,.12,.12],[784,.24,.12],[1047,.36,.12],[1319,.48,.4]]};
+function sfx(n){
+  if(TEST||!META.sound)return;
+  try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+    for(const [f,t0,d,ty] of SFX[n]||[]){const o=AC.createOscillator(),g=AC.createGain(),at=AC.currentTime+t0;o.type=ty||'square';o.frequency.value=f;
+      g.gain.setValueAtTime(ty?.09:.045,at);g.gain.exponentialRampToValueAtTime(.0001,at+d);o.connect(g);g.connect(AC.destination);o.start(at);o.stop(at+d+.02)}}catch(e){}
+}
+const sndLabel=()=>{$('sndBtn').textContent=META.sound?'🔊':'🔇'};sndLabel();
+$('sing').parentElement.onclick=showIncome;$('sing').parentElement.style.cursor='pointer';
+$('sndBtn').onclick=()=>{META.sound=!META.sound;saveMeta();sndLabel();sfx('tap')};
+const SAVE='soloceo_save_v1';
+function save(){try{if(S.over)localStorage.removeItem(SAVE);else localStorage.setItem(SAVE,JSON.stringify(S))}catch(e){}}
+function load(){try{const j=localStorage.getItem(SAVE);if(!j)return null;const o=JSON.parse(j);if(!o||o.over||typeof o.day!=='number'||(o.day===1&&o.left===3&&!o.jobs&&!o.ch))return null;return Object.assign(fresh(),o)}catch(e){return null}}
+function closeModal(){$('modal').classList.remove('on');onOk=null}
+function boot(){
+  const o=load();if(!o)return start();
+  S=o;render();
+  const dom=(S.day-1)%MONTH_DAYS+1,mon=Math.min(MONTHS-1,Math.floor((S.day-1)/MONTH_DAYS));
+  show(`<div class="big">💾</div><h3 style="text-align:center">이어서 할까요?</h3>
+   <ul><li><span>날짜</span><span>${mon+1}달째 ${dom}일</span></li><li><span>돈</span><span class="gold">${won(S.money)}</span></li><li><span>유튜브</span><span>${chLine(S)}</span></li></ul>
+   <button class="go" id="ok">이어서 하기</button><button class="go" id="newg" style="background:var(--card2);color:var(--txt)">처음부터 새로 하기</button>`,
+   ()=>{if(S.day>MONTH_DAYS*MONTHS)finish('end')});
+  $('newg').onclick=()=>{closeModal();start()};
+}
+$('resetBtn').onclick=()=>{
+  if($('modal').classList.contains('on'))return;
+  show(`<div class="big">🔄</div><h3 style="text-align:center">정말 처음부터 할까요?</h3><p>지금까지 한 것이 모두 사라져요.</p>
+   <button class="go" id="ok">네, 처음부터</button><button class="go" id="cc" style="background:var(--card2);color:var(--txt)">아니요, 계속할래요</button>`,start);
+  $('cc').onclick=closeModal;
+};
+function start(){
+  S=fresh();say('🎒','서울 고시원에 짐을 풀었어요. 가진 건 10만 원과 꿈뿐이에요.','먼저 💼 알바로 월세부터 벌어요');render();
+  show(`<div class="big">🎒</div><h3 style="text-align:center">맨손 사장</h3>
+   <p>전단지 알바로 시작해서 <b class="gold">내 사업</b>을 일으키는 게 꿈이에요.</p>
+   <ul><li><span>하루에 행동</span><span><b>3번</b></span></li><li><span>한 달</span><span><b>10일</b> (총 6달)</span></li>
+   <li><span>달마다 월세</span><span class="down">못 내면 끝</span></li><li><span>사업 길</span><span>유튜브 · 만들기 · 가게 · 블로그 · 임대</span></li><li><span>목표</span><span class="up">자는 동안에도 돈 벌기</span></li></ul>
+   <p style="color:var(--sub);font-size:13.5px">알바만 하면 사업이 멀어지고, 사업만 좇으면 쫓겨나요. 둘 사이에서 줄타기를 잘해 보세요.</p>
+   <button class="go" id="ok">시작하기</button>`,()=>legacyChooser());
+}
+window.G={get night(){return nightInc(S)},ads:adsApply,income:showIncome,get events(){return EVENTS},channel:k=>{choosing=true;return pickCh(k)},go,get anim(){return !!anim},set peek(v){peek=!!v;anim=null;drawRoom()},set test(v){TEST=!!v;if(!v)META=loadMeta()},get legacying(){return legacying},legacy:pickLegacy,book:openBook,get meta(){return META},boot,deco:buyDeco,skin:buySkin,decoMode:toggleDeco,move:(id,dx,dy)=>{const p=pieces().find(x=>x.id===id);if(!p)return false;movePiece(p,dx,dy);drawRoom();return S.pos[id]},proj:startProj,choose,quit:quitJob,get deciding(){return !!deciding},pick:pickCh,get choosing(){return choosing},get skill(){return skillOf(S)},set grow(v){GROW=v},act,buy,next,start,get s(){return S}};
+boot();
+</script>
+</body>
+</html>
