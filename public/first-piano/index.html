@@ -33,6 +33,10 @@ h1{font-family:var(--display);font-weight:400;font-size:24px;margin:0;color:var(
 .chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
 .chip:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+/* 11/11 아기 잠금: 곡·설정 버튼을 막고 시작·멈춤과 건반만 남긴다(부모는 자물쇠를 2초 꾹) */
+body.locked header select,body.locked header .chip:not(#lockBtn),body.locked header .speed,body.locked #restart{pointer-events:none;opacity:.3}
+#lockBtn.holding{background:var(--accent);color:#141a2e}
+#toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);max-width:88vw;background:#000c;color:#fff;padding:10px 16px;border-radius:14px;font-size:14px;z-index:99;text-align:center}
 .speed{display:flex;align-items:center;gap:8px;background:var(--panel);border:1.5px solid var(--line);border-radius:999px;padding:4px 12px}
 .speed-label{font-family:var(--display);color:var(--muted)}
 .speed output{font-family:var(--display);font-size:18px;min-width:3.4em;text-align:center;font-variant-numeric:tabular-nums}
@@ -68,6 +72,7 @@ input,textarea{-webkit-user-select:text;user-select:text}
     <span class="chip streak" id="streak"></span>
     <button class="chip" id="lang" aria-label="Language">EN</button>
     <button class="chip" id="helpBtn" aria-label="Help">?</button>
+    <button class="chip" id="lockBtn" aria-label="Lock">🔓</button>
     <div class="row">
       <div class="speed">
         <span class="speed-label" data-t="speed"></span>
@@ -87,11 +92,13 @@ input,textarea{-webkit-user-select:text;user-select:text}
     </div>
   </header>
 
+  <div id="toast" hidden></div>
   <div class="stage" id="stage">
     <canvas id="cv"></canvas>
     <div class="overlay" id="startOv">
       <p id="ovTitle"></p>
       <small id="ovSub"></small>
+      <div class="row" id="ovSpeed" style="justify-content:center"></div>
       <button class="btn main" id="ovPlay"></button>
     </div>
     <div class="overlay" id="guideOv" hidden style="background:#121829;z-index:30">
@@ -367,6 +374,8 @@ function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;step(dt);draw
 cv.addEventListener('pointerdown',ev=>{
  audio();const r=cv.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top;
  const k=[...st.keys.filter(k=>k.black),...st.keys.filter(k=>!k.black)].find(k=>x>=k.x&&x<=k.x+k.w&&y>=k.y&&y<=k.y+k.h);
+ if(st.waiting){const tk=st.keys.find(q=>q.m===st.ev[st.next].m);  // 11/11 리뷰 "눌렀는데 안 눌림" — 정답 건반 근처면 인정
+  if(tk&&x>=tk.x-tk.w*.35&&x<=tk.x+tk.w*1.35&&y>=tk.y-20){tone(tk.m,.6);st.flash[tk.m]=performance.now();proceed();return}}
  if(k){
   if(st.waiting&&st.ev[st.next].m===k.m){proceed();return}
   tone(k.m,.6);st.flash[k.m]=performance.now();return;
@@ -394,7 +403,20 @@ function setSpeed(v){
  $('speedOut').textContent=st.speed+t('x');
  $('slower').disabled=st.speed<=SPEEDS[0];$('quicker').disabled=st.speed>=SPEEDS[SPEEDS.length-1];
  store.set('speed',st.speed);
+ try{drawSp3()}catch(e){}
 }
+const SP3=[[0.25,{ko:'🐢 아주 느리게',en:'🐢 Very slow'}],[0.5,{ko:'🚶 느리게',en:'🚶 Slow'}],[0.75,{ko:'🏃 보통',en:'🏃 Normal'}]];
+function drawSp3(){const el=$('ovSpeed');if(!el)return;el.innerHTML=SP3.map(([v,l])=>`<button class="chip" data-sp="${v}" aria-pressed="${st.speed===v}">${l[LANG]||l.en}</button>`).join('')}
+$('ovSpeed').addEventListener('click',e=>{const b=e.target.closest('[data-sp]');if(b){setSpeed(+b.dataset.sp);drawSp3()}});
+function toast(msg,ms){const t0=$('toast');t0.textContent=msg;t0.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>{t0.hidden=true},ms||3500)}
+function setLock(on){document.body.classList.toggle('locked',on);$('lockBtn').textContent=on?'🔒':'🔓';store.set('locked',on)}
+let lockTimer=null;
+$('lockBtn').addEventListener('pointerdown',()=>{
+ if(!document.body.classList.contains('locked')){setLock(true);
+  toast(LANG==='ko'?'아기 잠금 켜짐. 풀 때는 자물쇠를 2초 꾹 누르세요. 앱 밖으로 못 나가게 하려면 아이폰 설정 › 손쉬운 사용 › 사용법 유도를 켜세요.':'Kid lock on. Hold the lock for 2 seconds to unlock. To keep your child inside the app, turn on Guided Access in iPhone Settings › Accessibility.',6000);return}
+ $('lockBtn').classList.add('holding');toast(LANG==='ko'?'계속 누르고 있으면 풀려요…':'Keep holding to unlock…',2200);
+ lockTimer=setTimeout(()=>{setLock(false);$('lockBtn').classList.remove('holding');toast(LANG==='ko'?'잠금이 풀렸어요':'Unlocked',1800)},2000)});
+['pointerup','pointerleave','pointercancel'].forEach(ev=>$('lockBtn').addEventListener(ev,()=>{clearTimeout(lockTimer);$('lockBtn').classList.remove('holding')}));
 const stepSpeed=dir=>{const i=SPEEDS.indexOf(st.speed);setSpeed(SPEEDS[Math.max(0,Math.min(SPEEDS.length-1,i+dir))])};
 $('slower').addEventListener('click',()=>stepSpeed(-1));
 $('quicker').addEventListener('click',()=>stepSpeed(1));
@@ -422,7 +444,7 @@ $('faster').addEventListener('click',()=>{stepSpeed(2);restart();play()});
 window.addEventListener('resize',resize);
 if(window.ResizeObserver)new ResizeObserver(()=>resize()).observe($('stage'));
 
-function applyLang(){
+function applyLang(){try{drawSp3()}catch(e){}
  document.documentElement.lang=LANG;
  const h=$('appName');h.textContent=h.dataset[LANG];document.title=h.dataset[LANG];
  document.querySelectorAll('[data-t]').forEach(el=>{el.textContent=t(el.dataset.t)});
@@ -526,7 +548,7 @@ $('midi').addEventListener('change',async()=>{
 });
 
 // ---------- start ----------
-st.wait=store.get('wait',false);st.sound=store.get('sound',true);st.fingers=store.get('fingers',true);st.loop=store.get('loop',false);st.speed=store.get('speed',.5);
+setTimeout(()=>{try{setLock(!!store.get('locked',false));drawSp3()}catch(e){}},0);st.wait=store.get('wait',false);st.sound=store.get('sound',true);st.fingers=store.get('fingers',true);st.loop=store.get('loop',false);st.speed=store.get('speed',.5);
 const saved=store.get('custom',null);if(saved&&saved.data&&saved.data.ev)SONGS.push({id:'custom',lv:'mine',title:saved.name,en:saved.name,bpm:saved.data.bpm,ev:saved.data.ev});
 const typed=store.get('typed',null);if(typed&&typed.data&&typed.data.ev)SONGS.push({id:'typed',lv:'mine',title:typed.name,en:typed.name,bpm:typed.data.bpm,ev:typed.data.ev});
 st.song=SONGS.find(s=>s.id===store.get('song','star'))||SONGS[0];
