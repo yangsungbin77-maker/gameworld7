@@ -10,8 +10,8 @@ const description =
 
 // 따로 만든 단독 게임(커버 그림이 없어 그림 문자로 표시)
 const EXTRA = [
-	{ href: '/maenson-sajang/', title: '맨손 사장', emoji: '💤', genre: '인생 게임', desc: '전단지 알바에서 사장까지 · 자는 동안에도 돈 버는 1인 창업 인생 게임 · 무료', cover: '' },
-	{ href: '/first-piano/', title: '우리 아이 첫 피아노', emoji: '🎹', genre: '키즈 · 음악', desc: '색깔 막대가 천천히 내려오는 아이 피아노 따라치기 · 19곡 · 무료', cover: '' },
+	{ href: '/maenson-sajang/', title: '맨손 사장', emoji: '💤', genre: '인생 게임', desc: '전단지 알바에서 사장까지 · 자는 동안에도 돈 버는 1인 창업 인생 게임 · 무료', cover: '', newtab: true },
+	{ href: '/first-piano/', title: '우리 아이 첫 피아노', emoji: '🎹', genre: '키즈 · 음악', desc: '색깔 막대가 천천히 내려오는 아이 피아노 따라치기 · 19곡 · 무료', cover: '', newtab: true },
 ];
 const all = [...GAMES, ...EXTRA];
 const first = all[0];
@@ -67,6 +67,9 @@ const first = all[0];
 										data-desc={g.desc}
 										data-cover={g.cover}
 										data-emoji={g.emoji}
+										data-newtab={g.newtab ? '1' : undefined}
+										target={g.newtab ? '_blank' : undefined}
+										rel={g.newtab ? 'noopener' : undefined}
 									>
 										{g.cover ? (
 											<img src={g.cover} alt={`${g.title} 게임 커버`} loading="lazy" width="640" height="360" />
@@ -87,7 +90,7 @@ const first = all[0];
 						<div class="panel-head">
 							<h2 class="panel-title"><span>바로가기</span></h2>
 						</div>
-						<a href="/maenson-sajang/" class="tool-banner">
+						<a href="/maenson-sajang/" class="tool-banner" target="_blank" rel="noopener">
 							<span class="tb-emoji">💤</span>
 							<span class="tb-text"><b>맨손 사장</b><small>전단지 알바에서 사장까지 · 자는 동안에도 돈 버는 1인 창업 인생 게임 · 무료</small></span>
 							<span class="tb-go">열기 →</span>
@@ -167,6 +170,8 @@ const first = all[0];
 					$('v-emoji').hidden = !!d.cover;
 					$('v-emoji').textContent = d.emoji;
 					$('v-play').href = $('v-open').href = card.href;
+					// 맨손 사장·첫 피아노는 큰 칸 말고 새 창에서 연다
+					['v-play', 'v-open'].forEach((id) => { if (d.newtab) { $(id).target = '_blank'; $(id).rel = 'noopener'; } else { $(id).removeAttribute('target'); } });
 				};
 
 				cards.forEach((card) =>
@@ -178,6 +183,7 @@ const first = all[0];
 				);
 
 				$('v-play').addEventListener('click', (e) => {
+					if (cur.dataset.newtab) return;
 					if (!wide() || e.ctrlKey || e.metaKey || e.shiftKey) return;
 					e.preventDefault();
 					const f = document.createElement('iframe');
