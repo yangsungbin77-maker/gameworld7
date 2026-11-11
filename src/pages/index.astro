@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { GAMES as games, HOME_DESCRIPTION, HOME_TITLE, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { GAMES as games, HOME_DESCRIPTION, HOME_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
@@ -11,7 +11,9 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const featured = posts[0];
-const rest = posts.slice(1, 7);
+const rest = posts.slice(1, 9);
+// "오늘의 한 판" — 사이트를 새로 만들 때마다(매일 새 글 발행) 날짜에 따라 다음 게임으로 넘어간다
+const pick = games[Math.floor(Date.now() / 86400000) % games.length];
 ---
 
 <!doctype html>
@@ -23,92 +25,140 @@ const rest = posts.slice(1, 7);
 		<Header />
 		<main>
 			<section class="hero">
-				<span class="tag">GAME · 공략 · 리뷰</span>
-				<h1>게임의 <span class="neon">모든 것</span>,<br />가장 빠르게.</h1>
+				<h1>게임의 <span class="neon">모든 것</span>, 가장 빠르게.</h1>
 				<p class="lead">{SITE_DESCRIPTION}</p>
-				<div class="hero-actions">
-					<a href="/blog" class="btn">최신 글 보기</a>
-					<a href="/about" class="btn-ghost btn">소개</a>
-				</div>
+				<span class="hero-count">게임 {games.length} · 글 {posts.length}</span>
 			</section>
 
-			<section class="games" id="games">
-				<div class="section-head">
-					<h2>🎮 지금 바로 플레이</h2>
-					<a href="/games" class="more">전체 게임 →</a>
-				</div>
-				<a href="/d4-build-planner/" class="tool-banner">
-					<span class="tb-emoji">😈</span>
-					<span class="tb-text"><b>디아블로4 빌드 플래너</b><small>시즌 15 · 8개 직업 기술 트리 찍고 링크로 공유</small></span>
-					<span class="tb-go">열기 →</span>
-				</a>
-				<a href="/d4-boss-drops/" class="tool-banner">
-					<span class="tb-emoji">🗝️</span>
-					<span class="tb-text"><b>디아블로4 보스 드랍 테이블</b><small>시즌 15 보스 14종 · 아이템 이름으로 잡을 보스 찾기</small></span>
-					<span class="tb-go">열기 →</span>
-				</a>
-				<a href="/d4-runewords/" class="tool-banner">
-					<span class="tb-emoji">🔮</span>
-					<span class="tb-text"><b>디아블로4 룬워드 제작서</b><small>시즌 15 룬워드 19종 · 가진 룬으로 만들 수 있는 것 찾기</small></span>
-					<span class="tb-go">열기 →</span>
-				</a>
-				<a href="/maenson-sajang/" class="tool-banner">
-					<span class="tb-emoji">💤</span>
-					<span class="tb-text"><b>맨손 사장</b><small>전단지 알바에서 사장까지 · 자는 동안에도 돈 버는 1인 창업 인생 게임 · 무료</small></span>
-					<span class="tb-go">열기 →</span>
-				</a>
-				<a href="/first-piano/" class="tool-banner">
-					<span class="tb-emoji">🎹</span>
-					<span class="tb-text"><b>우리 아이 첫 피아노</b><small>색깔 막대가 천천히 내려오는 아이 피아노 따라치기 · 19곡 · 무료</small></span>
-					<span class="tb-go">열기 →</span>
-				</a>
-				<ul class="game-grid">
-					{games.map((g) => (
-						<li>
-							<a href={g.href} class="game-card">
-								<div class="game-cover">
-									<img src={g.cover} alt={`${g.title} 게임 커버`} loading="lazy" width="640" height="360" />
-									<span class="game-title-overlay">{g.emoji} {g.title}</span>
-								</div>
-								<div class="game-card-foot">
-									<div class="game-info">
-										<span class="game-genre">{g.genre}</span>
-										<p>{g.desc}</p>
-									</div>
-									<span class="play-btn">Play</span>
-								</div>
-							</a>
-						</li>
-					))}
-				</ul>
-			</section>
-
-			{
-				featured && (
-					<a href={`/${featured.id}/`} class="featured">
-						{featured.data.heroImage && (
-							<div class="featured-image">
-								<Image src={featured.data.heroImage} width={1200} height={600} alt={featured.data.title} />
-							</div>
-						)}
-						<div class="featured-body">
-							<span class="tag">최신 글</span>
-							<h2>{featured.data.title}</h2>
-							<p>{featured.data.description}</p>
-							<span class="meta">
-								<FormattedDate date={featured.data.pubDate} /> · 읽어보기 →
-							</span>
+			<div class="hub">
+				<div class="col col-main">
+					<section class="panel view">
+						<div class="panel-head">
+							<h2 class="panel-title" style="--bar:var(--c-blue)"><span>오늘의 한 판</span></h2>
+							<span class="view-name">{pick.title}<em>{pick.genre}</em></span>
 						</div>
-					</a>
-				)
-			}
+						<a href={pick.href} class="stage">
+							<img src={pick.cover} alt={`${pick.title} 게임 커버`} width="640" height="360" />
+							<span class="btn stage-play">▶ 바로 하기</span>
+						</a>
+						<div class="view-foot">설치 없음 · 로그인 없음 · PC와 폰 모두 가능</div>
+					</section>
+
+					<section class="panel games" id="games">
+						<div class="panel-head">
+							<h2 class="panel-title" style="--bar:var(--c-green)"><span>지금 바로 플레이</span></h2>
+							<a href="/games" class="panel-note">전체 게임 →</a>
+						</div>
+						<ul class="game-grid">
+							{games.map((g) => (
+								<li>
+									<a href={g.href} class:list={['game-card', { on: g === pick }]}>
+										<img src={g.cover} alt={`${g.title} 게임 커버`} loading="lazy" width="640" height="360" />
+										<b>{g.title}</b>
+										<small>{g.genre}</small>
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				</div>
+
+				<div class="col col-left">
+					<section class="panel">
+						<div class="panel-head">
+							<h2 class="panel-title"><span>바로가기</span></h2>
+						</div>
+						<a href="/d4-build-planner/" class="tool-banner">
+							<span class="tb-emoji">😈</span>
+							<span class="tb-text"><b>디아블로4 빌드 플래너</b><small>시즌 15 · 8개 직업 기술 트리 찍고 링크로 공유</small></span>
+							<span class="tb-go">열기 →</span>
+						</a>
+						<a href="/d4-boss-drops/" class="tool-banner">
+							<span class="tb-emoji">🗝️</span>
+							<span class="tb-text"><b>디아블로4 보스 드랍 테이블</b><small>시즌 15 보스 14종 · 아이템 이름으로 잡을 보스 찾기</small></span>
+							<span class="tb-go">열기 →</span>
+						</a>
+						<a href="/d4-runewords/" class="tool-banner">
+							<span class="tb-emoji">🔮</span>
+							<span class="tb-text"><b>디아블로4 룬워드 제작서</b><small>시즌 15 룬워드 19종 · 가진 룬으로 만들 수 있는 것 찾기</small></span>
+							<span class="tb-go">열기 →</span>
+						</a>
+						<a href="/maenson-sajang/" class="tool-banner">
+							<span class="tb-emoji">💤</span>
+							<span class="tb-text"><b>맨손 사장</b><small>전단지 알바에서 사장까지 · 자는 동안에도 돈 버는 1인 창업 인생 게임 · 무료</small></span>
+							<span class="tb-go">열기 →</span>
+						</a>
+						<a href="/first-piano/" class="tool-banner">
+							<span class="tb-emoji">🎹</span>
+							<span class="tb-text"><b>우리 아이 첫 피아노</b><small>색깔 막대가 천천히 내려오는 아이 피아노 따라치기 · 19곡 · 무료</small></span>
+							<span class="tb-go">열기 →</span>
+						</a>
+					</section>
+
+					<section class="panel">
+						<div class="panel-head">
+							<h2 class="panel-title" style="--bar:var(--c-violet)"><span>사이트 안내</span></h2>
+						</div>
+						<nav class="dot-list" aria-label="사이트 안내">
+							<a href="/about" style="--dot:var(--c-amber)">소개</a>
+							<a href="/author" style="--dot:var(--c-blue)">운영자 소개</a>
+							<a href="/contact" style="--dot:var(--c-green)">문의하기</a>
+							<a href="/blog" style="--dot:var(--c-pink)">전체 글<em>{posts.length}</em></a>
+						</nav>
+					</section>
+				</div>
+
+				<div class="col col-right">
+					<section class="panel">
+						<div class="panel-head">
+							<h2 class="panel-title" style="--bar:var(--c-pink)"><span>게임 정보</span></h2>
+						</div>
+						<div class="info">
+							<h3>{pick.emoji} {pick.title}</h3>
+							<p class="info-genre">{pick.genre}</p>
+							<p class="info-desc">{pick.desc}</p>
+							<dl>
+								<dt>만든 사람</dt><dd><a href="/author">Sungbin</a></dd>
+								<dt>값</dt><dd>무료</dd>
+								<dt>기기</dt><dd>PC · 폰</dd>
+								<dt>설치</dt><dd>필요 없음</dd>
+							</dl>
+							<div class="info-acts">
+								<a href={pick.href} class="btn">바로 하기</a>
+								<a href="/games" class="btn btn-ghost">게임 전체 보기</a>
+							</div>
+						</div>
+					</section>
+
+					{
+						featured && (
+							<section class="panel">
+								<div class="panel-head">
+									<h2 class="panel-title"><span>최신 글</span></h2>
+									<span class="panel-note"><FormattedDate date={featured.data.pubDate} /></span>
+								</div>
+								<a href={`/${featured.id}/`} class="featured">
+									{featured.data.heroImage && (
+										<Image src={featured.data.heroImage} width={600} height={300} alt={featured.data.title} />
+									)}
+									<span class="featured-body">
+										<b>{featured.data.title}</b>
+										<span>{featured.data.description}</span>
+										<span class="meta">읽어보기 →</span>
+									</span>
+								</a>
+							</section>
+						)
+					}
+				</div>
+			</div>
 
 			{
 				rest.length > 0 && (
-					<>
-						<div class="section-head">
-							<h2>더 많은 글</h2>
-							<a href="/blog" class="more">전체 보기 →</a>
+					<section class="panel posts">
+						<div class="panel-head">
+							<h2 class="panel-title" style="--bar:var(--c-pink)"><span>더 많은 글</span></h2>
+							<a href="/blog" class="panel-note">전체 보기 →</a>
 						</div>
 						<ul class="grid">
 							{rest.map((post) => (
@@ -130,7 +180,7 @@ const rest = posts.slice(1, 7);
 								</li>
 							))}
 						</ul>
-					</>
+					</section>
 				)
 			}
 		</main>
@@ -140,217 +190,275 @@ const rest = posts.slice(1, 7);
 
 <style>
 	.hero {
-		padding: 2.5rem 0 3rem;
-		border-bottom: 1px solid var(--border);
-		margin-bottom: 2.5rem;
-	}
-	.hero h1 {
-		font-size: clamp(2.4rem, 6vw, 4rem);
-		margin: 0.6rem 0 0.8rem;
-	}
-	.neon {
-		color: var(--accent);
-		text-shadow: 0 0 24px var(--accent-glow);
-	}
-	.lead {
-		color: var(--text-muted);
-		font-size: 1.15rem;
-		max-width: 38ch;
-		margin-bottom: 1.6rem;
-	}
-	.hero-actions {
 		display: flex;
-		gap: 0.8rem;
+		align-items: baseline;
+		gap: 6px 16px;
 		flex-wrap: wrap;
-	}
-
-	.games {
-		margin-bottom: 3rem;
-	}
-	.tool-banner { display: flex; align-items: center; gap: 14px; margin: 0 0 1.4rem; padding: 14px 18px; border-radius: var(--radius); border: 1px solid #5a4526; background: linear-gradient(100deg, #1f150d, #120d09 70%); text-decoration: none; color: #ece3d3; }
-	.tool-banner:hover { border-color: #c9a35b; }
-	.tb-emoji { font-size: 1.9rem; }
-	.tb-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-	.tb-text b { font-size: 1.05rem; color: #f4e6c8; }
-	.tb-text small { color: #a89c88; font-size: 0.85rem; }
-	.tb-go { color: #e6c47f; font-weight: 700; white-space: nowrap; }
-
-	.games-note {
-		color: var(--text-dim);
-		font-size: 0.88rem;
-		font-weight: 600;
-	}
-	.game-grid {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		gap: 1.2rem;
-	}
-	.game-card {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
+		padding: 9px 12px;
+		margin-bottom: 10px;
 		background: var(--bg-elev);
 		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		overflow: hidden;
-		text-decoration: none;
-		transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+		border-radius: var(--radius-sm);
 	}
-	.game-card:hover {
-		border-color: var(--accent);
-		transform: translateY(-3px);
-		box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 24px var(--accent-glow);
+	.hero h1 {
+		font-size: 1rem;
+		margin: 0;
+		letter-spacing: -0.01em;
 	}
-	.game-cover {
-		position: relative;
+	.neon { color: var(--accent); }
+	.lead {
+		color: var(--text-muted);
+		font-size: 0.86rem;
+		margin: 0;
+		flex: 1 1 280px;
+		min-width: 0;
 	}
-	.game-cover img {
+	.hero-count {
+		font-family: var(--font-mono);
+		font-size: 0.74rem;
+		color: var(--text-dim);
+		white-space: nowrap;
+	}
+
+	.hub {
+		display: grid;
+		grid-template-columns: 270px minmax(0, 1fr) 290px;
+		grid-template-areas: "left main right";
+		gap: 10px;
+		align-items: start;
+	}
+	.col { display: grid; gap: 10px; min-width: 0; }
+	.col-left { grid-area: left; }
+	.col-main { grid-area: main; }
+	.col-right { grid-area: right; }
+
+	/* 가운데 큰 화면 */
+	.view { border-color: #2f5f9e; box-shadow: 0 0 0 1px #2f5f9e; }
+	.view-name { font-size: 0.86rem; font-weight: 700; color: #f1f2f4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+	.view-name em { font-style: normal; font-weight: 600; font-size: 0.78rem; color: var(--c-green); margin-left: 8px; }
+	.stage { position: relative; display: block; }
+	.stage img {
 		display: block;
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		object-fit: cover;
-		border-bottom: 1px solid var(--border);
+		border-radius: 0;
 	}
-	.game-title-overlay {
+	.stage-play {
 		position: absolute;
-		left: 0.9rem;
-		bottom: 0.7rem;
-		font-family: var(--font-heading);
-		font-weight: 800;
-		font-size: 1.35rem;
-		color: #fff;
-		text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 20px var(--accent-glow);
+		left: 16px;
+		bottom: 16px;
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
 	}
-	.game-card-foot {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-		padding: 1rem 1.2rem;
-	}
-	.game-info p {
-		margin: 0.3rem 0 0;
-		color: var(--text-muted);
-		font-size: 0.9rem;
-	}
-	.game-genre {
-		display: inline-block;
-		padding: 0.15em 0.7em;
-		border-radius: 999px;
-		background: rgba(62, 245, 139, 0.12);
-		color: var(--accent);
-		font-size: 0.78rem;
-		font-weight: 700;
-	}
-	.play-btn {
-		flex-shrink: 0;
-		padding: 0.5em 1.4em;
-		border-radius: 999px;
-		background: var(--accent);
-		color: #0b0e14;
-		font-weight: 800;
-		font-size: 0.95rem;
-		transition: filter 0.15s ease, transform 0.15s ease;
-	}
-	.game-card:hover .play-btn {
-		filter: brightness(1.15);
-		transform: scale(1.05);
+	.view-foot {
+		padding: 7px 12px;
+		border-top: 1px solid var(--border);
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: var(--text-dim);
 	}
 
-	.featured {
+	/* 게임 줄 */
+	.game-grid {
+		list-style: none;
+		padding: 10px;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+		gap: 8px;
+	}
+	.game-card {
 		display: block;
-		background:
-			linear-gradient(180deg, rgba(62, 245, 139, 0.08), transparent 40%),
-			var(--bg-elev);
+		height: 100%;
+		background: var(--bg-elev-2);
 		border: 1px solid var(--border);
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		overflow: hidden;
-		margin-bottom: 3rem;
-		transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+		text-decoration: none;
+		transition: border-color 0.15s ease;
 	}
-	.featured:hover {
-		border-color: var(--accent);
-		transform: translateY(-2px);
-		box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+	.game-card:hover, .game-card.on { border-color: var(--c-blue); }
+	.game-card.on { box-shadow: 0 0 0 1px var(--c-blue); }
+	.game-card img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 0;
 	}
-	.featured-image img {
+	.game-card b {
+		display: block;
+		padding: 6px 8px 0;
+		font-size: 0.8rem;
+		line-height: 1.4;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.game-card small {
+		display: block;
+		padding: 0 8px 7px;
+		font-size: 0.72rem;
+		line-height: 1.5;
+		color: var(--text-muted);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/* 바로가기 띠 */
+	.tool-banner {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 9px 12px;
+		border-bottom: 1px solid var(--border);
+		text-decoration: none;
+		color: var(--text);
+		transition: background 0.15s ease;
+	}
+	.tool-banner:last-child { border-bottom: 0; }
+	.tool-banner:hover { background: var(--bg-elev-2); }
+	.tb-emoji {
+		flex: none;
+		width: 34px;
+		height: 34px;
+		display: grid;
+		place-items: center;
+		font-size: 1.1rem;
+		background: var(--bg-elev-2);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+	}
+	.tb-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+	.tb-text b { font-size: 0.86rem; line-height: 1.4; }
+	.tb-text small {
+		color: var(--text-muted);
+		font-size: 0.74rem;
+		line-height: 1.45;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.tb-go { display: none; color: var(--accent); font-weight: 700; font-size: 0.74rem; white-space: nowrap; }
+
+	/* 색 점 목록 */
+	.dot-list a {
+		display: flex;
+		align-items: center;
+		gap: 9px;
+		padding: 8px 12px;
+		border-bottom: 1px solid var(--border);
+		font-size: 0.86rem;
+		color: var(--text);
+	}
+	.dot-list a:last-child { border-bottom: 0; }
+	.dot-list a::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--dot, var(--text-dim)); flex: none; }
+	.dot-list a:hover { background: var(--bg-elev-2); color: #f1f2f4; }
+	.dot-list em { margin-left: auto; font-style: normal; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); }
+
+	/* 게임 정보 */
+	.info { padding: 12px; }
+	.info h3 { font-size: 1rem; margin: 0; }
+	.info-genre { color: var(--c-green); font-size: 0.78rem; font-weight: 600; margin: 2px 0 8px; }
+	.info-desc { font-size: 0.86rem; line-height: 1.6; margin: 0 0 12px; }
+	.info dl { margin: 0 0 12px; display: grid; grid-template-columns: 76px 1fr; row-gap: 4px; font-size: 0.8rem; }
+	.info dt { color: var(--text-dim); }
+	.info dd { margin: 0; font-family: var(--font-mono); font-size: 0.76rem; }
+	.info-acts { display: flex; gap: 6px; flex-wrap: wrap; }
+	.info-acts .btn { font-size: 0.8rem; padding: 0.45em 0.9em; border-radius: var(--radius-sm); }
+
+	/* 최신 글 */
+	.featured { display: block; color: var(--text); }
+	.featured :global(img) {
 		display: block;
 		width: 100%;
 		aspect-ratio: 2 / 1;
 		object-fit: cover;
+		border-radius: 0;
 		border-bottom: 1px solid var(--border);
 	}
-	.featured-body { padding: 2rem; }
-	.featured h2 {
-		margin: 0.8rem 0 0.5rem;
-		font-size: clamp(1.6rem, 3.5vw, 2.3rem);
-	}
-	.featured p {
-		color: var(--text-muted);
-		margin-bottom: 1rem;
-	}
+	.featured-body { display: grid; gap: 6px; padding: 12px; }
+	.featured-body b { font-size: 0.95rem; line-height: 1.45; }
+	.featured-body span { font-size: 0.82rem; line-height: 1.6; color: var(--text-muted); }
+	.featured:hover b { color: var(--accent); }
+	.featured-body .meta { color: var(--accent); font-weight: 700; font-size: 0.78rem; }
 
-	.section-head {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		margin-bottom: 1.4rem;
-	}
-	.section-head h2 { margin: 0; }
-	.more { font-weight: 600; font-size: 0.95rem; }
-
+	/* 글 카드 */
+	.posts { margin-top: 10px; }
 	.grid {
 		list-style: none;
-		padding: 0;
+		padding: 10px;
 		margin: 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-		gap: 1.2rem;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 8px;
 	}
 	.card {
 		display: flex;
 		flex-direction: column;
 		height: 100%;
-		background: var(--bg-elev);
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		overflow: hidden;
-		transition: border-color 0.2s ease, transform 0.15s ease, background 0.2s ease;
-	}
-	.card:hover {
-		border-color: var(--accent);
-		transform: translateY(-2px);
 		background: var(--bg-elev-2);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+		transition: border-color 0.15s ease;
 	}
-	.card-image img {
+	.card:hover { border-color: var(--c-blue); }
+	.card-image :global(img) {
 		display: block;
 		width: 100%;
 		aspect-ratio: 2 / 1;
 		object-fit: cover;
+		border-radius: 0;
 		border-bottom: 1px solid var(--border);
 	}
 	.card-body {
 		display: flex;
 		flex-direction: column;
 		flex: 1;
-		padding: 1.5rem;
+		padding: 11px 12px 12px;
 	}
 	.card h3 {
-		margin: 0 0 0.5rem;
-		font-size: 1.25rem;
+		margin: 0 0 6px;
+		font-size: 0.95rem;
+		line-height: 1.45;
 	}
 	.card p {
 		color: var(--text-muted);
-		font-size: 0.95rem;
-		margin-bottom: 1rem;
+		font-size: 0.82rem;
+		line-height: 1.6;
+		margin: 0 0 10px;
 		flex: 1;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
 	}
-	.meta {
+	.card .meta {
+		font-family: var(--font-mono);
 		color: var(--text-dim);
-		font-size: 0.85rem;
-		font-weight: 600;
+		font-size: 0.72rem;
+	}
+
+	@media (max-width: 1100px) {
+		.hub {
+			grid-template-columns: 250px minmax(0, 1fr);
+			grid-template-areas: "left main" "left right";
+		}
+	}
+	@media (max-width: 760px) {
+		.hub {
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-areas: "main" "left" "right";
+		}
+		.game-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+		.grid { grid-template-columns: minmax(0, 1fr); }
+		.tb-go { display: inline; }
+		.tb-text b, .dot-list a { font-size: 0.95rem; }
+		.tb-text small { font-size: 0.82rem; }
+		.card h3, .featured-body b { font-size: 1.05rem; }
+		.card p, .featured-body span, .info-desc { font-size: 0.9rem; }
 	}
 </style>

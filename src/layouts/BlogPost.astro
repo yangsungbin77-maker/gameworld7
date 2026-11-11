@@ -32,60 +32,70 @@ const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, '');
 			/>
 		<style>
 			.article {
-				width: 760px;
+				width: 820px;
 				max-width: 100%;
 				margin: 0 auto;
-			}
-			.toc {
 				background: var(--bg-elev);
 				border: 1px solid var(--border);
-				border-left: 4px solid var(--accent);
+				border-radius: var(--radius);
+				padding: 1.6rem 2rem 2rem;
+			}
+			.toc {
+				background: var(--bg-elev-2);
+				border: 1px solid var(--border);
+				border-left: 4px solid var(--c-blue);
 				border-radius: var(--radius-sm);
-				padding: 1em 1.3em;
+				padding: 0.9em 1.2em;
 				margin: 0 0 2.2rem;
 			}
-			.toc-title { display: block; font-weight: 800; color: var(--text); margin-bottom: 0.5em; font-size: 0.95rem; }
-			.toc ol { margin: 0; padding-left: 1.3em; }
-			.toc li { margin: 0.3em 0; }
+			.toc-title { display: block; font-weight: 700; color: #f1f2f4; margin-bottom: 0.4em; font-size: 0.9rem; }
+			.toc ol { margin: 0; padding-left: 1.3em; font-size: 0.95rem; }
+			.toc li { margin: 0.25em 0; }
+			.toc li::marker { font-family: var(--font-mono); color: var(--text-dim); font-size: 0.85em; }
 			.toc a { color: var(--text-muted); text-decoration: none; }
 			.toc a:hover { color: var(--accent); text-decoration: underline; }
 			.back {
 				display: inline-block;
-				margin-bottom: 1.5rem;
+				margin-bottom: 1.2rem;
 				color: var(--text-muted);
-				font-weight: 600;
-				font-size: 0.9rem;
+				font-family: var(--font-mono);
+				font-size: 0.78rem;
 			}
 			.back:hover { color: var(--accent); }
 			.hero-image img {
 				display: block;
 				width: 100%;
-				margin: 0 0 2rem;
-				border-radius: var(--radius);
+				margin: 0 0 1.6rem;
+				border-radius: var(--radius-sm);
 				border: 1px solid var(--border);
 			}
 			.post-title {
-				margin-bottom: 2rem;
-				padding-bottom: 1.5rem;
+				margin-bottom: 1.8rem;
+				padding-bottom: 1.2rem;
 				border-bottom: 1px solid var(--border);
 			}
 			.post-title h1 {
-				font-size: clamp(2rem, 5vw, 3rem);
+				font-size: clamp(1.7rem, 4.2vw, 2.4rem);
+				line-height: 1.3;
 				margin: 0.6rem 0;
 			}
 			.date {
 				color: var(--text-dim);
-				font-size: 0.9rem;
-				font-weight: 600;
+				font-family: var(--font-mono);
+				font-size: 0.8rem;
 			}
-			.last-updated-on { font-style: italic; }
 			.prose {
 				color: var(--text);
-				font-size: 1.05rem;
+				font-size: 19px;
+				line-height: 1.8;
 			}
-			.prose :global(h2) { margin-top: 2.2rem; }
+			.prose :global(h2) {
+				margin-top: 2.4rem;
+				padding-left: 12px;
+				border-left: 4px solid var(--c-amber);
+			}
 			.prose :global(h3) { margin-top: 1.8rem; }
-			.prose :global(a) { text-decoration: underline; text-underline-offset: 3px; }
+			.prose :global(a) { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(245, 184, 61, 0.45); }
 			.prose :global(ul),
 			.prose :global(ol) { padding-left: 1.3em; }
 			.prose :global(li) { margin-bottom: 0.4em; }
@@ -95,26 +105,27 @@ const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, '');
 				width: 100%;
 				border-collapse: collapse;
 				margin: 0 0 1.8em;
-				font-size: 0.97rem;
-				border: 1px solid var(--border);
+				font-size: 0.9em;
+				border: 1px solid var(--border-strong);
 				border-radius: var(--radius-sm);
 				overflow: hidden;
 			}
 			.prose :global(thead th) {
-				background: rgba(62, 245, 139, 0.12);
-				color: #fff;
+				background: var(--bg-elev-2);
+				color: #f1f2f4;
 				font-weight: 700;
 				text-align: left;
+				border-bottom: 2px solid var(--c-amber);
 			}
 			.prose :global(th),
 			.prose :global(td) {
-				padding: 0.7em 0.95em;
+				padding: 0.65em 0.9em;
 				border-bottom: 1px solid var(--border);
 				border-right: 1px solid var(--border);
 				vertical-align: top;
 			}
 			.prose :global(tbody tr:nth-child(even)) { background: rgba(255, 255, 255, 0.025); }
-			.prose :global(tbody tr:hover) { background: rgba(62, 245, 139, 0.06); }
+			.prose :global(tbody tr:hover) { background: rgba(76, 141, 246, 0.07); }
 			.prose :global(tr:last-child td) { border-bottom: none; }
 			.prose :global(th:last-child),
 			.prose :global(td:last-child) { border-right: none; }
@@ -122,8 +133,8 @@ const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, '');
 			/* 콜아웃 박스 */
 			.prose :global(.cg-box) {
 				border: 1px solid var(--border);
-				border-left: 4px solid var(--accent);
-				background: var(--bg-elev);
+				border-left: 4px solid var(--c-amber);
+				background: var(--bg-elev-2);
 				border-radius: var(--radius-sm);
 				padding: 1em 1.3em;
 				margin: 0 0 1.7em;
@@ -133,16 +144,18 @@ const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, '');
 			.prose :global(.cg-box p) { margin: 0.4em 0; }
 			.prose :global(.cg-box .cg-title) {
 				display: block;
-				font-weight: 800;
-				color: #fff;
+				font-weight: 700;
+				color: #f1f2f4;
 				margin-bottom: 0.35em;
 			}
-			.prose :global(.cg-summary) { border-left-color: var(--accent); background: rgba(62, 245, 139, 0.08); }
-			.prose :global(.cg-tip)     { border-left-color: #38bdf8; background: rgba(56, 189, 248, 0.09); }
-			.prose :global(.cg-warn)    { border-left-color: #fbbf24; background: rgba(251, 191, 36, 0.09); }
+			.prose :global(.cg-summary) { border-left-color: var(--c-amber); background: rgba(245, 184, 61, 0.07); }
+			.prose :global(.cg-tip)     { border-left-color: var(--c-blue); background: rgba(76, 141, 246, 0.09); }
+			.prose :global(.cg-warn)    { border-left-color: #f59e42; background: rgba(245, 158, 66, 0.09); }
 			.prose :global(.cg-danger)  { border-left-color: #f87171; background: rgba(248, 113, 113, 0.10); }
 
 			@media (max-width: 720px) {
+				.article { padding: 1rem 1rem 1.4rem; }
+				.prose { font-size: 18px; }
 				.prose :global(table) { display: block; overflow-x: auto; white-space: nowrap; }
 			}
 		</style>

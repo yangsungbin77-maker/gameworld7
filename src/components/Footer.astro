@@ -4,7 +4,7 @@ const today = new Date();
 
 <footer>
 	<div class="inner">
-		<span class="brand"><span class="logo">🎮</span> 게임월드7</span>
+		<span class="brand">게임월드7</span>
 		<nav class="links">
 			<a href="/">홈</a>
 			<a href="/blog">전체 글</a>
@@ -29,45 +29,44 @@ const today = new Date();
 <style>
 	footer {
 		border-top: 1px solid var(--border);
-		margin-top: 4rem;
-		background: rgba(11, 14, 20, 0.6);
+		margin-top: 3rem;
+		background: var(--bg-elev);
 	}
 	.inner {
 		width: var(--maxw);
-		max-width: calc(100% - 2.5em);
+		max-width: calc(100% - 24px);
 		margin: 0 auto;
-		padding: 2rem 0 3rem;
+		padding: 1.4rem 0 1.2rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: 0.8rem 1.4rem;
 		flex-wrap: wrap;
 	}
 	.brand {
 		font-family: var(--font-heading);
-		font-weight: 800;
-		color: #fff;
+		font-weight: 700;
+		color: var(--accent);
 	}
-	.logo { filter: drop-shadow(0 0 8px var(--accent-glow)); }
-	.links { display: flex; gap: 1.2rem; }
+	.links { display: flex; gap: 0.3rem 1.1rem; flex-wrap: wrap; }
 	.links a {
 		color: var(--text-muted);
 		font-weight: 600;
-		font-size: 0.9rem;
+		font-size: 0.86rem;
 	}
 	.links a:hover { color: var(--accent); }
-	.copy { color: var(--text-dim); font-size: 0.85rem; }
+	.copy { color: var(--text-dim); font-family: var(--font-mono); font-size: 0.76rem; }
 	.meta {
 		width: var(--maxw);
-		max-width: calc(100% - 2.5em);
-		margin: -1rem auto 0;
-		padding: 1.2rem 0 2.5rem;
-		border-top: 1px solid var(--border, rgba(128, 128, 128, 0.25));
+		max-width: calc(100% - 24px);
+		margin: 0 auto;
+		padding: 1rem 0 2rem;
+		border-top: 1px solid var(--border);
 	}
 	.meta p {
-		margin: 0 0 0.4rem;
+		margin: 0 0 0.3rem;
 		color: var(--text-dim);
-		font-size: 0.85rem;
+		font-size: 0.82rem;
 		line-height: 1.6;
 	}
 	.meta .who strong { color: var(--text-muted); }

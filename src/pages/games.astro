@@ -7,6 +7,14 @@ import { GAMES } from '../consts';
 const title = '무료 웹게임 — 게임월드7';
 const description =
 	'설치 없이 브라우저에서 바로 즐기는 무료 웹게임 모음. 네온 스네이크·벽돌깨기·숫자 퍼즐·카드 짝 맞추기까지, PC와 모바일 모두 지원합니다.';
+
+// 따로 만든 단독 게임(커버 그림이 없어 그림 문자로 표시)
+const EXTRA = [
+	{ href: '/maenson-sajang/', title: '맨손 사장', emoji: '💤', genre: '인생 게임', desc: '전단지 알바에서 사장까지 · 자는 동안에도 돈 버는 1인 창업 인생 게임 · 무료', cover: '' },
+	{ href: '/first-piano/', title: '우리 아이 첫 피아노', emoji: '🎹', genre: '키즈 · 음악', desc: '색깔 막대가 천천히 내려오는 아이 피아노 따라치기 · 19곡 · 무료', cover: '' },
+];
+const all = [...GAMES, ...EXTRA];
+const first = all[0];
 ---
 
 <!doctype html>
@@ -18,181 +26,369 @@ const description =
 		<Header />
 		<main>
 			<section class="games-hero">
-				<span class="tag">PLAY · 무료 웹게임</span>
-				<h1>🎮 <span class="neon">게임월드7 아케이드</span></h1>
+				<h1><span class="neon">게임월드7 아케이드</span></h1>
 				<p class="lead">
 					설치도, 로그인도 필요 없습니다. PC·모바일 브라우저에서 바로 플레이하고 최고 기록에 도전하세요.
 				</p>
+				<span class="hero-count">게임 {all.length}</span>
 			</section>
 
-			<a href="/maenson-sajang/" class="tool-banner">
-				<span class="tb-emoji">💤</span>
-				<span class="tb-text"><b>맨손 사장</b><small>전단지 알바에서 사장까지 · 자는 동안에도 돈 버는 1인 창업 인생 게임 · 무료</small></span>
-				<span class="tb-go">열기 →</span>
-			</a>
-			<a href="/d4-build-planner/" class="tool-banner">
-				<span class="tb-emoji">😈</span>
-				<span class="tb-text"><b>디아블로4 빌드 플래너</b><small>시즌 15 · 8개 직업 기술 트리 찍고 링크로 공유</small></span>
-				<span class="tb-go">열기 →</span>
-			</a>
-			<a href="/d4-boss-drops/" class="tool-banner">
-				<span class="tb-emoji">🗝️</span>
-				<span class="tb-text"><b>디아블로4 보스 드랍 테이블</b><small>시즌 15 보스 14종 · 아이템 이름으로 잡을 보스 찾기</small></span>
-				<span class="tb-go">열기 →</span>
-			</a>
-			<a href="/d4-runewords/" class="tool-banner">
-				<span class="tb-emoji">🔮</span>
-				<span class="tb-text"><b>디아블로4 룬워드 제작서</b><small>시즌 15 룬워드 19종 · 가진 룬으로 만들 수 있는 것 찾기</small></span>
-				<span class="tb-go">열기 →</span>
-			</a>
+			<div class="hub">
+				<div class="col col-main">
+					<section class="panel view" id="view">
+						<div class="panel-head">
+							<h2 class="panel-title" style="--bar:var(--c-blue)"><span>게임 화면</span></h2>
+							<span class="view-name"><span id="v-title">{first.title}</span><em id="v-genre">{first.genre}</em></span>
+						</div>
+						<div class="stage" id="stage">
+							<img id="v-cover" src={first.cover} alt="" width="640" height="360" />
+							<span class="stage-emoji" id="v-emoji" hidden></span>
+							<a href={first.href} class="btn stage-play" id="v-play">▶ 바로 하기</a>
+						</div>
+						<div class="view-foot">
+							<span>설치 없음 · 로그인 없음 · 점수는 이 기기에만 저장</span>
+							<a href={first.href} id="v-open">전체 화면으로 열기 ↗</a>
+						</div>
+					</section>
 
-			<ul class="game-grid">
-				{GAMES.map((g) => (
-					<li>
-						<a href={g.href} class="game-card">
-							<div class="game-cover">
-								<img src={g.cover} alt={`${g.title} 게임 커버`} loading="lazy" width="640" height="360" />
-								<span class="game-title-overlay">{g.emoji} {g.title}</span>
-							</div>
-							<div class="game-card-foot">
-								<div class="game-info">
-									<span class="game-genre">{g.genre}</span>
-									<p>{g.desc}</p>
-								</div>
-								<span class="play-btn">Play</span>
-							</div>
+					<section class="panel">
+						<div class="panel-head">
+							<h2 class="panel-title" style="--bar:var(--c-green)"><span>게임 고르기</span></h2>
+							<span class="panel-note">{all.length}개</span>
+						</div>
+						<ul class="game-grid">
+							{all.map((g, i) => (
+								<li>
+									<a
+										href={g.href}
+										class:list={['game-card', { on: i === 0 }]}
+										data-title={g.title}
+										data-genre={g.genre}
+										data-desc={g.desc}
+										data-cover={g.cover}
+										data-emoji={g.emoji}
+									>
+										{g.cover ? (
+											<img src={g.cover} alt={`${g.title} 게임 커버`} loading="lazy" width="640" height="360" />
+										) : (
+											<span class="thumb-emoji" aria-hidden="true">{g.emoji}</span>
+										)}
+										<b>{g.title}</b>
+										<small>{g.genre}</small>
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				</div>
+
+				<div class="col col-left">
+					<section class="panel">
+						<div class="panel-head">
+							<h2 class="panel-title"><span>바로가기</span></h2>
+						</div>
+						<a href="/maenson-sajang/" class="tool-banner">
+							<span class="tb-emoji">💤</span>
+							<span class="tb-text"><b>맨손 사장</b><small>전단지 알바에서 사장까지 · 자는 동안에도 돈 버는 1인 창업 인생 게임 · 무료</small></span>
+							<span class="tb-go">열기 →</span>
 						</a>
-					</li>
-				))}
-			</ul>
+						<a href="/d4-build-planner/" class="tool-banner">
+							<span class="tb-emoji">😈</span>
+							<span class="tb-text"><b>디아블로4 빌드 플래너</b><small>시즌 15 · 8개 직업 기술 트리 찍고 링크로 공유</small></span>
+							<span class="tb-go">열기 →</span>
+						</a>
+						<a href="/d4-boss-drops/" class="tool-banner">
+							<span class="tb-emoji">🗝️</span>
+							<span class="tb-text"><b>디아블로4 보스 드랍 테이블</b><small>시즌 15 보스 14종 · 아이템 이름으로 잡을 보스 찾기</small></span>
+							<span class="tb-go">열기 →</span>
+						</a>
+						<a href="/d4-runewords/" class="tool-banner">
+							<span class="tb-emoji">🔮</span>
+							<span class="tb-text"><b>디아블로4 룬워드 제작서</b><small>시즌 15 룬워드 19종 · 가진 룬으로 만들 수 있는 것 찾기</small></span>
+							<span class="tb-go">열기 →</span>
+						</a>
+					</section>
+				</div>
 
-			<section class="games-about">
-				<h2>이 게임들은 어떻게 만들었나</h2>
-				<p>
-					게임월드7의 미니게임은 모두 HTML5 캔버스로 만든 브라우저 게임입니다. 별도 프로그램 설치나 회원가입 없이
-					즉시 실행되고, 점수는 브라우저에만 저장됩니다. 새 게임은 계속 추가될 예정이니 즐겨찾기 해두세요.
-				</p>
-			</section>
+				<div class="col col-right">
+					<section class="panel">
+						<div class="panel-head">
+							<h2 class="panel-title" style="--bar:var(--c-pink)"><span>게임 정보</span></h2>
+						</div>
+						<div class="info">
+							<h3 id="i-title">{first.emoji} {first.title}</h3>
+							<p class="info-genre" id="i-genre">{first.genre}</p>
+							<p class="info-desc" id="i-desc">{first.desc}</p>
+							<dl>
+								<dt>만든 사람</dt><dd><a href="/author">Sungbin</a></dd>
+								<dt>값</dt><dd>무료</dd>
+								<dt>기기</dt><dd>PC · 폰</dd>
+								<dt>설치</dt><dd>필요 없음</dd>
+							</dl>
+						</div>
+					</section>
+
+					<section class="panel games-about">
+						<div class="panel-head">
+							<h2 class="panel-title" style="--bar:var(--c-violet)"><span>이 게임들은 어떻게 만들었나</span></h2>
+						</div>
+						<p>
+							게임월드7의 미니게임은 모두 HTML5 캔버스로 만든 브라우저 게임입니다. 별도 프로그램 설치나 회원가입 없이
+							즉시 실행되고, 점수는 브라우저에만 저장됩니다. 새 게임은 계속 추가될 예정이니 즐겨찾기 해두세요.
+						</p>
+					</section>
+				</div>
+			</div>
 		</main>
 		<Footer />
+
+		<script is:inline>
+			// 넓은 화면에서는 게임을 고르면 가운데 큰 칸에서 바로 한다. 좁은 화면(폰)에서는 게임 페이지로 그냥 이동한다.
+			(() => {
+				const wide = () => window.matchMedia('(min-width: 761px)').matches;
+				const $ = (id) => document.getElementById(id);
+				const stage = $('stage');
+				const cards = [...document.querySelectorAll('.game-card')];
+				let cur = cards[0];
+
+				const show = (card) => {
+					cur = card;
+					const d = card.dataset;
+					cards.forEach((c) => c.classList.toggle('on', c === card));
+					stage.querySelector('iframe')?.remove();
+					stage.classList.remove('playing');
+					$('v-title').textContent = d.title;
+					$('v-genre').textContent = d.genre;
+					$('i-title').textContent = d.emoji + ' ' + d.title;
+					$('i-genre').textContent = d.genre;
+					$('i-desc').textContent = d.desc;
+					$('v-cover').hidden = !d.cover;
+					if (d.cover) $('v-cover').src = d.cover;
+					$('v-emoji').hidden = !!d.cover;
+					$('v-emoji').textContent = d.emoji;
+					$('v-play').href = $('v-open').href = card.href;
+				};
+
+				cards.forEach((card) =>
+					card.addEventListener('click', (e) => {
+						if (!wide() || e.ctrlKey || e.metaKey || e.shiftKey) return;
+						e.preventDefault();
+						show(card);
+					}),
+				);
+
+				$('v-play').addEventListener('click', (e) => {
+					if (!wide() || e.ctrlKey || e.metaKey || e.shiftKey) return;
+					e.preventDefault();
+					const f = document.createElement('iframe');
+					f.src = cur.href;
+					f.title = cur.dataset.title;
+					f.allow = 'autoplay; fullscreen';
+					stage.appendChild(f);
+					stage.classList.add('playing');
+					f.focus();
+				});
+			})();
+		</script>
 	</body>
 </html>
 
 <style>
-	.tool-banner { display: flex; align-items: center; gap: 14px; margin: 0 0 1.4rem; padding: 14px 18px; border-radius: var(--radius); border: 1px solid #5a4526; background: linear-gradient(100deg, #1f150d, #120d09 70%); text-decoration: none; color: #ece3d3; }
-	.tool-banner:hover { border-color: #c9a35b; }
-	.tb-emoji { font-size: 1.9rem; }
-	.tb-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-	.tb-text b { font-size: 1.05rem; color: #f4e6c8; }
-	.tb-text small { color: #a89c88; font-size: 0.85rem; }
-	.tb-go { color: #e6c47f; font-weight: 700; white-space: nowrap; }
-
 	.games-hero {
-		padding: 2.5rem 0 2rem;
-		text-align: center;
-	}
-	.games-hero h1 {
-		font-size: clamp(2rem, 5.5vw, 3rem);
-		margin: 0.5rem 0;
-	}
-	.neon {
-		color: var(--accent);
-		text-shadow: 0 0 24px var(--accent-glow);
-	}
-	.lead {
-		color: var(--text-muted);
-		max-width: 46ch;
-		margin: 0 auto 0.5rem;
-	}
-
-	.game-grid {
-		list-style: none;
-		padding: 0;
-		margin: 0 0 3rem;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		gap: 1.2rem;
-	}
-	.game-card {
 		display: flex;
-		flex-direction: column;
-		height: 100%;
+		align-items: baseline;
+		gap: 6px 16px;
+		flex-wrap: wrap;
+		padding: 9px 12px;
+		margin-bottom: 10px;
 		background: var(--bg-elev);
 		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		overflow: hidden;
-		text-decoration: none;
-		transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+		border-radius: var(--radius-sm);
 	}
-	.game-card:hover {
-		border-color: var(--accent);
-		transform: translateY(-3px);
-		box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 24px var(--accent-glow);
+	.games-hero h1 { font-size: 1rem; margin: 0; }
+	.neon { color: var(--accent); }
+	.lead {
+		color: var(--text-muted);
+		font-size: 0.86rem;
+		margin: 0;
+		flex: 1 1 280px;
+		min-width: 0;
 	}
-	.game-cover {
-		position: relative;
+	.hero-count { font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-dim); white-space: nowrap; }
+
+	.hub {
+		display: grid;
+		grid-template-columns: 270px minmax(0, 1fr) 290px;
+		grid-template-areas: "left main right";
+		gap: 10px;
+		align-items: start;
 	}
-	.game-cover img {
+	.col { display: grid; gap: 10px; min-width: 0; }
+	.col-left { grid-area: left; }
+	.col-main { grid-area: main; }
+	.col-right { grid-area: right; }
+
+	/* 가운데 큰 화면 */
+	.view { border-color: #2f5f9e; box-shadow: 0 0 0 1px #2f5f9e; }
+	.view-name { font-size: 0.86rem; font-weight: 700; color: #f1f2f4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+	.view-name em { font-style: normal; font-weight: 600; font-size: 0.78rem; color: var(--c-green); margin-left: 8px; }
+	.stage { position: relative; background: #07080a; aspect-ratio: 16 / 9; }
+	.stage img {
 		display: block;
 		width: 100%;
-		aspect-ratio: 16 / 9;
+		height: 100%;
 		object-fit: cover;
-		border-bottom: 1px solid var(--border);
+		border-radius: 0;
 	}
-	.game-title-overlay {
+	.stage-emoji {
 		position: absolute;
-		left: 0.9rem;
-		bottom: 0.7rem;
-		font-family: var(--font-heading);
-		font-weight: 800;
-		font-size: 1.35rem;
-		color: #fff;
-		text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 20px var(--accent-glow);
+		inset: 0;
+		display: grid;
+		place-items: center;
+		font-size: clamp(4rem, 12vw, 8rem);
 	}
-	.game-card-foot {
+	.stage-emoji[hidden], .stage img[hidden] { display: none; }
+	.stage-play {
+		position: absolute;
+		left: 16px;
+		bottom: 16px;
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+	}
+	.stage.playing { aspect-ratio: auto; height: min(80vh, 780px); }
+	.stage.playing > :not(iframe) { display: none; }
+	.stage :global(iframe) { display: block; width: 100%; height: 100%; border: 0; background: var(--bg); }
+	.view-foot {
 		display: flex;
-		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
-		padding: 1rem 1.2rem;
+		gap: 4px 12px;
+		flex-wrap: wrap;
+		padding: 7px 12px;
+		border-top: 1px solid var(--border);
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: var(--text-dim);
 	}
-	.game-info p {
-		margin: 0.3rem 0 0;
+	.view-foot a { color: var(--text-muted); }
+	.view-foot a:hover { color: var(--accent); }
+
+	/* 게임 줄 */
+	.game-grid {
+		list-style: none;
+		padding: 10px;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+		gap: 8px;
+	}
+	.game-card {
+		display: block;
+		height: 100%;
+		background: var(--bg-elev-2);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+		text-decoration: none;
+		transition: border-color 0.15s ease;
+	}
+	.game-card:hover, .game-card.on { border-color: var(--c-blue); }
+	.game-card.on { box-shadow: 0 0 0 1px var(--c-blue); }
+	.game-card img, .thumb-emoji {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 0;
+	}
+	.thumb-emoji { display: grid; place-items: center; font-size: 2.4rem; background: #07080a; }
+	.game-card b {
+		display: block;
+		padding: 6px 8px 0;
+		font-size: 0.8rem;
+		line-height: 1.4;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.game-card small {
+		display: block;
+		padding: 0 8px 7px;
+		font-size: 0.72rem;
+		line-height: 1.5;
 		color: var(--text-muted);
-		font-size: 0.9rem;
-	}
-	.game-genre {
-		display: inline-block;
-		padding: 0.15em 0.7em;
-		border-radius: 999px;
-		background: rgba(62, 245, 139, 0.12);
-		color: var(--accent);
-		font-size: 0.78rem;
-		font-weight: 700;
-	}
-	.play-btn {
-		flex-shrink: 0;
-		padding: 0.5em 1.4em;
-		border-radius: 999px;
-		background: var(--accent);
-		color: #0b0e14;
-		font-weight: 800;
-		font-size: 0.95rem;
-		transition: filter 0.15s ease, transform 0.15s ease;
-	}
-	.game-card:hover .play-btn {
-		filter: brightness(1.15);
-		transform: scale(1.05);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
-	.games-about {
-		margin-bottom: 3rem;
+	/* 바로가기 띠 */
+	.tool-banner {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 9px 12px;
+		border-bottom: 1px solid var(--border);
+		text-decoration: none;
+		color: var(--text);
+		transition: background 0.15s ease;
 	}
-	.games-about h2 {
-		font-size: 1.3rem;
+	.tool-banner:last-child { border-bottom: 0; }
+	.tool-banner:hover { background: var(--bg-elev-2); }
+	.tb-emoji {
+		flex: none;
+		width: 34px;
+		height: 34px;
+		display: grid;
+		place-items: center;
+		font-size: 1.1rem;
+		background: var(--bg-elev-2);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
 	}
+	.tb-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+	.tb-text b { font-size: 0.86rem; line-height: 1.4; }
+	.tb-text small {
+		color: var(--text-muted);
+		font-size: 0.74rem;
+		line-height: 1.45;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.tb-go { display: none; color: var(--accent); font-weight: 700; font-size: 0.74rem; white-space: nowrap; }
+
+	/* 게임 정보 */
+	.info { padding: 12px; }
+	.info h3 { font-size: 1rem; margin: 0; }
+	.info-genre { color: var(--c-green); font-size: 0.78rem; font-weight: 600; margin: 2px 0 8px; }
+	.info-desc { font-size: 0.86rem; line-height: 1.6; margin: 0 0 12px; }
+	.info dl { margin: 0; display: grid; grid-template-columns: 76px 1fr; row-gap: 4px; font-size: 0.8rem; }
+	.info dt { color: var(--text-dim); }
+	.info dd { margin: 0; font-family: var(--font-mono); font-size: 0.76rem; }
+
 	.games-about p {
 		color: var(--text-muted);
-		max-width: 70ch;
+		font-size: 0.84rem;
+		line-height: 1.7;
+		margin: 0;
+		padding: 12px;
+	}
+
+	@media (max-width: 1100px) {
+		.hub {
+			grid-template-columns: 250px minmax(0, 1fr);
+			grid-template-areas: "left main" "left right";
+		}
+	}
+	@media (max-width: 760px) {
+		.hub {
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-areas: "main" "left" "right";
+		}
+		.game-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+		.tb-go { display: inline; }
+		.tb-text b { font-size: 0.95rem; }
+		.tb-text small { font-size: 0.82rem; }
+		.info-desc, .games-about p { font-size: 0.9rem; }
 	}
 </style>

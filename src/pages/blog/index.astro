@@ -20,10 +20,11 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
-			<header class="page-head">
-				<span class="tag">ALL POSTS</span>
-				<h1>전체 글</h1>
+			<section class="panel">
+			<header class="panel-head page-head">
+				<h1 class="panel-title" style="--bar:var(--c-pink)"><span>전체 글</span></h1>
 				<p>게임 뉴스, 공략, 리뷰를 한곳에서.</p>
+				<span class="panel-note">{posts.length}편</span>
 			</header>
 			<ul class="grid">
 				{
@@ -47,65 +48,61 @@ const posts = (await getCollection('blog')).sort(
 					))
 				}
 			</ul>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
 
 <style>
-	.page-head {
-		padding: 1.5rem 0 2.5rem;
-		margin-bottom: 2rem;
-		border-bottom: 1px solid var(--border);
-	}
-	.page-head h1 {
-		font-size: clamp(2.2rem, 5vw, 3rem);
-		margin: 0.6rem 0 0.4rem;
-	}
-	.page-head p { color: var(--text-muted); margin: 0; }
+	.page-head { justify-content: flex-start; flex-wrap: wrap; }
+	.page-head p { color: var(--text-muted); font-size: 0.86rem; margin: 0; flex: 1; }
 
 	.grid {
 		list-style: none;
-		padding: 0;
+		padding: 10px;
 		margin: 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-		gap: 1.2rem;
+		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+		gap: 10px;
 	}
 	.card {
 		display: flex;
 		flex-direction: column;
 		height: 100%;
-		background: var(--bg-elev);
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		overflow: hidden;
-		transition: border-color 0.2s ease, transform 0.15s ease, background 0.2s ease;
-	}
-	.card:hover {
-		border-color: var(--accent);
-		transform: translateY(-2px);
 		background: var(--bg-elev-2);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+		transition: border-color 0.15s ease;
 	}
+	.card:hover { border-color: var(--c-blue); }
 	.card-image img {
 		display: block;
 		width: 100%;
 		aspect-ratio: 2 / 1;
 		object-fit: cover;
+		border-radius: 0;
 		border-bottom: 1px solid var(--border);
 	}
 	.card-body {
 		display: flex;
 		flex-direction: column;
 		flex: 1;
-		padding: 1.5rem;
+		padding: 13px 14px 14px;
 	}
-	.card h3 { margin: 0 0 0.5rem; font-size: 1.25rem; }
+	.card h3 { margin: 0 0 7px; font-size: 1.02rem; line-height: 1.45; }
 	.card p {
 		color: var(--text-muted);
-		font-size: 0.95rem;
-		margin-bottom: 1rem;
+		font-size: 0.88rem;
+		line-height: 1.65;
+		margin: 0 0 12px;
 		flex: 1;
 	}
-	.meta { color: var(--text-dim); font-size: 0.85rem; font-weight: 600; }
+	.meta { font-family: var(--font-mono); color: var(--text-dim); font-size: 0.74rem; }
+	@media (max-width: 720px) {
+		.grid { grid-template-columns: minmax(0, 1fr); }
+		.card h3 { font-size: 1.1rem; }
+		.card p { font-size: 0.93rem; }
+	}
 </style>
